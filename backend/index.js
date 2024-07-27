@@ -14,6 +14,11 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID; // Your Account SID from www.
 const authToken = process.env.TWILIO_AUTH_TOKEN;   // Your Auth Token from www.twilio.com/console
 const client = new twilio(accountSid, authToken);
 
+// Ruta GET para verificar el funcionamiento del servidor
+app.get('/', (req, res) => {
+  res.send('Backend is running!');
+});
+
 app.post('/send-text', (req, res) => {
   const { name, email, message } = req.body;
 

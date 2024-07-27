@@ -21,7 +21,7 @@ const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('http://localhost:3001/send-text', {
+    fetch('https://gato-tuerto-server.vercel.app/send-text', { // Cambiado para apuntar al backend en Vercel
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
