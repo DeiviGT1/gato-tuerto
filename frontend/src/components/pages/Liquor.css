@@ -1,0 +1,129 @@
+.liquor {
+    height: auto;
+    margin: 5vh 0;
+}
+
+.liquor-title {
+    text-align: center;
+    margin: 0;
+}
+
+.liquor-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+    margin: 0 5%;
+}
+
+.liquor-image {
+    width: 50%;
+    height: auto;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.liquor-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.liquor-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.liquor-sizes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.liquor-sizes button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #000;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.liquor-sizes button:hover {
+    background-color: white;
+    color: #000;
+    border-color: #000;
+}
+
+.liquor-info {
+    text-align: center;
+}
+
+#clicked {
+    background-color: white;
+    color: #000;
+    border-color: #000;
+}
+
+.liquor-description {
+    text-align: center;
+    font-weight: lighter;
+}
+
+@media (max-width: 1024px) {
+    .liquor-container {
+        flex-direction: column;
+    }
+
+    .liquor-image {
+        width: auto;
+        height: 350px;
+    }
+
+    .liquor-sizes {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        margin: 10% 0;
+    }
+}
+
+@media (min-width: 1025px) {
+    .liquor-container {
+        flex-direction: row;
+        height: 60vh;
+    }
+
+    .liquor-image {
+        width: 50%;
+        height: 100%;
+    }
+
+    .liquor-image > img {
+        height: 90%;
+    }
+
+    .liquor-content {
+        width: 40%;
+    }
+
+    .liquor-sizes {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        margin: 0;
+    }
+}

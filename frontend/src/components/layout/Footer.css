@@ -1,0 +1,132 @@
+.App-footer {
+  background-color: #000;
+  width: 90%;
+  margin: 0 5%;
+  color: #475169;
+  padding: 0;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer > div {
+  width: 30%;
+  margin: 2.5% 0;
+}
+
+footer > div > p {
+  text-align: center;
+  margin: 3%;
+  font-size: medium;
+}
+
+.footer-address, .footer-number, .footer-hours {
+  font-size: medium;
+}
+
+.map {
+  width: 30%;
+  height: 100%;
+  margin: 0;
+  padding: 0; /* Ensures the map takes the full height and width */
+}
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.footer-address {
+  font-weight: bold;
+  font-size: large;
+}
+
+.policies>div {
+  height: 100%;
+  place-content: center;
+  display: grid;
+  align-content: space-between;
+}
+
+.policies>div>div,
+.policies>div>p {
+  padding: 0;
+}
+
+.policies>div>div {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.policies>div>div>a {
+  color: #ddd;
+  text-decoration: none;
+  width: 40%;
+  /* I want a font tiny */
+}
+
+.policies p {
+  font-size: small;
+  margin: 0;
+  font-weight: lighter;
+  color: #475169;
+}
+
+/* Responsive Design for screens less than 768px */
+@media (max-width: 950px) {
+  .App-footer {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: 10vh;
+  }
+
+  footer {
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+
+  }
+
+  footer > div {
+      width: 100%;
+      margin: 10px 0;
+      text-align: center;
+  }
+
+  .map {
+      height: 300px; /* Set a fixed height for the map on small screens */
+      width: 100%;
+  }
+
+  .policies>div>div {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .policies>div>div>a {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .footer-address {
+      font-size: medium;
+  }
+
+  .footer-number, .footer-hours {
+      font-size: small;
+  }
+
+  .map {
+      height: 200px; /* Set a smaller height for the map on very small screens */
+  }
+
+  .policies p {
+      font-size: x-small;
+  }
+}

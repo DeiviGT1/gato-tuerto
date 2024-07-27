@@ -1,0 +1,59 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(50, 50, 50, 0.8); /* Fondo gris oscuro con opacidad */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegurarse de que el modal esté por encima de otros elementos */
+  }
+  
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    position: relative;
+    max-width: 500px;
+    width: 80%; /* Ancho máximo del modal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle algo de profundidad */
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: black; /* Color del botón de cierre */
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-family: 'Roboto', sans-serif; /* Usa la fuente Roboto */
+    padding: 5px 10px; /* Añade algo de espacio alrededor del botón */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .close-button:hover {
+    color: white; /* Cambia de color al pasar el mouse por encima */
+    background-color: red; /* Fondo rojo al pasar el mouse por encima */
+    transform: scale(1.1); /* Agranda el botón al pasar el mouse por encima */
+  }
+
+.modal-info{
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 350;
+    text-align: center;
+
+}
+  
+.close-modal-info{
+    color: red;
+    font-size: 90%;
+    font-weight: lighter;
+    cursor: pointer;
+}

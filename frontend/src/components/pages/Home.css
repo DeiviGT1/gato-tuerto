@@ -1,0 +1,106 @@
+.home {
+  text-align: center;
+  font-family: 'Baskeville', serif;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+
+}
+
+.section p {
+  color: black;
+  margin: 0;
+  align-self: center;
+  font-family: 'Baskeville', serif;
+  font-weight: 500;
+}
+
+.section>p,
+.section>a>p {
+  font-size: 1.5em;
+}
+
+.banner>img{
+  width: 100%;
+  object-fit: cover;
+
+}
+
+.section a > p {
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: 'Baskeville', serif;
+}
+
+.section a > p:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+.react-multi-carousel-list {
+  height: 80%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.react-multi-carousel-item {
+  width: 120px;
+}
+
+.react-multi-carousel-track {
+  height: 100%;
+}
+
+.react-multi-carousel-track li {
+  height: 100%;
+}
+
+.react-multi-carousel-track li a {
+  height: 100%;
+  display: block;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.home-features {
+  height: 500px;
+  padding-bottom: 20;
+}
+
+.welcome{
+  padding: 1% 0;
+}
+
+.home>.welcome{
+  height: 100%;
+}
+
+.home>.welcome>h1{
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  color: black;
+  font-family: 'Baskeville', serif;
+  height: 11%;
+}
+
+.home>.welcome>div{
+  height: 89%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home>.welcome>div>img{
+  width: 100%;
+  height: 85%;
+  object-fit: contain;
+}
