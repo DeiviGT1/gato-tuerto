@@ -12,7 +12,7 @@ app.use(cors()); // Enable CORS
 app.use(bodyParser.json()); // Parse JSON bodies
 
 // Twilio credentials from environment variables
-const accaountSid = process.env.TWILIO_ACCOUNT_SID; // Your Account SID from www.twilio.com/console
+const accountSid = process.env.TWILIO_ACCOUNT_SID; // Your Account SID from www.twilio.com/console
 const authToken = process.env.TWILIO_AUTH_TOKEN;   // Your Auth Token from www.twilio.com/console
 const client = new twilio(accountSid, authToken);
 
