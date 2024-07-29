@@ -285,11 +285,11 @@
                                     "description": "Johnnie Walker Double Black is inspired by the iconic flavors of Johnnie Walker Black Label and turns them up to create a blend of unprecedented intensity. Strongly influenced by powerful West Coast and Island whiskies \u2013 it's an impressive choice and ideal for exploring deeper, more intense flavors.",
                                     "sizes": [
                                         {
-                                            "id": "0825960",
+                                            "id": "08807617770",
                                             "size": "750ml",
-                                            "price": 2.99,
+                                            "price": 43.99,
                                             "img": "liquors/whiskey/scotch/johnnie-walker/johnnie-walker-double-black-label/johnnie-walker-double-black-label-750ml.png",
-                                            "inventory": 0
+                                            "inventory": 11
                                         }
                                     ]
                                 },
@@ -467,11 +467,11 @@
                                     "modal": false,
                                     "sizes": [
                                         {
-                                            "id": "08043240249",
+                                            "id": "08700065361",
                                             "size": "750ml",
-                                            "price": 5.99,
+                                            "price": 82.99,
                                             "img": "liquors/whiskey/scotch/chivas/chivas-regal-18/chivas-regal-18-750ml.png",
-                                            "inventory": 0
+                                            "inventory": 4
                                         }
                                     ]
                                 }
