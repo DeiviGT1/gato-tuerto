@@ -2069,7 +2069,7 @@
                                     "description": "Clase Azul is a premium 100% authentic Mexican tequila produced in the Jesus Maria Region of Arandas, Jalisco, Mexico. The product is a collaboration between the Beckmann Family, one of the most powerful families in the Mexican tequila industry, and Arturo Lomeli, a Mexican artist.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "CAZULP",
                                             "size": "750ml",
                                             "price": 187.99,
                                             "img": "liquors/tequila/jalisco/clase-azul/clase-azul-plata/clase-azul-plata-750ml.png",
@@ -2098,7 +2098,7 @@
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "175",
+                                            "id": "CAREPO175",
                                             "size": "1.75L",
                                             "price": 537.99,
                                             "img": "liquors/tequila/jalisco/clase-azul/clase-azul-reposado/clase-azul-reposado-175L.png",
@@ -2145,14 +2145,14 @@
                                     "description": "SVEDKA is an award-winning vodka with a pure, clear taste and crisp finish made from the finest spring water and Swedish winter wheat, then distilled five times to remove impurities.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "61776811175",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/svedka/svedka-vodka/svedka-vodka-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "61776811117",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/vodka/french/svedka/svedka-vodka/svedka-vodka-175L.png",
@@ -2167,7 +2167,7 @@
                                     "description": "SVEDKA is an award-winning vodka with a pure, clear taste and crisp finish made from the finest spring water and Swedish winter wheat, then distilled five times to remove impurities.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "448237",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/svedka/svedka-blue-raspberry/svedka-blue-raspberry-750ml.png",
@@ -2182,14 +2182,14 @@
                                     "description": "SVEDKA is an award-winning vodka with a pure, clear taste and crisp finish made from the finest spring water and Swedish winter wheat, then distilled five times to remove impurities.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "350532",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/svedka/svedka-strawberry-lemonade/svedka-strawberry-lemonade-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "354684",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/vodka/french/svedka/svedka-strawberry-lemonade/svedka-strawberry-lemonade-175L.png",
@@ -2224,35 +2224,35 @@
                                     "description": "Tito's Handmade Vodka is America's Original Craft Vodka produced in Austin, Texas. It's made in small batches in an old fashioned pot still by Tito Beveridge.",
                                     "sizes": [
                                         {
-                                            "id": "50",
+                                            "id": "TITO.50",
                                             "size": "50ml",
                                             "price": 2.34,
                                             "img": "liquors/vodka/american/titos/titos-vodka/titos-vodka-50ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "200",
+                                            "id": "TITO200",
                                             "size": "200ml",
                                             "price": 8.99,
                                             "img": "liquors/vodka/american/titos/titos-vodka/titos-vodka-200ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "375",
+                                            "id": "TITO375",
                                             "size": "375ml",
                                             "price": 13.99,
                                             "img": "liquors/vodka/american/titos/titos-vodka/titos-vodka-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "775104",
+                                            "id": "N775104",
                                             "size": "750ml",
                                             "price": 20.99,
                                             "img": "liquors/vodka/american/titos/titos-vodka/titos-vodka-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "TITOLTR",
                                             "size": "1L",
                                             "price": 28.99,
                                             "img": "liquors/vodka/american/titos/titos-vodka/titos-vodka-1L.png",
@@ -2321,7 +2321,7 @@
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "08200010570",
+                                            "id": "08200072760",
                                             "size": "1.75L",
                                             "price": 20.99,
                                             "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-175L.png",
@@ -2336,7 +2336,7 @@
                                     "description": "Smirnoff Spiced is a blend of Smirnoff No. 21 premium vodka with a combination of natural spices and flavors. It is triple distilled from a blend of different grains, and filtered ten times through seven columns of environmentally sustainable charcoal for an exceptionally pure-tasting, smooth spirit.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "480632",
                                             "size": "50ml",
                                             "price": 1.4,
                                             "img": "liquors/vodka/american/smirnoff/smirnoff-spicy-tamarind/smirnoff-spicy-tamarind-50ml.png",
@@ -2398,7 +2398,7 @@
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "2658755845",
                                             "size": "750ml PET",
                                             "price": 300,
                                             "img": "liquors/vodka/american/new-amsterdam/new-amsterdam-vodka/new-amsterdam-vodka-pet-750ml.png",
@@ -2420,14 +2420,14 @@
                                     "description": "New Amsterdam Vodka is a premium, 80 proof vodka made from the finest quality grains. It is five times distilled for unparalleled smoothness, and is filtered three times to create a soft finish.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08500002230",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/vodka/american/new-amsterdam/new-amsterdam-pineapple/new-amsterdam-pineapple-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "8500002231",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/american/new-amsterdam/new-amsterdam-pineapple/new-amsterdam-pineapple-750ml.png",
@@ -2442,14 +2442,14 @@
                                     "description": "New Amsterdam Vodka is a premium, 80 proof vodka made from the finest quality grains. It is five times distilled for unparalleled smoothness, and is filtered three times to create a soft finish.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08500002486",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/vodka/american/new-amsterdam/new-amsterdam-apple/new-amsterdam-apple-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08500002487",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/american/new-amsterdam/new-amsterdam-apple/new-amsterdam-apple-750ml.png",
@@ -2464,21 +2464,21 @@
                                     "description": "New Amsterdam Vodka is a premium, 80 proof vodka made from the finest quality grains. It is five times distilled for unparalleled smoothness, and is filtered three times to create a soft finish.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "2587458476",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/vodka/american/new-amsterdam/new-amsterdam-pink-whitney/new-amsterdam-pink-whitney-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "135444658885",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/american/new-amsterdam/new-amsterdam-pink-whitney/new-amsterdam-pink-whitney-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "125468455",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/vodka/american/new-amsterdam/new-amsterdam-pink-whitney/new-amsterdam-pink-whitney-175L.png",
@@ -2504,42 +2504,35 @@
                                     "description": "Ketel One Vodka is a premium vodka made from 100% non-GMO European wheat. It is distilled in copper pot stills, filtered over loose charcoal, and rests in tile-lined tanks until ready.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08515640495",
                                             "size": "50ml",
                                             "price": 300,
                                             "img": "liquors/vodka/netherlands/ketel-one/ketel-one-vodka/ketel-one-vodka-50ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
-                                            "size": "200ml",
-                                            "price": 300,
-                                            "img": "liquors/vodka/netherlands/ketel-one/ketel-one-vodka/ketel-one-vodka-200ml.png",
-                                            "inventory": 1
-                                        },
-                                        {
-                                            "id": "",
+                                            "id": "08515612215",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/vodka/netherlands/ketel-one/ketel-one-vodka/ketel-one-vodka-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08515651541",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/netherlands/ketel-one/ketel-one-vodka/ketel-one-vodka-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "25875487455",
                                             "size": "1L",
                                             "price": 300,
                                             "img": "liquors/vodka/netherlands/ketel-one/ketel-one-vodka/ketel-one-vodka-1L.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08515680368",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/vodka/netherlands/ketel-one/ketel-one-vodka/ketel-one-vodka-175L.png",
@@ -2554,7 +2547,7 @@
                                     "description": "Ketel One Oranje flavored vodka begins with Ketel One Vodka, infused with the essence of orange for a crisp, refreshing taste.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08515643700",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/vodka/netherlands/ketel-one/ketel-one-oranje/ketel-one-oranje-750ml.png",
@@ -2569,7 +2562,7 @@
                                     "description": "Ketel One Botanical Grapefruit & Rose is fit for those who seek zesty, mouthwatering grapefruit and the elegance of refined rose petals. Each botanical essence is individually and naturally obtained through innovative extraction methods and distillation processes for the freshest, cleanest, most crisp taste possible.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08515647500",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/vodka/netherlands/ketel-one/ketel-one-cocktails/ketel-one-cocktails-375ml.png",
@@ -2657,7 +2650,7 @@
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "46894",
+                                            "id": "S46894",
                                             "size": "200ml",
                                             "price": 9.99,
                                             "img": "liquors/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-200ml.png",
@@ -2683,6 +2676,13 @@
                                             "price": 36.99,
                                             "img": "liquors/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-1L.png",
                                             "inventory": 1
+                                        },
+                                        {
+                                            "id": "08807616264",
+                                            "size": "1.75L",
+                                            "price": 53.99,
+                                            "img": "liquors/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-175L.png",
+                                            "inventory": 1
                                         }
                                     ]
                                 },
@@ -2693,7 +2693,7 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "CIRPEACH",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/ciroc/ciroc-peach/ciroc-peach-750ml.png",
@@ -2708,7 +2708,7 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08807617505",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/ciroc/ciroc-red-berry/ciroc-red-berry-750ml.png",
@@ -2723,7 +2723,7 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08807617495",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/ciroc/ciroc-coconut/ciroc-coconut-750ml.png",
@@ -2738,7 +2738,7 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08807618069",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/ciroc/ciroc-mango/ciroc-mango-750ml.png",
@@ -2768,7 +2768,7 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "CAPP",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/ciroc/ciroc-summer-watermelon/ciroc-summer-watermelon-750ml.png",
@@ -2783,7 +2783,7 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08807617908",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/ciroc/ciroc-pineapple/ciroc-pineapple-750ml.png",
@@ -2798,7 +2798,7 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "2587458455",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/ciroc/ciroc-summer-citrus/ciroc-summer-citrus-750ml.png",
@@ -2813,7 +2813,7 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08807618819",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/ciroc/ciroc-honey-melon/ciroc-honey-melon-750ml.png",
@@ -2828,7 +2828,7 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08807618739",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/ciroc/ciroc-tropical-passion/ciroc-tropical-passion-750ml.png",
@@ -2843,7 +2843,7 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08807618919",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/ciroc/ciroc-limonata/ciroc-limonata-750ml.png",
@@ -2863,42 +2863,42 @@
                                     "description": "Absolut Vodka is a brand of vodka, produced near \u00c5hus, in southern Sweden. Absolut is owned by French group Pernod Ricard; it bought Absolut for \u20ac5.63 billion in 2008 from the Swedish state.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08144037161",
                                             "size": "50ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/absolut/absolut-vodka/absolut-vodka-50ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "871740",
                                             "size": "200ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/absolut/absolut-vodka/absolut-vodka-200ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "871730",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/absolut/absolut-vodka/absolut-vodka-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08700000172",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/absolut/absolut-vodka/absolut-vodka-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08144037111",
                                             "size": "1L",
                                             "price": 300,
                                             "img": "liquors/vodka/french/absolut/absolut-vodka/absolut-vodka-1L.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "83522900060",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/vodka/french/absolut/absolut-vodka/absolut-vodka-175L.png",
@@ -2913,7 +2913,7 @@
                                     "description": "Absolut Lime is made exclusively from natural ingredients, and unlike some other flavored vodkas, it doesn't contain any added sugar. To put it short and simple: Absolut Lime is smooth, rich and very fresh with a distinct note of freshly pressed lime and a slightly sweet and fruity finish.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "83522901027",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/vodka/french/absolut/absolut-lime/absolut-lime-750ml.png",
@@ -2945,37 +2945,42 @@
                                     "description": "Bacardi superior is a white rum, filtered through charcoal for purity and aged in white oak for character.",
                                     "sizes": [
                                         {
+                                            "id": "08048001621",
                                             "size": "50ml",
                                             "price": 1.4,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-superior/bacardi-superior-50ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048001570",
                                             "size": "200ml",
                                             "price": 4.29,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-superior/bacardi-superior-200ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048001560",
                                             "size": "375ml",
                                             "price": 7.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-superior/bacardi-superior-375ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "BOTLE",
                                             "size": "750ml",
                                             "price": 14.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-superior/bacardi-superior-750ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048001545",
                                             "size": "PET 750ml",
                                             "price": 14.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-superior/bacardi-superior-pet-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "size": "1.75L",
+                                            "size": "08048001520",
                                             "price": 22.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-superior/bacardi-superior-175L.png",
                                             "inventory": 1
@@ -2989,24 +2994,28 @@
                                     "description": "Bacardi gold is a golden rum, rich, smooth and mellow with a luxurious blend of light spices and delicate vanilla notes.",
                                     "sizes": [
                                         {
+                                            "id": "08048002621",
                                             "size": "50ml",
                                             "price": 1.4,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-gold/bacardi-gold-50ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048002570",
                                             "size": "200ml",
                                             "price": 4.29,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-gold/bacardi-gold-200ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048002560",
                                             "size": "375ml",
                                             "price": 7.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-gold/bacardi-gold-375ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048002540",
                                             "size": "750ml",
                                             "price": 14.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-gold/bacardi-gold-750ml.png",
@@ -3019,6 +3028,7 @@
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048002520",
                                             "size": "1.75L",
                                             "price": 22.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-gold/bacardi-gold-175L.png",
@@ -3033,30 +3043,35 @@
                                     "description": "Bacardi Limon is a unique blend of Bacardi rum infused with the combination of 100% natural lemons and limes.",
                                     "sizes": [
                                         {
+                                            "id": "08048035620",
                                             "size": "50ml",
                                             "price": 1.4,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-lemon/bacardi-lemon-50ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048035570",
                                             "size": "200ml",
                                             "price": 4.29,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-lemon/bacardi-lemon-200ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048035560",
                                             "size": "375ml",
                                             "price": 7.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-lemon/bacardi-lemon-375ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048035540",
                                             "size": "750ml",
                                             "price": 14.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-lemon/bacardi-lemon-750ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048035520",
                                             "size": "1.75L",
                                             "price": 22.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-lemon/bacardi-lemon-175L.png",
@@ -3071,24 +3086,28 @@
                                     "description": "Bacardi Coconut is a unique blend of Bacardi rum infused with the combination of 100% natural coconut.",
                                     "sizes": [
                                         {
+                                            "id": "08048040066",
                                             "size": "50ml",
                                             "price": 1.4,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-coconut/bacardi-coconut-50ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048040064",
                                             "size": "375ml",
                                             "price": 7.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-coconut/bacardi-coconut-375ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048040063",
                                             "size": "750ml",
                                             "price": 14.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-coconut/bacardi-coconut-750ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048040061",
                                             "size": "1.75L",
                                             "price": 22.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-coconut/bacardi-coconut-175L.png",
@@ -3103,18 +3122,21 @@
                                     "description": "Bacardi Black is a medium-bodied black rum, expertly blended by the Maestros de Ron Bacardi using rum developed in heavily charred oak barrels and then shaped through a secret blend of charcoals.",
                                     "sizes": [
                                         {
+                                            "id": "08048005560",
                                             "size": "375ml",
                                             "price": 7.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-black/bacardi-black-375ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048005540",
                                             "size": "750ml",
                                             "price": 14.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-black/bacardi-black-750ml.png",
                                             "inventory": 1
                                         },
                                         {
+                                            "id": "08048000524",
                                             "size": "1.75L",
                                             "price": 22.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-black/bacardi-black-175L.png",
@@ -3166,14 +3188,14 @@
                                     "description": "Brugal A\u00f1ejo is a blend of rums aged two to five years in used American white oak barrels. It is distilled, aged, and bottled in Puerto Plata, Dominican Republic.",
                                     "sizes": [
                                         {
-                                            "id": "84204700000",
+                                            "id": "81206602005",
                                             "size": "750ml",
                                             "price": 19.99,
                                             "img": "liquors/rum/republic-domenican/brugal/brugal-anejo/brugal-anejo-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "84204700014",
+                                            "id": "81206602007",
                                             "size": "1.75L",
                                             "price": 29.99,
                                             "img": "liquors/rum/republic-domenican/brugal/brugal-anejo/brugal-anejo-175L.png",
@@ -3188,7 +3210,7 @@
                                     "description": "Brugal 1888 is a blend of rums aged two to five years in used American white oak barrels. It is distilled, aged, and bottled in Puerto Plata, Dominican Republic.",
                                     "sizes": [
                                         {
-                                            "id": "1888",
+                                            "id": "BRU1888",
                                             "size": "750ml",
                                             "price": 37.99,
                                             "img": "liquors/rum/republic-domenican/brugal/brugal-1888/brugal-1888-750ml.png",
@@ -3256,7 +3278,7 @@
                                     "description": "Diplomatico Reserva Exclusiva is a blend of rums aged up to twelve years. It is distilled, aged, and bottled in La Miel, Venezuela.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "159400362245",
                                             "size": "50ml",
                                             "price": 300,
                                             "img": "liquors/rum/venezuelan/diplomatico/diplomatico-reserva-exclusiva/diplomatico-reserva-exclusiva-50ml.png",
@@ -3278,7 +3300,7 @@
                                     "description": "Diplomatico Mantuano is a blend of rums aged up to eight years. It is distilled, aged, and bottled in La Miel, Venezuela.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "18602800008",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/venezuelan/diplomatico/diplomatico-mantuano/diplomatico-mantuano-750ml.png",
@@ -3293,7 +3315,7 @@
                                     "description": "Diplomatico Planas is a blend of rums aged up to six years. It is distilled, aged, and bottled in La Miel, Venezuela.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "7594003621995",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/venezuelan/diplomatico/diplomatico-planas/diplomatico-planas-750ml.png",
@@ -3308,7 +3330,7 @@
                                     "description": "Diplomatico Vintage 2007 is a blend of rums aged up to twelve years. It is distilled, aged, and bottled in La Miel, Venezuela.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "759400362931",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/venezuelan/diplomatico/diplomatico-vintage-2007/diplomatico-vintage-2007-750ml.png",
@@ -3323,7 +3345,7 @@
                                     "description": "Diplomatico Ambassador is a blend of rums aged up to twelve years. It is distilled, aged, and bottled in La Miel, Venezuela.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "759400362514",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/venezuelan/diplomatico/diplomatico-ambassador/diplomatico-ambassador-750ml.png",
@@ -3338,7 +3360,7 @@
                                     "description": "Diplomatico Batch Kettle is a blend of rums aged up to twelve years. It is distilled, aged, and bottled in La Miel, Venezuela.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "7594003626747",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/venezuelan/diplomatico/diplomatico-batch-kettle/diplomatico-batch-kettle-750ml.png",
@@ -3353,7 +3375,7 @@
                                     "description": "Diplomatico Barbet is a blend of rums aged up to twelve years. It is distilled, aged, and bottled in La Miel, Venezuela.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "7594003626723",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/venezuelan/diplomatico/diplomatico-barbet/diplomatico-barbet-750ml.png",
@@ -3368,7 +3390,7 @@
                                     "description": "Diplomatico Pot Still is a blend of rums aged up to twelve years. It is distilled, aged, and bottled in La Miel, Venezuela.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "7594003629236",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/venezuelan/diplomatico/diplomatico-pot-still/diplomatico-pot-still-750ml.png",
@@ -3448,21 +3470,21 @@
                                     "description": "Flor de Ca\u00f1a 4 is a blend of rums aged four years in used American white oak barrels. It is distilled, aged, and bottled in Chichigalpa, Nicaragua.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "02696417719",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-4-gold/flor-de-cana-4-gold-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "333362545",
                                             "size": "1L",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-4-gold/flor-de-cana-4-gold-1L.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08832015262",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-4-gold/flor-de-cana-4-gold-175L.png",
@@ -3477,21 +3499,21 @@
                                     "description": "Flor de Ca\u00f1a 4 is a blend of rums aged four years in used American white oak barrels. It is distilled, aged, and bottled in Chichigalpa, Nicaragua.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08832015251",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-4-blanco/flor-de-cana-4-blanco-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "266588458555",
                                             "size": "1L",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-4-blanco/flor-de-cana-4-blanco-1L.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08832015262",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-4-blanco/flor-de-cana-4-blanco-175L.png",
@@ -3506,10 +3528,24 @@
                                     "description": "Flor de Ca\u00f1a 7 is a blend of rums aged seven years in used American white oak barrels. It is distilled, aged, and bottled in Chichigalpa, Nicaragua.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "02696485274",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-7/flor-de-cana-7-750ml.png",
+                                            "inventory": 1
+                                        },
+                                        {
+                                            "id": "1256255565",
+                                            "size": "1L",
+                                            "price": 300,
+                                            "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-7/flor-de-cana-7-1L.png",
+                                            "inventory": 1
+                                        },
+                                        {
+                                            "id": "02696438001",
+                                            "size": "1.75L",
+                                            "price": 300,
+                                            "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-7/flor-de-cana-7-175L.png",
                                             "inventory": 1
                                         }
                                     ]
@@ -3521,7 +3557,7 @@
                                     "description": "Flor de Ca\u00f1a 12 is a blend of rums aged twelve years in used American white oak barrels. It is distilled, aged, and bottled in Chichigalpa, Nicaragua.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "02696482396",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-12/flor-de-cana-12-750ml.png",
@@ -3536,7 +3572,7 @@
                                     "description": "Flor de Ca\u00f1a 18 is a blend of rums aged eighteen years in used American white oak barrels. It is distilled, aged, and bottled in Chichigalpa, Nicaragua.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "02696450044",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-18/flor-de-cana-18-750ml.png",
@@ -3551,7 +3587,7 @@
                                     "description": "Flor de Ca\u00f1a 25 is a blend of rums aged twenty-five years in used American white oak barrels. It is distilled, aged, and bottled in Chichigalpa, Nicaragua.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "FDC25",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-25/flor-de-cana-25-750ml.png",
@@ -3581,7 +3617,7 @@
                                     "description": "Flor de Ca\u00f1a 130 anniversary is a blend of rums aged four years in used American white oak barrels. It is distilled, aged, and bottled in Chichigalpa, Nicaragua.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "02696488006",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-130-anniversary/flor-de-cana-130-anniversary-750ml.png",
@@ -3613,7 +3649,7 @@
                                     "description": "Caymus Vineyards is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "01722451010",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/wine/american/caymus/caymus-cabernet-sauvignon/caymus-cabernet-sauvignon-375ml.png",
@@ -3627,7 +3663,7 @@
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "01722441210",
                                             "size": "1L",
                                             "price": 300,
                                             "img": "liquors/wine/american/caymus/caymus-cabernet-sauvignon/caymus-cabernet-sauvignon-1L.png",
@@ -3647,7 +3683,7 @@
                                     "description": "The Prisoner Wine Company is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "08600325514",
+                                            "id": "85936900153",
                                             "size": "750ml",
                                             "price": 58.99,
                                             "img": "liquors/wine/american/prisoner/prisoner-red-blend/prisoner-red-blend-750ml.png",
@@ -3687,7 +3723,7 @@
                                     "description": "Nickel & Nickel is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "01722471010",
+                                            "id": "981081",
                                             "size": "750ml",
                                             "price": 89.99,
                                             "img": "liquors/wine/american/nickel-nickel/nickel-nickel-cabernet-sauvignon/nickel-nickel-cabernet-sauvignon-750ml.png",
@@ -3707,7 +3743,7 @@
                                     "description": "Joseph Phelps Vineyards is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "01046520890",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/wine/american/joseph-phelps/joseph-phelps-insignia/joseph-phelps-insignia-750ml.png",
@@ -3727,7 +3763,7 @@
                                     "description": "Silver Oak is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "2004",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/wine/american/silver-oak/silver-oak-cabernet-sauvignon/silver-oak-cabernet-sauvignon-750ml.png",
@@ -3741,8 +3777,8 @@
                             "brand": "J Lohr",
                             "products": [
                                 {
-                                    "name": "J Lohr Paso Robles Cabernet Sauvignon",
-                                    "route": "j-lohr-paso-robles-cabernet-sauvignon",
+                                    "name": "J Lohr Signature Cabernet Sauvignon",
+                                    "route": "j-lohr-signature-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "J Lohr is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
@@ -3767,7 +3803,7 @@
                                     "description": "ZD Wines is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "256547822",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/wine/american/zd/zd-cabernet-sauvignon/zd-cabernet-sauvignon-750ml.png",
@@ -3813,7 +3849,7 @@
                                     "description": "Bouchard Ain\u00e9 & Fils Puligny-Montrachet is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "01169900687",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/wine/french/bouchard-aine-fils/bouchard-aine-fils-puligny-montrachet/bouchard-aine-fils-puligny-montrachet-750ml.png",
@@ -3859,7 +3895,7 @@
                                     "description": "Tenuta San Guido is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08469249200",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/wine/italian/tenuta-san-guido/tenuta-san-guido-sassicaia/tenuta-san-guido-sassicaia-750ml.png",
@@ -3879,7 +3915,7 @@
                                     "description": "Tignanello is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08858600246",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/wine/italian/tignanello/tignanello-toscana/tignanello-toscana-750ml.png",
@@ -4002,10 +4038,17 @@
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "08175381555",
+                                            "id": "08807616128",
                                             "size": "750ml",
                                             "price": 62.99,
                                             "img": "liquors/cognac-brandy/french/hennessy/hennessy-vsop/hennessy-vsop-750ml.png",
+                                            "inventory": 1
+                                        },
+                                        {
+                                            "id": "08807616128",
+                                            "size": "1.75L",
+                                            "price": 89.99,
+                                            "img": "liquors/cognac-brandy/french/hennessy/hennessy-vsop/hennessy-vsop-1L.png",
                                             "inventory": 1
                                         }
                                     ]
@@ -4017,7 +4060,7 @@
                                     "description": "Hennessy Paradis is a blend of the finest cognacs, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08811015615",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/cognac-brandy/french/hennessy/hennessy-paradis/hennessy-paradis-750ml.png",
@@ -4037,28 +4080,28 @@
                                     "description": "Remy Martin V.S.O.P is a blend of the finest cognacs, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08723600113",
                                             "size": "200ml",
                                             "price": 300,
                                             "img": "liquors/cognac-brandy/french/remy-martin/remy-martin-vsop/remy-martin-vsop-200ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08723600121",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/cognac-brandy/french/remy-martin/remy-martin-vsop/remy-martin-vsop-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08723600116",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/cognac-brandy/french/remy-martin/remy-martin-vsop/remy-martin-vsop-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08723600120",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/cognac-brandy/french/remy-martin/remy-martin-vsop/remy-martin-vsop-175L.png",
@@ -4104,14 +4147,14 @@
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08676721009",
                                             "size": "375ml",
                                             "price": 18.99,
                                             "img": "liquors/liquors/baileys/baileys-original-irish-cream/baileys-original-irish-cream-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08676721006",
                                             "size": "750ml",
                                             "price": 28.99,
                                             "img": "liquors/liquors/baileys/baileys-original-irish-cream/baileys-original-irish-cream-750ml.png",
@@ -4200,42 +4243,42 @@
                                     "description": "Fireball Cinnamon Whisky is a Canadian whisky-based liqueur produced by the Sazerac Company. Its foundation is Canadian whisky, and the taste otherwise resembles the candy with a similar name, Ferrara Candy Company's 'Atomic Fireball' candy.",
                                     "sizes": [
                                         {
-                                            "id:": "",
+                                            "id:": "08800414470",
                                             "size": "50ml",
                                             "price": 300,
                                             "img": "liquors/liquors/fireball/fireball-cinnamon-whisky/fireball-cinnamon-whisky-50ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "100MLFB",
                                             "size": "100ml",
                                             "price": 300,
                                             "img": "liquors/liquors/fireball/fireball-cinnamon-whisky/fireball-cinnamon-whisky-100ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "FIRB200",
                                             "size": "200ml",
                                             "price": 300,
                                             "img": "liquors/liquors/fireball/fireball-cinnamon-whisky/fireball-cinnamon-whisky-200ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "08800414472",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/liquors/fireball/fireball-cinnamon-whisky/fireball-cinnamon-whisky-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "08800414668",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/liquors/fireball/fireball-cinnamon-whisky/fireball-cinnamon-whisky-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "08800400928",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/liquors/fireball/fireball-cinnamon-whisky/fireball-cinnamon-whisky-175L.png",
@@ -4267,28 +4310,28 @@
                                     "description": "Aguardiente Antioque\u00f1o is a blend of the finest aguardiente, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id:": "",
+                                            "id:": "66485800001",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-antioqueno/aguardiente-antioqueno-rojo/aguardiente-antioqueno-rojo-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "66485800002",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-antioqueno/aguardiente-antioqueno-rojo/aguardiente-antioqueno-rojo-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "66485800006",
                                             "size": "1L",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-antioqueno/aguardiente-antioqueno-rojo/aguardiente-antioqueno-rojo-1L.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "66485800005",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-antioqueno/aguardiente-antioqueno-rojo/aguardiente-antioqueno-rojo-175L.png",
@@ -4303,28 +4346,28 @@
                                     "description": "Aguardiente Antioque\u00f1o Sin Azucar Azul is a blend of the finest aguardiente, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id:": "",
+                                            "id:": "66485800012",
                                             "size": "375ml",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-antioqueno/aguardiente-antioqueno-sin-azucar-azul/aguardiente-antioqueno-sin-azucar-azul-375ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "66485800011",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-antioqueno/aguardiente-antioqueno-sin-azucar-azul/aguardiente-antioqueno-sin-azucar-azul-750ml.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "66485800018",
                                             "size": "1L",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-antioqueno/aguardiente-antioqueno-sin-azucar-azul/aguardiente-antioqueno-sin-azucar-azul-1L.png",
                                             "inventory": 1
                                         },
                                         {
-                                            "id:": "",
+                                            "id:": "66485800017",
                                             "size": "1.75L",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-antioqueno/aguardiente-antioqueno-sin-azucar-azul/aguardiente-antioqueno-sin-azucar-azul-175L.png",
@@ -4339,7 +4382,7 @@
                                     "description": "Aguardiente Antioque\u00f1o Sin Azucar Verde is a blend of the finest aguardiente, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id:": "",
+                                            "id:": "25858745896",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-antioqueno/aguardiente-antioqueno-sin-azucar-verde/aguardiente-antioqueno-sin-azucar-verde-750ml.png",
@@ -4359,7 +4402,7 @@
                                     "description": "Aguardiente Cristal is a blend of the finest aguardiente, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id:": "",
+                                            "id:": "08832063000",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-cristal/aguardiente-cristal-rojo/aguardiente-cristal-rojo-750ml.png",
@@ -4374,7 +4417,7 @@
                                     "description": "Aguardiente Cristal is a blend of the finest aguardiente, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id:": "",
+                                            "id:": "08832063025",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-cristal/aguardiente-cristal-sin-azucar-azul/aguardiente-cristal-sin-azucar-azul-750ml.png",
@@ -4394,7 +4437,7 @@
                                     "description": "Aguardiente Nectar is a blend of the finest aguardiente, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id:": "",
+                                            "id:": "2404085029",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-nectar/aguardiente-nectar-rojo/aguardiente-nectar-rojo-750ml.png",
@@ -4409,7 +4452,7 @@
                                     "description": "Aguardiente Nectar is a blend of the finest aguardiente, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id:": "",
+                                            "id:": "26521114",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-nectar/aguardiente-nectar-sin-azucar-azul/aguardiente-nectar-sin-azucar-azul-750ml.png",
@@ -4424,7 +4467,7 @@
                                     "description": "Aguardiente Nectar is a blend of the finest aguardiente, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id:": "",
+                                            "id:": "2404080024",
                                             "size": "750ml",
                                             "price": 300,
                                             "img": "liquors/aguardiente/colombian/aguardiente-nectar/aguardiente-nectar-sin-azucar-verde/aguardiente-nectar-sin-azucar-verde-750ml.png",
@@ -4511,7 +4554,7 @@
                                     "description": "400 Conejos Reposado Mezcal is a blend of the finest mezcal, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
-                                            "id:": "",
+                                            "id:": "125465888",
                                             "size": "750ml",
                                             "price": 200,
                                             "img": "liquors/mezcal/mexican/400-conejos/400-conejos-mezcal-reposado/400-conejos-mezcal-reposado-750ml.png",
@@ -4662,9 +4705,16 @@
                                     "sizes": [
                                         {
                                             "id:": "08797501350",
-                                            "size": "22oz-12pack-Can",
+                                            "size": "12oz-6pack-Bottle",
                                             "price": 300,
-                                            "img": "liquors/beer/japanese/sapporo/sapporo-premium/sapporo-premium-22oz-12pack-can.png",
+                                            "img": "liquors/beer/japanese/sapporo/sapporo-premium/sapporo-premium-12oz-6pack-bottle.png",
+                                            "inventory": 1
+                                        },
+                                        {
+                                            "id:": "08797505350",
+                                            "size": "12oz-12pack-Can",
+                                            "price": 300,
+                                            "img": "liquors/beer/japanese/sapporo/sapporo-premium/sapporo-premium-12oz-12pack-can.png",
                                             "inventory": 1
                                         },
                                         {
