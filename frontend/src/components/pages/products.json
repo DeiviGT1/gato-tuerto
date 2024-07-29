@@ -2204,11 +2204,11 @@
                                     "description": "SVEDKA is an award-winning vodka with a pure, clear taste and crisp finish made from the finest spring water and Swedish winter wheat, then distilled five times to remove impurities.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "61776825175",
                                             "size": "750ml",
-                                            "price": 1000,
+                                            "price": 13.99,
                                             "img": "liquors/vodka/french/svedka/svedka-pure-infusions-ginger-lime/svedka-pure-infusions-ginger-lime-750ml.png",
-                                            "inventory": 0
+                                            "inventory": 1
                                         }
                                     ]
                                 }
@@ -2562,10 +2562,17 @@
                                     "description": "Ketel One Botanical Grapefruit & Rose is fit for those who seek zesty, mouthwatering grapefruit and the elegance of refined rose petals. Each botanical essence is individually and naturally obtained through innovative extraction methods and distillation processes for the freshest, cleanest, most crisp taste possible.",
                                     "sizes": [
                                         {
-                                            "id": "08515647500",
+                                            "id": "08807618864",
                                             "size": "375ml",
-                                            "price": 25.99,
+                                            "price": 14.99,
                                             "img": "liquors/vodka/netherlands/ketel-one/ketel-one-cocktails/ketel-one-cocktails-375ml.png",
+                                            "inventory": 2
+                                        },
+                                        {
+                                            "id": "08807618865",
+                                            "size": "750ml",
+                                            "price": 22.99,
+                                            "img": "liquors/vodka/netherlands/ketel-one/ketel-one-cocktails/ketel-one-cocktails-750ml.png",
                                             "inventory": 0
                                         }
                                     ]
@@ -2753,9 +2760,9 @@
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "CAPP",
                                             "size": "750ml",
-                                            "price": 1000,
+                                            "price": 27.99,
                                             "img": "liquors/vodka/french/ciroc/ciroc-apple/ciroc-apple-750ml.png",
                                             "inventory": 0
                                         }
@@ -3023,11 +3030,11 @@
                                             "inventory": 11
                                         },
                                         {
-                                            "id": "",
+                                            "id": "08048002546",
                                             "size": "PET 750ml",
-                                            "price": 1000,
+                                            "price": 14.99,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-gold/bacardi-gold-pet-750ml.png",
-                                            "inventory": 0
+                                            "inventory": 17
                                         },
                                         {
                                             "id": "08048002520",
@@ -3604,11 +3611,11 @@
                                     "description": "Flor de Ca\u00f1a Eco is a blend of rums aged four years in used American white oak barrels. It is distilled, aged, and bottled in Chichigalpa, Nicaragua.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "02696410017",
                                             "size": "750ml",
-                                            "price": 1000,
+                                            "price": 42.99,
                                             "img": "liquors/rum/nicaraguan/flor-de-cana/flor-de-cana-eco/flor-de-cana-eco-750ml.png",
-                                            "inventory": 0
+                                            "inventory": 5
                                         }
                                     ]
                                 },
@@ -3785,11 +3792,11 @@
                                     "description": "J Lohr is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "08912139852",
                                             "size": "750ml",
-                                            "price": 1000,
-                                            "img": "liquors/wine/american/j-lohr/j-lohr-paso-robles-cabernet-sauvignon/j-lohr-paso-robles-cabernet-sauvignon-750ml.png",
-                                            "inventory": 0
+                                            "price": 89.99,
+                                            "img": "liquors/wine/american/j-lohr/j-lohr-signature-cabernet-sauvignon/j-lohr-signature-cabernet-sauvignon-750ml.png",
+                                            "inventory": 1
                                         }
                                     ]
                                 }
