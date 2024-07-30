@@ -4,12 +4,14 @@
   margin: 0 5%;
   color: #475169;
   padding: 0;
+  z-index: 8;
 }
 
 footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  
 }
 
 footer > div {
@@ -83,7 +85,6 @@ footer > div > p {
       margin: 0;
       padding: 0;
       position: relative;
-      top: 10vh;
   }
 
   footer {

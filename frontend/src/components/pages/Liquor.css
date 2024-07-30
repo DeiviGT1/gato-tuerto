@@ -1,6 +1,12 @@
 .liquor {
     height: auto;
-    margin: 5vh 0;
+    margin: 5vh 2vh;
+    position: relative;
+    place-content: center;
+}
+
+.liquor>div{
+    margin: 0 2.5%;
 }
 
 .liquor-title {
@@ -19,13 +25,14 @@
 }
 
 .liquor-image {
-    width: 50%;
+    width: 45%;
     height: auto;
     border: 1px solid #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .liquor-image > img {
@@ -109,8 +116,12 @@
         height: 60vh;
     }
 
+    .liquor {
+        display: flex;
+    }
+
     .liquor-image {
-        width: 50%;
+        width: 45%;
         height: 100%;
     }
 
@@ -119,11 +130,30 @@
     }
 
     .liquor-content {
-        width: 40%;
+        width: 45%;
     }
 
     .liquor-sizes {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         margin: 0;
     }
+}
+
+.liquor-image.out-of-stock::after {
+    content: "Out of stock";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 40px;
+    background-color: yellow;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-weight: bold;
+    z-index: 1;
+    pointer-events: none;
+    font-size: 16px;
 }

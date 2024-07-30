@@ -16,6 +16,7 @@ function Liquor() {
     const [selectedSize, setSelectedSize] = useState(defaultSize);
     const [selectedPrice, setSelectedPrice] = useState(null);
     const [showModal, setShowModal] = useState(false);
+    const [isOutOfStock, setIsOutOfStock] = useState(false);
 
     const findProduct = (data, productRoute) => {
         for (let type of data.types) {
@@ -52,8 +53,9 @@ function Liquor() {
                 }
                 setLogos(importedLogos);
                 setCurrentLogo(importedLogos[size]);
-                const price = product.sizes.find(s => s.size === size)?.price;
-                setSelectedPrice(price);
+                const sizeDetails = product.sizes.find(s => s.size === size);
+                setSelectedPrice(sizeDetails?.price);
+                setIsOutOfStock(sizeDetails?.inventory === 0);
 
                 // Only show the modal on initial mount
                 if (product.modal === true && !location.search.includes('size')) {
@@ -68,8 +70,9 @@ function Liquor() {
     const toggleLogo = (size) => {
         setCurrentLogo(logos[size]);
         setSelectedSize(size);
-        const newPrice = product.sizes.find(s => s.size === size)?.price;
-        setSelectedPrice(newPrice);
+        const sizeDetails = product.sizes.find(s => s.size === size);
+        setSelectedPrice(sizeDetails?.price);
+        setIsOutOfStock(sizeDetails?.inventory === 0);
 
         const params = new URLSearchParams(location.search);
         params.set('size', size);
@@ -85,8 +88,8 @@ function Liquor() {
             <Header />
             <div className="app-screen">
                 <div className="liquor">
-                    <div className="liquor-container">
-                        <div className="liquor-image">
+                    <div className='liquor-container'>
+                        <div className={`liquor-image ${isOutOfStock ? 'out-of-stock' : ''}`}>
                             {currentLogo && <img src={currentLogo} className="App-logo" alt="logo" />}
                         </div>
                         <div className="liquor-content">
@@ -108,7 +111,9 @@ function Liquor() {
                                 <br />
                                 <p className='liquor-description'>{product?.description}</p>
                                 <br />
-                                <p className='liquor-size'></p> <p className='liquor-price'>Size: {selectedSize} - Price: ${selectedPrice}</p>
+                                <p className='liquor-size'></p> 
+                                <p className='liquor-price'>Size: {selectedSize} - Price: ${selectedPrice}</p>
+                                {isOutOfStock && <p className='out-of-stock-message'>Out of stock</p>}
                             </div>
                         </div>
                     </div>
