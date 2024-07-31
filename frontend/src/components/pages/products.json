@@ -899,11 +899,11 @@
                                     "description": "Kentucky Owl Rye Batch is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
                                     "sizes": [
                                         {
-                                            "id": "85736100720",
+                                            "id": "1225456665",
                                             "size": "750ml",
-                                            "price": 35.99,
+                                            "price": 299.99,
                                             "img": "liquors/whiskey/bourbon/kentucky-owl/kentucky-owl-rye-batch/kentucky-owl-rye-batch-750ml.png",
-                                            "inventory": 8
+                                            "inventory": 2
                                         }
                                     ]
                                 },
@@ -4047,9 +4047,9 @@
                                             "inventory": 5
                                         },
                                         {
-                                            "id": "08807616128",
+                                            "id": "8811015105",
                                             "size": "750ml",
-                                            "price": 139.99,
+                                            "price": 1000,
                                             "img": "liquors/cognac-brandy/french/hennessy/hennessy-vsop/hennessy-vsop-750ml.png",
                                             "inventory": 0
                                         },
