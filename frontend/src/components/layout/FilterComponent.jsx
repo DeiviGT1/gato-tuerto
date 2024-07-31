@@ -75,12 +75,12 @@ function FilterComponent({ selectedType, selectedBrand, selectedPrice, orderBy, 
                 <label>Price (750ml):</label>
                 <select value={selectedPrice} onChange={handlePriceChange}>
                     <option value="">All</option>
-                    <option value="11.99-22.99">11.99 - 22.99</option>
-                    <option value="23-29.99">23 - 29.99</option>
-                    <option value="30-38.99">30 - 38.99</option>
-                    <option value="39-48.99">39 - 48.99</option>
-                    <option value="49-62.99">49 - 62.99</option>
-                    <option value="63-10000">63 - 10000</option>
+                    <option value="11.99-20.99">11.99 - 20.99</option>
+                    <option value="21-27.99">21 - 27.99</option>
+                    <option value="28-42.99">28 - 42.99</option>
+                    <option value="43-73.99">39 - 48.99</option>
+                    <option value="74-136.99">49 - 136.99</option>
+                    <option value="137-10000">137 - 10000</option>
                 </select>
             </div>
             <div>
