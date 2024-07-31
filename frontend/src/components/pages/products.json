@@ -4047,11 +4047,11 @@
                                             "inventory": 5
                                         },
                                         {
-                                            "id": "8811015105",
+                                            "id": "08811015105",
                                             "size": "750ml",
-                                            "price": 1000,
+                                            "price": 62.99,
                                             "img": "liquors/cognac-brandy/french/hennessy/hennessy-vsop/hennessy-vsop-750ml.png",
-                                            "inventory": 0
+                                            "inventory": 14
                                         },
                                         {
                                             "id": "08807616128",
