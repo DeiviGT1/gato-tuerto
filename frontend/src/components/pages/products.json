@@ -513,6 +513,297 @@
                             ]
                         },
                         {
+                            "brand": "Glenlivet",
+                            "products": [
+                                {
+                                    "name": "Glenlivet 12 Year",
+                                    "route": "glenlivet-12-year",
+                                    "modal": false,
+                                    "description": "The Glenlivet 12 Year Old is a perfectly balanced single malt scotch whisky with a lively gold color and playful interlacing of floral and fruit aromas. A perfect expression of age and elegance that is a true classic of the Glenlivet distillery.",
+                                    "sizes": [
+                                        {
+                                            "id": "08043240253",
+                                            "size": "50ml",
+                                            "price": 3.49,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-12-year/glenlivet-12-year-50ml.png",
+                                            "inventory": 19
+                                        },
+                                        {
+                                            "id": "3698546655",
+                                            "size": "375ml",
+                                            "price": 22.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-12-year/glenlivet-12-year-375ml.png",
+                                            "inventory": 11
+                                        },
+                                        {
+                                            "id": "08043240063",
+                                            "size": "750ml",
+                                            "price": 44.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-12-year/glenlivet-12-year-750ml.png",
+                                            "inventory": 9
+                                        },
+                                        {
+                                            "id": "08700070040",
+                                            "size": "1.75L",
+                                            "price": 95.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-12-year/glenlivet-12-year-175L.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenlivet Founders Reserve",
+                                    "route": "glenlivet-founders-reserve",
+                                    "modal": false,
+                                    "description": "The Glenlivet Founders Reserve is a perfectly balanced single malt scotch whisky with a lively gold color and playful interlacing of floral and fruit aromas. A perfect expression of age and elegance that is a true classic of the Glenlivet distillery.",
+                                    "sizes": [
+                                        {
+                                            "id": "123555525",
+                                            "size": "375ml",
+                                            "price": 21.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-founders-reserve/glenlivet-founders-reserve-375ml.png",
+                                            "inventory": 12
+                                        },
+                                        {
+                                            "id": "382634",
+                                            "size": "750ml",
+                                            "price": 37.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-founders-reserve/glenlivet-founders-reserve-750ml.png",
+                                            "inventory": 27
+                                        },
+                                        {
+                                            "id": "525454733",
+                                            "size": "1.75L",
+                                            "price": 76.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-founders-reserve/glenlivet-founders-reserve-175L.png",
+                                            "inventory": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenlivet 15 Caribbean Reserve",
+                                    "route": "glenlivet-15-caribbean-reserve",
+                                    "modal": false,
+                                    "description": "The Glenlivet 15 Year Old Caribbean Reserve is a perfectly balanced single malt scotch whisky with a lively gold color and playful interlacing of floral and fruit aromas. A perfect expression of age and elegance that is a true classic of the Glenlivet distillery.",
+                                    "sizes": [
+                                        {
+                                            "id": "915232",
+                                            "size": "375ml",
+                                            "price": 21.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-15-caribbean-reserve/glenlivet-15-caribbean-reserve-375ml.png",
+                                            "inventory": 8
+                                        },
+                                        {
+                                            "id": "2555455541114",
+                                            "size": "750ml",
+                                            "price": 37.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-15-caribbean-reserve/glenlivet-15-caribbean-reserve-750ml.png",
+                                            "inventory": 19
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenlivet 14 Year",
+                                    "route": "glenlivet-14-year",
+                                    "modal": false,
+                                    "description": "The Glenlivet 14 Year Old is a perfectly balanced single malt scotch whisky with a lively gold color and playful interlacing of floral and fruit aromas. A perfect expression of age and elegance that is a true classic of the Glenlivet distillery.",
+                                    "sizes": [
+                                        {
+                                            "id": "08043211494",
+                                            "size": "375ml",
+                                            "price": 31.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-14-year/glenlivet-14-year-375ml.png",
+                                            "inventory": 12
+                                        },
+                                        {
+                                            "id": "25666584555",
+                                            "size": "750ml",
+                                            "price": 56.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-14-year/glenlivet-14-year-750ml.png",
+                                            "inventory": 20
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenlivet 15 Year",
+                                    "route": "glenlivet-15-year",
+                                    "modal": false,
+                                    "description": "The Glenlivet 15 Year Old is a perfectly balanced single malt scotch whisky with a lively gold color and playful interlacing of floral and fruit aromas. A perfect expression of age and elegance that is a true classic of the Glenlivet distillery.",
+                                    "sizes": [
+                                        {
+                                            "id": "08043210078",
+                                            "size": "750ml",
+                                            "price": 92.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-15-year/glenlivet-15-year-750ml.png",
+                                            "inventory": 4
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenlivet 18 Year",
+                                    "route": "glenlivet-18-year",
+                                    "modal": false,
+                                    "description": "The Glenlivet 18 Year Old is a perfectly balanced single malt scotch whisky with a lively gold color and playful interlacing of floral and fruit aromas. A perfect expression of age and elegance that is a true classic of the Glenlivet distillery.",
+                                    "sizes": [
+                                        {
+                                            "id": "08700000625",
+                                            "size": "750ml",
+                                            "price": 147.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-18-year/glenlivet-18-year-750ml.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenlivet 21 Year",
+                                    "route": "glenlivet-21-year",
+                                    "modal": false,
+                                    "description": "The Glenlivet 21 Year Old is a perfectly balanced single malt scotch whisky with a lively gold color and playful interlacing of floral and fruit aromas. A perfect expression of age and elegance that is a true classic of the Glenlivet distillery.",
+                                    "sizes": [
+                                        {
+                                            "id": "08043240073",
+                                            "size": "750ml",
+                                            "price": 299.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-21-year/glenlivet-21-year-750ml.png",
+                                            "inventory": 2
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenlivet 25 Year",
+                                    "route": "glenlivet-25-year",
+                                    "modal": false,
+                                    "description": "The Glenlivet 25 Year Old is a perfectly balanced single malt scotch whisky with a lively gold color and playful interlacing of floral and fruit aromas. A perfect expression of age and elegance that is a true classic of the Glenlivet distillery.",
+                                    "sizes": [
+                                        {
+                                            "id": "08043210368",
+                                            "size": "750ml",
+                                            "price": 639.99,
+                                            "img": "liquors/whiskey/scotch/glenlivet/glenlivet-25-year/glenlivet-25-year-750ml.png",
+                                            "inventory": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Glenfiddich",
+                            "products": [
+                                {
+                                    "name": "Glenfiddich 12 Year",
+                                    "route": "glenfiddich-12-year",
+                                    "modal": false,
+                                    "description": "Glenfiddich 12 Year Old is carefully matured in the finest American oak and European oak sherry casks for at least 12 years. It is mellowed in oak marrying tuns to create its sweet and subtle oak flavors.",
+                                    "sizes": [
+                                        {
+                                            "id": "08366410736",
+                                            "size": "750ml",
+                                            "price": 47.99,
+                                            "img": "liquors/whiskey/scotch/glenfiddich/glenfiddich-12-year/glenfiddich-12-year-750ml.png",
+                                            "inventory": 6
+                                        },
+                                        {
+                                            "id": "08366410730",
+                                            "size": "1.75L",
+                                            "price": 87.99,
+                                            "img": "liquors/whiskey/scotch/glenfiddich/glenfiddich-12-year/glenfiddich-12-year-175L.png",
+                                            "inventory": 6
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenfiddich 12 Year Sherry Cask",
+                                    "route": "glenfiddich-12-year-sherry-cask",
+                                    "modal": false,
+                                    "description": "Glenfiddich 12 Year Old is carefully matured in the finest American oak and European oak sherry casks for at least 12 years. It is mellowed in oak marrying tuns to create its sweet and subtle oak flavors.",
+                                    "sizes": [
+                                        {
+                                            "id": "3666525448",
+                                            "size": "750ml",
+                                            "price": 49.99,
+                                            "img": "liquors/whiskey/scotch/glenfiddich/glenfiddich-12-year-sherry-cask/glenfiddich-12-year-sherry-cask-750ml.png",
+                                            "inventory": 7
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenfiddich 14 Year",
+                                    "route": "glenfiddich-14-year",
+                                    "modal": false,
+                                    "description": "Glenfiddich 14 Year Old is a rich and complex single malt whisky matured in bourbon barrels and finished in deep charred new American oak casks. It is a rich and intense whisky with flavors of vanilla, toffee, and spice.",
+                                    "sizes": [
+                                        {
+                                            "id": "08366486872",
+                                            "size": "750ml",
+                                            "price": 55.99,
+                                            "img": "liquors/whiskey/scotch/glenfiddich/glenfiddich-14-year/glenfiddich-14-year-750ml.png",
+                                            "inventory": 9
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenfiddich 15 Year",
+                                    "route": "glenfiddich-15-year",
+                                    "modal": false,
+                                    "description": "Glenfiddich 15 Year Old is a single malt Scotch whisky that is matured in European, American, and New American oak casks. It is a rich and complex whisky with flavors of fruit, nuts, and spice.",
+                                    "sizes": [
+                                        {
+                                            "id": "08366499040",
+                                            "size": "750ml",
+                                            "price": 83.99,
+                                            "img": "liquors/whiskey/scotch/glenfiddich/glenfiddich-15-year/glenfiddich-15-year-750ml.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenfiddich 18 Year",
+                                    "route": "glenfiddich-18-year",
+                                    "modal": false,
+                                    "description": "Glenfiddich 18 Year Old is a single malt Scotch whisky that is matured in European, American, and New American oak casks. It is a rich and complex whisky with flavors of fruit, nuts, and spice.",
+                                    "sizes": [
+                                        {
+                                            "id": "08366499041",
+                                            "size": "750ml",
+                                            "price": 139.99,
+                                            "img": "liquors/whiskey/scotch/glenfiddich/glenfiddich-18-year/glenfiddich-18-year-750ml.png",
+                                            "inventory": 4
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenfiddich 21 Year",
+                                    "route": "glenfiddich-21-year",
+                                    "modal": false,
+                                    "description": "Glenfiddich 21 Year Old is a single malt Scotch whisky that is matured in European, American, and New American oak casks. It is a rich and complex whisky with flavors of fruit, nuts, and spice.",
+                                    "sizes": [
+                                        {
+                                            "id": "08366486923",
+                                            "size": "750ml",
+                                            "price": 219.99,
+                                            "img": "liquors/whiskey/scotch/glenfiddich/glenfiddich-21-year/glenfiddich-21-year-750ml.png",
+                                            "inventory": 1
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenfiddich 23 Year",
+                                    "route": "glenfiddich-23-year",
+                                    "modal": false,
+                                    "description": "Glenfiddich 23 Year Old is a single malt Scotch whisky that is matured in European, American, and New American oak casks. It is a rich and complex whisky with flavors of fruit, nuts, and spice.",
+                                    "sizes": [
+                                        {
+                                            "id": "12221222154",
+                                            "size": "750ml",
+                                            "price": 345.99,
+                                            "img": "liquors/whiskey/scotch/glenfiddich/glenfiddich-23-year/glenfiddich-23-year-750ml.png",
+                                            "inventory": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "brand": "Macallan",
                             "products": [
                                 {
@@ -557,6 +848,21 @@
                                             "price": 169.99,
                                             "img": "liquors/whiskey/scotch/macallan/macallan-15-double-cask/macallan-15-double-cask-750ml.png",
                                             "inventory": 5
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Macallan 18 Double Cask",
+                                    "route": "macallan-18-double-cask",
+                                    "modal": false,
+                                    "description": "The Macallan Double Cask 18 Years Old forms part of our Double Cask range which marries the classic Macallan style and the unmistakable sweetness of American oak. This is a fully rounded single malt in perfect balance, with flavors of honey, citrus, and ginger.",
+                                    "sizes": [
+                                        {
+                                            "id": "81206602197",
+                                            "size": "750ml",
+                                            "price": 389.99,
+                                            "img": "liquors/whiskey/scotch/macallan/macallan-18-double-cask/macallan-18-double-cask-750ml.png",
+                                            "inventory": 3
                                         }
                                     ]
                                 },
@@ -647,6 +953,21 @@
                                             "price": 249.99,
                                             "img": "liquors/whiskey/scotch/macallan/macallan-the-harmony-collection-rich-cacao/macallan-the-harmony-collection-rich-cacao-750ml.png",
                                             "inventory": 8
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Macallan James Bond 60th Anniversary Collection",
+                                    "route": "macallan-james-bond-60th-anniversary-collection",
+                                    "modal": false,
+                                    "description": "The Macallan James Bond 60th Anniversary Collection is a limited edition single malt whisky that celebrates the beauty of the night sky. It is a rich and complex whisky with flavors of dried fruits, ginger, and cinnamon.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/whiskey/scotch/macallan/macallan-james-bond-60th-anniversary-collection/macallan-james-bond-60th-anniversary-collection-750ml.png",
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -1135,6 +1456,33 @@
                                             "price": 31.99,
                                             "img": "liquors/whiskey/irish/jameson/jameson-cask-mates/jameson-cask-mates-750ml.png",
                                             "inventory": 4
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Proper Twelve",
+                            "products": [
+                                {
+                                    "name": "Proper Twelve",
+                                    "route": "proper-twelve",
+                                    "modal": false,
+                                    "description": "Proper No. Twelve is a triple-distilled blend of fine grain and single malt that is aged in a combination of bourbon barrels and sherry casks. The result is a smooth, balanced whiskey with hints of vanilla, honey, and toasted wood.",
+                                    "sizes": [
+                                        {
+                                            "id": "155546",
+                                            "size": "750ml",
+                                            "price": 23.99,
+                                            "img": "liquors/whiskey/irish/proper-twelve/proper-twelve/proper-twelve-750ml.png",
+                                            "inventory": 10
+                                        },
+                                        {
+                                            "id": "81153801967",
+                                            "size": "1.75L",
+                                            "price": 42.99,
+                                            "img": "liquors/whiskey/irish/proper-twelve/proper-twelve/proper-twelve-175L.png",
+                                            "inventory": 5
                                         }
                                     ]
                                 }
@@ -1883,6 +2231,121 @@
                                             "price": 349.99,
                                             "img": "liquors/tequila/jalisco/cincoro/cincoro-gold/cincoro-gold-750ml.png",
                                             "inventory": 3
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Gran Centenario",
+                            "products": [
+                                {
+                                    "name": "Gran Centenario Blanco",
+                                    "route": "gran-centenario-blanco",
+                                    "modal": false,
+                                    "description": "Gran Centenario blanco is a high-quality white tequila bottled immediately after distillation to maintain as much of the fresh agave flavor as possible.",
+                                    "sizes": [
+                                        {
+                                            "id": "81884402232",
+                                            "size": "375ml",
+                                            "price": 16.99,
+                                            "img": "liquors/tequila/jalisco/gran-centenario/gran-centenario-blanco/gran-centenario-blanco-375ml.png",
+                                            "inventory": 21
+                                        },
+                                        {
+                                            "id": "69584584562",
+                                            "size": "750ml",
+                                            "price": 33.99,
+                                            "img": "liquors/tequila/jalisco/gran-centenario/gran-centenario-blanco/gran-centenario-blanco-750ml.png",
+                                            "inventory": 27
+                                        },
+                                        {
+                                            "id": "81884402233",
+                                            "size": "1.75L",
+                                            "price": 48.99,
+                                            "img": "liquors/tequila/jalisco/gran-centenario/gran-centenario-blanco/gran-centenario-blanco-175L.png",
+                                            "inventory": 8
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Gran Centenario Reposado",
+                                    "route": "gran-centenario-reposado",
+                                    "modal": false,
+                                    "description": "Gran Centenario Reposado is a high-quality white tequila bottled immediately after distillation to maintain as much of the fresh agave flavor as possible.",
+                                    "sizes": [
+                                        {
+                                            "id": "81884402234",
+                                            "size": "375ml",
+                                            "price": 17.99,
+                                            "img": "liquors/tequila/jalisco/gran-centenario/gran-centenario-reposado/gran-centenario-reposado-375ml.png",
+                                            "inventory": 3
+                                        },
+                                        {
+                                            "id": "256258745",
+                                            "size": "750ml",
+                                            "price": 34.99,
+                                            "img": "liquors/tequila/jalisco/gran-centenario/gran-centenario-reposado/gran-centenario-reposado-750ml.png",
+                                            "inventory": 30
+                                        },
+                                        {
+                                            "id": "81884402235",
+                                            "size": "1.75L",
+                                            "price": 55.99,
+                                            "img": "liquors/tequila/jalisco/gran-centenario/gran-centenario-reposado/gran-centenario-reposado-175L.png",
+                                            "inventory": 13
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Gran Centenario Anejo",
+                                    "route": "gran-centenario-anejo",
+                                    "modal": false,
+                                    "description": "Gran Centenario Anejo is a high-quality white tequila bottled immediately after distillation to maintain as much of the fresh agave flavor as possible.",
+                                    "sizes": [
+                                        {
+                                            "id": "81884402236",
+                                            "size": "375ml",
+                                            "price": 21.99,
+                                            "img": "liquors/tequila/jalisco/gran-centenario/gran-centenario-anejo/gran-centenario-anejo-375ml.png",
+                                            "inventory": 1
+                                        },
+                                        {
+                                            "id": "1525445874",
+                                            "size": "750ml",
+                                            "price": 39.99,
+                                            "img": "liquors/tequila/jalisco/gran-centenario/gran-centenario-anejo/gran-centenario-anejo-750ml.png",
+                                            "inventory": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Gran Centenario Cristalino",
+                                    "route": "gran-centenario-cristalino",
+                                    "modal": false,
+                                    "description": "Gran Centenario Cristalino is a high-quality white tequila bottled immediately after distillation to maintain as much of the fresh agave flavor as possible.",
+                                    "sizes": [
+                                        {
+                                            "id": "23652845556",
+                                            "size": "750ml",
+                                            "price": 77.99,
+                                            "img": "liquors/tequila/jalisco/gran-centenario/gran-centenario-cristalino/gran-centenario-cristalino-750ml.png",
+                                            "inventory": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Gran Centenario Leyenda",
+                                    "route": "gran-centenario-leyenda",
+                                    "modal": false,
+                                    "description": "Gran Centenario Leyenda is a high-quality white tequila bottled immediately after distillation to maintain as much of the fresh agave flavor as possible.",
+                                    "sizes": [
+                                        {
+                                            "id": "81153801433",
+                                            "size": "750ml",
+                                            "price": 169.99,
+                                            "img": "liquors/tequila/jalisco/gran-centenario/gran-centenario-leyenda/gran-centenario-leyenda-750ml.png",
+                                            "inventory": 1
                                         }
                                     ]
                                 }
