@@ -33,7 +33,8 @@ function FilterComponent({ selectedType, selectedBrand, selectedPrice, orderBy, 
     }, [selectedType]);
 
     const handleTypeChange = (e) => {
-        onFilterChange(e.target.value, selectedBrand, selectedPrice, orderBy);
+        const newSelectedType = e.target.value;
+        onFilterChange(newSelectedType, "", selectedPrice, orderBy); // Reset selectedBrand to ""
     };
 
     const handleBrandChange = (e) => {
