@@ -139,21 +139,3 @@
     }
 }
 
-.liquor-image.out-of-stock::after {
-    content: "Out of stock";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    height: 40px;
-    background-color: yellow;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    font-weight: bold;
-    z-index: 1;
-    pointer-events: none;
-    font-size: 16px;
-}

@@ -36,7 +36,6 @@ function Home() {
     }, []);
 
     const whiskys = [
-        'buchanans-12',
         'courage-conviction-cuvee-single-malt',
         'buchanans-master',
         'buchanans-18',
@@ -58,7 +57,7 @@ function Home() {
         'patron-silver',
         'don-julio-reposado',
         'mijenta-blanco',
-        'patron-extra-anejo',
+        'partida-reposado',
         'casamigos-blanco',
         'cincoro-gold',
         'herradura-reposado',
@@ -70,11 +69,11 @@ function Home() {
         'ciroc-vodka',
         'au-vodka',
         'absolut-vodka',
+        'monte-carlo-vodka',
         'titos-vodka',
         'avorza-vodka',
         'ketel-one-vodka',
         'new-amsterdam-vodka',
-
     ];
 
     const rums = [

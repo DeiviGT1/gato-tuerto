@@ -3,8 +3,17 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import Modal from '../ui/Modal';
+import Product from "../ui/Product";
 import items from './products.json';
 import "./Liquor.css";
+
+const importAll = (r) => {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
+};
+
+const images = importAll(require.context('./liquors', true, /\.(png|jpe?g|svg)$/));
 
 function Liquor() {
     const { item } = useParams();
@@ -89,7 +98,8 @@ function Liquor() {
             <div className="app-screen">
                 <div className="liquor">
                     <div className='liquor-container'>
-                        <div className={`liquor-image ${isOutOfStock ? 'out-of-stock' : ''}`}>
+                        <div className={`card liquor-image ${isOutOfStock ? 'out-of-stock' : ''}`}>
+                            { isOutOfStock && <div className="warning-tape">Out of Stock</div> }
                             {currentLogo && <img src={currentLogo} className="App-logo" alt="logo" />}
                         </div>
                         <div className="liquor-content">
