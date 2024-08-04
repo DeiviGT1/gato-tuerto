@@ -8,19 +8,19 @@ const AgeVerificationModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const isOver18 = localStorage.getItem('isOver18');
-    if (!isOver18) {
+    const isOver21 = localStorage.getItem('isOver21');
+    if (!isOver21) {
       setIsOpen(true);
     }
   }, []);
 
   const handleYes = () => {
-    localStorage.setItem('isOver18', true);
+    localStorage.setItem('isOver21', true);
     setIsOpen(false);
   };
 
   const handleNo = () => {
-    alert('You must be over 18 to enter this site.');
+    alert('You must be over 21 to enter this site.');
   };
 
   return (
