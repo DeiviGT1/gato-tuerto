@@ -25,7 +25,7 @@ const AgeVerificationModal = () => {
 
   return (
     <Modal isOpen={isOpen} ariaHideApp={false}>
-      <div style={{ textAlign: 'center' }} className='modal-over-age'>
+      <div className='modal-over-age'>
         <div>
           <img src={logo} alt="" />
         </div>

@@ -2,6 +2,10 @@
     z-index: 1000;
 }
 
+.ReactModal__Overlay>div{
+    align-content: center;
+}
+
 /* AgeVerificationModal.css */
 .modal-overlay {
     position: fixed;
@@ -56,6 +60,14 @@ button:focus {
     outline: none;
 }
 
+.modal-over-age{
+    text-align: -webkit-center;
+}
+
+.modal-over-age>div{
+    width: 20%;
+}
+
 .modal-over-age>div>img{
     height: 100%;
     width: 100%;
@@ -75,5 +87,9 @@ button:focus {
     .modal-content button {
         padding: 8px 16px;
         font-size: 14px;
+    }
+
+    .modal-over-age>div{
+        width: 100%;
     }
 }
