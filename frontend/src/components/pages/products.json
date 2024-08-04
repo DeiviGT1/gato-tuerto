@@ -5276,11 +5276,11 @@
                                     "description": "Gaia is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "87971600241",
                                             "size": "750ml",
-                                            "price": 10000,
+                                            "price": 17.99,
                                             "img": "liquors/wine/argentinian/gaia/gaia-cabernet-sauvignon/gaia-cabernet-sauvignon-750ml.png",
-                                            "inventory": 0
+                                            "inventory": 22
                                         }
                                     ]
                                 },
@@ -5291,9 +5291,9 @@
                                     "description": "Gaia is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
                                     "sizes": [
                                         {
-                                            "id": "",
+                                            "id": "87971600238",
                                             "size": "750ml",
-                                            "price": 10000,
+                                            "price": 17.99,
                                             "img": "liquors/wine/argentinian/gaia/gaia-cabernet-franc/gaia-cabernet-franc-750ml.png",
                                             "inventory": 0
                                         }
