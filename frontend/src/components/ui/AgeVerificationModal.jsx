@@ -26,12 +26,14 @@ const AgeVerificationModal = () => {
   return (
     <Modal isOpen={isOpen} ariaHideApp={false}>
       <div className='modal-over-age'>
-        <div>
+        <div className='image'>
           <img src={logo} alt="" />
         </div>
         <p>Are you over the age of 21?</p>
+        <div>
         <button onClick={handleYes} style={{ margin: '5px', padding: '10px 20px', fontSize: '16px' }}>Yes</button>
         <button onClick={handleNo} style={{ margin: '5px', padding: '10px 20px', fontSize: '16px' }}>No</button>
+        </div>
       </div>
     </Modal>
   );
