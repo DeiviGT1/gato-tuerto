@@ -8,7 +8,7 @@ const AgeVerificationModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const isOver18 = localStorage.getItem('sOver18');
+    const isOver18 = localStorage.getItem('isOver18');
     if (!isOver18) {
       setIsOpen(true);
     }
