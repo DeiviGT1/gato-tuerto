@@ -100,18 +100,14 @@ button:focus {
         font-size: 14px;
     }
 
-    .modal-over-age>div{
+    .modal-over-age>.image{
         width: 100%;
     }
 
     .modal-over-age{
         text-align: -webkit-center;
-
         padding: 10px;
         height: 95%;
         width: 95%;
-        
-        border: 1px solid #ddd;
-        background-color: #d6d6d6;
     }
 }
