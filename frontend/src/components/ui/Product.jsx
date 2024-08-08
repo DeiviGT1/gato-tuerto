@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-function Product({ route, name, price, size, img, productClass }) {
+function Product({ key, route, name, price, size, img, productClass }) {
     const titleRef = useRef(null);
     const [fontSize, setFontSize] = useState(24); // initial font size
 
@@ -25,7 +25,7 @@ function Product({ route, name, price, size, img, productClass }) {
             {productClass === 'out-of-stock' && (
                 <div className="warning-tape">Out of Stock</div>
             )}
-            <Link to={`/product/${route}`}>
+            <Link to={`/product/${route}`} key={key}>
                 <div className="card-image">
                     <img src={img} alt={name} />
                 </div>

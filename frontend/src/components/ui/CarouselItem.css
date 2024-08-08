@@ -33,7 +33,7 @@
     height: 100%;
   }
   
-  .carousel-item > a > img {
+  .carousel-item  > img {
     width: 100%;
     height: 70%;
     margin-bottom: 20px;

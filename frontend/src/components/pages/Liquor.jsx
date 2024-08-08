@@ -129,16 +129,6 @@ function Liquor() {
                     </div>
                 </div>
                 <Footer />
-                <Modal show={showModal} onClose={closeModal}>
-                    <h2 className='modal-title'>{product?.name}</h2>
-                    <p className='modal-info'>We also have {product?.name} with this box gift for you!
-                        You can have it with the gift for the same price!
-                        click on the image to get it instead of the single bottle.
-                    </p>
-                    <br />
-                    <p className='close-modal-info'>*Click on the "X" if you want a different size or only the bottle</p>
-                    <img className='modal-img' src="" alt="" />
-                </Modal>
             </div>
         </>
     );
