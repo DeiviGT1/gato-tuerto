@@ -5,16 +5,30 @@ import logo from '../../assets/gato-tuerto-logo.png';
 import logoIso from '../../assets/gato-tuerto-logo-iso.png';
 import SearchBar from './SearchBar';
 import cart from '../../assets/cart-shopping-solid.svg';
+import CartSidebar from '../pages/CartSideBar';
 
 function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     setLoading(false);
   }, [location]);
+
+  useEffect(() => {
+    updateCartCount();
+  }, [cartOpen]);
+
+  const updateCartCount = () => {
+    const count = Object.entries(localStorage)
+      .filter(([key]) => key !== "isOver21" && key !== "zipCode")
+      .reduce((sum, [_, value]) => sum + parseInt(value, 10), 0);
+    setCartCount(count);
+  };
 
   const handleClick = (path) => {
     setLoading(true);
@@ -24,6 +38,14 @@ function Header() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const toggleCart = () => {
+    setCartOpen(!cartOpen);
+  };
+
+  const closeCartOnClickOutside = () => {
+    setCartOpen(false);
   };
 
   return (
@@ -82,15 +104,20 @@ function Header() {
               <SearchBar placeholder="Search products..." />
           </div>
           <div className="cart">
-            <button>
+            <button onClick={toggleCart}>
               <img src={cart} alt="Cart" />
-              <span className="cart-count">6</span>
+              <span className="cart-count">{cartCount}</span>
             </button>
           </div>
-
         </header>
       </div>
-      {menuOpen && <div className="overlay visible" onClick={toggleMenu}></div>}
+
+      {cartOpen && (
+        <div className="cart-overlay" onClick={closeCartOnClickOutside}></div>
+      )}
+      
+      {/* Renderizar el CartSidebar */}
+      <CartSidebar isOpen={cartOpen} onClose={toggleCart} />
     </>
   );
 }

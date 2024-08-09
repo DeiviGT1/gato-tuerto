@@ -204,7 +204,7 @@ function Home() {
                         </Carousel>
                     </section>
                     <div className='banner'>
-                        <img src={isMobile ? bannerSmirnoffCel : bannerSmirnoff} alt="Smirnoff Banner" />
+                        <img src={isMobile ? bannerJohnnieWalkerCel : bannerJohnnieWalker} alt="Johnnie Walker Banner" />
                     </div>
                     <section className="home-features tequila">
                         <div className="section">
@@ -228,8 +228,9 @@ function Home() {
                         </Carousel>
                     </section>
                     <div className='banner'>
-                        <img src={isMobile ? bannerCointreauCel : bannerCointreau} alt="Cointreau Banner" />
+                        <img src={isMobile ? bannerGranCentenarioCel : bannerGranCentenario} alt="Gran Centenario Banner" />
                     </div>
+
                     <section className="home-features vodka">
                         <div className="section">
                             <p>Check our variety of:&nbsp;</p>
@@ -252,7 +253,7 @@ function Home() {
                         </Carousel>
                     </section>
                     <div className='banner'>
-                        <img src={isMobile ? bannerGranCentenarioCel : bannerGranCentenario} alt="Gran Centenario Banner" />
+                        <img src={isMobile ? bannerSmirnoffCel : bannerSmirnoff} alt="Smirnoff Banner" />
                     </div>
                     <section className="home-features rum">
                         <div className="section">
@@ -276,7 +277,7 @@ function Home() {
                         </Carousel>
                     </section>
                     <div className='banner'>
-                        <img src={isMobile ? bannerJohnnieWalkerCel : bannerJohnnieWalker} alt="Johnnie Walker Banner" />
+                        <img src={isMobile ? bannerCointreauCel : bannerCointreau} alt="Cointreau Banner" />
                     </div>
                     <section className="home-features wine">
                         <div className="section">

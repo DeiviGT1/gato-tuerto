@@ -1,0 +1,107 @@
+.cart-sidebar {
+  position: fixed;
+  right: -300px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Permite el scroll en la barra lateral */
+}
+
+.cart-sidebar > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Alinear el botón de cierre a la derecha */
+  margin: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  align-self: flex-end; /* Alinear el botón a la derecha del contenedor */
+}
+
+h2 {
+  align-self: flex-start; /* Alinear el título a la izquierda del contenedor */
+  margin-top: 10px; /* Espacio entre el botón y el título */
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.cart-items {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 100px;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px;
+  position: relative; /* Position relative to place the remove button */
+}
+
+.cart-item-meta{
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.cart-item-meta>h3,
+.cart-item-meta>p {
+  margin: 1px;
+}
+
+.cart-item-meta>div{
+  display: flex;
+  gap: 10px;
+}
+
+.cart-item-meta>div>select{
+  width: 40%;
+  font-size: large;
+}
+
+.item-image {
+  width: 20%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.remove-item-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: red;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

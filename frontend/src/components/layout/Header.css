@@ -270,11 +270,19 @@ a:hover::after {
 
 .cart > button {
   position: relative;
-  width: 80%;
-  height: 80%;
+  width: 60%;
+  height: 60%;
   padding: 5%;
   border: 0;
   border-radius: 100px;
+}
+
+.cart>button:hover {
+  background-color: #475169;
+}
+
+.cart>button:active{
+  background-color: #2f3e4e;
 }
 
 .cart > button > img {
