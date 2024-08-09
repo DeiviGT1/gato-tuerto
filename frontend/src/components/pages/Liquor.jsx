@@ -6,6 +6,7 @@ import Modal from '../ui/Modal';
 import Product from "../ui/Product";
 import items from './products.json';
 import "./Liquor.css";
+import LiquorOrder from '../ui/LiquorOrder';
 
 const importAll = (r) => {
     let images = {};
@@ -24,8 +25,8 @@ function Liquor() {
     const [logos, setLogos] = useState({});
     const [selectedSize, setSelectedSize] = useState(defaultSize);
     const [selectedPrice, setSelectedPrice] = useState(null);
-    const [showModal, setShowModal] = useState(false);
-    const [isOutOfStock, setIsOutOfStock] = useState(false);
+    const [selectedId, setSelectedId] = useState(null);
+    const [inventory, setInventory] = useState(null);
 
     const findProduct = (data, productRoute) => {
         for (let type of data.types) {
@@ -47,7 +48,9 @@ function Liquor() {
     useEffect(() => {
         const params = new URLSearchParams(location.search);
         const size = params.get('size') || defaultSize;
+        const id = params.get('id') || product.sizes[0]?.id;
         setSelectedSize(size);
+        setSelectedId(id);
 
         const loadImages = async () => {
             if (product) {
@@ -64,12 +67,8 @@ function Liquor() {
                 setCurrentLogo(importedLogos[size]);
                 const sizeDetails = product.sizes.find(s => s.size === size);
                 setSelectedPrice(sizeDetails?.price);
-                setIsOutOfStock(sizeDetails?.inventory === 0);
-
-                // Only show the modal on initial mount
-                if (product.modal === true && !location.search.includes('size')) {
-                    setShowModal(true);
-                }
+                setInventory(sizeDetails?.inventory);
+                setSelectedId(sizeDetails?.id);
             }
         };
 
@@ -81,15 +80,13 @@ function Liquor() {
         setSelectedSize(size);
         const sizeDetails = product.sizes.find(s => s.size === size);
         setSelectedPrice(sizeDetails?.price);
-        setIsOutOfStock(sizeDetails?.inventory === 0);
+        setInventory(sizeDetails?.inventory);
+        setSelectedId(sizeDetails?.id);
 
         const params = new URLSearchParams(location.search);
         params.set('size', size);
+        params.set('id', sizeDetails?.id);
         navigate({ search: params.toString() });
-    };
-
-    const closeModal = () => {
-        setShowModal(false);
     };
 
     return (
@@ -98,11 +95,19 @@ function Liquor() {
             <div className="app-screen">
                 <div className="liquor">
                     <div className='liquor-container'>
-                        <div className={`card liquor-image ${isOutOfStock ? 'out-of-stock' : ''}`}>
-                            { isOutOfStock && <div className="warning-tape">Out of Stock</div> }
+                        <div className={`card liquor-image ${inventory === 0 ? 'out-of-stock' : ''}`}>
+                            {inventory === 0 && <div className="warning-tape">Out of Stock</div>}
                             {currentLogo && <img src={currentLogo} className="App-logo" alt="logo" />}
                         </div>
                         <div className="liquor-content">
+                            <div className='liquor-meta-info'>
+                                <div className='liquor-size'>
+                                    <p>Size: {selectedSize} </p>
+                                </div>
+                                <div className='liquor-price'>
+                                    <p>Price: ${selectedPrice} </p>
+                                </div>
+                            </div>
                             <div className="liquor-sizes">
                                 {Object.keys(logos).map((size) => (
                                     <button
@@ -117,14 +122,9 @@ function Liquor() {
                             </div>
                             <div className="liquor-info">
                                 <h1 className='liquor-title'>{product?.name}</h1>
-                                <br />
-                                <br />
                                 <p className='liquor-description'>{product?.description}</p>
-                                <br />
-                                <p className='liquor-size'></p> 
-                                <p className='liquor-price'>Size: {selectedSize} - Price: ${selectedPrice}</p>
-                                {isOutOfStock && <p className='out-of-stock-message'>Out of stock</p>}
                             </div>
+                            <LiquorOrder maxInventory={inventory} idSelected={selectedId} />
                         </div>
                     </div>
                 </div>

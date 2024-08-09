@@ -4,7 +4,9 @@ import logo from '../../assets/gato-tuerto-logo.png';
 import Modal from 'react-modal';
 import './AgeVerificationModal.css';
 import axios from 'axios';
-const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
+
+
+const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 
 const AgeVerificationModal = () => {

@@ -116,7 +116,7 @@ function Catalog({ searchTerm = '' }) {
     const renderProducts = (products) => {
         products = sortProducts(products);
     
-        return products.map(product => {
+        return products.map((product) => {
             const preferredSize = product.sizes.find(size => size.size === "750ml") || product.sizes[0];
             const totalInventory = product.sizes.reduce((sum, size) => sum + size.inventory, 0);
             const isOutOfStock = totalInventory === 0;
@@ -130,12 +130,12 @@ function Catalog({ searchTerm = '' }) {
     
             return (
                 <Product
-                    key={product.route}
+                    key={product.name}
                     route={product.route}
                     name={product.name}
                     price={preferredSize.price}
                     size={preferredSize.size}
-                    img={images[preferredSize.img.replace('liquors/', '')]} 
+                    img={images[preferredSize.img.replace('liquors/', '')]}
                     productClass={`${isOutOfStock ? 'out-of-stock' : ''}`}
                 />
             );

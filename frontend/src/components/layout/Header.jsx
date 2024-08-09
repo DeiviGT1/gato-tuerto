@@ -4,6 +4,7 @@ import './Header.css';
 import logo from '../../assets/gato-tuerto-logo.png';
 import logoIso from '../../assets/gato-tuerto-logo-iso.png';
 import SearchBar from './SearchBar';
+import cart from '../../assets/cart-shopping-solid.svg';
 
 function Header() {
   const location = useLocation();
@@ -63,13 +64,6 @@ function Header() {
               </Link>
             </div>
             <div>
-              <Link to="/gift-boxes" className={location.pathname === "/gift-boxes" ? "active" : ""} onClick={() => handleClick("/gift-boxes")}>
-                <p>
-                  <strong>GIFT BOXES</strong>
-                </p>
-              </Link>
-            </div>
-            <div>
               <Link to="/contact-us" className={location.pathname === "/contact-us" ? "active" : ""} onClick={() => handleClick("/contact-us")}>
                 <p>
                   <strong>CONTACT US</strong>
@@ -80,13 +74,20 @@ function Header() {
               <Link to="https://www.doordash.com/convenience/store/27766771/?event_type=autocomplete&pickup=false" target="_blank">
                 <p>
                   DOORDASH
-                </p>
+                </p>                  
               </Link>
             </div>
           </div>
           <div className="nav nav-right">
               <SearchBar placeholder="Search products..." />
           </div>
+          <div className="cart">
+            <button>
+              <img src={cart} alt="Cart" />
+              <span className="cart-count">6</span>
+            </button>
+          </div>
+
         </header>
       </div>
       {menuOpen && <div className="overlay visible" onClick={toggleMenu}></div>}
