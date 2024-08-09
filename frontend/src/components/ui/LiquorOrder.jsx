@@ -14,6 +14,7 @@ function LiquorOrder( { maxInventory, idSelected } ) {
     return (
         <div className='liquor-order'>
             <select
+                className='quantity-select'
                 id="quantity-select"
                 value={selectedQuantity}
                 onChange={(e) => setSelectedQuantity(parseInt(e.target.value))}

@@ -66,13 +66,24 @@ function CartSidebar({ isOpen, onClose }) {
   };
 
   const handleRemoveItem = (id) => {
-    localStorage.removeItem(id);
-    setCartItems(getCartItems()); // Update the cart items after removal
+    const updatedItems = cartItems.map(item => {
+      if (item.id === id) {
+        return { ...item, isRemoving: true };
+      }
+      return item;
+    });
+
+    setCartItems(updatedItems);
+
+    setTimeout(() => {
+      localStorage.removeItem(id);
+      setCartItems(getCartItems());
+    }, 300); // Match the duration of the animation
   };
 
   const handleQuantityChange = (id, newQuantity) => {
     localStorage.setItem(id, JSON.stringify(newQuantity));
-    setCartItems(getCartItems()); // Update the cart items after quantity change
+    setCartItems(getCartItems());
   };
 
   return (
@@ -82,34 +93,43 @@ function CartSidebar({ isOpen, onClose }) {
         <h2>Your Cart</h2>
         <div className="cart-items">
           {cartItems.length > 0 ? (
-            cartItems.map((item, index) => (
-              <div key={index} className="cart-item">
-                <img src={item.imgSrc} alt={item.name} className="item-image" />
-                <div className='cart-item-meta'>
-                  <h3>{item.name}</h3>
-                  <p>Size: {item.size}</p> 
-                  <div>
-                    <p>Amount: </p>
-                  <select
-                    value={item.quantity}
-                    onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-                  >
-                    {[...Array(item.maxInventory).keys()].map((number) => (
-                      <option key={number + 1} value={number + 1}>
-                        {number + 1}
-                      </option>
-                    ))}
-                  </select>
-                  </div>
-                </div>
-                <button 
-                  className="remove-item-btn"
-                  onClick={() => handleRemoveItem(item.id)}
+            <>
+              {cartItems.map((item, index) => (
+                <div 
+                  key={index} 
+                  id={`cart-item-${item.id}`} 
+                  className={`cart-item ${item.isRemoving ? 'fade-slide-out' : ''}`}
                 >
-                  &times;
-                </button>
+                  <img src={item.imgSrc} alt={item.name} className="item-image" />
+                  <div className='cart-item-meta'>
+                    <h3>{item.name}</h3>
+                    <p>Size: {item.size}</p> 
+                    <div>
+                      <p>Amount: </p>
+                      <select
+                        value={item.quantity}
+                        onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                      >
+                        {[...Array(item.maxInventory).keys()].map((number) => (
+                          <option key={number + 1} value={number + 1}>
+                            {number + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  <button 
+                    className="remove-item-btn"
+                    onClick={() => handleRemoveItem(item.id)}
+                  >
+                    &times;
+                  </button>
+                </div>
+              ))}
+              <div>
+                <button className="checkout-btn">Checkout</button>
               </div>
-            ))
+            </>
           ) : (
             <p>Your cart is empty.</p>
           )}

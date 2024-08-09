@@ -95,7 +95,7 @@ function Liquor() {
             <div className="app-screen">
                 <div className="liquor">
                     <div className='liquor-container'>
-                        <div className={`card liquor-image ${inventory === 0 ? 'out-of-stock' : ''}`}>
+                        <div className={`liquor-image ${inventory === 0 ? 'out-of-stock' : ''}`}>
                             {inventory === 0 && <div className="warning-tape">Out of Stock</div>}
                             {currentLogo && <img src={currentLogo} className="App-logo" alt="logo" />}
                         </div>
