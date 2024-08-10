@@ -81,7 +81,7 @@ function Checkout() {
   const calculateTotals = (items) => {
     const subTotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const salesTax = subTotal * 0.07;
-    const total = subTotal + salesTax;
+    const total = subTotal + salesTax + 10;
     const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
     
     setSubTotal(subTotal);
@@ -238,6 +238,7 @@ function Checkout() {
               <div className="checkout-summary">
                 <h3>Sub-Total: ${subTotal.toFixed(2)}</h3>
                 <h3>Sales Tax (7%): ${salesTax.toFixed(2)}</h3>
+                <h3>Delivery Fee: 10$</h3>
                 <h3>Total: ${total.toFixed(2)}</h3>
               </div>
             </section>

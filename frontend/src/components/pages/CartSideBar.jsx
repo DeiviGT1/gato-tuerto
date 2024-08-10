@@ -129,13 +129,10 @@ function CartSidebar({ isOpen, onClose }) {
                 </div>
               ))}
               <div>
-                <button className="checkout-btn">
-                  
-                  <Link to="/checkout">
+                  <Link to="/checkout" className="checkout-btn">
 
                     Checkout
                   </Link>
-                </button>
               </div>
             </>
           ) : (

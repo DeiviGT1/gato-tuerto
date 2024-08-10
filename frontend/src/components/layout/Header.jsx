@@ -112,11 +112,13 @@ function Header() {
         </header>
       </div>
 
+      {/* Add overlay that appears when the menu is open */}
+      {menuOpen && <div className="overlay visible" onClick={toggleMenu}></div>}
+      
       {cartOpen && (
         <div className="cart-overlay" onClick={closeCartOnClickOutside}></div>
       )}
       
-      {/* Renderizar el CartSidebar */}
       <CartSidebar isOpen={cartOpen} onClose={toggleCart} />
     </>
   );
