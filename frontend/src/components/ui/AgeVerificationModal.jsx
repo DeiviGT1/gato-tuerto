@@ -43,8 +43,6 @@ const AgeVerificationModal = () => {
             .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_MAPS_API_KEY}`)
             .then((response) => {
               const results = response.data.results;
-              console.log(results);
-              console.log(GOOGLE_MAPS_API_KEY)
               if (results.length > 0) {
                 const addressComponents = results[0].address_components;
                 const zipCodeComponent = addressComponents.find((component) =>
