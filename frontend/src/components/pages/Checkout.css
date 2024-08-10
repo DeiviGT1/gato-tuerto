@@ -1,0 +1,189 @@
+.checkout-container {
+  margin: 2.5% 5%;
+  font-family: 'Baskeville', serif;
+}
+
+.checkout-items {
+  margin-bottom: 20px;
+}
+
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.checkout-item-image {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+.checkout-item-info p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.remove-button:hover {
+  background-color: darkred;
+}
+
+.checkout-summary {
+  text-align: right;
+}
+
+.checkout-summary h3 {
+  margin: 5px 0;
+}
+
+.checkout-summary h3:nth-child(1),
+.checkout-summary h3:nth-child(2) {
+  font-weight: normal;
+  color: #555;
+}
+
+.checkout-summary h3:nth-child(3) {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.checkout-button {
+  background-color: #475169;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2em;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.checkout-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.checkout-button:hover:enabled {
+  background-color: #2f3e4e;
+}
+
+.order-now-button {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2em;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.order-now-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.order-now-button:hover:enabled {
+  background-color: #e67e22;
+}
+
+.toggle-resume-btn,
+.toggle-address-btn {
+  background-color: #475169;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.1em;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.toggle-resume-btn:hover,
+.toggle-address-btn:hover {
+  background-color: #2f3e4e;
+}
+
+.resume-section,
+.address-section,
+.payment-section {
+  margin-bottom: 20px;
+}
+
+.resume-section h2,
+.address-section h2,
+.payment-section h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.required {
+  color: red;
+  margin-left: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"] {
+  width: 99%;
+  padding: 0.5%;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="number"]:focus {
+  outline: none;
+  border-color: #475169;
+}
+
+.form-group input[type="radio"] {
+  margin-right: 10px;
+}
+
+.payment-section .form-group input[type="text"] {
+  max-width: 200px;
+}
+
+.checkout-container > section {
+  border: 1px solid #ddd;
+  padding: 2.5%;
+}
+
+.address-form input {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+textarea{
+  width: 100%;
+}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import './CartSidebar.css';
 import productsData from './products.json';
+
 
 const importAll = (r) => {
     let images = {};
@@ -54,7 +56,7 @@ function CartSidebar({ isOpen, onClose }) {
                   name: product.name,
                   size: size.size,
                   imgSrc: imgSrc,
-                  maxInventory: size.maxInventory || 12  // Default to 12 if not specified
+                  maxInventory: size.inventory || 12  // Default to 12 if not specified
                 };
               }
             }
@@ -127,7 +129,13 @@ function CartSidebar({ isOpen, onClose }) {
                 </div>
               ))}
               <div>
-                <button className="checkout-btn">Checkout</button>
+                <button className="checkout-btn">
+                  
+                  <Link to="/checkout">
+
+                    Checkout
+                  </Link>
+                </button>
               </div>
             </>
           ) : (

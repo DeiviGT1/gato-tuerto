@@ -8,6 +8,7 @@ import Liquor from "./components/pages/Liquor";
 import GiftBox from "./components/pages/GiftBox";
 import ContactUs from "./components/pages/ContactUs";
 import productsData from './components/pages/products.json';
+import Checkout from './components/pages/Checkout';
 import AgeVerificationModal from './components/ui/AgeVerificationModal'; // Import the component
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
                 <Route path="/catalog" element={<Catalog searchTerm={searchTerm} productsData={productsData} />} />
                 <Route path="/gift-boxes" element={<GiftBox />} />
                 <Route path="/contact-us" element={<ContactUs />} />
+                <Route path="/checkout" element={<Checkout />} />
             </Routes>
         </>
     );
