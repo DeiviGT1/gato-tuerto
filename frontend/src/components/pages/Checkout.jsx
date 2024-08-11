@@ -124,7 +124,7 @@ function Checkout() {
       total
     };
   
-    fetch('http://localhost:3001/checkout', {
+    fetch('https://gato-tuerto-server.vercel.app/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
