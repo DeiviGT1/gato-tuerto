@@ -205,11 +205,14 @@ function Checkout() {
                 {cartItems.length > 0 ? (
                   cartItems.map(item => (
                     <div key={item.id} className="checkout-item">
-                      <img src={item.imgSrc} alt={item.name} className="checkout-item-image" />
+                      <div>
+                        <img src={item.imgSrc} alt={item.name} className="checkout-item-image" />
+                      </div>
                       <div className="checkout-item-info">
                         <p>{item.name}</p>
                         <div>
-                          <p>Cantidad: </p>
+                          <div className='checkout-item-amount'>
+                          <p>Cantidad:   </p>
                           <select
                             value={item.quantity}
                             onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
@@ -220,15 +223,18 @@ function Checkout() {
                               </option>
                             ))}
                           </select>
+                          </div>
                         </div>
                         <p>Precio: ${(item.price * item.quantity).toFixed(2)}</p>
                       </div>
-                      <button 
-                        className="remove-button" 
-                        onClick={() => handleRemoveItem(item.id)}
-                      >
-                        Remove
-                      </button>
+                      <div>
+                        <button 
+                          className="remove-button" 
+                          onClick={() => handleRemoveItem(item.id)}
+                        >
+                          Remove
+                        </button>
+                      </div>
                     </div>
                   ))
                 ) : (

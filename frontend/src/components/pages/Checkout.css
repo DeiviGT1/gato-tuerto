@@ -9,15 +9,29 @@
 
 .checkout-item {
   display: flex;
+  height: 200px;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
 }
 
+.checkout-item>div {
+  align-items: center;
+  height: 100%;
+  width: 33%;
+  text-align-last: center;
+    align-content: center;
+}
+
+.checkout-item-amount{
+  display: flex;
+  justify-content: center;
+}
+
 .checkout-item-image {
-  width: 100px;
-  height: auto;
+
+  height: 100%;
   object-fit: contain;
 }
 
