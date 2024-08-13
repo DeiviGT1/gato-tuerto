@@ -117,30 +117,32 @@ function Catalog({ searchTerm = '' }) {
         products = sortProducts(products);
     
         return products.map((product) => {
-            const preferredSize = product.sizes.find(size => size.size === "750ml") || product.sizes[0];
-            const totalInventory = product.sizes.reduce((sum, size) => sum + size.inventory, 0);
-            const isOutOfStock = totalInventory === 0;
+            return product.sizes.map((size) => {
+                const totalInventory = product.sizes.reduce((sum, size) => sum + size.inventory, 0);
+                const isOutOfStock = totalInventory === 0;
     
-            if (selectedPrice) {
-                const [minPrice, maxPrice] = selectedPrice.split('-').map(Number);
-                if (preferredSize.price < minPrice || preferredSize.price > maxPrice) {
-                    return null; // Skip products outside the selected price range
+                if (selectedPrice) {
+                    const [minPrice, maxPrice] = selectedPrice.split('-').map(Number);
+                    if (size.price < minPrice || size.price > maxPrice) {
+                        return null; // Omitir productos fuera del rango de precio seleccionado
+                    }
                 }
-            }
     
-            return (
-                <Product
-                    key={product.name}
-                    route={product.route}
-                    name={product.name}
-                    price={preferredSize.price}
-                    size={preferredSize.size}
-                    img={images[preferredSize.img.replace('liquors/', '')]}
-                    productClass={`${isOutOfStock ? 'out-of-stock' : ''}`}
-                />
-            );
-        });
+                return (
+                    <Product
+                        key={`${product.name}-${size.size}`}
+                        route={product.route}
+                        name={product.name}
+                        price={size.price}
+                        size={size.size}
+                        img={images[size.img.replace('liquors/', '')]}
+                        productClass={`${isOutOfStock ? 'out-of-stock' : ''}`}
+                    />
+                );
+            });
+        }).flat(); // Aplanar la lista de arrays de productos para renderizarlos correctamente
     };
+    
     
 
     const allProducts = filterProducts(getAllProducts());
