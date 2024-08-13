@@ -137,6 +137,8 @@ function Catalog({ searchTerm = '' }) {
                         size={size.size}
                         img={images[size.img.replace('liquors/', '')]}
                         productClass={`${isOutOfStock ? 'out-of-stock' : ''}`}
+                        inventory={size.inventory}
+                        idSelected={size.id}
                     />
                 );
             });
