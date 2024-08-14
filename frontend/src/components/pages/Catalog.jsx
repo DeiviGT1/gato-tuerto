@@ -20,6 +20,7 @@ const images = importAll(require.context('./liquors', true, /\.(png|jpe?g|svg)$/
 
 function Catalog({ searchTerm = '' }) {
     const [selectedType, setSelectedType] = useState('');
+    const [selectedSubtype, setSelectedSubtype] = useState(''); 
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedPrice, setSelectedPrice] = useState('');
     const [selectedWineType, setSelectedWineType] = useState('');
@@ -27,13 +28,12 @@ function Catalog({ searchTerm = '' }) {
     const [orderBy, setOrderBy] = useState('');
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    
 
     const location = useLocation();
     const navigate = useNavigate();
     const query = new URLSearchParams(location.search);
     const searchQuery = query.get('search') || searchTerm;
-    
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
@@ -45,6 +45,7 @@ function Catalog({ searchTerm = '' }) {
     useEffect(() => {
         const params = new URLSearchParams(location.search);
         setSelectedType(params.get('type') || '');
+        setSelectedSubtype(params.get('subtype') || ''); 
         setSelectedBrand(params.get('brand') || '');
         setSelectedPrice(params.get('price') || '');
         setSelectedWineType(params.get('wineType') || '');
@@ -52,8 +53,9 @@ function Catalog({ searchTerm = '' }) {
         setOrderBy(params.get('orderBy') || '');
     }, [location.search]);
 
-    const handleFilterChange = (newType, newBrand, newPrice, newWineType, newVarietal, newOrderBy) => {
+    const handleFilterChange = (newType, newSubtype, newBrand, newPrice, newWineType, newVarietal, newOrderBy) => {
         setSelectedType(newType);
+        setSelectedSubtype(newSubtype); 
         setSelectedBrand(newBrand);
         setSelectedPrice(newPrice);
         setSelectedWineType(newWineType);
@@ -62,6 +64,7 @@ function Catalog({ searchTerm = '' }) {
 
         const params = new URLSearchParams();
         if (newType) params.set('type', newType);
+        if (newSubtype) params.set('subtype', newSubtype); 
         if (newBrand) params.set('brand', newBrand);
         if (newPrice) params.set('price', newPrice);
         if (newWineType) params.set('wineType', newWineType);
@@ -74,9 +77,9 @@ function Catalog({ searchTerm = '' }) {
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
         if (!isModalOpen) {
-            document.body.style.overflow = 'hidden'; // Disable background scroll
+            document.body.style.overflow = 'hidden'; 
         } else {
-            document.body.style.overflow = ''; // Re-enable background scroll
+            document.body.style.overflow = ''; 
         }
     };
 
@@ -84,8 +87,28 @@ function Catalog({ searchTerm = '' }) {
         let allProducts = [];
         items.types.forEach(type => {
             if (selectedType === 'others') {
+                // Excluir whiskey, tequila, vodka, rum, wine
                 if (!['whiskey', 'tequila', 'vodka', 'rum', 'wine'].includes(type.type)) {
                     type.subtypes.forEach(subtype => {
+                        if (!selectedSubtype || subtype.subtype === selectedSubtype) {
+                            subtype.products.forEach(brand => {
+                                if (!selectedBrand || brand.brand === selectedBrand) {
+                                    brand.products.forEach(product => {
+                                        if (
+                                            (!selectedWineType || product.wine_type === selectedWineType) &&
+                                            (!selectedVarietal || product.varietal === selectedVarietal)
+                                        ) {
+                                            allProducts.push(product);
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            } else if (!selectedType || type.type === selectedType) {
+                type.subtypes.forEach(subtype => {
+                    if (!selectedSubtype || subtype.subtype === selectedSubtype) {
                         subtype.products.forEach(brand => {
                             if (!selectedBrand || brand.brand === selectedBrand) {
                                 brand.products.forEach(product => {
@@ -98,22 +121,7 @@ function Catalog({ searchTerm = '' }) {
                                 });
                             }
                         });
-                    });
-                }
-            } else if (!selectedType || type.type === selectedType) {
-                type.subtypes.forEach(subtype => {
-                    subtype.products.forEach(brand => {
-                        if (!selectedBrand || brand.brand === selectedBrand) {
-                            brand.products.forEach(product => {
-                                if (
-                                    (!selectedWineType || product.wine_type === selectedWineType) &&
-                                    (!selectedVarietal || product.varietal === selectedVarietal)
-                                ) {
-                                    allProducts.push(product);
-                                }
-                            });
-                        }
-                    });
+                    }
                 });
             }
         });
@@ -125,7 +133,7 @@ function Catalog({ searchTerm = '' }) {
             product.name.toLowerCase().includes(searchQuery.toLowerCase())
         );
     };
-    
+
     const sortProducts = (products) => {
         return products.slice().sort((a, b) => {
             const sizeA = a.sizes.find(size => size.size === "750ml");
@@ -150,19 +158,19 @@ function Catalog({ searchTerm = '' }) {
 
     const renderProducts = (products) => {
         products = sortProducts(products);
-    
+
         return products.map((product) => {
             return product.sizes.map((size) => {
                 const totalInventory = product.sizes.reduce((sum, size) => sum + size.inventory, 0);
                 const isOutOfStock = totalInventory === 0;
-    
+
                 if (selectedPrice) {
                     const [minPrice, maxPrice] = selectedPrice.split('-').map(Number);
                     if (size.price < minPrice || size.price > maxPrice) {
                         return null;
                     }
                 }
-    
+
                 return (
                     <Product
                         key={`${product.name}-${size.size}`}
@@ -179,7 +187,7 @@ function Catalog({ searchTerm = '' }) {
             });
         }).flat();
     };
-    
+
     const allProducts = filterProducts(getAllProducts());
 
     return (
@@ -188,11 +196,11 @@ function Catalog({ searchTerm = '' }) {
             <div className="app-screen">
                 <div className="catalog-container">
                     <button className="filter-button" onClick={toggleModal}>
-                        <img src={filterButton}x alt="" />
-                        
-                        </button>
+                        <img src={filterButton} alt="" />
+                    </button>
                     <FilterComponent
                         selectedType={selectedType}
+                        selectedSubtype={selectedSubtype} 
                         selectedBrand={selectedBrand}
                         selectedPrice={selectedPrice}
                         selectedWineType={selectedWineType}
@@ -203,6 +211,7 @@ function Catalog({ searchTerm = '' }) {
                     <FilterModal isOpen={isModalOpen} onClose={toggleModal}>
                         <FilterComponent
                             selectedType={selectedType}
+                            selectedSubtype={selectedSubtype} 
                             selectedBrand={selectedBrand}
                             selectedPrice={selectedPrice}
                             selectedWineType={selectedWineType}
@@ -223,7 +232,7 @@ function Catalog({ searchTerm = '' }) {
                         )}
                     </div>
                 </div>
-            <Footer />
+                <Footer />
             </div>
         </>
     );

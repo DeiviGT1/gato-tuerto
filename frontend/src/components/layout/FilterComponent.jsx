@@ -1,24 +1,26 @@
-// src/layout/FilterComponent.jsx
-
 import React, { useState, useEffect } from 'react';
 import './FilterComponent.css';
 import items from '../pages/products.json';
 
-function FilterComponent({ selectedType, selectedBrand, selectedPrice, orderBy, selectedWineType, selectedVarietal, onFilterChange }) {
+function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selectedPrice, orderBy, selectedWineType, selectedVarietal, onFilterChange }) {
 
     const [brands, setBrands] = useState([]);
     const [wineTypes, setWineTypes] = useState([]);
     const [varietals, setVarietals] = useState([]);
+    const [subtypes, setSubtypes] = useState([]); // Nuevo estado
 
     useEffect(() => {
         let allBrands = [];
         let allWineTypes = [];
         let allVarietals = [];
+        let allSubtypes = []; // Nuevo
 
-        if (selectedType === 'wine') {
+        if (selectedType) {
             items.types.forEach(type => {
-                if (type.type === 'wine') {
+                if (type.type === selectedType) {
                     type.subtypes.forEach(subtype => {
+                        allSubtypes.push(subtype.subtype); // Llenar subtipos
+
                         subtype.products.forEach(product => {
                             const matchesWineType = !selectedWineType || product.products.some(p => p.wine_type === selectedWineType);
                             const matchesVarietal = !selectedVarietal || product.products.some(p => p.varietal === selectedVarietal);
@@ -43,42 +45,48 @@ function FilterComponent({ selectedType, selectedBrand, selectedPrice, orderBy, 
             setBrands([...new Set(allBrands)]);
             setWineTypes([...new Set(allWineTypes)]);
             setVarietals([...new Set(allVarietals)]);
+            setSubtypes([...new Set(allSubtypes)]); // Establecer subtipos únicos
         } else {
             setBrands([]);
             setWineTypes([]);
             setVarietals([]);
+            setSubtypes([]); // Limpiar subtipos
         }
     }, [selectedType, selectedWineType, selectedVarietal]);
 
     const handleTypeChange = (e) => {
         const newSelectedType = e.target.value;
-        onFilterChange(newSelectedType, "", "", "", "", orderBy); 
+        onFilterChange(newSelectedType, "", "", "", "", "", orderBy); 
+    };
+
+    const handleSubtypeChange = (e) => {
+        onFilterChange(selectedType, e.target.value, selectedBrand, selectedPrice, selectedWineType, selectedVarietal, orderBy);
     };
 
     const handleBrandChange = (e) => {
-        onFilterChange(selectedType, e.target.value, selectedPrice, selectedWineType, selectedVarietal, orderBy);
+        onFilterChange(selectedType, selectedSubtype, e.target.value, selectedPrice, selectedWineType, selectedVarietal, orderBy);
     };
 
     const handlePriceChange = (e) => {
-        onFilterChange(selectedType, selectedBrand, e.target.value, selectedWineType, selectedVarietal, orderBy);
+        onFilterChange(selectedType, selectedSubtype, selectedBrand, e.target.value, selectedWineType, selectedVarietal, orderBy);
     };
 
     const handleOrderByChange = (e) => {
-        onFilterChange(selectedType, selectedBrand, selectedPrice, selectedWineType, selectedVarietal, e.target.value);
+        onFilterChange(selectedType, selectedSubtype, selectedBrand, selectedPrice, selectedWineType, selectedVarietal, e.target.value);
     };
 
     const handleWineTypeChange = (e) => {
         const newWineType = e.target.value;
-        onFilterChange(selectedType, "", selectedPrice, newWineType, selectedVarietal, orderBy); 
+        onFilterChange(selectedType, selectedSubtype, selectedBrand, selectedPrice, newWineType, selectedVarietal, orderBy); 
     };
 
     const handleVarietalChange = (e) => {
         const newVarietal = e.target.value;
-        onFilterChange(selectedType, "", selectedPrice, selectedWineType, newVarietal, orderBy);
+        onFilterChange(selectedType, selectedSubtype, selectedBrand, selectedPrice, selectedWineType, newVarietal, orderBy);
     };
 
     const handleResetFilters = () => {
-        onFilterChange("", "", "", "", "", ""); 
+        onFilterChange("", "", "", "", "", "", ""); 
     };
 
     return (
@@ -94,6 +102,15 @@ function FilterComponent({ selectedType, selectedBrand, selectedPrice, orderBy, 
                     <option value="rum">Rum</option>
                     <option value="wine">Wine</option>
                     <option value="others">Others</option>
+                </select>
+            </div>
+            <div>
+                <label>Subtype:</label>
+                <select value={selectedSubtype} onChange={handleSubtypeChange} disabled={!selectedType}>
+                    <option value="">All</option>
+                    {subtypes.map(subtype => (
+                        <option key={subtype} value={subtype}>{subtype}</option>
+                    ))}
                 </select>
             </div>
             <div>
