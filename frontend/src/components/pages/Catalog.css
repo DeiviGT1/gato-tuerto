@@ -4,7 +4,8 @@
     justify-content: center;
     align-items: center;
 }
-.Catalog>section{
+
+.Catalog > section {
     width: 100%;
 }
 
@@ -44,15 +45,15 @@
     font-size: 24px;
 }
 
-.card>a{
+.card > a {
     height: 90%;
 }
 
-.card-name{
+.card-name {
     height: 50%;
 }
 
-.app-screen{
+.app-screen {
     position: relative;
     top: 10vh;
 }
@@ -83,7 +84,6 @@
     height: 50%;
 }
 
-
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust this to fit more columns */
@@ -96,7 +96,7 @@
     overflow: hidden;
 }
 
-.card-image>img {
+.card-image > img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -115,11 +115,10 @@
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust this to fit more columns */
     }
 
-    .Catalog{
-        margin: 2.5%;   
-        width: 95%;    
+    .Catalog {
+        margin: 2.5%;
+        width: 95%;
     }
-
 }
 
 .card {
@@ -152,4 +151,69 @@
 
 .card-image {
     position: relative;
+}
+
+.catalog-container {
+    display: flex;
+}
+
+.FilterComponent {
+    width: 20%;
+    min-width: 200px;
+    margin: 2.5% 1%;
+}
+
+.Catalog {
+    width: 80%;
+    margin: 2.5% 1%;
+}
+
+/* Modal and Button Styles */
+.filter-button {
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.filter-button>img{
+    filter: invert(1);
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .filter-button {
+        padding: 12px;
+        padding-top: 16px;
+        display: block; /* Show the filter button on mobile devices */
+    }
+
+    /* Hide the FilterComponent outside the modal on mobile devices */
+    .catalog-container > .FilterComponent {
+        display: none;
+    }
+
+    .catalog-container {
+        flex-direction: column;
+    }
+
+    .FilterComponent, .Catalog {
+        width: 100%;
+        margin: 2.5% 0;
+    }
+
+    /* Ensure the FilterComponent inside the modal is visible */
+    .filter-modal .FilterComponent {
+        display: block;
+    }
 }

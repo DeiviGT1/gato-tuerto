@@ -1,56 +1,89 @@
+// src/layout/FilterComponent.jsx
+
 import React, { useState, useEffect } from 'react';
 import './FilterComponent.css';
-import items from '../pages/products.json'; // Adjust the path as per your folder structure
+import items from '../pages/products.json';
 
-function FilterComponent({ selectedType, selectedBrand, selectedPrice, orderBy, onFilterChange }) {
+function FilterComponent({ selectedType, selectedBrand, selectedPrice, orderBy, selectedWineType, selectedVarietal, onFilterChange }) {
+
     const [brands, setBrands] = useState([]);
+    const [wineTypes, setWineTypes] = useState([]);
+    const [varietals, setVarietals] = useState([]);
 
     useEffect(() => {
-        if (selectedType) {
-            let newBrands = [];
-            if (selectedType === 'others') {
-                items.types.forEach(type => {
-                    if (!['whiskey', 'tequila', 'vodka', 'rum', 'wine'].includes(type.type)) {
-                        type.subtypes.forEach(subtype => {
-                            subtype.products.forEach(product => {
-                                newBrands.push(product.brand);
+        let allBrands = [];
+        let allWineTypes = [];
+        let allVarietals = [];
+
+        if (selectedType === 'wine') {
+            items.types.forEach(type => {
+                if (type.type === 'wine') {
+                    type.subtypes.forEach(subtype => {
+                        subtype.products.forEach(product => {
+                            const matchesWineType = !selectedWineType || product.products.some(p => p.wine_type === selectedWineType);
+                            const matchesVarietal = !selectedVarietal || product.products.some(p => p.varietal === selectedVarietal);
+
+                            if (matchesWineType && matchesVarietal) {
+                                allBrands.push(product.brand);
+                            }
+
+                            product.products.forEach(p => {
+                                if (!selectedWineType || p.wine_type === selectedWineType) {
+                                    if (p.varietal) allVarietals.push(p.varietal);
+                                }
+                                if (!selectedVarietal || p.varietal === selectedVarietal) {
+                                    if (p.wine_type) allWineTypes.push(p.wine_type);
+                                }
                             });
                         });
-                    }
-                });
-            } else {
-                const selectedTypeData = items.types.find(type => type.type === selectedType);
-                if (selectedTypeData) {
-                    newBrands = selectedTypeData.subtypes.flatMap(subtype =>
-                        subtype.products.map(product => product.brand)
-                    );
+                    });
                 }
-            }
-            setBrands([...new Set(newBrands)]);
+            });
+
+            setBrands([...new Set(allBrands)]);
+            setWineTypes([...new Set(allWineTypes)]);
+            setVarietals([...new Set(allVarietals)]);
         } else {
             setBrands([]);
+            setWineTypes([]);
+            setVarietals([]);
         }
-    }, [selectedType]);
+    }, [selectedType, selectedWineType, selectedVarietal]);
 
     const handleTypeChange = (e) => {
         const newSelectedType = e.target.value;
-        onFilterChange(newSelectedType, "", selectedPrice, orderBy); // Reset selectedBrand to ""
+        onFilterChange(newSelectedType, "", "", "", "", orderBy); 
     };
 
     const handleBrandChange = (e) => {
-        onFilterChange(selectedType, e.target.value, selectedPrice, orderBy);
+        onFilterChange(selectedType, e.target.value, selectedPrice, selectedWineType, selectedVarietal, orderBy);
     };
 
     const handlePriceChange = (e) => {
-        onFilterChange(selectedType, selectedBrand, e.target.value, orderBy);
+        onFilterChange(selectedType, selectedBrand, e.target.value, selectedWineType, selectedVarietal, orderBy);
     };
 
     const handleOrderByChange = (e) => {
-        onFilterChange(selectedType, selectedBrand, selectedPrice, e.target.value);
+        onFilterChange(selectedType, selectedBrand, selectedPrice, selectedWineType, selectedVarietal, e.target.value);
+    };
+
+    const handleWineTypeChange = (e) => {
+        const newWineType = e.target.value;
+        onFilterChange(selectedType, "", selectedPrice, newWineType, selectedVarietal, orderBy); 
+    };
+
+    const handleVarietalChange = (e) => {
+        const newVarietal = e.target.value;
+        onFilterChange(selectedType, "", selectedPrice, selectedWineType, newVarietal, orderBy);
+    };
+
+    const handleResetFilters = () => {
+        onFilterChange("", "", "", "", "", ""); 
     };
 
     return (
         <div className="FilterComponent">
+            <button className="reset-button" onClick={handleResetFilters}>Reset Filters</button>
             <div>
                 <label>Type:</label>
                 <select value={selectedType} onChange={handleTypeChange}>
@@ -73,14 +106,32 @@ function FilterComponent({ selectedType, selectedBrand, selectedPrice, orderBy, 
                 </select>
             </div>
             <div>
-                <label>Price (750ml):</label>
+                <label>Wine Type:</label>
+                <select value={selectedWineType} onChange={handleWineTypeChange} disabled={selectedType !== 'wine'}>
+                    <option value="">All</option>
+                    {wineTypes.map(wineType => (
+                        <option key={wineType} value={wineType}>{wineType}</option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                <label>Varietal:</label>
+                <select value={selectedVarietal} onChange={handleVarietalChange} disabled={selectedType !== 'wine'}>
+                    <option value="">All</option>
+                    {varietals.map(v => (
+                        <option key={v} value={v}>{v}</option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                <label>Price:</label>
                 <select value={selectedPrice} onChange={handlePriceChange}>
                     <option value="">All</option>
                     <option value="11.99-20.99">11.99 - 20.99</option>
                     <option value="21-27.99">21 - 27.99</option>
                     <option value="28-42.99">28 - 42.99</option>
-                    <option value="43-73.99">39 - 48.99</option>
-                    <option value="74-136.99">49 - 136.99</option>
+                    <option value="43-73.99">43 - 73.99</option>
+                    <option value="74-136.99">74 - 136.99</option>
                     <option value="137-10000">137 - 10000</option>
                 </select>
             </div>

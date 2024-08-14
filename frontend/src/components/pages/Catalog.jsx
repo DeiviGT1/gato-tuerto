@@ -4,8 +4,10 @@ import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import Product from "../ui/Product";
 import FilterComponent from "../layout/FilterComponent";
-import items from './products.json';
+import FilterModal from "../layout/FilterModal";
+import filterButton from "../../assets/filter-solid.svg";
 import LoadingSpinner from '../ui/LoadingSpinner';
+import items from './products.json';
 import './Catalog.css';
 
 const importAll = (r) => {
@@ -20,8 +22,12 @@ function Catalog({ searchTerm = '' }) {
     const [selectedType, setSelectedType] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedPrice, setSelectedPrice] = useState('');
+    const [selectedWineType, setSelectedWineType] = useState('');
+    const [selectedVarietal, setSelectedVarietal] = useState('');
     const [orderBy, setOrderBy] = useState('');
     const [loading, setLoading] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -41,22 +47,37 @@ function Catalog({ searchTerm = '' }) {
         setSelectedType(params.get('type') || '');
         setSelectedBrand(params.get('brand') || '');
         setSelectedPrice(params.get('price') || '');
+        setSelectedWineType(params.get('wineType') || '');
+        setSelectedVarietal(params.get('varietal') || '');
         setOrderBy(params.get('orderBy') || '');
     }, [location.search]);
 
-    const handleFilterChange = (newType, newBrand, newPrice, newOrderBy) => {
+    const handleFilterChange = (newType, newBrand, newPrice, newWineType, newVarietal, newOrderBy) => {
         setSelectedType(newType);
         setSelectedBrand(newBrand);
         setSelectedPrice(newPrice);
+        setSelectedWineType(newWineType);
+        setSelectedVarietal(newVarietal);
         setOrderBy(newOrderBy);
 
         const params = new URLSearchParams();
         if (newType) params.set('type', newType);
         if (newBrand) params.set('brand', newBrand);
         if (newPrice) params.set('price', newPrice);
+        if (newWineType) params.set('wineType', newWineType);
+        if (newVarietal) params.set('varietal', newVarietal);
         if (newOrderBy) params.set('orderBy', newOrderBy);
 
         navigate({ search: params.toString() });
+    };
+
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+        if (!isModalOpen) {
+            document.body.style.overflow = 'hidden'; // Disable background scroll
+        } else {
+            document.body.style.overflow = ''; // Re-enable background scroll
+        }
     };
 
     const getAllProducts = () => {
@@ -67,7 +88,14 @@ function Catalog({ searchTerm = '' }) {
                     type.subtypes.forEach(subtype => {
                         subtype.products.forEach(brand => {
                             if (!selectedBrand || brand.brand === selectedBrand) {
-                                allProducts = [...allProducts, ...brand.products];
+                                brand.products.forEach(product => {
+                                    if (
+                                        (!selectedWineType || product.wine_type === selectedWineType) &&
+                                        (!selectedVarietal || product.varietal === selectedVarietal)
+                                    ) {
+                                        allProducts.push(product);
+                                    }
+                                });
                             }
                         });
                     });
@@ -76,7 +104,14 @@ function Catalog({ searchTerm = '' }) {
                 type.subtypes.forEach(subtype => {
                     subtype.products.forEach(brand => {
                         if (!selectedBrand || brand.brand === selectedBrand) {
-                            allProducts = [...allProducts, ...brand.products];
+                            brand.products.forEach(product => {
+                                if (
+                                    (!selectedWineType || product.wine_type === selectedWineType) &&
+                                    (!selectedVarietal || product.varietal === selectedVarietal)
+                                ) {
+                                    allProducts.push(product);
+                                }
+                            });
                         }
                     });
                 });
@@ -124,7 +159,7 @@ function Catalog({ searchTerm = '' }) {
                 if (selectedPrice) {
                     const [minPrice, maxPrice] = selectedPrice.split('-').map(Number);
                     if (size.price < minPrice || size.price > maxPrice) {
-                        return null; // Omitir productos fuera del rango de precio seleccionado
+                        return null;
                     }
                 }
     
@@ -142,35 +177,51 @@ function Catalog({ searchTerm = '' }) {
                     />
                 );
             });
-        }).flat(); // Aplanar la lista de arrays de productos para renderizarlos correctamente
+        }).flat();
     };
     
-    
-
     const allProducts = filterProducts(getAllProducts());
 
     return (
         <>
             <Header />
             <div className="app-screen">
-                <FilterComponent
-                    selectedType={selectedType}
-                    selectedBrand={selectedBrand}
-                    selectedPrice={selectedPrice}
-                    orderBy={orderBy}
-                    onFilterChange={handleFilterChange}
-                />
-                <div className="overlay"></div>
-                <div className="Catalog">
-                    {loading ? (
-                        <LoadingSpinner />
-                    ) : (
-                        <section>
-                            <div className="card-container">
-                                {renderProducts(allProducts)}
-                            </div>
-                        </section>
-                    )}
+                <div className="catalog-container">
+                    <button className="filter-button" onClick={toggleModal}>
+                        <img src={filterButton}x alt="" />
+                        
+                        </button>
+                    <FilterComponent
+                        selectedType={selectedType}
+                        selectedBrand={selectedBrand}
+                        selectedPrice={selectedPrice}
+                        selectedWineType={selectedWineType}
+                        selectedVarietal={selectedVarietal}
+                        orderBy={orderBy}
+                        onFilterChange={handleFilterChange}
+                    />
+                    <FilterModal isOpen={isModalOpen} onClose={toggleModal}>
+                        <FilterComponent
+                            selectedType={selectedType}
+                            selectedBrand={selectedBrand}
+                            selectedPrice={selectedPrice}
+                            selectedWineType={selectedWineType}
+                            selectedVarietal={selectedVarietal}
+                            orderBy={orderBy}
+                            onFilterChange={handleFilterChange}
+                        />
+                    </FilterModal>
+                    <div className="Catalog">
+                        {loading ? (
+                            <LoadingSpinner />
+                        ) : (
+                            <section>
+                                <div className="card-container">
+                                    {renderProducts(allProducts)}
+                                </div>
+                            </section>
+                        )}
+                    </div>
                 </div>
             <Footer />
             </div>

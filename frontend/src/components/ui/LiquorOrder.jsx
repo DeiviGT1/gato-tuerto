@@ -9,6 +9,10 @@ function LiquorOrder( { maxInventory, idSelected } ) {
 
     const handleAddToCart = () => {
         localStorage.setItem(idSelected, JSON.stringify(selectedQuantity));
+
+        // Dispatch the custom event 'cartUpdated' after updating localStorage
+        const event = new Event('cartUpdated');
+        window.dispatchEvent(event);
     };
 
     return (

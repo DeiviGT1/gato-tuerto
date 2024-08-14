@@ -23,6 +23,18 @@ function Header() {
     updateCartCount();
   }, [cartOpen]);
 
+  useEffect(() => {
+    // Update cart count when the cart is updated
+    const handleCartUpdate = () => updateCartCount();
+
+    window.addEventListener('cartUpdated', handleCartUpdate);
+
+    // Cleanup the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('cartUpdated', handleCartUpdate);
+    };
+  }, []);
+
   const updateCartCount = () => {
     const count = Object.entries(localStorage)
       .filter(([key]) => key !== "isOver21" && key !== "zipCode")
@@ -106,13 +118,13 @@ function Header() {
           <div className="cart">
             <button onClick={toggleCart}>
               <img src={cart} alt="Cart" />
-              <span className="cart-count">{cartCount}</span>
+              {/* Changed from span to div */}
+              <div className="cart-count">{cartCount}</div>
             </button>
           </div>
         </header>
       </div>
 
-      {/* Add overlay that appears when the menu is open */}
       {menuOpen && <div className="overlay visible" onClick={toggleMenu}></div>}
       
       {cartOpen && (

@@ -69,13 +69,6 @@
                                             "inventory": 142
                                         },
                                         {
-                                            "id": "08811095532",
-                                            "size": "750ml gift",
-                                            "price": 43.69,
-                                            "img": "liquors/whiskey/scotch/buchanans/buchanans-12/buchanans-12-750ml-gift-box.png",
-                                            "inventory": 142
-                                        },
-                                        {
                                             "id": "08811095530",
                                             "size": "1L",
                                             "price": 66.69,
@@ -239,13 +232,6 @@
                                             "price": 40.24,
                                             "img": "liquors/whiskey/scotch/johnnie-walker/johnnie-walker-black-label/johnnie-walker-black-label-750ml.png",
                                             "inventory": 16
-                                        },
-                                        {
-                                            "id": "08807618514",
-                                            "size": "750ml gift",
-                                            "price": 40.24,
-                                            "img": "liquors/whiskey/scotch/johnnie-walker/johnnie-walker-black-label/johnnie-walker-black-label-750ml-gift-box.png",
-                                            "inventory": 31
                                         },
                                         {
                                             "id": "08811001140",
@@ -427,13 +413,6 @@
                                             "size": "750ml",
                                             "price": 37.94,
                                             "img": "liquors/whiskey/scotch/chivas/chivas-regal-12/chivas-regal-12-750ml.png",
-                                            "inventory": 41
-                                        },
-                                        {
-                                            "id": "08043211616",
-                                            "size": "750ml gift",
-                                            "price": 37.94,
-                                            "img": "liquors/whiskey/scotch/chivas/chivas-regal-12/chivas-regal-12-750ml-gift-box.png",
                                             "inventory": 41
                                         },
                                         {
@@ -1021,13 +1000,6 @@
                                             "size": "750ml",
                                             "price": 28.74,
                                             "img": "liquors/whiskey/bourbon/jack-daniels/jack-daniels-black/jack-daniels-black-750ml.png",
-                                            "inventory": 56
-                                        },
-                                        {
-                                            "id": "08218409046",
-                                            "size": "750ml gift",
-                                            "price": 28.74,
-                                            "img": "liquors/whiskey/bourbon/jack-daniels/jack-daniels-black/jack-daniels-black-750ml-gift-box.png",
                                             "inventory": 56
                                         },
                                         {
@@ -2247,13 +2219,6 @@
                                             "size": "750ml",
                                             "price": 56.34,
                                             "img": "liquors/tequila/jalisco/don-julio/don-julio-blanco/don-julio-blanco-750ml.png",
-                                            "inventory": 23
-                                        },
-                                        {
-                                            "id": "67454500000",
-                                            "size": "750ml gift",
-                                            "price": 56.34,
-                                            "img": "liquors/tequila/jalisco/don-julio/don-julio-blanco/don-julio-blanco-750ml-gift-box.png",
                                             "inventory": 23
                                         },
                                         {
@@ -4801,6 +4766,8 @@
                                     "route": "caymus-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "Caymus Vineyards is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "01722451010",
@@ -4835,6 +4802,8 @@
                                     "route": "prisoner-red-blend",
                                     "modal": false,
                                     "description": "The Prisoner Wine Company is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Red Blend",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "85936900153",
@@ -4850,6 +4819,8 @@
                                     "route": "prisoner-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "The Prisoner Wine Company is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "08600325514",
@@ -4865,6 +4836,8 @@
                                     "route": "prisoner-pinot-noir",
                                     "modal": false,
                                     "description": "The Prisoner Wine Company is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Pinot Noir",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "08600325520",
@@ -4881,16 +4854,18 @@
                             "brand": "Wade",
                             "products": [
                                 {
-                                    "name": "Wade Zinfandel Cabernet Sauvignon",
-                                    "route": "wade-zinfandel-cabernet-sauvignon",
+                                    "name": "Wade Cabernet Sauvignon",
+                                    "route": "wade-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "Wade Vineyards is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "935315555",
                                             "size": "750ml",
                                             "price": 114.99,
-                                            "img": "liquors/wine/american/wade/wade-zinfandel-cabernet-sauvignon/wade-zinfandel-cabernet-sauvignon-750ml.png",
+                                            "img": "liquors/wine/american/wade/wade-cabernet-sauvignon/wade-cabernet-sauvignon-750ml.png",
                                             "inventory": 2
                                         }
                                     ]
@@ -4905,6 +4880,8 @@
                                     "route": "nickel-nickel-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "Nickel & Nickel is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "981081",
@@ -4925,6 +4902,8 @@
                                     "route": "joseph-phelps-insignia",
                                     "modal": false,
                                     "description": "Joseph Phelps Vineyards is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Red Blend",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "01046520890",
@@ -4945,6 +4924,8 @@
                                     "route": "silver-oak-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "Silver Oak is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "2004",
@@ -4965,6 +4946,8 @@
                                     "route": "josh-cellars-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "Josh Cellars is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "193268",
@@ -4980,6 +4963,8 @@
                                     "route": "josh-cellars-merlot",
                                     "modal": false,
                                     "description": "Josh Cellars is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Merlot",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "328073",
@@ -5000,6 +4985,8 @@
                                     "route": "j-lohr-signature-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "J Lohr is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "08912139852",
@@ -5020,6 +5007,8 @@
                                     "route": "zd-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "ZD Wines is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "256547822",
@@ -5040,6 +5029,8 @@
                                     "route": "belle-glos-pinot-noir",
                                     "modal": false,
                                     "description": "Belle Glos is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Pinot Noir",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "962334",
@@ -5060,6 +5051,8 @@
                                     "route": "emmolo-merlot",
                                     "modal": false,
                                     "description": "Emmolo is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Merlot",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5075,6 +5068,8 @@
                                     "route": "emmolo-sauvignon-blanc",
                                     "modal": false,
                                     "description": "Emmolo is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Sauvignon Blanc",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5095,6 +5090,8 @@
                                     "route": "taylor-port",
                                     "modal": false,
                                     "description": "Taylor Port is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Tempranillo",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5122,6 +5119,8 @@
                                     "route": "duckhorn-merlot",
                                     "modal": false,
                                     "description": "Duckhorn is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Merlot",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5137,6 +5136,8 @@
                                     "route": "duckhorn-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "Duckhorn is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5152,6 +5153,8 @@
                                     "route": "duckhorn-sauvignon-blanc",
                                     "modal": false,
                                     "description": "Duckhorn is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Sauvignon Blanc",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5172,6 +5175,8 @@
                                     "route": "heitz-cellar-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "Heitz Cellar is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5192,6 +5197,8 @@
                                     "route": "frogs-leap-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "Frog's Leap is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5212,6 +5219,8 @@
                                     "route": "cakebread-cellars-pinot-noir",
                                     "modal": false,
                                     "description": "Cakebread Cellars is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Pinot Noir",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5238,6 +5247,8 @@
                                     "route": "bouchard-aine-fils-puligny-montrachet",
                                     "modal": false,
                                     "description": "Bouchard Ain\u00e9 & Fils Puligny-Montrachet is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Charonnay",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "01169900687",
@@ -5258,6 +5269,8 @@
                                     "route": "chateau-desclans-whispering-angel-rose",
                                     "modal": false,
                                     "description": "Chateau d'Esclans Whispering Angel is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Rose",
+                                    "wine_type": "Vino Rosado",
                                     "sizes": [
                                         {
                                             "id": "08832000196",
@@ -5273,6 +5286,8 @@
                                     "route": "chateau-desclans-rock-angel-rose",
                                     "modal": false,
                                     "description": "Chateau d'Esclans Rock Angel is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Rose",
+                                    "wine_type": "Vino Rosado",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5288,6 +5303,8 @@
                                     "route": "chateau-desclans-the-beach",
                                     "modal": false,
                                     "description": "Chateau d'Esclans Whispering Angel The Beach is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Rose",
+                                    "wine_type": "Vino Rosado",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5308,6 +5325,8 @@
                                     "route": "risata-moscato-dasti",
                                     "modal": false,
                                     "description": "Risata Moscato d'Asti is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Moscato",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5323,6 +5342,8 @@
                                     "route": "risata-pink-moscato",
                                     "modal": false,
                                     "description": "Risata Pink Moscato is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Moscato",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5343,6 +5364,8 @@
                                     "route": "bartenura-moscato",
                                     "modal": false,
                                     "description": "Bartenura Moscato is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Moscato",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5369,6 +5392,8 @@
                                     "route": "cloudy-bay-sauvignon-blanc",
                                     "modal": false,
                                     "description": "Cloudy Bay Sauvignon Blanc is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Sauvignon Blanc",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5389,6 +5414,8 @@
                                     "route": "cupcake-sauvignon-blanc",
                                     "modal": false,
                                     "description": "Cupcake Sauvignon Blanc is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Sauvignon Blanc",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5409,6 +5436,8 @@
                                     "route": "nobilo-sauvignon-blanc",
                                     "modal": false,
                                     "description": "Nobilo Sauvignon Blanc is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Sauvignon Blanc",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5435,6 +5464,8 @@
                                     "route": "protos-tinto-fino",
                                     "modal": false,
                                     "description": "Protos Tinto Fino is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Tempranillo",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "03938300374",
@@ -5455,6 +5486,8 @@
                                     "route": "pago-de-los-capellanes-crianza-tinto-crianza",
                                     "modal": false,
                                     "description": "Pago De Los Capellanes Crianza Tinto Crianza is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Tempranillo",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "8437013744836",
@@ -5470,6 +5503,8 @@
                                     "route": "pago-de-los-capellanes-joven-roble",
                                     "modal": false,
                                     "description": "Pago De Los Capellanes Joven Roble is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Tempranillo",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "8437013744829",
@@ -5490,6 +5525,8 @@
                                     "route": "marques-de-risqual-reserva",
                                     "modal": false,
                                     "description": "Marques de Risqual Reserva is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Tempranillo",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "08832000319",
@@ -5505,6 +5542,8 @@
                                     "route": "marques-de-risqual-gran-reserva",
                                     "modal": false,
                                     "description": "Marques de Risqual Gran Reserva is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Tempranillo",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "MDRGRSV",
@@ -5531,6 +5570,8 @@
                                     "route": "tenuta-san-guido-sassicaia",
                                     "modal": false,
                                     "description": "Tenuta San Guido is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "08469249200",
@@ -5551,6 +5592,8 @@
                                     "route": "tignanello-toscana",
                                     "modal": false,
                                     "description": "Tignanello is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Sangiovese",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "08858600246",
@@ -5571,6 +5614,8 @@
                                     "route": "santa-margherita-pinot-grigio",
                                     "modal": false,
                                     "description": "Santa Margherita is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Pinot Grigio",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "63298720020",
@@ -5591,6 +5636,8 @@
                                     "route": "stella-rosa-black",
                                     "modal": false,
                                     "description": "Stella Rosa is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Moscato",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5613,6 +5660,8 @@
                                     "route": "stella-rosa-moscato-dasti",
                                     "modal": false,
                                     "description": "Stella Rosa is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Moscato",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5628,6 +5677,8 @@
                                     "route": "stella-rosa-stella-pink",
                                     "modal": false,
                                     "description": "Stella Rosa is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Moscato",
+                                    "wine_type": "Vino Blanco",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5648,6 +5699,8 @@
                                     "route": "roscato-sparkling-rosso-dolce",
                                     "modal": false,
                                     "description": "Roscato is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Lambrusco",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "",
@@ -5681,6 +5734,8 @@
                                     "route": "gaia-cabernet-sauvignon",
                                     "modal": false,
                                     "description": "Gaia is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "87971600241",
@@ -5696,6 +5751,8 @@
                                     "route": "gaia-cabernet-franc",
                                     "modal": false,
                                     "description": "Gaia is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Franc",
+                                    "wine_type": "Vino Tinto",
                                     "sizes": [
                                         {
                                             "id": "87971600238",

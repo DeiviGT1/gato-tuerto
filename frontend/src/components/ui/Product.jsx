@@ -12,6 +12,10 @@ function Product({ route, name, price, size, img, productClass, inventory, idSel
 
     const handleAddToCart = () => {
         localStorage.setItem(idSelected, JSON.stringify(selectedQuantity));
+
+        // Dispatch the custom event 'cartUpdated' after updating localStorage
+        const event = new Event('cartUpdated');
+        window.dispatchEvent(event);
     };
 
     useEffect(() => {
@@ -49,29 +53,28 @@ function Product({ route, name, price, size, img, productClass, inventory, idSel
                     
                 </div>
             </Link>
-                <div className='liquor-order'>
-                        <select
-                            className='quantity-select'
-                            id="quantity-select"
-                            value={selectedQuantity}
-                            onChange={(e) => setSelectedQuantity(parseInt(e.target.value))}
-                        >
-                            {[...Array(inventory).keys()].map((number) => (
-                                <option key={number + 1} value={number + 1}>
-                                    {number + 1}
-                                </option>
-                            ))}
-                        </select>
+            <div className='liquor-order'>
+                <select
+                    className='quantity-select'
+                    id="quantity-select"
+                    value={selectedQuantity}
+                    onChange={(e) => setSelectedQuantity(parseInt(e.target.value))}
+                >
+                    {[...Array(inventory).keys()].map((number) => (
+                        <option key={number + 1} value={number + 1}>
+                            {number + 1}
+                        </option>
+                    ))}
+                </select>
 
-                        <button
-                            className='liquor-order-button'
-                            onClick={handleAddToCart}
-                            disabled={selectedQuantity < 1}
-                        >
-                            Add to Cart
-                        </button>
-                </div>
-            
+                <button
+                    className='liquor-order-button'
+                    onClick={handleAddToCart}
+                    disabled={selectedQuantity < 1}
+                >
+                    Add to Cart
+                </button>
+            </div>
         </div>
     );
 }

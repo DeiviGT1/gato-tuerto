@@ -95,6 +95,10 @@ function Checkout() {
     const updatedItems = cartItems.filter(item => item.id !== id);
     setCartItems(updatedItems);
     calculateTotals(updatedItems);
+
+    // Dispatch the custom event 'cartUpdated' after updating localStorage
+    const event = new Event('cartUpdated');
+    window.dispatchEvent(event);
   };
 
   const handleQuantityChange = (id, newQuantity) => {
@@ -104,6 +108,10 @@ function Checkout() {
     );
     setCartItems(updatedItems);
     calculateTotals(updatedItems);
+
+    // Dispatch the custom event 'cartUpdated' after updating localStorage
+    const event = new Event('cartUpdated');
+    window.dispatchEvent(event);
   };
 
   const handleCheckout = () => {
@@ -200,7 +208,7 @@ function Checkout() {
 
           {showResume && (
             <section className="resume-section">
-              <h2>Resume</h2>
+              <h2>Cart resume</h2>
               <div className="checkout-items">
                 {cartItems.length > 0 ? (
                   cartItems.map(item => (
@@ -225,7 +233,9 @@ function Checkout() {
                           </select>
                           </div>
                         </div>
-                        <p>Precio: ${(item.price * item.quantity).toFixed(2)}</p>
+                        <div>
+                          <p>Precio: ${(item.price * item.quantity).toFixed(2)}</p>
+                        </div>
                       </div>
                       <div>
                         <button 
