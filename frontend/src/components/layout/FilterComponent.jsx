@@ -7,52 +7,38 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
     const [brands, setBrands] = useState([]);
     const [wineTypes, setWineTypes] = useState([]);
     const [varietals, setVarietals] = useState([]);
-    const [subtypes, setSubtypes] = useState([]); // Nuevo estado
+    const [subtypes, setSubtypes] = useState([]);
 
     useEffect(() => {
         let allBrands = [];
         let allWineTypes = [];
         let allVarietals = [];
-        let allSubtypes = []; // Nuevo
+        let allSubtypes = [];
 
-        if (selectedType) {
-            items.types.forEach(type => {
-                if (type.type === selectedType) {
-                    type.subtypes.forEach(subtype => {
-                        allSubtypes.push(subtype.subtype); // Llenar subtipos
+        items.types.forEach(type => {
+            if (!selectedType || type.type === selectedType || selectedType === 'others' && !['whiskey', 'tequila', 'vodka', 'rum', 'wine'].includes(type.type)) {
+                type.subtypes.forEach(subtype => {
+                    allSubtypes.push(subtype.subtype);
 
+                    if (!selectedSubtype || selectedSubtype === subtype.subtype) {
                         subtype.products.forEach(product => {
-                            const matchesWineType = !selectedWineType || product.products.some(p => p.wine_type === selectedWineType);
-                            const matchesVarietal = !selectedVarietal || product.products.some(p => p.varietal === selectedVarietal);
-
-                            if (matchesWineType && matchesVarietal) {
-                                allBrands.push(product.brand);
-                            }
+                            allBrands.push(product.brand);
 
                             product.products.forEach(p => {
-                                if (!selectedWineType || p.wine_type === selectedWineType) {
-                                    if (p.varietal) allVarietals.push(p.varietal);
-                                }
-                                if (!selectedVarietal || p.varietal === selectedVarietal) {
-                                    if (p.wine_type) allWineTypes.push(p.wine_type);
-                                }
+                                if (p.wine_type) allWineTypes.push(p.wine_type);
+                                if (p.varietal) allVarietals.push(p.varietal);
                             });
                         });
-                    });
-                }
-            });
+                    }
+                });
+            }
+        });
 
-            setBrands([...new Set(allBrands)]);
-            setWineTypes([...new Set(allWineTypes)]);
-            setVarietals([...new Set(allVarietals)]);
-            setSubtypes([...new Set(allSubtypes)]); // Establecer subtipos únicos
-        } else {
-            setBrands([]);
-            setWineTypes([]);
-            setVarietals([]);
-            setSubtypes([]); // Limpiar subtipos
-        }
-    }, [selectedType, selectedWineType, selectedVarietal]);
+        setBrands([...new Set(allBrands)]);
+        setWineTypes([...new Set(allWineTypes)]);
+        setVarietals([...new Set(allVarietals)]);
+        setSubtypes([...new Set(allSubtypes)]);
+    }, [selectedType, selectedSubtype, selectedWineType, selectedVarietal]);
 
     const handleTypeChange = (e) => {
         const newSelectedType = e.target.value;
@@ -60,7 +46,7 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
     };
 
     const handleSubtypeChange = (e) => {
-        onFilterChange(selectedType, e.target.value, selectedBrand, selectedPrice, selectedWineType, selectedVarietal, orderBy);
+        onFilterChange(selectedType, e.target.value, "", selectedPrice, "", "", orderBy);
     };
 
     const handleBrandChange = (e) => {
@@ -106,16 +92,24 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
             </div>
             <div>
                 <label>Subtype:</label>
-                <select value={selectedSubtype} onChange={handleSubtypeChange} disabled={!selectedType}>
+                <select value={selectedSubtype} onChange={handleSubtypeChange}>
                     <option value="">All</option>
-                    {subtypes.map(subtype => (
-                        <option key={subtype} value={subtype}>{subtype}</option>
-                    ))}
+                    {subtypes.map(subtype => {
+                        const formattedSubtype = subtype
+                            .replace(/-/g, ' ')
+                            .replace(/\b\w/g, char => char.toUpperCase());
+
+                        return (
+                            <option key={subtype} value={subtype}>
+                                {formattedSubtype}
+                            </option>
+                        );
+                    })}
                 </select>
             </div>
             <div>
                 <label>Brand:</label>
-                <select value={selectedBrand} onChange={handleBrandChange} disabled={!selectedType}>
+                <select value={selectedBrand} onChange={handleBrandChange}>
                     <option value="">All</option>
                     {brands.map(brand => (
                         <option key={brand} value={brand}>{brand}</option>
