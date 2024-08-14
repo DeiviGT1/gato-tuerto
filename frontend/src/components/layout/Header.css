@@ -215,7 +215,7 @@ a:hover::after {
   }
   
   .nav-left{
-    width: 50%;
+    width: 45%;
   }
 
   .nav-left>button{
@@ -230,12 +230,11 @@ a:hover::after {
   }
 
   .nav-left>button>a>img{
-    width: 100%;
     height: 100%;
   }
 
   .nav-right{
-    width: 60%;
+    width: 55%;
   }
 }
 
@@ -256,7 +255,6 @@ a:hover::after {
 
 .cart {
   position: relative;
-  width: 10%;
   height: 100%;
   display: flex;
   align-items: center;
