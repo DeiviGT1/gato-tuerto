@@ -209,11 +209,12 @@
 
     .FilterComponent, .Catalog {
         width: 100%;
-        margin: 2.5% 0;
+        margin: 0;
     }
 
     /* Ensure the FilterComponent inside the modal is visible */
     .filter-modal .FilterComponent {
         display: block;
+        text-align: -webkit-center;
     }
 }

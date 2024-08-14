@@ -3983,7 +3983,7 @@
                                         },
                                         {
                                             "id": "08048001545",
-                                            "size": "PET 750ml",
+                                            "size": "750ml PET",
                                             "price": 17.24,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-superior/bacardi-superior-pet-750ml.png",
                                             "inventory": 54
@@ -4033,7 +4033,7 @@
                                         },
                                         {
                                             "id": "08048002546",
-                                            "size": "PET 750ml",
+                                            "size": "750ml PET",
                                             "price": 17.24,
                                             "img": "liquors/rum/puerto-rico/bacardi/bacardi-gold/bacardi-gold-pet-750ml.png",
                                             "inventory": 27

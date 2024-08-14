@@ -23,6 +23,7 @@ function Catalog({ searchTerm = '' }) {
     const [selectedSubtype, setSelectedSubtype] = useState(''); 
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedPrice, setSelectedPrice] = useState('');
+    const [selectedSize, setSelectedSize] = useState(''); // New size filter
     const [selectedWineType, setSelectedWineType] = useState('');
     const [selectedVarietal, setSelectedVarietal] = useState('');
     const [orderBy, setOrderBy] = useState('');
@@ -48,16 +49,18 @@ function Catalog({ searchTerm = '' }) {
         setSelectedSubtype(params.get('subtype') || ''); 
         setSelectedBrand(params.get('brand') || '');
         setSelectedPrice(params.get('price') || '');
+        setSelectedSize(params.get('size') || ''); // New size filter
         setSelectedWineType(params.get('wineType') || '');
         setSelectedVarietal(params.get('varietal') || '');
         setOrderBy(params.get('orderBy') || '');
     }, [location.search]);
 
-    const handleFilterChange = (newType, newSubtype, newBrand, newPrice, newWineType, newVarietal, newOrderBy) => {
+    const handleFilterChange = (newType, newSubtype, newBrand, newPrice, newSize, newWineType, newVarietal, newOrderBy) => {
         setSelectedType(newType);
         setSelectedSubtype(newSubtype); 
         setSelectedBrand(newBrand);
         setSelectedPrice(newPrice);
+        setSelectedSize(newSize); // New size filter
         setSelectedWineType(newWineType);
         setSelectedVarietal(newVarietal);
         setOrderBy(newOrderBy);
@@ -67,6 +70,7 @@ function Catalog({ searchTerm = '' }) {
         if (newSubtype) params.set('subtype', newSubtype); 
         if (newBrand) params.set('brand', newBrand);
         if (newPrice) params.set('price', newPrice);
+        if (newSize) params.set('size', newSize); // New size filter
         if (newWineType) params.set('wineType', newWineType);
         if (newVarietal) params.set('varietal', newVarietal);
         if (newOrderBy) params.set('orderBy', newOrderBy);
@@ -87,19 +91,24 @@ function Catalog({ searchTerm = '' }) {
         let allProducts = [];
         items.types.forEach(type => {
             if (selectedType === 'others') {
-                // Excluir whiskey, tequila, vodka, rum, wine
                 if (!['whiskey', 'tequila', 'vodka', 'rum', 'wine'].includes(type.type)) {
                     type.subtypes.forEach(subtype => {
                         if (!selectedSubtype || subtype.subtype === selectedSubtype) {
                             subtype.products.forEach(brand => {
                                 if (!selectedBrand || brand.brand === selectedBrand) {
                                     brand.products.forEach(product => {
-                                        if (
-                                            (!selectedWineType || product.wine_type === selectedWineType) &&
-                                            (!selectedVarietal || product.varietal === selectedVarietal)
-                                        ) {
-                                            allProducts.push(product);
-                                        }
+                                        product.sizes.forEach(size => {
+                                            if (
+                                                (!selectedWineType || product.wine_type === selectedWineType) &&
+                                                (!selectedVarietal || product.varietal === selectedVarietal) &&
+                                                (!selectedSize || size.size === selectedSize) // New size filter
+                                            ) {
+                                                allProducts.push({
+                                                    ...product,
+                                                    size,
+                                                });
+                                            }
+                                        });
                                     });
                                 }
                             });
@@ -112,12 +121,18 @@ function Catalog({ searchTerm = '' }) {
                         subtype.products.forEach(brand => {
                             if (!selectedBrand || brand.brand === selectedBrand) {
                                 brand.products.forEach(product => {
-                                    if (
-                                        (!selectedWineType || product.wine_type === selectedWineType) &&
-                                        (!selectedVarietal || product.varietal === selectedVarietal)
-                                    ) {
-                                        allProducts.push(product);
-                                    }
+                                    product.sizes.forEach(size => {
+                                        if (
+                                            (!selectedWineType || product.wine_type === selectedWineType) &&
+                                            (!selectedVarietal || product.varietal === selectedVarietal) &&
+                                            (!selectedSize || size.size === selectedSize) // New size filter
+                                        ) {
+                                            allProducts.push({
+                                                ...product,
+                                                size,
+                                            });
+                                        }
+                                    });
                                 });
                             }
                         });
@@ -136,10 +151,8 @@ function Catalog({ searchTerm = '' }) {
 
     const sortProducts = (products) => {
         return products.slice().sort((a, b) => {
-            const sizeA = a.sizes.find(size => size.size === "750ml");
-            const sizeB = b.sizes.find(size => size.size === "750ml");
-            const priceA = sizeA ? sizeA.price : 0;
-            const priceB = sizeB ? sizeB.price : 0;
+            const priceA = a.size.price || 0;
+            const priceB = b.size.price || 0;
             const nameA = a.name.toLowerCase();
             const nameB = b.name.toLowerCase();
 
@@ -160,32 +173,29 @@ function Catalog({ searchTerm = '' }) {
         products = sortProducts(products);
 
         return products.map((product) => {
-            return product.sizes.map((size) => {
-                const totalInventory = product.sizes.reduce((sum, size) => sum + size.inventory, 0);
-                const isOutOfStock = totalInventory === 0;
+            const isOutOfStock = product.size.inventory === 0;
 
-                if (selectedPrice) {
-                    const [minPrice, maxPrice] = selectedPrice.split('-').map(Number);
-                    if (size.price < minPrice || size.price > maxPrice) {
-                        return null;
-                    }
+            if (selectedPrice) {
+                const [minPrice, maxPrice] = selectedPrice.split('-').map(Number);
+                if (product.size.price < minPrice || product.size.price > maxPrice) {
+                    return null;
                 }
+            }
 
-                return (
-                    <Product
-                        key={`${product.name}-${size.size}`}
-                        route={product.route}
-                        name={product.name}
-                        price={size.price}
-                        size={size.size}
-                        img={images[size.img.replace('liquors/', '')]}
-                        productClass={`${isOutOfStock ? 'out-of-stock' : ''}`}
-                        inventory={size.inventory}
-                        idSelected={size.id}
-                    />
-                );
-            });
-        }).flat();
+            return (
+                <Product
+                    key={`${product.name}-${product.size.size}`}
+                    route={product.route}
+                    name={product.name}
+                    price={product.size.price}
+                    size={product.size.size}
+                    img={images[product.size.img.replace('liquors/', '')]}
+                    productClass={`${isOutOfStock ? 'out-of-stock' : ''}`}
+                    inventory={product.size.inventory}
+                    idSelected={product.size.id}
+                />
+            );
+        });
     };
 
     const allProducts = filterProducts(getAllProducts());
@@ -203,6 +213,7 @@ function Catalog({ searchTerm = '' }) {
                         selectedSubtype={selectedSubtype} 
                         selectedBrand={selectedBrand}
                         selectedPrice={selectedPrice}
+                        selectedSize={selectedSize} // New size filter
                         selectedWineType={selectedWineType}
                         selectedVarietal={selectedVarietal}
                         orderBy={orderBy}
@@ -214,6 +225,7 @@ function Catalog({ searchTerm = '' }) {
                             selectedSubtype={selectedSubtype} 
                             selectedBrand={selectedBrand}
                             selectedPrice={selectedPrice}
+                            selectedSize={selectedSize} // New size filter
                             selectedWineType={selectedWineType}
                             selectedVarietal={selectedVarietal}
                             orderBy={orderBy}
