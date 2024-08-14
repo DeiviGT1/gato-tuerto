@@ -255,6 +255,7 @@ a:hover::after {
 
 .cart {
   position: relative;
+  width: 15%;
   height: 100%;
   display: flex;
   align-items: center;
