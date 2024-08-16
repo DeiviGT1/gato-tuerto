@@ -82,12 +82,14 @@ function Liquor() {
         setSelectedPrice(sizeDetails?.price);
         setInventory(sizeDetails?.inventory);
         setSelectedId(sizeDetails?.id);
-
+    
+        // Actualiza la URL sin recargar la página
         const params = new URLSearchParams(location.search);
         params.set('size', size);
         params.set('id', sizeDetails?.id);
-        navigate({ search: params.toString() });
+        navigate({ search: params.toString() }, { replace: true });
     };
+    
 
     return (
         <>

@@ -99,7 +99,7 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
                 </select>
             </div>
             <div>
-                <label>Subtype:</label>
+                <label>Country:</label>
                 <select value={selectedSubtype} onChange={handleSubtypeChange}>
                     <option value="">All</option>
                     {subtypes.map(subtype => {

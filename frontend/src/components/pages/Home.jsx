@@ -17,24 +17,93 @@ import bannerCointreauCel from '../../assets/banner-cointreau-cel.png';
 import bannerGranCentenarioCel from '../../assets/banner-gran-centenario-cel.png';
 import bannerJohnnieWalkerCel from '../../assets/banner-johnnie-walker-cel.png';
 import bannerWelcomeCel from '../../assets/banner-welcome-cel.png';
+import mainWhiskey from '../pages/liquors/whiskey/scotch/macallan/macallan-18-double-oak/macallan-18-double-oak-750ml.png';
+import mainTequila from '../pages/liquors/tequila/jalisco/clase-azul/clase-azul-reposado/clase-azul-reposado-750ml.png';
+import mainRum from '../pages/liquors/rum/guatemalan/zacapa/zacapa-23/zacapa-23-750ml.png';
+import mainVodka from '../pages/liquors/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-750ml.png';
+import mainWine from '../pages/liquors/wine/american/caymus/caymus-cabernet-sauvignon/caymus-cabernet-sauvignon-750ml.png';
 
+
+// Step 1: Import all images dynamically
 const importAll = (r) => {
     let images = {};
-    r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
+    r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
     return images;
 };
 
 const images = importAll(require.context('./liquors', true, /\.(png|jpe?g|svg)$/));
 
+// Step 2: Create a function to get products by type
+const getProductsByType = (type, productRoutes) => {
+    return productData.types
+        .find(t => t.type === type)
+        .subtypes.flatMap(subtype => subtype.products)
+        .flatMap(brand => brand.products)
+        .filter(product => productRoutes.includes(product.route))
+        .map(product => {
+            const preferredSize = product.sizes.find(size => size.size === "750ml") || product.sizes[0];
+            const imgSrc = images[preferredSize.img.replace('liquors/', '')];
+            return { ...product, imgSrc, price: preferredSize.price };
+        });
+};
+
+// Step 3: Create a reusable Banner component
+const Banner = ({ desktopSrc, mobileSrc, altText, isMobile }) => (
+    <div className='banner'>
+        <img src={isMobile ? mobileSrc : desktopSrc} alt={altText} />
+    </div>
+);
+
+// Step 4: Create a reusable ProductSection component
+const ProductSection = ({ title, link, products, responsive }) => (
+    <section className={`home-features ${title.toLowerCase()}`}>
+        <div className="section">
+            <p>Check our variety of:&nbsp;</p>
+            <a href={link}>
+                <p>{title}</p>
+            </a>
+        </div>
+        <Carousel responsive={responsive}>
+            {products.map(product => (
+                <Link to={`/product/${product.route}`} key={product.route}>
+                    <CarouselItem
+                        name={product.name}
+                        imgSrc={product.imgSrc}
+                        price={product.price}
+                    />
+                </Link>
+            ))}
+        </Carousel>
+    </section>
+);
+
+// Add this debounce function at the top of your file
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+
+// Step 5: Implement the Home component
 function Home() {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 900);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        const debouncedResize = debounce(handleResize, 200);
+
+        window.addEventListener('resize', debouncedResize);
+        return () => window.removeEventListener('resize', debouncedResize);
     }, []);
 
+    // Step 2: Define product categories and fetch data
     const whiskys = [
         'courage-conviction-cuvee-single-malt',
         'buchanans-master',
@@ -96,7 +165,7 @@ function Home() {
         'bouchard-aine-fils-puligny-montrachet',
         'tignanello-toscana',
         'santa-margherita-pinot-grigio',
-    ]
+    ];
 
     const responsivee = {
         superLargeDesktop: {
@@ -117,60 +186,12 @@ function Home() {
         }
     };
 
-    const whiskyProducts = productData.types
-        .find(type => type.type === "whiskey")
-        .subtypes.flatMap(subtype => subtype.products)
-        .flatMap(brand => brand.products)
-        .filter(product => whiskys.includes(product.route))
-        .map(product => {
-            const preferredSize = product.sizes.find(size => size.size === "750ml") || product.sizes[0];
-            const imgSrc = images[preferredSize.img.replace('liquors/', '')];
-            return { ...product, imgSrc, price: preferredSize.price };
-        });
-
-    const tequilaProducts = productData.types
-        .find(type => type.type === "tequila")
-        .subtypes.flatMap(subtype => subtype.products)
-        .flatMap(brand => brand.products)
-        .filter(product => tequilas.includes(product.route))
-        .map(product => {
-            const preferredSize = product.sizes.find(size => size.size === "750ml") || product.sizes[0];
-            const imgSrc = images[preferredSize.img.replace('liquors/', '')];
-            return { ...product, imgSrc, price: preferredSize.price };
-        });
-
-    const vodkaProducts = productData.types
-        .find(type => type.type === "vodka")
-        .subtypes.flatMap(subtype => subtype.products)
-        .flatMap(brand => brand.products)
-        .filter(product => vodkas.includes(product.route))
-        .map(product => {
-            const preferredSize = product.sizes.find(size => size.size === "750ml") || product.sizes[0];
-            const imgSrc = images[preferredSize.img.replace('liquors/', '')];
-            return { ...product, imgSrc, price: preferredSize.price };
-        });
-
-    const rumProducts = productData.types
-        .find(type => type.type === "rum")
-        .subtypes.flatMap(subtype => subtype.products)
-        .flatMap(brand => brand.products)
-        .filter(product => rums.includes(product.route))
-        .map(product => {
-            const preferredSize = product.sizes.find(size => size.size === "750ml") || product.sizes[0];
-            const imgSrc = images[preferredSize.img.replace('liquors/', '')];
-            return { ...product, imgSrc, price: preferredSize.price };
-        });
-
-    const wineProducts = productData.types
-        .find(type => type.type === "wine")
-        .subtypes.flatMap(subtype => subtype.products)
-        .flatMap(brand => brand.products)
-        .filter(product => wines.includes(product.route))
-        .map(product => {
-            const preferredSize = product.sizes.find(size => size.size === "750ml") || product.sizes[0];
-            const imgSrc = images[preferredSize.img.replace('liquors/', '')];
-            return { ...product, imgSrc, price: preferredSize.price };
-        });
+    // Step 2: Fetch product data
+    const whiskyProducts = getProductsByType("whiskey", whiskys);
+    const tequilaProducts = getProductsByType("tequila", tequilas);
+    const vodkaProducts = getProductsByType("vodka", vodkas);
+    const rumProducts = getProductsByType("rum", rums);
+    const wineProducts = getProductsByType("wine", wines);
 
     return (
         <>
@@ -182,124 +203,47 @@ function Home() {
                             <img src={isMobile ? bannerWelcomeCel : welcomeBanner} alt="Welcome Banner" />
                         </div>
                     </div>
-                    <section className="home-features whisky">
-                        <div className="section">
-                            <p>Check our variety of:&nbsp;</p>
-                            <a href="/catalog?type=whiskey">
-                                <p>
-                                    Whiskeys
-                                </p>
-                            </a>
-                        </div>
-                        <Carousel responsive={responsivee}>
-                            {whiskyProducts.map(whisky => (
-                                <Link to={`/product/${whisky.route}`} key={whisky.route}>
-                                    <CarouselItem
-                                        name={whisky.name}
-                                        imgSrc={whisky.imgSrc}
-                                        price={whisky.price}
-                                    />
-                                </Link>
-                            ))}
-                        </Carousel>
-                    </section>
-                    <div className='banner'>
-                        <img src={isMobile ? bannerJohnnieWalkerCel : bannerJohnnieWalker} alt="Johnnie Walker Banner" />
-                    </div>
-                    <section className="home-features tequila">
-                        <div className="section">
-                            <p>Check our variety of:&nbsp;</p>
-                            <a href="/catalog?type=tequila">
-                                <p>
-                                    Tequila
-                                </p>
-                            </a>
-                        </div>
-                        <Carousel responsive={responsivee}>
-                            {tequilaProducts.map(tequilas => (
-                                <Link to={`/product/${tequilas.route}`} key={tequilas.route}>
-                                    <CarouselItem
-                                        name={tequilas.name}
-                                        imgSrc={tequilas.imgSrc}
-                                        price={tequilas.price}
-                                    />
-                                </Link>
-                            ))}
-                        </Carousel>
-                    </section>
-                    <div className='banner'>
-                        <img src={isMobile ? bannerGranCentenarioCel : bannerGranCentenario} alt="Gran Centenario Banner" />
-                    </div>
 
-                    <section className="home-features vodka">
-                        <div className="section">
-                            <p>Check our variety of:&nbsp;</p>
-                            <a href="catalog?type=vodka">
-                                <p>
-                                    Vodka
-                                </p>
-                            </a>
-                        </div>
-                        <Carousel responsive={responsivee}>
-                            {vodkaProducts.map(vodkas => (
-                                <Link to={`/product/${vodkas.route}`} key={vodkas.route}>
-                                    <CarouselItem
-                                        name={vodkas.name}
-                                        imgSrc={vodkas.imgSrc}
-                                        price={vodkas.price}
-                                    />
-                                </Link>
-                            ))}
-                        </Carousel>
-                    </section>
-                    <div className='banner'>
-                        <img src={isMobile ? bannerSmirnoffCel : bannerSmirnoff} alt="Smirnoff Banner" />
+                    <div>
+                        <section className='section-main-types'>
+                            <Carousel responsive={responsivee}>
+                                <div>
+                                    <p>Whiskey</p>
+                                    <img src={mainWhiskey} alt="" />
+                                </div>
+                                <div>
+                                    <p>Tequila</p>
+                                    <img src={mainTequila} alt="" />
+                                </div>
+                                <div>
+                                    <p>Rum</p>
+                                    <img src={mainRum} alt="" />
+                                </div>
+                                <div>
+                                    <p>Vodka</p>
+                                    <img src={mainVodka} alt="" />
+                                </div>
+                                <div>
+                                    <p>Wine</p>
+                                    <img src={mainWine} alt="" />
+                                </div>
+                            </Carousel>
+                        </section>
                     </div>
-                    <section className="home-features rum">
-                        <div className="section">
-                            <p>Check our variety of:&nbsp;</p>
-                            <a href="catalog?type=rum">
-                                <p>
-                                    Rum
-                                </p>
-                            </a>
-                        </div>
-                        <Carousel responsive={responsivee}>
-                            {rumProducts.map(rums => (
-                                <Link to={`/product/${rums.route}`} key={rums.route}>
-                                    <CarouselItem
-                                        name={rums.name}
-                                        imgSrc={rums.imgSrc}
-                                        price={rums.price}
-                                    />
-                                </Link>
-                            ))}
-                        </Carousel>
-                    </section>
-                    <div className='banner'>
-                        <img src={isMobile ? bannerCointreauCel : bannerCointreau} alt="Cointreau Banner" />
-                    </div>
-                    <section className="home-features wine">
-                        <div className="section">
-                            <p>Check our variety of:&nbsp;</p>
-                            <a href="catalog?type=wine">
-                                <p>
-                                    Wine
-                                </p>
-                            </a>
-                        </div>
-                        <Carousel responsive={responsivee}>
-                            {wineProducts.map(wines => (
-                                <Link to={`/product/${wines.route}`} key={wines.route}>
-                                    <CarouselItem
-                                        name={wines.name}
-                                        imgSrc={wines.imgSrc}
-                                        price={wines.price}
-                                    />
-                                </Link>
-                            ))}
-                        </Carousel>
-                    </section>
+                    
+                    <ProductSection title="Whiskeys" link="/catalog?type=whiskey" products={whiskyProducts} responsive={responsivee} />
+                    <Banner desktopSrc={bannerJohnnieWalker} mobileSrc={bannerJohnnieWalkerCel} altText="Johnnie Walker Banner" isMobile={isMobile} />
+
+                    <ProductSection title="Tequila" link="/catalog?type=tequila" products={tequilaProducts} responsive={responsivee} />
+                    <Banner desktopSrc={bannerGranCentenario} mobileSrc={bannerGranCentenarioCel} altText="Gran Centenario Banner" isMobile={isMobile} />
+
+                    <ProductSection title="Vodka" link="catalog?type=vodka" products={vodkaProducts} responsive={responsivee} />
+                    <Banner desktopSrc={bannerSmirnoff} mobileSrc={bannerSmirnoffCel} altText="Smirnoff Banner" isMobile={isMobile} />
+
+                    <ProductSection title="Rum" link="catalog?type=rum" products={rumProducts} responsive={responsivee} />
+                    <Banner desktopSrc={bannerCointreau} mobileSrc={bannerCointreauCel} altText="Cointreau Banner" isMobile={isMobile} />
+
+                    <ProductSection title="Wine" link="catalog?type=wine" products={wineProducts} responsive={responsivee} />
                 </div>
                 <Footer />
             </div>

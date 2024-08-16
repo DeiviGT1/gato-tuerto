@@ -38,7 +38,7 @@ function Product({ route, name, price, size, img, productClass, inventory, idSel
             {productClass === 'out-of-stock' && (
                 <div className="warning-tape">Out of Stock</div>
             )}
-            <Link to={`/product/${route}`}>
+            <Link to={`/product/${route}?size=${size}&id=${idSelected}`}>
                 <div className="card-image">
                     <img src={img} alt={name} />
                 </div>

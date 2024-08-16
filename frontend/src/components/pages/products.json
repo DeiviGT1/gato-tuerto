@@ -35,7 +35,7 @@
                                     ]
                                 },
                                 {
-                                    "name": "Buchanans 12",
+                                    "name": "Buchanans 12 Years",
                                     "description": "Buchanan's 12-year-old Scotch whisky is a blend of Scotland's finest single malt whiskies. It is one of the most iconic and awarded Scotch whisky brands in the world. It has a soft and fruity flavor, with orange and chocolate notes that allow it to be served on the rocks or neat.",
                                     "route": "buchanans-12",
                                     "modal": true,
@@ -100,7 +100,7 @@
                                     ]
                                 },
                                 {
-                                    "name": "Buchanans 15",
+                                    "name": "Buchanans 15 Years",
                                     "description": "Buchanan's 15-year-old Scotch whisky is a blend of Scotland's finest single malt whiskies. It is a whisky of uncommon depth and balance, with a smooth, rich flavor.",
                                     "route": "buchanans-15",
                                     "modal": false,
@@ -115,7 +115,7 @@
                                     ]
                                 },
                                 {
-                                    "name": "Buchanans 18",
+                                    "name": "Buchanans 18 Years",
                                     "description": "Buchanan's 18-year-old Scotch whisky is a blend of Scotland's finest single malt whiskies. It is a whisky of uncommon depth and balance, with a smooth, rich flavor.",
                                     "route": "buchanans-18",
                                     "modal": false,
@@ -457,6 +457,87 @@
                             ]
                         },
                         {
+                            "brand": "Cutty Sark",
+                            "products": [
+                                {
+                                    "name": "Cutty Sark",
+                                    "route": "cutty-sark",
+                                    "modal": false,
+                                    "description": "Cutty Sark is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "50ml",
+                                            "price": 3.44,
+                                            "img": "liquors/whiskey/scotch/cutty-sark/cutty-sark/cutty-sark-50ml.png",
+                                            "inventory": 139
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 26.44,
+                                            "img": "liquors/whiskey/scotch/cutty-sark/cutty-sark/cutty-sark-750ml.png",
+                                            "inventory": 29
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 43.69,
+                                            "img": "liquors/whiskey/scotch/cutty-sark/cutty-sark/cutty-sark-175L.png",
+                                            "inventory": 9
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Black & White",
+                            "products": [
+                                {
+                                    "name": "Black & White",
+                                    "route": "black-and-white",
+                                    "modal": false,
+                                    "description": "Black & White is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 43.69,
+                                            "img": "liquors/whiskey/scotch/black-and-white/black-and-white/black-and-white-175L.png",
+                                            "inventory": 9
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "J&B",
+                            "products": [
+                                {
+                                    "name": "J&B",
+                                    "route": "j-and-b",
+                                    "modal": false,
+                                    "description": "J&B is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 26.44,
+                                            "img": "liquors/whiskey/scotch/j-and-b/j-and-b/j-and-b-750ml.png",
+                                            "inventory": 29
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 43.69,
+                                            "img": "liquors/whiskey/scotch/j-and-b/j-and-b/j-and-b-175L.png",
+                                            "inventory": 9
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "brand": "Old Parr",
                             "products": [
                                 {
@@ -486,6 +567,515 @@
                                             "price": 86.24,
                                             "img": "liquors/whiskey/scotch/old-parr/old-parr-18/old-parr-18-750ml.png",
                                             "inventory": 9
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "The Deacon",
+                            "products": [
+                                {
+                                    "name": "The Deacon",
+                                    "route": "the-deacon",
+                                    "modal": false,
+                                    "description": "The Deacon is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/the-deacon/the-deacon/the-deacon-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Ballantines",
+                            "products": [
+                                {
+                                    "name": "Ballantines Finest",
+                                    "route": "ballantines-finest",
+                                    "modal": false,
+                                    "description": "Ballantine's Finest is a complex, refined, and elegant blended Scotch whisky. It is regarded as the taste to satisfy a modern style. The blend's light gold color and unmistakable taste come from a complex mix of carefully selected malt and grain whiskies \u2013 all aged for many years in high-quality casks.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 26.44,
+                                            "img": "liquors/whiskey/scotch/ballantines/ballantines-finest/ballantines-finest-750ml.png",
+                                            "inventory": 29
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1L",
+                                            "price": 41.39,
+                                            "img": "liquors/whiskey/scotch/ballantines/ballantines-finest/ballantines-finest-1L.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 43.69,
+                                            "img": "liquors/whiskey/scotch/ballantines/ballantines-finest/ballantines-finest-175L.png",
+                                            "inventory": 9
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Ballantines 30 Years",
+                                    "route": "ballantines-30-years",
+                                    "modal": false,
+                                    "description": "Ballantine's 30 is a blend of many different malt and grain Scotch whiskies, matured for at least 30 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/ballantines/ballantines-30-years/ballantines-30-years-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Grant's",
+                            "products": [
+                                {
+                                    "name": "Grant's Scotch",
+                                    "route": "grants-scotch",
+                                    "modal": false,
+                                    "description": "Grant's Scotch is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 26.44,
+                                            "img": "liquors/whiskey/scotch/grants/grants-scotch/grants-scotch-750ml.png",
+                                            "inventory": 29
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1L",
+                                            "price": 41.39,
+                                            "img": "liquors/whiskey/scotch/grants/grants-scotch/grants-scotch-1L.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 43.69,
+                                            "img": "liquors/whiskey/scotch/grants/grants-scotch/grants-scotch-175L.png",
+                                            "inventory": 9
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Monkey Shoulder",
+                            "products": [
+                                {
+                                    "name": "Monkey Shoulder",
+                                    "route": "monkey-shoulder",
+                                    "modal": false,
+                                    "description": "Monkey Shoulder is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/monkey-shoulder/monkey-shoulder/monkey-shoulder-750ml.png",
+                                            "inventory": 131
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 74.74,
+                                            "img": "liquors/whiskey/scotch/monkey-shoulder/monkey-shoulder/monkey-shoulder-175L.png",
+                                            "inventory": 28
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Dewars",
+                            "products":[
+                                {
+                                    "name": "Dewars White Label",
+                                    "route": "dewars-white-label",
+                                    "modal": false,
+                                    "description": "Dewar's White Label is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/dewars/dewars-white-label/dewars-white-label-750ml.png",
+                                            "inventory": 131
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 74.74,
+                                            "img": "liquors/whiskey/scotch/dewars/dewars-white-label/dewars-white-label-175L.png",
+                                            "inventory": 28
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Dewars 12 Years",
+                                    "route": "dewars-12",
+                                    "modal": false,
+                                    "description": "Dewar's 12 is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/dewars/dewars-12/dewars-12-750ml.png",
+                                            "inventory": 131
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 74.74,
+                                            "img": "liquors/whiskey/scotch/dewars/dewars-12/dewars-12-175L.png",
+                                            "inventory": 28
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Dewars 15 Years",
+                                    "route": "dewars-15",
+                                    "modal": false,
+                                    "description": "Dewar's 15 is a blend of many different malt and grain Scotch whiskies, matured for at least 15 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/dewars/dewars-15/dewars-15-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Dewars 18 Years",
+                                    "route": "dewars-18",
+                                    "modal": false,
+                                    "description": "Dewar's 18 is a blend of many different malt and grain Scotch whiskies, matured for at least 18 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/dewars/dewars-18/dewars-18-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Dewars 19 Years",
+                                    "route": "dewars-19",
+                                    "modal": false,
+                                    "description": "Dewar's 19 is a blend of many different malt and grain Scotch whiskies, matured for at least 19 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/dewars/dewars-19/dewars-19-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Dewars 21 Years",
+                                    "route": "dewars-21",
+                                    "modal": false,
+                                    "description": "Dewar's 21 is a blend of many different malt and grain Scotch whiskies, matured for at least 21 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/dewars/dewars-21/dewars-21-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Dewars 25 Years",
+                                    "route": "dewars-25",
+                                    "modal": false,
+                                    "description": "Dewar's 25 is a blend of many different malt and grain Scotch whiskies, matured for at least 25 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/dewars/dewars-25/dewars-25-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Aberfeldy",
+                            "products": [
+                                {
+                                    "name": "Aberfeldy 12 Years",
+                                    "route": "aberfeldy-12",
+                                    "modal": false,
+                                    "description": "Aberfeldy 12 is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/aberfeldy/aberfeldy-12/aberfeldy-12-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Balvenie",
+                            "products":[
+                                {
+                                    "name": "Balvenie 12 Years Double Wood",
+                                    "route": "balvenie-12-double-wood",
+                                    "modal": false,
+                                    "description": "Balvenie 12 Double Wood is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/balvenie/balvenie-12-double-wood/balvenie-12-double-wood-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Balvenie 14 Years Caribbean Cask",
+                                    "route": "balvenie-14-caribbean-cask",
+                                    "modal": false,
+                                    "description": "Balvenie 14 Caribbean Cask is a blend of many different malt and grain Scotch whiskies, matured for at least 14 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/balvenie/balvenie-14-caribbean-cask/balvenie-14-caribbean-cask-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Balvenie 21 Years Port Wood",
+                                    "route": "balvenie-21-port-wood",
+                                    "modal": false,
+                                    "description": "Balvenie 21 Port Wood is a blend of many different malt and grain Scotch whiskies, matured for at least 21 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/balvenie/balvenie-21-port-wood/balvenie-21-port-wood-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Balvenie 25 Years Rare Marriages",
+                                    "route": "balvenie-25-rare-marriages",
+                                    "modal": false,
+                                    "description": "Balvenie 25 Rare Marriages is a blend of many different malt and grain Scotch whiskies, matured for at least 25 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/balvenie/balvenie-25-rare-marriages/balvenie-25-rare-marriages-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Benriach",
+                            "products": [
+                                {
+                                    "name": "Benriach 10 Years The Original Ten",
+                                    "route": "benriach-10-the-original-ten",
+                                    "modal": false,
+                                    "description": "Benriach 10 The Original Ten is a blend of many different malt and grain Scotch whiskies, matured for at least 10 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/benriach/benriach-10-the-original-ten/benriach-10-the-original-ten-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Benriach 10 Years The Smoky Ten",
+                                    "route": "benriach-10-the-smoky-ten",
+                                    "modal": false,
+                                    "description": "Benriach 10 The Smoky Ten is a blend of many different malt and grain Scotch whiskies, matured for at least 10 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/benriach/benriach-10-the-smoky-ten/benriach-10-the-smoky-ten-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Benriach 12 Years The Twelve",
+                                    "route": "benriach-12-the-twelve",
+                                    "modal": false,
+                                    "description": "Benriach 12 The Twelve is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/benriach/benriach-12-the-twelve/benriach-12-the-twelve-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Benriach 12 Years The Smoky Twelve",
+                                    "route": "benriach-12-the-smoky-twelve",
+                                    "modal": false,
+                                    "description": "Benriach 12 The Smoky Twelve is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/benriach/benriach-12-the-smoky-twelve/benriach-12-the-smoky-twelve-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "KaVaLan",
+                            "products": [
+                                {
+                                    "name": "KaVaLan Single Malt",
+                                    "route": "kavalan-single-malt",
+                                    "modal": false,
+                                    "description": "KaVaLan Single Malt is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/kavalan/kavalan-single-malt/kavalan-single-malt-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Singleton",
+                            "products": [
+                                {
+                                    "name": "Singleton 12 Years",
+                                    "route": "singleton-12",
+                                    "modal": false,
+                                    "description": "Singleton 12 is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/singleton/singleton-12/singleton-12-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Singleton 15 Years",
+                                    "route": "singleton-15",
+                                    "modal": false,
+                                    "description": "Singleton 15 is a blend of many different malt and grain Scotch whiskies, matured for at least 15 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/singleton/singleton-15/singleton-15-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Glenmorangie",
+                            "products": [
+                                {
+                                    "name": "Glenmorangie 10 Years",
+                                    "route": "glenmorangie-10",
+                                    "modal": false,
+                                    "description": "Glenmorangie 10 is a blend of many different malt and grain Scotch whiskies, matured for at least 10 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/glenmorangie/glenmorangie-10/glenmorangie-10-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenmorangie 12 Years",
+                                    "route": "glenmorangie-12",
+                                    "modal": false,
+                                    "description": "Glenmorangie 12 is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/glenmorangie/glenmorangie-12/glenmorangie-12-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Glenmorangie 14 Years",
+                                    "route": "glenmorangie-14",
+                                    "modal": false,
+                                    "description": "Glenmorangie 14 is a blend of many different malt and grain Scotch whiskies, matured for at least 14 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/glenmorangie/glenmorangie-14/glenmorangie-14-750ml.png",
+                                            "inventory": 131
                                         }
                                     ]
                                 }
@@ -660,6 +1250,56 @@
                                             "price": 735.99,
                                             "img": "liquors/whiskey/scotch/glenlivet/glenlivet-25-year/glenlivet-25-year-750ml.png",
                                             "inventory": 1
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Dalmore",
+                            "products": [
+                                {
+                                    "name": "Dalmore 12 Years Single Malt",
+                                    "route": "dalmore-12-years-single-malt",
+                                    "modal": false,
+                                    "description": "Dalmore 12 is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/dalmore/dalmore-12-years-single-malt/dalmore-12-years-single-malt-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Dalmore 12 Sherry Cask",
+                                    "route": "dalmore-12-sherry-cask",
+                                    "modal": false,
+                                    "description": "Dalmore 12 Sherry Cask is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/dalmore/dalmore-12-sherry-cask/dalmore-12-sherry-cask-750ml.png",
+                                            "inventory": 131
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Dalmore 14 Single Malt",
+                                    "route": "dalmore-14-single-malt",
+                                    "modal": false,
+                                    "description": "Dalmore 14 is a blend of many different malt and grain Scotch whiskies, matured for at least 14 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 36.79,
+                                            "img": "liquors/whiskey/scotch/dalmore/dalmore-14-single-malt/dalmore-14-single-malt-750ml.png",
+                                            "inventory": 131
                                         }
                                     ]
                                 }
@@ -955,7 +1595,7 @@
                     ]
                 },
                 {
-                    "subtype": "bourbon",
+                    "subtype": "american",
                     "description": "Bourbon whiskey is a type of American whiskey, a barrel-aged distilled spirit made primarily from corn. The name ultimately derives from the French Bourbon dynasty, although the precise inspiration for the whiskey's name is uncertain; contenders include Bourbon County in Kentucky and Bourbon Street in New Orleans, both of which are named after the dynasty.",
                     "products": [
                         {
@@ -1238,6 +1878,239 @@
                             ]
                         },
                         {
+                            "brand": "Bulleit",
+                            "products": [
+                                {
+                                    "name": "Bulleit Bourbon",
+                                    "route": "bulleit-bourbon",
+                                    "modal": false,
+                                    "description": "Bulleit Bourbon is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 19.99,
+                                            "img": "liquors/whiskey/bourbon/bulleit/bulleit-bourbon/bulleit-bourbon-375ml.png",
+                                            "inventory": 3
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 34.99,
+                                            "img": "liquors/whiskey/bourbon/bulleit/bulleit-bourbon/bulleit-bourbon-750ml.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Bulleit Rye",
+                                    "route": "bulleit-rye",
+                                    "modal": false,
+                                    "description": "Bulleit Rye is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 34.99,
+                                            "img": "liquors/whiskey/bourbon/bulleit/bulleit-rye/bulleit-rye-750ml.png",
+                                            "inventory": 3
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Bulleit Manhattan Cocktail",
+                                    "route": "bulleit-manhattan-cocktail",
+                                    "modal": false,
+                                    "description": "Bulleit Manhattan Cocktail is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 34.99,
+                                            "img": "liquors/whiskey/bourbon/bulleit/bulleit-manhattan-cocktail/bulleit-manhattan-cocktail-750ml.png",
+                                            "inventory": 3
+                                        }
+                                    ]          
+                                },
+                                {
+                                    "name": "Bulleit Old Fashioned Cocktail",
+                                    "route": "bulleit-old-fashioned-cocktail",
+                                    "modal": false,
+                                    "description": "Bulleit Old Fashioned Cocktail is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 34.99,
+                                            "img": "liquors/whiskey/bourbon/bulleit/bulleit-old-fashioned-cocktail/bulleit-old-fashioned-cocktail-750ml.png",
+                                            "inventory": 3
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Woodford Reserve",
+                            "products": [
+                                {
+                                    "name": "Woodford Reserve Bourbon",
+                                    "route": "woodford-reserve-bourbon",
+                                    "modal": false,
+                                    "description": "Woodford Reserve Bourbon is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 22.99,
+                                            "img": "liquors/whiskey/bourbon/woodford-reserve/woodford-reserve-bourbon/woodford-reserve-bourbon-375ml.png",
+                                            "inventory": 3
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 39.99,
+                                            "img": "liquors/whiskey/bourbon/woodford-reserve/woodford-reserve-bourbon/woodford-reserve-bourbon-750ml.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Buffalo Trace",
+                            "products": [
+                                {
+                                    "name": "Buffalo Trace Bourbon",
+                                    "route": "buffalo-trace-bourbon",
+                                    "modal": false,
+                                    "description": "Buffalo Trace Bourbon is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 19.99,
+                                            "img": "liquors/whiskey/bourbon/buffalo-trace/buffalo-trace-bourbon/buffalo-trace-bourbon-375ml.png",
+                                            "inventory": 3
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 34.99,
+                                            "img": "liquors/whiskey/bourbon/buffalo-trace/buffalo-trace-bourbon/buffalo-trace-bourbon-750ml.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Angel's Envy",
+                            "products": [
+                                {
+                                    "name": "Angel's Envy Bourbon",
+                                    "route": "angels-envy-bourbon",
+                                    "modal": false,
+                                    "description": "Angel's Envy Bourbon is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 22.99,
+                                            "img": "liquors/whiskey/bourbon/angels-envy/angels-envy-bourbon/angels-envy-bourbon-375ml.png",
+                                            "inventory": 3
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 49.99,
+                                            "img": "liquors/whiskey/bourbon/angels-envy/angels-envy-bourbon/angels-envy-bourbon-750ml.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Eagle Rare",
+                            "products":[
+                                {
+                                    "name": "Eagle Rare Bourbon",
+                                    "route": "eagle-rare-bourbon",
+                                    "modal": false,
+                                    "description": "Eagle Rare Bourbon is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 34.99,
+                                            "img": "liquors/whiskey/bourbon/eagle-rare/eagle-rare-bourbon/eagle-rare-bourbon-750ml.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Blanton's",
+                            "products": [
+                                {
+                                    "name": "Blanton's Bourbon",
+                                    "route": "blantons-bourbon",
+                                    "modal": false,
+                                    "description": "Blanton's Bourbon is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 69.99,
+                                            "img": "liquors/whiskey/bourbon/blantons/blantons-bourbon/blantons-bourbon-750ml.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Michter's",
+                            "products": [
+                                {
+                                    "name": "Michter's Bourbon Small Batch",
+                                    "route": "michters-bourbon-small-batch",
+                                    "modal": false,
+                                    "description": "Michter's Bourbon Small Batch is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 49.99,
+                                            "img": "liquors/whiskey/bourbon/michters/michters-bourbon-small-batch/michters-bourbon-small-batch-750ml.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Old Forester",
+                            "products": [
+                                {
+                                    "name": "Old Forester Bourbon",
+                                    "route": "old-forester-bourbon",
+                                    "modal": false,
+                                    "description": "Old Forester Bourbon is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 29.99,
+                                            "img": "liquors/whiskey/bourbon/old-forester/old-forester-bourbon/old-forester-bourbon-750ml.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "brand": "Kentucky Owl",
                             "products": [
                                 {
@@ -1498,6 +2371,107 @@
                                             "price": 36.79,
                                             "img": "liquors/whiskey/irish/jameson/jameson-cask-mates/jameson-cask-mates-750ml.png",
                                             "inventory": 4
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Bushmills",
+                            "products": [
+                                {
+                                    "name": "Bushmills Original",
+                                    "route": "bushmills-original",
+                                    "modal": false,
+                                    "description": "Bushmills Original is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 34.49,
+                                            "img": "liquors/whiskey/irish/bushmills/bushmills-original/bushmills-original-750ml.png",
+                                            "inventory": 6
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 60.94,
+                                            "img": "liquors/whiskey/irish/bushmills/bushmills-original/bushmills-original-175L.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Bushmills Black Bush",
+                                    "route": "bushmills-black-bush",
+                                    "modal": false,
+                                    "description": "Bushmills Black Bush is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 11.49,
+                                            "img": "liquors/whiskey/irish/bushmills/bushmills-black-bush/bushmills-black-bush-750ml.png",
+                                            "inventory": 6
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 60.94,
+                                            "img": "liquors/whiskey/irish/bushmills/bushmills-black-bush/bushmills-black-bush-175L.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Bushmills Red Bush",
+                                    "route": "bushmills-red-bush",
+                                    "modal": false,
+                                    "description": "Bushmills Red Bush is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 11.49,
+                                            "img": "liquors/whiskey/irish/bushmills/bushmills-red-bush/bushmills-red-bush-750ml.png",
+                                            "inventory": 6
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 60.94,
+                                            "img": "liquors/whiskey/irish/bushmills/bushmills-red-bush/bushmills-red-bush-175L.png",
+                                            "inventory": 5
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Bushmills 10 Year",
+                                    "route": "bushmills-10-year",
+                                    "modal": false,
+                                    "description": "Bushmills 10 Year is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 11.49,
+                                            "img": "liquors/whiskey/irish/bushmills/bushmills-10-year/bushmills-10-year-750ml.png",
+                                            "inventory": 6
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Bushmills 12 Year",
+                                    "route": "bushmills-12-year",
+                                    "modal": false,
+                                    "description": "Bushmills 12 Year is a blend of many different malt and grain Scotch whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 11.49,
+                                            "img": "liquors/whiskey/irish/bushmills/bushmills-12-year/bushmills-12-year-750ml.png",
+                                            "inventory": 6
                                         }
                                     ]
                                 }
@@ -3054,7 +4028,7 @@
                             "brand": "Svedka",
                             "products": [
                                 {
-                                    "name": "Svedka",
+                                    "name": "Svedka Vodka",
                                     "route": "svedka-vodka",
                                     "modal": false,
                                     "description": "SVEDKA is an award-winning vodka with a pure, clear taste and crisp finish made from the finest spring water and Swedish winter wheat, then distilled five times to remove impurities.",
@@ -3133,7 +4107,7 @@
                             "brand": "Tito's",
                             "products": [
                                 {
-                                    "name": "Tito's",
+                                    "name": "Tito's Vodka",
                                     "route": "titos-vodka",
                                     "modal": false,
                                     "description": "Tito's Handmade Vodka is America's Original Craft Vodka produced in Austin, Texas. It's made in small batches in an old fashioned pot still by Tito Beveridge.",
@@ -3188,7 +4162,7 @@
                             "brand": "Smirnoff",
                             "products": [
                                 {
-                                    "name": "Smirnoff",
+                                    "name": "Smirnoff Vodka",
                                     "route": "smirnoff-vodka",
                                     "modal": false,
                                     "description": "Smirnoff vodka is created by a unique process involving three distillations and ten stages of filtration to deliver smoothness and clarity. Perfect for cocktails and mixed drinks in any occasion.",
@@ -3227,13 +4201,6 @@
                                             "price": 16.09,
                                             "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-pet-750ml.png",
                                             "inventory": 39
-                                        },
-                                        {
-                                            "id": "820050",
-                                            "size": "1L",
-                                            "price": 21.84,
-                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-1L.png",
-                                            "inventory": 0
                                         },
                                         {
                                             "id": "08200072760",
@@ -3279,7 +4246,7 @@
                             "brand": "New amsterdam",
                             "products": [
                                 {
-                                    "name": "New Amsterdam",
+                                    "name": "New Amsterdam Vodka",
                                     "route": "new-amsterdam-vodka",
                                     "modal": false,
                                     "description": "New Amsterdam Vodka is a premium, 80 proof vodka made from the finest quality grains. It is five times distilled for unparalleled smoothness, and is filtered three times to create a soft finish.",
@@ -3413,7 +4380,7 @@
                             "brand": "Ketel One",
                             "products": [
                                 {
-                                    "name": "Ketel One",
+                                    "name": "Ketel One Vodka",
                                     "route": "ketel-one-vodka",
                                     "modal": false,
                                     "description": "Ketel One Vodka is a premium vodka made from 100% non-GMO European wheat. It is distilled in copper pot stills, filtered over loose charcoal, and rests in tile-lined tanks until ready.",
@@ -3438,13 +4405,6 @@
                                             "price": 29.89,
                                             "img": "liquors/vodka/netherlands/ketel-one/ketel-one-vodka/ketel-one-vodka-750ml.png",
                                             "inventory": 16
-                                        },
-                                        {
-                                            "id": "25875487455",
-                                            "size": "1L",
-                                            "price": 34.49,
-                                            "img": "liquors/vodka/netherlands/ketel-one/ketel-one-vodka/ketel-one-vodka-1L.png",
-                                            "inventory": 0
                                         },
                                         {
                                             "id": "08515680368",
@@ -3504,7 +4464,7 @@
                             "brand": "Grey Goose",
                             "products": [
                                 {
-                                    "name": "Grey Goose",
+                                    "name": "Grey Goose Vodka",
                                     "route": "grey-goose-vodka",
                                     "modal": false,
                                     "description": "Grey Goose is a premium brand vodka produced in France. It was created in the 1990s by Sidney Frank, who sold it to Bacardi in 2004.",
@@ -3559,7 +4519,7 @@
                             "brand": "Monte Carlo",
                             "products": [
                                 {
-                                    "name": "Monte Carlo",
+                                    "name": "Monte Carlo Vodka",
                                     "route": "monte-carlo-vodka",
                                     "modal": false,
                                     "description": "Monte Carlo Vodka is a premium brand vodka produced in France. It was created in the 1990s by Sidney Frank, who sold it to Bacardi in 2004.",
@@ -3579,7 +4539,7 @@
                             "brand": "Ciroc",
                             "products": [
                                 {
-                                    "name": "Ciroc",
+                                    "name": "Ciroc Vodka",
                                     "route": "ciroc-vodka",
                                     "modal": true,
                                     "description": "Ciroc is a brand of vodka produced in France from cold-fermented grapes, distilled five times. The Ciroc brand was founded by Jean-S\u00e9bastien Robicquet.",
@@ -3611,13 +4571,6 @@
                                             "price": 31.04,
                                             "img": "liquors/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-750ml.png",
                                             "inventory": 12
-                                        },
-                                        {
-                                            "id": "08807616187",
-                                            "size": "1L",
-                                            "price": 42.54,
-                                            "img": "liquors/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-1L.png",
-                                            "inventory": 0
                                         },
                                         {
                                             "id": "08807616264",
@@ -5863,13 +6816,6 @@
                                             "price": 72.44,
                                             "img": "liquors/cognac-brandy/french/hennessy/hennessy-vsop/hennessy-vsop-750ml.png",
                                             "inventory": 12
-                                        },
-                                        {
-                                            "id": "08807616128",
-                                            "size": "1.75L",
-                                            "price": 160.99,
-                                            "img": "liquors/cognac-brandy/french/hennessy/hennessy-vsop/hennessy-vsop-1L.png",
-                                            "inventory": 0
                                         }
                                     ]
                                 },

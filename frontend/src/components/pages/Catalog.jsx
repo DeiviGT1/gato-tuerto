@@ -194,6 +194,7 @@ function Catalog({ searchTerm = '' }) {
                     inventory={product.size.inventory}
                     idSelected={product.size.id}
                 />
+
             );
         });
     };
