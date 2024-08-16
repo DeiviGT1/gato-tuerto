@@ -59,6 +59,7 @@ function Product({ route, name, price, size, img, productClass, inventory, idSel
                     id="quantity-select"
                     value={selectedQuantity}
                     onChange={(e) => setSelectedQuantity(parseInt(e.target.value))}
+                    disabled={inventory < 1}
                 >
                     {[...Array(inventory).keys()].map((number) => (
                         <option key={number + 1} value={number + 1}>
@@ -70,7 +71,7 @@ function Product({ route, name, price, size, img, productClass, inventory, idSel
                 <button
                     className='liquor-order-button'
                     onClick={handleAddToCart}
-                    disabled={selectedQuantity < 1}
+                    disabled={inventory < 1 || selectedQuantity < 1}
                 >
                     Add to Cart
                 </button>
