@@ -83,7 +83,7 @@ function Liquor() {
         setInventory(sizeDetails?.inventory);
         setSelectedId(sizeDetails?.id);
     
-        // Actualiza la URL sin recargar la página
+        // Update the URL without reloading the page
         const params = new URLSearchParams(location.search);
         params.set('size', size);
         params.set('id', sizeDetails?.id);
@@ -126,7 +126,7 @@ function Liquor() {
                                 <h1 className='liquor-title'>{product?.name}</h1>
                                 <p className='liquor-description'>{product?.description}</p>
                             </div>
-                            <LiquorOrder maxInventory={inventory} idSelected={selectedId} />
+                            <LiquorOrder maxInventory={inventory} idSelected={selectedId} inventory={inventory} />
                         </div>
                     </div>
                 </div>

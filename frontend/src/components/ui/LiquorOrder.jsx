@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function LiquorOrder( { maxInventory, idSelected } ) {
+function LiquorOrder({ maxInventory, idSelected, inventory }) {
     const [selectedQuantity, setSelectedQuantity] = useState(1);
 
     if (maxInventory > 12) {
@@ -8,11 +8,13 @@ function LiquorOrder( { maxInventory, idSelected } ) {
     }
 
     const handleAddToCart = () => {
-        localStorage.setItem(idSelected, JSON.stringify(selectedQuantity));
+        if (inventory > 0) {
+            localStorage.setItem(idSelected, JSON.stringify(selectedQuantity));
 
-        // Dispatch the custom event 'cartUpdated' after updating localStorage
-        const event = new Event('cartUpdated');
-        window.dispatchEvent(event);
+            // Dispatch the custom event 'cartUpdated' after updating localStorage
+            const event = new Event('cartUpdated');
+            window.dispatchEvent(event);
+        }
     };
 
     return (
@@ -22,6 +24,7 @@ function LiquorOrder( { maxInventory, idSelected } ) {
                 id="quantity-select"
                 value={selectedQuantity}
                 onChange={(e) => setSelectedQuantity(parseInt(e.target.value))}
+                disabled={inventory < 1}
             >
                 {[...Array(maxInventory).keys()].map((number) => (
                     <option key={number + 1} value={number + 1}>
@@ -33,7 +36,7 @@ function LiquorOrder( { maxInventory, idSelected } ) {
             <button
                 className='liquor-order-button'
                 onClick={handleAddToCart}
-                disabled={selectedQuantity < 1}
+                disabled={inventory < 1 || selectedQuantity < 1}
             >
                 Add to Cart
             </button>

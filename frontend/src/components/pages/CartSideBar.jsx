@@ -29,6 +29,10 @@ function CartSidebar({ isOpen, onClose }) {
     for (const [key, value] of Object.entries(localStorage)) {
       if (key !== "isOver21" && key !== "zipCode") {
         const product = findProductById(key);
+        if (product.maxInventory > 12) {
+          product.maxInventory = 12;
+        }
+
         if (product) {
           items.push({
             id: key,
