@@ -208,24 +208,34 @@ function Home() {
                         <section className='section-main-types'>
                             <Carousel responsive={responsivee}>
                                 <div>
-                                    <p>Whiskey</p>
-                                    <img src={mainWhiskey} alt="" />
+                                    <Link to="/catalog?type=whiskey">
+                                        <p className='section-main-types-title'>Whiskey</p>
+                                        <img src={mainWhiskey} alt="" />
+                                    </Link>
                                 </div>
                                 <div>
-                                    <p>Tequila</p>
-                                    <img src={mainTequila} alt="" />
+                                    <Link to="/catalog?type=tequila">
+                                        <p className='section-main-types-title'>Tequila</p>
+                                        <img src={mainTequila} alt="" />
+                                    </Link>
                                 </div>
                                 <div>
-                                    <p>Rum</p>
-                                    <img src={mainRum} alt="" />
+                                    <Link to="/catalog?type=rum">
+                                        <p className='section-main-types-title'>Rum</p>
+                                        <img src={mainRum} alt="" />
+                                    </Link>
                                 </div>
                                 <div>
-                                    <p>Vodka</p>
-                                    <img src={mainVodka} alt="" />
+                                    <Link to="/catalog?type=vodka">
+                                        <p className='section-main-types-title'>Vodka</p>
+                                        <img src={mainVodka} alt="" />
+                                    </Link>
                                 </div>
                                 <div>
-                                    <p>Wine</p>
-                                    <img src={mainWine} alt="" />
+                                    <Link to="/catalog?type=wine">
+                                        <p className='section-main-types-title'>Wine</p>
+                                        <img src={mainWine} alt="" />
+                                    </Link>
                                 </div>
                             </Carousel>
                         </section>

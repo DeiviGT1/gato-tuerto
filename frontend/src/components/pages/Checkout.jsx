@@ -13,6 +13,10 @@ const importAll = (r) => {
 
 const images = importAll(require.context('./liquors', true, /\.(png|jpe?g|svg)$/));
 
+const availableZipCodes = [
+  33130,33128,33243,33299,33269,33266,33265,33257,33247,33245,33242,33239,33238,33197,33188,33153,33163,33164,33152,33101,33102,33112,33116,33119,33231,33131,33129,33136,33132,33135,33145,33125
+]
+
 function Checkout() {
   const [cartItems, setCartItems] = useState([]);
   const [subTotal, setSubTotal] = useState(0);

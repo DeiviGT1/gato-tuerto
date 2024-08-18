@@ -468,23 +468,23 @@
                                         {
                                             "id": "",
                                             "size": "50ml",
-                                            "price": 3.44,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/cutty-sark/cutty-sark/cutty-sark-50ml.png",
-                                            "inventory": 139
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 26.44,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/cutty-sark/cutty-sark/cutty-sark-750ml.png",
-                                            "inventory": 29
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 43.69,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/cutty-sark/cutty-sark/cutty-sark-175L.png",
-                                            "inventory": 9
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -502,9 +502,9 @@
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 43.69,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/black-and-white/black-and-white/black-and-white-175L.png",
-                                            "inventory": 9
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -522,16 +522,16 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 26.44,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/j-and-b/j-and-b/j-and-b-750ml.png",
-                                            "inventory": 29
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 43.69,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/j-and-b/j-and-b/j-and-b-175L.png",
-                                            "inventory": 9
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -584,9 +584,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/the-deacon/the-deacon/the-deacon-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -604,23 +604,23 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 26.44,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/ballantines/ballantines-finest/ballantines-finest-750ml.png",
-                                            "inventory": 29
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1L",
-                                            "price": 41.39,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/ballantines/ballantines-finest/ballantines-finest-1L.png",
                                             "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 43.69,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/ballantines/ballantines-finest/ballantines-finest-175L.png",
-                                            "inventory": 9
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -633,9 +633,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/ballantines/ballantines-30-years/ballantines-30-years-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -653,23 +653,23 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 26.44,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/grants/grants-scotch/grants-scotch-750ml.png",
-                                            "inventory": 29
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1L",
-                                            "price": 41.39,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/grants/grants-scotch/grants-scotch-1L.png",
                                             "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 43.69,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/grants/grants-scotch/grants-scotch-175L.png",
-                                            "inventory": 9
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -687,16 +687,16 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/monkey-shoulder/monkey-shoulder/monkey-shoulder-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 74.74,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/monkey-shoulder/monkey-shoulder/monkey-shoulder-175L.png",
-                                            "inventory": 28
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -704,7 +704,7 @@
                         },
                         {
                             "brand": "Dewars",
-                            "products":[
+                            "products": [
                                 {
                                     "name": "Dewars White Label",
                                     "route": "dewars-white-label",
@@ -714,16 +714,16 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dewars/dewars-white-label/dewars-white-label-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 74.74,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dewars/dewars-white-label/dewars-white-label-175L.png",
-                                            "inventory": 28
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -736,16 +736,16 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dewars/dewars-12/dewars-12-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 74.74,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dewars/dewars-12/dewars-12-175L.png",
-                                            "inventory": 28
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -758,9 +758,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dewars/dewars-15/dewars-15-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -773,9 +773,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dewars/dewars-18/dewars-18-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -788,9 +788,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dewars/dewars-19/dewars-19-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -803,9 +803,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dewars/dewars-21/dewars-21-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -818,9 +818,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dewars/dewars-25/dewars-25-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -838,9 +838,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/aberfeldy/aberfeldy-12/aberfeldy-12-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -848,7 +848,7 @@
                         },
                         {
                             "brand": "Balvenie",
-                            "products":[
+                            "products": [
                                 {
                                     "name": "Balvenie 12 Years Double Wood",
                                     "route": "balvenie-12-double-wood",
@@ -858,9 +858,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/balvenie/balvenie-12-double-wood/balvenie-12-double-wood-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -873,9 +873,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/balvenie/balvenie-14-caribbean-cask/balvenie-14-caribbean-cask-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -888,9 +888,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/balvenie/balvenie-21-port-wood/balvenie-21-port-wood-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -903,9 +903,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/balvenie/balvenie-25-rare-marriages/balvenie-25-rare-marriages-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -923,9 +923,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/benriach/benriach-10-the-original-ten/benriach-10-the-original-ten-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -938,9 +938,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/benriach/benriach-10-the-smoky-ten/benriach-10-the-smoky-ten-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -953,9 +953,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/benriach/benriach-12-the-twelve/benriach-12-the-twelve-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -968,9 +968,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/benriach/benriach-12-the-smoky-twelve/benriach-12-the-smoky-twelve-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -988,9 +988,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/kavalan/kavalan-single-malt/kavalan-single-malt-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -1008,9 +1008,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/singleton/singleton-12/singleton-12-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -1023,9 +1023,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/singleton/singleton-15/singleton-15-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -1043,9 +1043,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/glenmorangie/glenmorangie-10/glenmorangie-10-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -1058,9 +1058,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/glenmorangie/glenmorangie-12/glenmorangie-12-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -1073,9 +1073,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/glenmorangie/glenmorangie-14/glenmorangie-14-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -1267,9 +1267,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dalmore/dalmore-12-years-single-malt/dalmore-12-years-single-malt-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -1282,9 +1282,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dalmore/dalmore-12-sherry-cask/dalmore-12-sherry-cask-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -1297,9 +1297,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/scotch/dalmore/dalmore-14-single-malt/dalmore-14-single-malt-750ml.png",
-                                            "inventory": 131
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -1889,16 +1889,16 @@
                                         {
                                             "id": "",
                                             "size": "375ml",
-                                            "price": 19.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/bulleit/bulleit-bourbon/bulleit-bourbon-375ml.png",
-                                            "inventory": 3
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 34.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/bulleit/bulleit-bourbon/bulleit-bourbon-750ml.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -1911,9 +1911,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 34.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/bulleit/bulleit-rye/bulleit-rye-750ml.png",
-                                            "inventory": 3
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -1926,11 +1926,11 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 34.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/bulleit/bulleit-manhattan-cocktail/bulleit-manhattan-cocktail-750ml.png",
-                                            "inventory": 3
+                                            "inventory": 0
                                         }
-                                    ]          
+                                    ]
                                 },
                                 {
                                     "name": "Bulleit Old Fashioned Cocktail",
@@ -1941,9 +1941,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 34.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/bulleit/bulleit-old-fashioned-cocktail/bulleit-old-fashioned-cocktail-750ml.png",
-                                            "inventory": 3
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -1961,16 +1961,16 @@
                                         {
                                             "id": "",
                                             "size": "375ml",
-                                            "price": 22.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/woodford-reserve/woodford-reserve-bourbon/woodford-reserve-bourbon-375ml.png",
-                                            "inventory": 3
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 39.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/woodford-reserve/woodford-reserve-bourbon/woodford-reserve-bourbon-750ml.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -1988,16 +1988,16 @@
                                         {
                                             "id": "",
                                             "size": "375ml",
-                                            "price": 19.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/buffalo-trace/buffalo-trace-bourbon/buffalo-trace-bourbon-375ml.png",
-                                            "inventory": 3
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 34.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/buffalo-trace/buffalo-trace-bourbon/buffalo-trace-bourbon-750ml.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -2015,16 +2015,16 @@
                                         {
                                             "id": "",
                                             "size": "375ml",
-                                            "price": 22.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/angels-envy/angels-envy-bourbon/angels-envy-bourbon-375ml.png",
-                                            "inventory": 3
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 49.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/angels-envy/angels-envy-bourbon/angels-envy-bourbon-750ml.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -2032,7 +2032,7 @@
                         },
                         {
                             "brand": "Eagle Rare",
-                            "products":[
+                            "products": [
                                 {
                                     "name": "Eagle Rare Bourbon",
                                     "route": "eagle-rare-bourbon",
@@ -2042,9 +2042,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 34.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/eagle-rare/eagle-rare-bourbon/eagle-rare-bourbon-750ml.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -2062,9 +2062,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 69.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/blantons/blantons-bourbon/blantons-bourbon-750ml.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -2082,9 +2082,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 49.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/michters/michters-bourbon-small-batch/michters-bourbon-small-batch-750ml.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -2102,9 +2102,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 29.99,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/bourbon/old-forester/old-forester-bourbon/old-forester-bourbon-750ml.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -2388,16 +2388,16 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 34.49,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/irish/bushmills/bushmills-original/bushmills-original-750ml.png",
-                                            "inventory": 6
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 60.94,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/irish/bushmills/bushmills-original/bushmills-original-175L.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -2410,16 +2410,16 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 11.49,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/irish/bushmills/bushmills-black-bush/bushmills-black-bush-750ml.png",
-                                            "inventory": 6
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 60.94,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/irish/bushmills/bushmills-black-bush/bushmills-black-bush-175L.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -2432,16 +2432,16 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 11.49,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/irish/bushmills/bushmills-red-bush/bushmills-red-bush-750ml.png",
-                                            "inventory": 6
+                                            "inventory": 0
                                         },
                                         {
                                             "id": "",
                                             "size": "1.75L",
-                                            "price": 60.94,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/irish/bushmills/bushmills-red-bush/bushmills-red-bush-175L.png",
-                                            "inventory": 5
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -2454,9 +2454,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 11.49,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/irish/bushmills/bushmills-10-year/bushmills-10-year-750ml.png",
-                                            "inventory": 6
+                                            "inventory": 0
                                         }
                                     ]
                                 },
@@ -2469,9 +2469,9 @@
                                         {
                                             "id": "",
                                             "size": "750ml",
-                                            "price": 11.49,
+                                            "price": 10000,
                                             "img": "liquors/whiskey/irish/bushmills/bushmills-12-year/bushmills-12-year-750ml.png",
-                                            "inventory": 6
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -4159,90 +4159,6 @@
                             ]
                         },
                         {
-                            "brand": "Smirnoff",
-                            "products": [
-                                {
-                                    "name": "Smirnoff Vodka",
-                                    "route": "smirnoff-vodka",
-                                    "modal": false,
-                                    "description": "Smirnoff vodka is created by a unique process involving three distillations and ten stages of filtration to deliver smoothness and clarity. Perfect for cocktails and mixed drinks in any occasion.",
-                                    "sizes": [
-                                        {
-                                            "id": "824720",
-                                            "size": "50ml",
-                                            "price": 1.61,
-                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-50ml.png",
-                                            "inventory": 773
-                                        },
-                                        {
-                                            "id": "820080",
-                                            "size": "200ml",
-                                            "price": 6.2,
-                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-200ml.png",
-                                            "inventory": 45
-                                        },
-                                        {
-                                            "id": "825610",
-                                            "size": "375ml",
-                                            "price": 7.81,
-                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-375ml.png",
-                                            "inventory": 30
-                                        },
-                                        {
-                                            "id": "08200016628",
-                                            "size": "750ml",
-                                            "price": 16.09,
-                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-750ml.png",
-                                            "inventory": 56
-                                        },
-                                        {
-                                            "id": "0829500",
-                                            "size": "750ml PET",
-                                            "price": 16.09,
-                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-pet-750ml.png",
-                                            "inventory": 39
-                                        },
-                                        {
-                                            "id": "08200072760",
-                                            "size": "1.75L",
-                                            "price": 24.14,
-                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-175L.png",
-                                            "inventory": 39
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "Smirnoff Spicy Tamarind",
-                                    "route": "smirnoff-spicy-tamarind",
-                                    "modal": false,
-                                    "description": "Smirnoff Spiced is a blend of Smirnoff No. 21 premium vodka with a combination of natural spices and flavors. It is triple distilled from a blend of different grains, and filtered ten times through seven columns of environmentally sustainable charcoal for an exceptionally pure-tasting, smooth spirit.",
-                                    "sizes": [
-                                        {
-                                            "id": "480632",
-                                            "size": "50ml",
-                                            "price": 1.61,
-                                            "img": "liquors/vodka/american/smirnoff/smirnoff-spicy-tamarind/smirnoff-spicy-tamarind-50ml.png",
-                                            "inventory": 46
-                                        },
-                                        {
-                                            "id": "08200078353",
-                                            "size": "750ml",
-                                            "price": 13.79,
-                                            "img": "liquors/vodka/american/smirnoff/smirnoff-spicy-tamarind/smirnoff-spicy-tamarind-750ml.png",
-                                            "inventory": 5
-                                        },
-                                        {
-                                            "id": "255651111245",
-                                            "size": "1.75L",
-                                            "price": 25.29,
-                                            "img": "liquors/vodka/american/smirnoff/smirnoff-spicy-tamarind/smirnoff-spicy-tamarind-175L.png",
-                                            "inventory": 6
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
                             "brand": "New amsterdam",
                             "products": [
                                 {
@@ -4365,6 +4281,96 @@
                                             "price": 26.44,
                                             "img": "liquors/vodka/american/new-amsterdam/new-amsterdam-pink-whitney/new-amsterdam-pink-whitney-175L.png",
                                             "inventory": 5
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subtype": "russian",
+                    "description": "Vodka is a distilled beverage composed primarily of water and ethanol, sometimes with traces of impurities and flavorings. Traditionally, vodka is made by the distillation of cereal grains or potatoes that have been fermented, though some modern brands use other substances, such as fruits or sugar.",
+                    "products": [
+                        {
+                            "brand": "Smirnoff",
+                            "products": [
+                                {
+                                    "name": "Smirnoff Vodka",
+                                    "route": "smirnoff-vodka",
+                                    "modal": false,
+                                    "description": "Smirnoff vodka is created by a unique process involving three distillations and ten stages of filtration to deliver smoothness and clarity. Perfect for cocktails and mixed drinks in any occasion.",
+                                    "sizes": [
+                                        {
+                                            "id": "824720",
+                                            "size": "50ml",
+                                            "price": 1.61,
+                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-50ml.png",
+                                            "inventory": 773
+                                        },
+                                        {
+                                            "id": "820080",
+                                            "size": "200ml",
+                                            "price": 6.2,
+                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-200ml.png",
+                                            "inventory": 45
+                                        },
+                                        {
+                                            "id": "825610",
+                                            "size": "375ml",
+                                            "price": 7.81,
+                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-375ml.png",
+                                            "inventory": 30
+                                        },
+                                        {
+                                            "id": "08200016628",
+                                            "size": "750ml",
+                                            "price": 16.09,
+                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-750ml.png",
+                                            "inventory": 56
+                                        },
+                                        {
+                                            "id": "0829500",
+                                            "size": "750ml PET",
+                                            "price": 16.09,
+                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-pet-750ml.png",
+                                            "inventory": 39
+                                        },
+                                        {
+                                            "id": "08200072760",
+                                            "size": "1.75L",
+                                            "price": 24.14,
+                                            "img": "liquors/vodka/american/smirnoff/smirnoff-vodka/smirnoff-vodka-175L.png",
+                                            "inventory": 39
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Smirnoff Spicy Tamarind",
+                                    "route": "smirnoff-spicy-tamarind",
+                                    "modal": false,
+                                    "description": "Smirnoff Spiced is a blend of Smirnoff No. 21 premium vodka with a combination of natural spices and flavors. It is triple distilled from a blend of different grains, and filtered ten times through seven columns of environmentally sustainable charcoal for an exceptionally pure-tasting, smooth spirit.",
+                                    "sizes": [
+                                        {
+                                            "id": "480632",
+                                            "size": "50ml",
+                                            "price": 1.61,
+                                            "img": "liquors/vodka/american/smirnoff/smirnoff-spicy-tamarind/smirnoff-spicy-tamarind-50ml.png",
+                                            "inventory": 46
+                                        },
+                                        {
+                                            "id": "08200078353",
+                                            "size": "750ml",
+                                            "price": 13.79,
+                                            "img": "liquors/vodka/american/smirnoff/smirnoff-spicy-tamarind/smirnoff-spicy-tamarind-750ml.png",
+                                            "inventory": 5
+                                        },
+                                        {
+                                            "id": "255651111245",
+                                            "size": "1.75L",
+                                            "price": 25.29,
+                                            "img": "liquors/vodka/american/smirnoff/smirnoff-spicy-tamarind/smirnoff-spicy-tamarind-175L.png",
+                                            "inventory": 6
                                         }
                                     ]
                                 }
@@ -5997,6 +6003,79 @@
                             ]
                         },
                         {
+                            "brand": "Decoy",
+                            "products": [
+                                {
+                                    "name": "Decoy Cabernet Sauvignon",
+                                    "route": "decoy-cabernet-sauvignon",
+                                    "modal": false,
+                                    "description": "Decoy is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Cabernet Sauvignon",
+                                    "wine_type": "Vino Tinto",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/american/decoy/decoy-cabernet-sauvignon/decoy-cabernet-sauvignon-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Decoy Merlot",
+                                    "route": "decoy-merlot",
+                                    "modal": false,
+                                    "description": "Decoy is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Merlot",
+                                    "wine_type": "Vino Tinto",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/american/decoy/decoy-merlot/decoy-merlot-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Decoy Brut Cuvee",
+                                    "route": "decoy-brut-cuvee",
+                                    "modal": false,
+                                    "description": "Decoy is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/american/decoy/decoy-brut-cuvee/decoy-brut-cuvee-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Decoy Brut Rose",
+                                    "route": "decoy-brut-rose",
+                                    "modal": false,
+                                    "description": "Decoy is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/american/decoy/decoy-brut-rose/decoy-brut-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "brand": "Emmolo",
                             "products": [
                                 {
@@ -6029,6 +6108,23 @@
                                             "size": "750ml",
                                             "price": 10000,
                                             "img": "liquors/wine/american/emmolo/emmolo-sauvignon-blanc/emmolo-sauvignon-blanc-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Emmolo Sparkling",
+                                    "route": "emmolo-sparkling",
+                                    "modal": false,
+                                    "description": "Emmolo is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/american/emmolo/emmolo-sparkling/emmolo-sparkling-750ml.png",
                                             "inventory": 0
                                         }
                                     ]
@@ -6192,6 +6288,700 @@
                     "subtype": "french",
                     "description": "French wine is produced all throughout France, in quantities between 50 and 60 million hectolitres per year, or 7\u20138 billion bottles.",
                     "products": [
+                        {
+                            "brand": "Moet & Chandon",
+                            "products": [
+                                {
+                                    "name": "Moet & Chandon Imperial Brut",
+                                    "route": "moet-chandon-imperial-brut",
+                                    "modal": false,
+                                    "description": "Moet & Chandon Imperial Brut is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/moet-chandon/moet-chandon-imperial-brut/moet-chandon-imperial-brut-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Moet & Chandon Imperial Rose",
+                                    "route": "moet-chandon-imperial-rose",
+                                    "modal": false,
+                                    "description": "Moet & Chandon Imperial Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/moet-chandon/moet-chandon-imperial-rose/moet-chandon-imperial-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Moet & Chandon Nectar Imperial",
+                                    "route": "moet-chandon-nectar-imperial",
+                                    "modal": false,
+                                    "description": "Moet & Chandon Nectar Imperial is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/moet-chandon/moet-chandon-nectar-imperial/moet-chandon-nectar-imperial-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Moet & Chandon Nectar Imperial Rose",
+                                    "route": "moet-chandon-nectar-imperial-rose",
+                                    "modal": false,
+                                    "description": "Moet & Chandon Nectar Imperial Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/moet-chandon/moet-chandon-nectar-imperial-rose/moet-chandon-nectar-imperial-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Moet & Chandon Ice Imperial",
+                                    "route": "moet-chandon-ice-imperial",
+                                    "modal": false,
+                                    "description": "Moet & Chandon Ice Imperial is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/moet-chandon/moet-chandon-ice-imperial/moet-chandon-ice-imperial-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Moet & Chandon Ice Imperial Rose",
+                                    "route": "moet-chandon-ice-imperial-rose",
+                                    "modal": false,
+                                    "description": "Moet & Chandon Ice Imperial Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/moet-chandon/moet-chandon-ice-imperial-rose/moet-chandon-ice-imperial-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Ruinart",
+                            "products": [
+                                {
+                                    "name": "Ruinart Blanc de Blancs",
+                                    "route": "ruinart-blanc-de-blancs",
+                                    "modal": false,
+                                    "description": "Ruinart Blanc de Blancs is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/ruinart/ruinart-blanc-de-blancs/ruinart-blanc-de-blancs-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Ruinart Rose",
+                                    "route": "ruinart-rose",
+                                    "modal": false,
+                                    "description": "Ruinart Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/ruinart/ruinart-rose/ruinart-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Perrier-Jouet",
+                            "products": [
+                                {
+                                    "name": "Perrier-Jouet Grand Brut",
+                                    "route": "perrier-jouet-grand-brut",
+                                    "modal": false,
+                                    "description": "Perrier-Jouet Grand Brut is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/perrier-jouet/perrier-jouet-grand-brut/perrier-jouet-grand-brut-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Veuve Clicquot",
+                            "products": [
+                                {
+                                    "name": "Veuve Clicquot Brut",
+                                    "route": "veuve-clicquot-brut",
+                                    "modal": false,
+                                    "description": "Veuve Clicquot Brut is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/veuve-clicquot/veuve-clicquot-brut/veuve-clicquot-brut-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Veuve Clicquot Rose",
+                                    "route": "veuve-clicquot-rose",
+                                    "modal": false,
+                                    "description": "Veuve Clicquot Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/veuve-clicquot/veuve-clicquot-rose/veuve-clicquot-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Veuve Clicquot Rich",
+                                    "route": "veuve-clicquot-rich",
+                                    "modal": false,
+                                    "description": "Veuve Clicquot Rich is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/veuve-clicquot/veuve-clicquot-rich/veuve-clicquot-rich-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Veuve Clicquot Rich Rose",
+                                    "route": "veuve-clicquot-rich-rose",
+                                    "modal": false,
+                                    "description": "Veuve Clicquot Rich Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/veuve-clicquot/veuve-clicquot-rich-rose/veuve-clicquot-rich-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Telmont",
+                            "products": [
+                                {
+                                    "name": "Telmont Reserve Brut",
+                                    "route": "telmont-reserve-brut",
+                                    "modal": false,
+                                    "description": "Telmont Reserve Brut is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/telmont/telmont-reserve-brut/telmont-reserve-brut-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Telmont Reserve Rose",
+                                    "route": "telmont-reserve-rose",
+                                    "modal": false,
+                                    "description": "Telmont Reserve Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/telmont/telmont-reserve-rose/telmont-reserve-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Tattinger",
+                            "products": [
+                                {
+                                    "name": "Tattinger Prestige Brut Rose",
+                                    "route": "tattinger-prestige-brut-rose",
+                                    "modal": false,
+                                    "description": "Tattinger Prestige Brut Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/tattinger/tattinger-prestige-brut-rose/tattinger-prestige-brut-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "G.H. Mumm",
+                            "products": [
+                                {
+                                    "name": "G.H. Mumm Brut",
+                                    "route": "gh-mumm-brut",
+                                    "modal": false,
+                                    "description": "G.H. Mumm Brut is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/gh-mumm/gh-mumm-brut/gh-mumm-brut-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Laurent-Perrier",
+                            "products": [
+                                {
+                                    "name": "Laurent-Perrier Brut Rose",
+                                    "route": "laurent-perrier-brut-rose",
+                                    "modal": false,
+                                    "description": "Laurent-Perrier Brut Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/laurent-perrier/laurent-perrier-brut-rose/laurent-perrier-brut-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Luc Belaire",
+                            "products": [
+                                {
+                                    "name": "Luc Belaire Brut Gold",
+                                    "route": "luc-belaire-brut-gold",
+                                    "modal": false,
+                                    "description": "Luc Belaire Brut Gold is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/luc-belaire/luc-belaire-brut-gold/luc-belaire-brut-gold-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Luc Belaire Rare Rose",
+                                    "route": "luc-belaire-rare-rose",
+                                    "modal": false,
+                                    "description": "Luc Belaire Rare Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/luc-belaire/luc-belaire-rare-rose/luc-belaire-rare-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Luc Belaire Luxe Rose",
+                                    "route": "luc-belaire-luxe-rose",
+                                    "modal": false,
+                                    "description": "Luc Belaire Luxe Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/luc-belaire/luc-belaire-luxe-rose/luc-belaire-luxe-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Luc Belaire Rare Luxe",
+                                    "route": "luc-belaire-rare-luxe",
+                                    "modal": false,
+                                    "description": "Luc Belaire Rare Luxe is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/luc-belaire/luc-belaire-rare-luxe/luc-belaire-rare-luxe-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Luc Belaire Bleu",
+                                    "route": "luc-belaire-bleu",
+                                    "modal": false,
+                                    "description": "Luc Belaire Bleu is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/luc-belaire/luc-belaire-bleu/luc-belaire-bleu-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Devant",
+                            "products": [
+                                {
+                                    "name": "Devant Brut",
+                                    "route": "devant-brut",
+                                    "modal": false,
+                                    "description": "Devant Brut is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/devant/devant-brut/devant-brut-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Devant Brut Rose",
+                                    "route": "devant-brut-rose",
+                                    "modal": false,
+                                    "description": "Devant Brut Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/devant/devant-brut-rose/devant-brut-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Chandon",
+                            "products": [
+                                {
+                                    "name": "Chandon Brut",
+                                    "route": "chandon-brut",
+                                    "modal": false,
+                                    "description": "Chandon Brut is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/chandon/chandon-brut/chandon-brut-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Chandon Brut Rose",
+                                    "route": "chandon-brut-rose",
+                                    "modal": false,
+                                    "description": "Chandon Brut Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/chandon/chandon-brut-rose/chandon-brut-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Chandon Spritz",
+                                    "route": "chandon-spritz",
+                                    "modal": false,
+                                    "description": "Chandon Spritz is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/chandon/chandon-spritz/chandon-spritz-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Korbel",
+                            "products": [
+                                {
+                                    "name": "Korbel Brut",
+                                    "route": "korbel-brut",
+                                    "modal": false,
+                                    "description": "Korbel Brut is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/korbel/korbel-brut/korbel-brut-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Korbel Brut Rose",
+                                    "route": "korbel-brut-rose",
+                                    "modal": false,
+                                    "description": "Korbel Brut Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/korbel/korbel-brut-rose/korbel-brut-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Korbel Sweet Rose",
+                                    "route": "korbel-sweet-rose",
+                                    "modal": false,
+                                    "description": "Korbel Sweet Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/korbel/korbel-sweet-rose/korbel-sweet-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Korbel Extra Dry",
+                                    "route": "korbel-extra-dry",
+                                    "modal": false,
+                                    "description": "Korbel Extra Dry is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Champagne",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/korbel/korbel-extra-dry/korbel-extra-dry-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Korbel Prosecco",
+                                    "route": "korbel-prosecco",
+                                    "modal": false,
+                                    "description": "Korbel Prosecco is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/korbel/korbel-prosecco/korbel-prosecco-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Veuve Du Vernay",
+                            "products": [
+                                {
+                                    "name": "Veuve Du Vernay Brut",
+                                    "route": "veuve-du-vernay-brut",
+                                    "modal": false,
+                                    "description": "Veuve Du Vernay Brut is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/veuve-du-vernay/veuve-du-vernay-brut/veuve-du-vernay-brut-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Veuve Du Vernay Brut Rose",
+                                    "route": "veuve-du-vernay-brut-rose",
+                                    "modal": false,
+                                    "description": "Veuve Du Vernay Brut Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/veuve-du-vernay/veuve-du-vernay-brut-rose/veuve-du-vernay-brut-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Veuve Du Vernay Ice",
+                                    "route": "veuve-du-vernay-ice",
+                                    "modal": false,
+                                    "description": "Veuve Du Vernay Ice is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/veuve-du-vernay/veuve-du-vernay-ice/veuve-du-vernay-ice-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Veuve Du Vernay Ice Rose",
+                                    "route": "veuve-du-vernay-ice-rose",
+                                    "modal": false,
+                                    "description": "Veuve Du Vernay Ice Rose is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Champagne",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/french/veuve-du-vernay/veuve-du-vernay-ice-rose/veuve-du-vernay-ice-rose-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
                         {
                             "brand": "Bouchard Ain\u00e9 & Fils",
                             "products": [
@@ -6560,6 +7350,145 @@
                             ]
                         },
                         {
+                            "brand": "La Marca",
+                            "products": [
+                                {
+                                    "name": "La Marca Prosecco",
+                                    "route": "la-marca-prosecco",
+                                    "modal": false,
+                                    "description": "La Marca Prosecco is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Prosecco",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/italian/la-marca/la-marca-prosecco/la-marca-prosecco-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Mionetto",
+                            "products": [
+                                {
+                                    "name": "Mionetto Prosecco",
+                                    "route": "mionetto-prosecco",
+                                    "modal": false,
+                                    "description": "Mionetto Prosecco is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Prosecco",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/italian/mionetto/mionetto-prosecco/mionetto-prosecco-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Martini & Rossi",
+                            "products": [
+                                {
+                                    "name": "Martini & Rossi Asti",
+                                    "route": "martini-rossi-asti",
+                                    "modal": false,
+                                    "description": "Martini & Rossi Asti is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Asti",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/italian/martini-rossi/martini-rossi-asti/martini-rossi-asti-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Martini & Rossi Vermouth Rosso",
+                                    "route": "martini-rossi-vermouth-rosso",
+                                    "modal": false,
+                                    "description": "Martini & Rossi Vermouth Rosso is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Vermouth",
+                                    "wine_type": "Vino Blanco",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/italian/martini-rossi/martini-rossi-vermouth-rosso/martini-rossi-vermouth-rosso-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Martini & Rossi Vermouth Bianco",
+                                    "route": "martini-rossi-vermouth-bianco",
+                                    "modal": false,
+                                    "description": "Martini & Rossi Vermouth Bianco is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Vermouth",
+                                    "wine_type": "Vino Blanco",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/italian/martini-rossi/martini-rossi-vermouth-bianco/martini-rossi-vermouth-bianco-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Martini & Rossi Vermouth Extra Dry",
+                                    "route": "martini-rossi-vermouth-extra-dry",
+                                    "modal": false,
+                                    "description": "Martini & Rossi Vermouth Extra Dry is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Vermouth",
+                                    "wine_type": "Vino Blanco",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/italian/martini-rossi/martini-rossi-vermouth-extra-dry/martini-rossi-vermouth-extra-dry-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Pizzolato Fields",
+                            "products": [
+                                {
+                                    "name": "Pizzolato Fields Prosecco",
+                                    "route": "pizzolato-fields-prosecco",
+                                    "modal": false,
+                                    "description": "Pizzolato Fields Prosecco is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
+                                    "varietal": "Prosecco",
+                                    "wine_type": "Sparkling",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors/wine/italian/pizzolato-fields/pizzolato-fields-prosecco/pizzolato-fields-prosecco-750ml.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "brand": "Santa Margherita",
                             "products": [
                                 {
@@ -6886,7 +7815,7 @@
             "description": "Liquor is an alcoholic drink produced by distillation of grains, fruit, or vegetables that have already gone through alcoholic fermentation.",
             "subtypes": [
                 {
-                    "subtype": "liquor",
+                    "subtype": "irish",
                     "description": "Liquor is an alcoholic drink produced by distillation of grains, fruit, or vegetables that have already gone through alcoholic fermentation.",
                     "products": [
                         {
@@ -6943,7 +7872,13 @@
                                     ]
                                 }
                             ]
-                        },
+                        }
+                    ]
+                },
+                {
+                    "subtype": "german",
+                    "description": "Liquor is an alcoholic drink produced by distillation of grains, fruit, or vegetables that have already gone through alcoholic fermentation.",
+                    "products": [
                         {
                             "brand": "Jaggermeister",
                             "products": [
@@ -6998,7 +7933,13 @@
                                     ]
                                 }
                             ]
-                        },
+                        }
+                    ]
+                },
+                {
+                    "subtype": "american",
+                    "description": "Liquor is an alcoholic drink produced by distillation of grains, fruit, or vegetables that have already gone through alcoholic fermentation.",
+                    "products": [
                         {
                             "brand": "Fireball",
                             "products": [
@@ -7369,9 +8310,56 @@
             "description": "Beer is one of the oldest and most widely consumed alcoholic drinks in the world, and the third most popular drink overall after water and tea.",
             "subtypes": [
                 {
-                    "subtype": "domestic",
+                    "subtype": "american",
                     "description": "Domestic beer is beer that is produced in the United States.",
                     "products": [
+                        {
+                            "brand": "Busch",
+                            "products": [
+                                {
+                                    "name": "Busch",
+                                    "route": "busch",
+                                    "modal": false,
+                                    "description": "Busch is brewed using a blend of premium aroma hop varieties, both American-grown and imported, and a combination of barley malts and rice.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "16oz-4pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/american/busch/busch/busch-16oz-4pack-can.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Budweiser",
+                            "products": [
+                                {
+                                    "name": "Budweiser",
+                                    "route": "budweiser",
+                                    "modal": false,
+                                    "description": "Budweiser is brewed using a blend of premium aroma hop varieties, both American-grown and imported, and a combination of barley malts and rice.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "16oz-4pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/american/budweiser/budweiser/budweiser-16oz-4pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "16oz-6pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/american/budweiser/budweiser/budweiser-16oz-6pack-can.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
                         {
                             "brand": "Wynwood La rubia",
                             "products": [
@@ -7385,14 +8373,61 @@
                                             "id": "85246500602",
                                             "size": "12oz-6pack-Bottle",
                                             "price": 14.89,
-                                            "img": "liquors/beer/domestic/wynwood-la-rubia/wynwood-la-rubia/wynwood-la-rubia-12oz-6pack-bottle.png",
+                                            "img": "liquors/beer/american/wynwood-la-rubia/wynwood-la-rubia/wynwood-la-rubia-12oz-6pack-bottle.png",
                                             "inventory": 6
                                         },
                                         {
                                             "id": "85246500671",
                                             "size": "12oz-12pack-Can",
                                             "price": 23.56,
-                                            "img": "liquors/beer/domestic/wynwood-la-rubia/wynwood-la-rubia/wynwood-la-rubia-12oz-12pack-can.png",
+                                            "img": "liquors/beer/american/wynwood-la-rubia/wynwood-la-rubia/wynwood-la-rubia-12oz-12pack-can.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Beck's",
+                            "products": [
+                                {
+                                    "name": "Beck's",
+                                    "route": "becks",
+                                    "modal": false,
+                                    "description": "Beck's is a German-style pilsner brewed with the finest barley and hops giving it a sweet and malty taste.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/american/becks/becks/becks-12oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "16oz-4pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/american/becks/becks/becks-16oz-4pack-can.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Jai Alai IPA",
+                            "products": [
+                                {
+                                    "name": "Jai Alai IPA",
+                                    "route": "jai-alai-ipa",
+                                    "modal": false,
+                                    "description": "Jai Alai IPA is a bold, citrusy and balanced India Pale Ale that involves six different hop varietals used generously in a 7.5% ABV beer.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/american/jai-alai-ipa/jai-alai-ipa/jai-alai-ipa-12oz-12pack-can.png",
                                             "inventory": 0
                                         }
                                     ]
@@ -7412,43 +8447,541 @@
                                             "id": "01820000833",
                                             "size": "12oz-6pack-Bottle",
                                             "price": 12.06,
-                                            "img": "liquors/beer/domestic/bud-light/bud-light/bud-light-12oz-6pack-bottle.png",
+                                            "img": "liquors/beer/american/bud-light/bud-light/bud-light-12oz-6pack-bottle.png",
                                             "inventory": 3
                                         },
                                         {
                                             "id": "187952",
                                             "size": "16oz",
                                             "price": 2.98,
-                                            "img": "liquors/beer/domestic/bud-light/bud-light/bud-light-16oz.png",
+                                            "img": "liquors/beer/american/bud-light/bud-light/bud-light-16oz.png",
                                             "inventory": 22
                                         },
                                         {
                                             "id": "01820000769",
                                             "size": "12oz-12pack-Bottle",
                                             "price": 19.54,
-                                            "img": "liquors/beer/domestic/bud-light/bud-light/bud-light-12oz-12pack-bottle.png",
+                                            "img": "liquors/beer/american/bud-light/bud-light/bud-light-12oz-12pack-bottle.png",
                                             "inventory": 3
                                         },
                                         {
                                             "id": "01820053047",
                                             "size": "12oz-12pack-Can",
                                             "price": 19.54,
-                                            "img": "liquors/beer/domestic/bud-light/bud-light/bud-light-12oz-12pack-can.png",
+                                            "img": "liquors/beer/american/bud-light/bud-light/bud-light-12oz-12pack-can.png",
                                             "inventory": 8
                                         },
                                         {
                                             "id": "0185382",
                                             "size": "16oz-4pack-Can",
                                             "price": 8.04,
-                                            "img": "liquors/beer/domestic/bud-light/bud-light/bud-light-16oz-4pack-can.png",
+                                            "img": "liquors/beer/american/bud-light/bud-light/bud-light-16oz-4pack-can.png",
                                             "inventory": 7
                                         },
                                         {
                                             "id": "0181062",
                                             "size": "12oz-6pack-Can",
                                             "price": 12.06,
-                                            "img": "liquors/beer/domestic/bud-light/bud-light/bud-light-12oz-6pack-can.png",
+                                            "img": "liquors/beer/american/bud-light/bud-light/bud-light-12oz-6pack-can.png",
                                             "inventory": 5
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subtype": "mexican",
+                    "description": "Mexican beer is beer that is produced in Mexico.",
+                    "products": [
+                        {
+                            "brand": "Corona",
+                            "products": [
+                                {
+                                    "name": "Corona Extra",
+                                    "route": "corona-extra",
+                                    "modal": false,
+                                    "description": "Corona Extra is a pale lager produced by Cervecer\u00eda Modelo in Mexico for domestic distribution and export to all other countries besides the United States.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/corona/corona-extra/corona-extra-12oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/corona/corona-extra/corona-extra-12oz-12pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-18pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/corona/corona-extra/corona-extra-12oz-18pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-4pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/corona/corona-extra/corona-extra-12oz-4pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/corona/corona-extra/corona-extra-12oz-6pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/corona/corona-extra/corona-extra-12oz-12pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-18pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/corona/corona-extra/corona-extra-12oz-18pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "7oz-24pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/corona/corona-extra/corona-extra-7oz-24pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "24oz-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/corona/corona-extra/corona-extra-24oz-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "24oz-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/corona/corona-extra/corona-extra-24oz-bottle.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Modelo",
+                            "products": [
+                                {
+                                    "name": "Modelo Especial",
+                                    "route": "modelo-especial",
+                                    "modal": false,
+                                    "description": "Modelo Especial is a pilsner-style lager whose original recipe was first brewed in Mexico in 1925, under the vision to create a 'model' beer.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/modelo/modelo-especial/modelo-especial-12oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/modelo/modelo-especial/modelo-especial-12oz-12pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-4pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/modelo/modelo-especial/modelo-especial-12oz-4pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/modelo/modelo-especial/modelo-especial-12oz-6pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/modelo/modelo-especial/modelo-especial-12oz-12pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-18pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/modelo/modelo-especial/modelo-especial-12oz-18pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "7oz-24pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/modelo/modelo-especial/modelo-especial-7oz-24pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "24oz-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/modelo/modelo-especial/modelo-especial-24oz-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "24oz-Can-Chelada",
+                                            "price": 10000,
+                                            "img": "liquors/beer/mexican/modelo/modelo-especial/modelo-especial-24oz-can-chelada.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subtype": "netherlands",
+                    "description": "Dutch beer is beer that is produced in the Netherlands.",
+                    "products": [
+                        {
+                            "brand": "Heineken",
+                            "products": [
+                                {
+                                    "name": "Heineken",
+                                    "route": "heineken",
+                                    "modal": false,
+                                    "description": "Heineken Lager Beer, or simply Heineken, is a pale lager beer with 5% alcohol by volume produced by the Dutch brewing company Heineken International.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/netherlands/heineken/heineken/heineken-12oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "16oz-6pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/netherlands/heineken/heineken/heineken-12oz-6pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Zero-Zero-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/netherlands/heineken/heineken/heineken-12oz-12pack-zero-zero-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/netherlands/heineken/heineken/heineken-12oz-12pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/netherlands/heineken/heineken/heineken-12oz-12pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/netherlands/heineken/heineken/heineken-12oz-12pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "16oz-4pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/netherlands/heineken/heineken/heineken-16oz-4pack-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "24oz-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/netherlands/heineken/heineken/heineken-24oz-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "24oz-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/netherlands/heineken/heineken/heineken-24oz-bottle.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Laguinitas IPA",
+                            "products": [
+                                {
+                                    "name": "Lagunitas IPA",
+                                    "route": "lagunitas-ipa",
+                                    "modal": false,
+                                    "description": "Lagunitas IPA is a well-rounded, highly drinkable IPA. A bit of Caramel Malt barley provides the richness that mellows out the twang of the hops.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/netherlands/lagunitas-ipa/lagunitas-ipa/lagunitas-ipa-12oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subtype": "belgian",
+                    "description": "Belgian beer is beer that is produced in Belgium.",
+                    "products": [
+                        {
+                            "brand": "Stella Artois",
+                            "products": [
+                                {
+                                    "name": "Stella Artois",
+                                    "route": "stella-artois",
+                                    "modal": false,
+                                    "description": "Stella Artois is a Belgian pilsner of between 4.8 and 5.2% ABV which was first brewed by Brouwerij Artois in Leuven, Belgium, in 1926.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "7oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/belgian/stella-artois/stella-artois/stella-artois-7oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/belgian/stella-artois/stella-artois/stella-artois-12oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/belgian/stella-artois/stella-artois/stella-artois-12oz-12pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "25oz-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/belgian/stella-artois/stella-artois/stella-artois-25oz-can.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "22oz-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/belgian/stella-artois/stella-artois/stella-artois-22oz-bottle.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Blue Moon",
+                            "products": [
+                                {
+                                    "name": "Blue Moon",
+                                    "route": "blue-moon",
+                                    "modal": false,
+                                    "description": "Blue Moon Belgian White is a Belgian-style witbier brewed by MillerCoors under the name the Blue Moon Brewing Co. It was launched in 1995, and was originally brewed in Golden, Colorado.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/american/blue-moon/blue-moon/blue-moon-12oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Voodoo Ranger",
+                            "products": [
+                                {
+                                    "name": "Voodoo Ranger IPA",
+                                    "route": "voodoo-ranger-ipa",
+                                    "modal": false,
+                                    "description": "Voodoo Ranger IPA is a well-rounded, highly drinkable IPA. A bit of Caramel Malt barley provides the richness that mellows out the twang of the hops.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/belgian/voodoo-ranger-ipa/voodoo-ranger-ipa/voodoo-ranger-ipa-12oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subtype": "nicaraguan",
+                    "description": "To\u00f1a beer is beer that is produced in Nicaragua.",
+                    "products": [
+                        {
+                            "brand": "To\u00f1a",
+                            "products": [
+                                {
+                                    "name": "To\u00f1a",
+                                    "route": "tona",
+                                    "modal": false,
+                                    "description": "To\u00f1a is a Nicaraguan pilsner that has been brewed by Compa\u00f1\u00eda Cervecera de Nicaragua since 1976.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/nicaraguan/tona/tona-12oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subtype": "republic-domenican",
+                    "description": "Dominican beer is beer that is produced in the Dominican Republic.",
+                    "products": [
+                        {
+                            "brand": "Presidente",
+                            "products": [
+                                {
+                                    "name": "Presidente",
+                                    "route": "presidente",
+                                    "modal": false,
+                                    "description": "Presidente is a Dominican pilsner that has been brewed by Cervecer\u00eda Nacional Dominicana since 1935.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "12oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/republic-domenican/presidente/presidente/presidente-12oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "12oz-12pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/republic-domenican/presidente/presidente/presidente-12oz-12pack-bottle.png",
+                                            "inventory": 0
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "16oz-4pack-Can",
+                                            "price": 10000,
+                                            "img": "liquors/beer/republic-domenican/presidente/presidente/presidente-16oz-4pack-can.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subtype": "russian",
+                    "description": "Russian beer is beer that is produced in Russia.",
+                    "products": [
+                        {
+                            "brand": "Smirnoff",
+                            "products": [
+                                {
+                                    "name": "Smirnoff Ice Original",
+                                    "route": "smirnoff-ice-original",
+                                    "modal": false,
+                                    "description": "Smirnoff Ice is a premium malt beverage that is made with malt and is not confirmed to gluten-free standards.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "11.2oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/russian/smirnoff/smirnoff-ice-original/smirnoff-ice-original-112oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Smirnoff Ice Green Apple",
+                                    "route": "smirnoff-ice-green-apple",
+                                    "modal": false,
+                                    "description": "Smirnoff Ice is a premium malt beverage that is made with malt and is not confirmed to gluten-free standards.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "11.2oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/russian/smirnoff/smirnoff-ice-green-apple/smirnoff-ice-green-apple-112oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Smirnoff Ice Pink",
+                                    "route": "smirnoff-ice-pink",
+                                    "modal": false,
+                                    "description": "Smirnoff Ice is a premium malt beverage that is made with malt and is not confirmed to gluten-free standards.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "11.2oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/russian/smirnoff/smirnoff-ice-pink/smirnoff-ice-pink-112oz-6pack-bottle.png",
+                                            "inventory": 0
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Smirnoff Ice Variety",
+                                    "route": "smirnoff-ice-variety",
+                                    "modal": false,
+                                    "description": "Smirnoff Ice is a premium malt beverage that is made with malt and is not confirmed to gluten-free standards.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "11.2oz-6pack-Bottle",
+                                            "price": 10000,
+                                            "img": "liquors/beer/russian/smirnoff/smirnoff-ice-variety/smirnoff-ice-variety-112oz-6pack-bottle.png",
+                                            "inventory": 0
                                         }
                                     ]
                                 }
@@ -7485,7 +9018,7 @@
                                         },
                                         {
                                             "id": "08797502650",
-                                            "size": "22oz",
+                                            "size": "22oz-Can",
                                             "price": 4.93,
                                             "img": "liquors/beer/japanese/sapporo/sapporo-premium/sapporo-premium-22oz.png",
                                             "inventory": 27

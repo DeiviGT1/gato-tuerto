@@ -90,32 +90,7 @@ function Catalog({ searchTerm = '' }) {
     const getAllProducts = () => {
         let allProducts = [];
         items.types.forEach(type => {
-            if (selectedType === 'others') {
-                if (!['whiskey', 'tequila', 'vodka', 'rum', 'wine'].includes(type.type)) {
-                    type.subtypes.forEach(subtype => {
-                        if (!selectedSubtype || subtype.subtype === selectedSubtype) {
-                            subtype.products.forEach(brand => {
-                                if (!selectedBrand || brand.brand === selectedBrand) {
-                                    brand.products.forEach(product => {
-                                        product.sizes.forEach(size => {
-                                            if (
-                                                (!selectedWineType || product.wine_type === selectedWineType) &&
-                                                (!selectedVarietal || product.varietal === selectedVarietal) &&
-                                                (!selectedSize || size.size === selectedSize) // New size filter
-                                            ) {
-                                                allProducts.push({
-                                                    ...product,
-                                                    size,
-                                                });
-                                            }
-                                        });
-                                    });
-                                }
-                            });
-                        }
-                    });
-                }
-            } else if (!selectedType || type.type === selectedType) {
+            if (!selectedType || type.type === selectedType) {
                 type.subtypes.forEach(subtype => {
                     if (!selectedSubtype || subtype.subtype === selectedSubtype) {
                         subtype.products.forEach(brand => {
@@ -194,7 +169,6 @@ function Catalog({ searchTerm = '' }) {
                     inventory={product.size.inventory}
                     idSelected={product.size.id}
                 />
-
             );
         });
     };

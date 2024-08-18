@@ -8,17 +8,22 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
     const [wineTypes, setWineTypes] = useState([]);
     const [varietals, setVarietals] = useState([]);
     const [subtypes, setSubtypes] = useState([]);
-    const [sizes, setSizes] = useState([]); // New state for sizes
+    const [sizes, setSizes] = useState([]);
 
     useEffect(() => {
         let allBrands = [];
         let allWineTypes = [];
         let allVarietals = [];
         let allSubtypes = [];
-        let allSizes = []; // New array for sizes
+        let allSizes = [];
 
         items.types.forEach(type => {
-            if (!selectedType || type.type === selectedType || selectedType === 'others' && !['whiskey', 'tequila', 'vodka', 'rum', 'wine'].includes(type.type)) {
+            if (
+                !selectedType ||
+                type.type === selectedType ||
+                (selectedType === 'cognac' && (type.type === 'cognac' || type.type === 'brandy')) ||
+                (selectedType === 'brandy' && (type.type === 'cognac' || type.type === 'brandy'))
+            ) {
                 type.subtypes.forEach(subtype => {
                     allSubtypes.push(subtype.subtype);
 
@@ -29,7 +34,7 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
                             product.products.forEach(p => {
                                 if (p.wine_type) allWineTypes.push(p.wine_type);
                                 if (p.varietal) allVarietals.push(p.varietal);
-                                if (p.sizes) p.sizes.forEach(size => allSizes.push(size.size)); // Collect sizes
+                                if (p.sizes) p.sizes.forEach(size => allSizes.push(size.size));
                             });
                         });
                     }
@@ -41,7 +46,7 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
         setWineTypes([...new Set(allWineTypes)]);
         setVarietals([...new Set(allVarietals)]);
         setSubtypes([...new Set(allSubtypes)]);
-        setSizes([...new Set(allSizes)]); // Set unique sizes
+        setSizes([...new Set(allSizes)]);
     }, [selectedType, selectedSubtype, selectedWineType, selectedVarietal]);
 
     const handleTypeChange = (e) => {
@@ -61,7 +66,7 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
         onFilterChange(selectedType, selectedSubtype, selectedBrand, e.target.value, selectedSize, selectedWineType, selectedVarietal, orderBy);
     };
 
-    const handleSizeChange = (e) => { // New handler for size change
+    const handleSizeChange = (e) => {
         onFilterChange(selectedType, selectedSubtype, selectedBrand, selectedPrice, e.target.value, selectedWineType, selectedVarietal, orderBy);
     };
 
@@ -95,7 +100,10 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
                     <option value="vodka">Vodka</option>
                     <option value="rum">Rum</option>
                     <option value="wine">Wine</option>
-                    <option value="others">Others</option>
+                    <option value="gin">Gin</option>
+                    <option value="cognac">Cognac/Brandy</option>
+                    <option value="mezcal">Mezcal</option>
+                    <option value="beer">Beer</option>
                 </select>
             </div>
             <div>
@@ -125,7 +133,7 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
                 </select>
             </div>
             <div>
-                <label>Size:</label> {/* New size filter */}
+                <label>Size:</label>
                 <select value={selectedSize} onChange={handleSizeChange}>
                     <option value="">All</option>
                     {sizes.map(size => (
