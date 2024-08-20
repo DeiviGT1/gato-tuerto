@@ -21,7 +21,6 @@
   }
   
   .carousel-item {
-    min-width: 200px; /* Adjust based on your design */
     margin: 0 10px; /* Adjust based on your design */
     box-sizing: border-box;
     text-align: center;

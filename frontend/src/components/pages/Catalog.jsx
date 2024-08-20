@@ -16,7 +16,7 @@ const importAll = (r) => {
     return images;
 };
 
-const images = importAll(require.context('./liquors', true, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|svg|webp)$/));
 
 function Catalog({ searchTerm = '' }) {
     const [selectedType, setSelectedType] = useState('');
@@ -180,7 +180,7 @@ function Catalog({ searchTerm = '' }) {
                 name={product.name}
                 price={product.size.price}
                 size={formattedSize}  // Usar el tamaño formateado
-                img={images[product.size.img.replace('liquors/', '')]}
+                img={images[product.size.img.replace('liquors-webp/', '')]}
                 productClass={`${isOutOfStock ? 'out-of-stock' : ''}`}
                 inventory={product.size.inventory}
                 idSelected={product.size.id}

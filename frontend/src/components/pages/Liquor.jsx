@@ -14,7 +14,7 @@ const importAll = (r) => {
     return images;
 };
 
-const images = importAll(require.context('./liquors', true, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|svg|webp)$/));
 
 function Liquor() {
     const { item } = useParams();

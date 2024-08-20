@@ -52,7 +52,7 @@ const importAll = (r) => {
     return images;
 };
 
-const images = importAll(require.context('./liquors', true, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|svg|webp)$/));
 
 // Step 2: Create a function to get products by type
 const getProductsByType = (type, productRoutes) => {
@@ -63,7 +63,7 @@ const getProductsByType = (type, productRoutes) => {
         .filter(product => productRoutes.includes(product.route))
         .map(product => {
             const preferredSize = product.sizes.find(size => size.size === "750ml") || product.sizes[0];
-            const imgSrc = images[preferredSize.img.replace('liquors/', '')];
+            const imgSrc = images[preferredSize.img.replace('liquors-webp/', '')];
             return { ...product, imgSrc, price: preferredSize.price };
         });
 };
