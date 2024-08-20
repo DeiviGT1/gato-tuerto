@@ -22,6 +22,9 @@ import mainTequila from '../pages/liquors/tequila/jalisco/clase-azul/clase-azul-
 import mainRum from '../pages/liquors/rum/guatemalan/zacapa/zacapa-23/zacapa-23-750ml.png';
 import mainVodka from '../pages/liquors/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-750ml.png';
 import mainWine from '../pages/liquors/wine/american/caymus/caymus-cabernet-sauvignon/caymus-cabernet-sauvignon-750ml.png';
+import mainGin from '../pages/liquors/gin/netherlands/nolets/nolets-silver/nolets-silver-750ml.png';
+import mainBeer from '../pages/liquors/beer/mexican/corona/corona-extra/corona-extra-24oz-bottle.png';
+import mainCognac from '../pages/liquors/cognac-brandy/french/hennessy/hennessy-vs/hennessy-vs-750ml.png';
 
 
 // Step 1: Import all images dynamically
@@ -206,7 +209,7 @@ function Home() {
 
                     <div>
                         <section className='section-main-types'>
-                            <Carousel responsive={responsivee}>
+                            <Carousel responsive={responsivee} infinite={true}>
                                 <div>
                                     <Link to="/catalog?type=whiskey">
                                         <p className='section-main-types-title'>Whiskey</p>
@@ -237,6 +240,25 @@ function Home() {
                                         <img src={mainWine} alt="" />
                                     </Link>
                                 </div>
+                                <div>
+                                    <Link to="/catalog?type=gin">
+                                        <p className='section-main-types-title'>Gin</p>
+                                        <img src={mainGin} alt="" />
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Link to="/catalog?type=cognac">
+                                        <p className='section-main-types-title'>Cognac/Brandy</p>
+                                        <img src={mainCognac} alt="" />
+                                    </Link>
+                                </div>
+                                <div>
+                                    <Link to="/catalog?type=beer">
+                                        <p className='section-main-types-title'>Beer</p>
+                                        <img src={mainBeer} alt="" />
+                                    </Link>
+                                </div>
+
                             </Carousel>
                         </section>
                     </div>

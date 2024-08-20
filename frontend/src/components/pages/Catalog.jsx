@@ -56,27 +56,33 @@ function Catalog({ searchTerm = '' }) {
     }, [location.search]);
 
     const handleFilterChange = (newType, newSubtype, newBrand, newPrice, newSize, newWineType, newVarietal, newOrderBy) => {
+        // Si se selecciona "Other", establece newSize en "Other"
+        if (newSize === "Other") {
+            newSize = "Other";
+        }
+    
         setSelectedType(newType);
-        setSelectedSubtype(newSubtype); 
+        setSelectedSubtype(newSubtype);
         setSelectedBrand(newBrand);
         setSelectedPrice(newPrice);
-        setSelectedSize(newSize); // New size filter
+        setSelectedSize(newSize); 
         setSelectedWineType(newWineType);
         setSelectedVarietal(newVarietal);
         setOrderBy(newOrderBy);
-
+    
         const params = new URLSearchParams();
         if (newType) params.set('type', newType);
-        if (newSubtype) params.set('subtype', newSubtype); 
+        if (newSubtype) params.set('subtype', newSubtype);
         if (newBrand) params.set('brand', newBrand);
         if (newPrice) params.set('price', newPrice);
-        if (newSize) params.set('size', newSize); // New size filter
+        if (newSize && newSize !== "Other") params.set('size', newSize); 
         if (newWineType) params.set('wineType', newWineType);
         if (newVarietal) params.set('varietal', newVarietal);
         if (newOrderBy) params.set('orderBy', newOrderBy);
-
+    
         navigate({ search: params.toString() });
     };
+    
 
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
@@ -90,7 +96,12 @@ function Catalog({ searchTerm = '' }) {
     const getAllProducts = () => {
         let allProducts = [];
         items.types.forEach(type => {
-            if (!selectedType || type.type === selectedType) {
+            if (
+                !selectedType ||
+                type.type === selectedType ||
+                (selectedType === 'cognac' && type.type === 'brandy') ||
+                (selectedType === 'brandy' && type.type === 'cognac')
+            ) {
                 type.subtypes.forEach(subtype => {
                     if (!selectedSubtype || subtype.subtype === selectedSubtype) {
                         subtype.products.forEach(brand => {
@@ -100,7 +111,7 @@ function Catalog({ searchTerm = '' }) {
                                         if (
                                             (!selectedWineType || product.wine_type === selectedWineType) &&
                                             (!selectedVarietal || product.varietal === selectedVarietal) &&
-                                            (!selectedSize || size.size === selectedSize) // New size filter
+                                            (selectedSize === "Other" ? size.size.includes("oz") : (!selectedSize || size.size === selectedSize))
                                         ) {
                                             allProducts.push({
                                                 ...product,
@@ -117,6 +128,8 @@ function Catalog({ searchTerm = '' }) {
         });
         return allProducts;
     };
+    
+    
 
     const filterProducts = (products) => {
         return products.filter(product =>
@@ -146,24 +159,27 @@ function Catalog({ searchTerm = '' }) {
 
     const renderProducts = (products) => {
         products = sortProducts(products);
-
+    
         return products.map((product) => {
             const isOutOfStock = product.size.inventory === 0;
-
+    
             if (selectedPrice) {
                 const [minPrice, maxPrice] = selectedPrice.split('-').map(Number);
                 if (product.size.price < minPrice || product.size.price > maxPrice) {
                     return null;
                 }
             }
-
+    
+            // Reemplazar "-" por " " en el tamaño (size)
+            const formattedSize = product.size.size.replace(/-/g, ' ');
+    
             return (
                 <Product
-                    key={`${product.name}-${product.size.size}`}
+                    key={`${product.name}-${formattedSize}`}
                     route={product.route}
                     name={product.name}
                     price={product.size.price}
-                    size={product.size.size}
+                    size={formattedSize}  // Usar el tamaño formateado
                     img={images[product.size.img.replace('liquors/', '')]}
                     productClass={`${isOutOfStock ? 'out-of-stock' : ''}`}
                     inventory={product.size.inventory}
@@ -172,6 +188,7 @@ function Catalog({ searchTerm = '' }) {
             );
         });
     };
+    
 
     const allProducts = filterProducts(getAllProducts());
 

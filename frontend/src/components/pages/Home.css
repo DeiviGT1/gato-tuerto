@@ -117,7 +117,7 @@
 }
 
 .section-main-types img{
-  height: 84%;
+  height: 54%;
   object-fit: contain;
 }
 
@@ -127,5 +127,266 @@
   height: 13%;
 }
 
+.section-main-types {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-main-types div {
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.section-main-types div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.section-main-types img {
+  height: 70%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.section-main-types-title {
+  color: black;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 15px 0 0;
+  padding: 0 10px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.section-main-types div:hover .section-main-types-title {
+  color: #475169; /* Color personalizado al hacer hover */
+}
+
+@media (max-width: 768px) {
+  .section-main-types {
+    padding: 10px;
+    flex-direction: row;
+    overflow-x: scroll; /* Permite desplazamiento horizontal para elementos que no caben en la pantalla */
+    scroll-snap-type: x mandatory; /* Asegura que los elementos "encajen" al desplazarse */
+    -webkit-overflow-scrolling: touch; /* Mejora la inercia del desplazamiento en iOS */
+  }
+
+  .section-main-types div {
+    flex: 0 0 80%; /* Cada elemento ocupa el 80% del ancho de la pantalla */
+    margin-right: 15px; /* Espacio entre elementos */
+    height: auto; /* Ajusta la altura automáticamente según el contenido */
+    scroll-snap-align: center; /* Asegura que cada elemento se centre al desplazarse */
+    background-color: white; /* Fondo blanco para resaltar cada elemento */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para profundidad */
+  }
+
+  .section-main-types img {
+    height: 200px; /* Tamaño específico para imágenes en móviles */
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .section-main-types-title {
+    font-size: 1.2em; /* Tamaño de fuente ligeramente más pequeño */
+    margin: 10px 0 5px;
+    color: #475169; /* Usa el color preferido del usuario */
+  }
+
+  .section-main-types div:hover .section-main-types-title {
+    color: #333; /* Color más oscuro al hacer hover */
+  }
+}
 
 
+/* General Arrow Styles */
+.react-multi-carousel-arrow {
+  background-color: #475169; /* Color preferido */
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Specific for Left Arrow */
+.react-multi-carousel-arrow--left {
+  left: 10px;
+}
+
+/* Specific for Right Arrow */
+.react-multi-carousel-arrow--right {
+  right: 10px;
+}
+
+/* Hover Effects */
+.react-multi-carousel-arrow:hover {
+  background-color: #333; /* Color más oscuro al hacer hover */
+  transform: scale(1.1); /* Efecto de agrandamiento al hacer hover */
+}
+
+/* Disabled Arrow Styles */
+.react-multi-carousel-arrow--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .react-multi-carousel-arrow {
+      width: 30px;
+      height: 30px;
+  }
+
+  .react-multi-carousel-arrow--left {
+      left: 5px;
+  }
+
+  .react-multi-carousel-arrow--right {
+      right: 5px;
+  }
+}
+
+/* Estilos para los botones de navegación del carrusel */
+section.section-main-types .react-multi-carousel-list .react-multi-carousel-item .react-multi-carousel-arrow {
+    background-color: #475169; /* Color preferido */
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Estilos específicos para el botón izquierdo */
+section.section-main-types .react-multi-carousel-list .react-multi-carousel-item .react-multi-carousel-arrow-left {
+    left: 10px;
+}
+
+/* Estilos específicos para el botón derecho */
+section.section-main-types .react-multi-carousel-list .react-multi-carousel-item .react-multi-carousel-arrow-right {
+    right: 10px;
+}
+
+/* Efecto al hacer hover sobre los botones */
+section.section-main-types .react-multi-carousel-list .react-multi-carousel-item .react-multi-carousel-arrow:hover {
+    background-color: #333; /* Color más oscuro al hacer hover */
+    transform: scale(1.1); /* Escala ligeramente el tamaño al hacer hover */
+}
+
+/* Botones deshabilitados */
+section.section-main-types .react-multi-carousel-list .react-multi-carousel-item .react-multi-carousel-arrow--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Ajustes para pantallas móviles */
+@media (max-width: 768px) {
+    section.section-main-types .react-multi-carousel-list .react-multi-carousel-item .react-multi-carousel-arrow {
+        width: 30px;
+        height: 30px;
+    }
+
+    section.section-main-types .react-multi-carousel-list .react-multi-carousel-item .react-multi-carousel-arrow-left {
+        left: 5px;
+    }
+
+    section.section-main-types .react-multi-carousel-list .react-multi-carousel-item .react-multi-carousel-arrow-right {
+        right: 5px;
+    }
+}
+/* Estilos generales para la sección del carrusel */
+.section-main-types {
+  position: relative;
+}
+
+/* Estilos para los botones de navegación */
+.section-main-types > div > button {
+  background-color: #475169; /* Color preferido */
+  border: none;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%; /* Botón redondo */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Sombra suave para profundidad */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón izquierdo (el primer botón generado) */
+.section-main-types > div > button:first-of-type {
+  left: 10px;
+}
+
+/* Botón derecho (el último botón generado) */
+.section-main-types > div > button:last-of-type {
+  right: 10px;
+}
+
+/* Iconos personalizados para los botones (utilizando SVG inline) */
+.section-main-types > div > button::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-size: cover;
+}
+
+.section-main-types > div > button:first-of-type::before {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzIDE3TDUgMTAgMTMgMyIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=='); /* Flecha izquierda en SVG */
+}
+
+.section-main-types > div > button:last-of-type::before {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzIDE3TDUgMTAgMTMgMyIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg=='); /* Flecha izquierda en SVG */
+  transform: rotate(180deg); /* Gira la flecha 180 grados */
+}
+
+/* Ajustes para pantallas móviles */
+@media (max-width: 768px) {
+  .section-main-types > div > button {
+      width: 30px;
+      height: 30px;
+  }
+
+  .section-main-types > div > button:first-of-type {
+      left: 5px;
+  }
+
+  .section-main-types > div > button:last-of-type {
+      right: 5px;
+  }
+
+  .section-main-types > div > button::before {
+      width: 10px;
+      height: 10px;
+  }
+}

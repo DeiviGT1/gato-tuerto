@@ -16,6 +16,20 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
         let allVarietals = [];
         let allSubtypes = [];
         let allSizes = [];
+        let otherAdded = false;
+
+        const sizeToMl = (size) => {
+            if (size.includes("oz")) {
+                return parseFloat(size) * 29.5735; // Convertir onzas a mililitros
+            } else if (size.includes("ml")) {
+                return parseFloat(size);
+            } else if (size.includes("L")) {
+                return parseFloat(size) * 1000;
+            } else if (size.includes("PET")) {
+                return parseFloat(size) * 1000; // Tratar "PET" como mililitros
+            }
+            return 0;
+        };
 
         items.types.forEach(type => {
             if (
@@ -34,7 +48,21 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
                             product.products.forEach(p => {
                                 if (p.wine_type) allWineTypes.push(p.wine_type);
                                 if (p.varietal) allVarietals.push(p.varietal);
-                                if (p.sizes) p.sizes.forEach(size => allSizes.push(size.size));
+                                if (p.sizes) {
+                                    p.sizes.forEach(size => {
+                                        if (size.size.includes("oz")) {
+                                            if (!otherAdded) {
+                                                allSizes.push("Other");
+                                                otherAdded = true;
+                                            }
+                                        } else if (size.size === "750 PET" || size.size === "750") {
+                                            allSizes.push("750 PET");
+                                            allSizes.push("750");
+                                        } else {
+                                            allSizes.push(size.size);
+                                        }
+                                    });
+                                }
                             });
                         });
                     }
@@ -42,16 +70,19 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
             }
         });
 
-        setBrands([...new Set(allBrands)]);
-        setWineTypes([...new Set(allWineTypes)]);
-        setVarietals([...new Set(allVarietals)]);
-        setSubtypes([...new Set(allSubtypes)]);
-        setSizes([...new Set(allSizes)]);
+        // Eliminar duplicados y ordenar por "size_ml"
+        const uniqueSizes = [...new Set(allSizes)].sort((a, b) => sizeToMl(a) - sizeToMl(b));
+
+        setBrands([...new Set(allBrands)].sort());
+        setWineTypes([...new Set(allWineTypes)].sort());
+        setVarietals([...new Set(allVarietals)].sort());
+        setSubtypes([...new Set(allSubtypes)].sort());
+        setSizes(uniqueSizes);
     }, [selectedType, selectedSubtype, selectedWineType, selectedVarietal]);
 
     const handleTypeChange = (e) => {
         const newSelectedType = e.target.value;
-        onFilterChange(newSelectedType, "", "", "", "", "", "", orderBy); 
+        onFilterChange(newSelectedType, selectedSubtype, "", "", "", "", "", orderBy); 
     };
 
     const handleSubtypeChange = (e) => {
@@ -103,6 +134,8 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
                     <option value="gin">Gin</option>
                     <option value="cognac">Cognac/Brandy</option>
                     <option value="mezcal">Mezcal</option>
+                    <option value="aguardiente">Aguardiente</option>
+                    <option value="liquors">Liquors</option>
                     <option value="beer">Beer</option>
                 </select>
             </div>
@@ -186,3 +219,4 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
 }
 
 export default FilterComponent;
+
