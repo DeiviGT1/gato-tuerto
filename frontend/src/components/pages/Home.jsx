@@ -26,6 +26,22 @@ import mainGin from '../pages/liquors/gin/netherlands/nolets/nolets-silver/nolet
 import mainBeer from '../pages/liquors/beer/mexican/corona/corona-extra/corona-extra-24oz-bottle.png';
 import mainCognac from '../pages/liquors/cognac-brandy/french/hennessy/hennessy-vs/hennessy-vs-750ml.png';
 
+// Array de frases alternativas
+const phrases = [
+    "Explore Our Selection of:",
+    "Discover the Best in:",
+    "Top Picks for:",
+    "Browse Our Collection of:",
+    "Handpicked Selection of:",
+    "Explore Our Premium Range of:",
+    "Shop Our Exclusive:"
+];
+
+// Función para seleccionar una frase aleatoriamente
+const getRandomPhrase = () => {
+    const randomIndex = Math.floor(Math.random() * phrases.length);
+    return phrases[randomIndex];
+};
 
 // Step 1: Import all images dynamically
 const importAll = (r) => {
@@ -53,32 +69,42 @@ const getProductsByType = (type, productRoutes) => {
 // Step 3: Create a reusable Banner component
 const Banner = ({ desktopSrc, mobileSrc, altText, isMobile }) => (
     <div className='banner'>
-        <img src={isMobile ? mobileSrc : desktopSrc} alt={altText} />
+        <img src={isMobile ? mobileSrc : desktopSrc} alt={altText} loading="lazy" />
     </div>
 );
 
 // Step 4: Create a reusable ProductSection component
-const ProductSection = ({ title, link, products, responsive }) => (
-    <section className={`home-features ${title.toLowerCase()}`}>
-        <div className="section">
-            <p>Check our variety of:&nbsp;</p>
-            <a href={link}>
-                <p>{title}</p>
-            </a>
-        </div>
-        <Carousel responsive={responsive}>
-            {products.map(product => (
-                <Link to={`/product/${product.route}`} key={product.route}>
-                    <CarouselItem
-                        name={product.name}
-                        imgSrc={product.imgSrc}
-                        price={product.price}
-                    />
+const ProductSection = ({ title, link, products, responsive }) => {
+    const [randomPhrase, setRandomPhrase] = useState("");
+
+    useEffect(() => {
+        setRandomPhrase(getRandomPhrase());
+    }, []);
+
+    return (
+        <section className={`home-features ${title.toLowerCase()}`}>
+            <div className="section">
+                <p className="section-title">{randomPhrase}&nbsp;</p>
+                <Link to={link}>
+                    <p className="section-link">{title}</p>
                 </Link>
-            ))}
-        </Carousel>
-    </section>
-);
+            </div>
+            <Carousel responsive={responsive} infinite={true}>
+                {products.map(product => (
+                    <Link to={`/product/${product.route}`} key={product.route}>
+                        <CarouselItem
+                            name={product.name}
+                            imgSrc={product.imgSrc}
+                            price={product.price}
+                        />
+                    </Link>
+                ))}
+            </Carousel>
+        </section>
+    );
+};
+
+
 
 // Add this debounce function at the top of your file
 function debounce(func, wait) {
@@ -92,7 +118,6 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
-
 
 // Step 5: Implement the Home component
 function Home() {
@@ -203,7 +228,7 @@ function Home() {
                 <div className="home">
                     <div className='welcome'>
                         <div>
-                            <img src={isMobile ? bannerWelcomeCel : welcomeBanner} alt="Welcome Banner" />
+                            <img src={isMobile ? bannerWelcomeCel : welcomeBanner} alt="Welcome Banner" loading="lazy" />
                         </div>
                     </div>
 
@@ -213,56 +238,55 @@ function Home() {
                                 <div>
                                     <Link to="/catalog?type=whiskey">
                                         <p className='section-main-types-title'>Whiskey</p>
-                                        <img src={mainWhiskey} alt="" />
+                                        <img src={mainWhiskey} alt="Whiskey" loading="lazy" />
                                     </Link>
                                 </div>
                                 <div>
                                     <Link to="/catalog?type=tequila">
                                         <p className='section-main-types-title'>Tequila</p>
-                                        <img src={mainTequila} alt="" />
+                                        <img src={mainTequila} alt="Tequila" loading="lazy" />
                                     </Link>
                                 </div>
                                 <div>
                                     <Link to="/catalog?type=rum">
                                         <p className='section-main-types-title'>Rum</p>
-                                        <img src={mainRum} alt="" />
+                                        <img src={mainRum} alt="Rum" loading="lazy" />
                                     </Link>
                                 </div>
                                 <div>
                                     <Link to="/catalog?type=vodka">
                                         <p className='section-main-types-title'>Vodka</p>
-                                        <img src={mainVodka} alt="" />
+                                        <img src={mainVodka} alt="Vodka" loading="lazy" />
                                     </Link>
                                 </div>
                                 <div>
                                     <Link to="/catalog?type=wine">
                                         <p className='section-main-types-title'>Wine</p>
-                                        <img src={mainWine} alt="" />
+                                        <img src={mainWine} alt="Wine" loading="lazy" />
                                     </Link>
                                 </div>
                                 <div>
                                     <Link to="/catalog?type=gin">
                                         <p className='section-main-types-title'>Gin</p>
-                                        <img src={mainGin} alt="" />
+                                        <img src={mainGin} alt="Gin" loading="lazy" />
                                     </Link>
                                 </div>
                                 <div>
                                     <Link to="/catalog?type=cognac">
                                         <p className='section-main-types-title'>Cognac/Brandy</p>
-                                        <img src={mainCognac} alt="" />
+                                        <img src={mainCognac} alt="Cognac" loading="lazy" />
                                     </Link>
                                 </div>
                                 <div>
                                     <Link to="/catalog?type=beer">
                                         <p className='section-main-types-title'>Beer</p>
-                                        <img src={mainBeer} alt="" />
+                                        <img src={mainBeer} alt="Beer" loading="lazy" />
                                     </Link>
                                 </div>
-
                             </Carousel>
                         </section>
                     </div>
-                    
+
                     <ProductSection title="Whiskeys" link="/catalog?type=whiskey" products={whiskyProducts} responsive={responsivee} />
                     <Banner desktopSrc={bannerJohnnieWalker} mobileSrc={bannerJohnnieWalkerCel} altText="Johnnie Walker Banner" isMobile={isMobile} />
 
