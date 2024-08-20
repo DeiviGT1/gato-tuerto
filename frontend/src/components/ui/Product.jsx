@@ -40,7 +40,7 @@ function Product({ route, name, price, size, img, productClass, inventory, idSel
             )}
             <Link to={`/product/${route}?size=${size}&id=${idSelected}`}>
                 <div className="card-image">
-                    <img src={img} alt={name} />
+                    <img src={img} alt={name} loading="lazy"/>
                 </div>
                 <div className="card-info">
                     <div className="card-name">

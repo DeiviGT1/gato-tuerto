@@ -17,6 +17,8 @@ import bannerCointreauCel from '../../assets/banner-cointreau-cel.png';
 import bannerGranCentenarioCel from '../../assets/banner-gran-centenario-cel.png';
 import bannerJohnnieWalkerCel from '../../assets/banner-johnnie-walker-cel.png';
 import bannerWelcomeCel from '../../assets/banner-welcome-cel.png';
+import bannerCaymus from '../../assets/banner-caymus.png';
+import bannerCaymusCel from '../../assets/banner-caymus-cel.png';
 import mainWhiskey from '../pages/liquors/whiskey/scotch/macallan/macallan-18-double-oak/macallan-18-double-oak-750ml.png';
 import mainTequila from '../pages/liquors/tequila/jalisco/clase-azul/clase-azul-reposado/clase-azul-reposado-750ml.png';
 import mainRum from '../pages/liquors/rum/guatemalan/zacapa/zacapa-23/zacapa-23-750ml.png';
@@ -300,6 +302,7 @@ function Home() {
                     <Banner desktopSrc={bannerCointreau} mobileSrc={bannerCointreauCel} altText="Cointreau Banner" isMobile={isMobile} />
 
                     <ProductSection title="Wine" link="catalog?type=wine" products={wineProducts} responsive={responsivee} />
+                    <Banner desktopSrc={bannerCaymus} mobileSrc={bannerCaymusCel} altText="Caymus Banner" isMobile={isMobile} />
                 </div>
                 <Footer />
             </div>
