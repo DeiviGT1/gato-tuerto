@@ -10,7 +10,7 @@ const importAll = (r) => {
     return images;
 };
 
-const images = importAll(require.context('./liquors', true, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|svg|webp)$/));
 
 function CartSidebar({ isOpen, onClose }) {
   const [cartItems, setCartItems] = useState([]);
@@ -55,7 +55,7 @@ function CartSidebar({ isOpen, onClose }) {
           for (const product of brand.products) {
             for (const size of product.sizes) {
               if (size.id === id) {
-                const imgSrc = images[size.img.replace('liquors/', '')];
+                const imgSrc = images[size.img.replace('liquors-webp/', '')];
                 return {
                   name: product.name,
                   size: size.size,
