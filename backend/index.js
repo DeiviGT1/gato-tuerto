@@ -64,7 +64,6 @@ app.post('/checkout', (req, res) => {
   // Guardar el pedido en memoria y persistir en archivo
   orders.push({ id: Date.now(), name, address, phoneNumber, email, paymentMethod, cardNumber, items, total });
   saveOrders(); // Guardar en archivo
-  console.log('Pedidos actuales:', orders);
 
   const orderDetails = `
     Name: ${name}
@@ -78,6 +77,7 @@ app.post('/checkout', (req, res) => {
   `;
 
   // Enviar mensaje de texto usando Twilio
+  console.log('Sending SMS:', orderDetails);
   client.messages.create({
     body: `New Order Received:\n${orderDetails}`,
     to: process.env.TO_PHONE_NUMBER, 
@@ -354,6 +354,7 @@ app.get('/orders', (req, res) => {
           })
           .then(response => response.json())
           .then(data => {
+            console.log('Success:', data);
             if (data.success) {
               window.location.reload(); // Recargar la página para reflejar la actualización
             } else {

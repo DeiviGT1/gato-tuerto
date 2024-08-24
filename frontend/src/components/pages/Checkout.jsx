@@ -146,6 +146,7 @@ function Checkout() {
     })
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         if (data.success) {
           // Clear cart and redirect to confirmation page
           localStorage.clear();
