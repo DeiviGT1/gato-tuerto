@@ -191,6 +191,41 @@
     height: 100%;
 }
 
+.scroll-to-top {
+    position: fixed;
+    top: 100px; /* Adjust this value to position the button just below the header */
+    left: 60%; /* Initially position at 50% of the Catalog container's width */
+    transform: translateX(-50%) scale(0.9); /* Start slightly smaller */
+    background-color: #475169;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.scroll-to-top>img{
+    filter: invert(1);
+}
+
+.scroll-to-top.show {
+    opacity: 0.7; /* Fully visible */
+    transform: translateX(-50%) scale(1); /* Return to original size */
+}
+
+.scroll-to-top:hover {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.1); /* Slightly enlarge on hover for better visual feedback */
+}
+
 @media (max-width: 768px) {
     .filter-button {
         padding: 12px;
@@ -216,5 +251,9 @@
     .filter-modal .FilterComponent {
         display: block;
         text-align: -webkit-center;
+    }
+    
+    .scroll-to-top{
+        left: 50%;
     }
 }

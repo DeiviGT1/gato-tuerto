@@ -8,6 +8,7 @@ import FilterModal from "../layout/FilterModal";
 import filterButton from "../../assets/filter-solid.svg";
 import LoadingSpinner from '../ui/LoadingSpinner';
 import items from './products.json';
+import arrowUp from '../../assets/arrow-up-solid.svg';
 import './Catalog.css';
 
 const importAll = (r) => {
@@ -23,12 +24,14 @@ function Catalog({ searchTerm = '' }) {
     const [selectedSubtype, setSelectedSubtype] = useState(''); 
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedPrice, setSelectedPrice] = useState('');
-    const [selectedSize, setSelectedSize] = useState(''); // New size filter
+    const [selectedSize, setSelectedSize] = useState(''); 
     const [selectedWineType, setSelectedWineType] = useState('');
     const [selectedVarietal, setSelectedVarietal] = useState('');
     const [orderBy, setOrderBy] = useState('');
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [showScrollButton, setShowScrollButton] = useState(false); 
+    const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset); // Track previous scroll position
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -49,14 +52,27 @@ function Catalog({ searchTerm = '' }) {
         setSelectedSubtype(params.get('subtype') || ''); 
         setSelectedBrand(params.get('brand') || '');
         setSelectedPrice(params.get('price') || '');
-        setSelectedSize(params.get('size') || ''); // New size filter
+        setSelectedSize(params.get('size') || ''); 
         setSelectedWineType(params.get('wineType') || '');
         setSelectedVarietal(params.get('varietal') || '');
         setOrderBy(params.get('orderBy') || '');
     }, [location.search]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollPos = window.pageYOffset;
+            const isScrollingDown = currentScrollPos < prevScrollPos;
+
+            setShowScrollButton(isScrollingDown && currentScrollPos > 300);
+
+            setPrevScrollPos(currentScrollPos);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [prevScrollPos]);
+
     const handleFilterChange = (newType, newSubtype, newBrand, newPrice, newSize, newWineType, newVarietal, newOrderBy) => {
-        // Si se selecciona "Other", establece newSize en "Other"
         if (newSize === "Other") {
             newSize = "Other";
         }
@@ -82,7 +98,6 @@ function Catalog({ searchTerm = '' }) {
     
         navigate({ search: params.toString() });
     };
-    
 
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
@@ -170,7 +185,6 @@ function Catalog({ searchTerm = '' }) {
             }
         }
 
-        // Reemplazar "-" por " " en el tamaño (size)
         const formattedSize = product.size.size.replace(/-/g, ' ');
 
         return (
@@ -179,7 +193,7 @@ function Catalog({ searchTerm = '' }) {
                 route={product.route}
                 name={product.name}
                 price={product.size.price}
-                size={formattedSize}  // Usar el tamaño formateado
+                size={formattedSize}
                 img={images[product.size.img.replace('liquors-webp/', '')]}
                 productClass={`${isOutOfStock ? 'out-of-stock' : ''}`}
                 inventory={product.size.inventory}
@@ -191,6 +205,10 @@ function Catalog({ searchTerm = '' }) {
 
 
     const allProducts = filterProducts(getAllProducts());
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     return (
         <>
@@ -205,7 +223,7 @@ function Catalog({ searchTerm = '' }) {
                         selectedSubtype={selectedSubtype} 
                         selectedBrand={selectedBrand}
                         selectedPrice={selectedPrice}
-                        selectedSize={selectedSize} // New size filter
+                        selectedSize={selectedSize} 
                         selectedWineType={selectedWineType}
                         selectedVarietal={selectedVarietal}
                         orderBy={orderBy}
@@ -217,7 +235,7 @@ function Catalog({ searchTerm = '' }) {
                             selectedSubtype={selectedSubtype} 
                             selectedBrand={selectedBrand}
                             selectedPrice={selectedPrice}
-                            selectedSize={selectedSize} // New size filter
+                            selectedSize={selectedSize} 
                             selectedWineType={selectedWineType}
                             selectedVarietal={selectedVarietal}
                             orderBy={orderBy}
@@ -233,6 +251,11 @@ function Catalog({ searchTerm = '' }) {
                                     {renderProducts(allProducts)}
                                 </div>
                             </section>
+                        )}
+                        {showScrollButton && (
+                            <button className={`scroll-to-top ${showScrollButton ? 'show' : ''}`} onClick={scrollToTop}>
+                                <img src={arrowUp} alt="" />
+                            </button>
                         )}
                     </div>
                 </div>

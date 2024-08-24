@@ -136,8 +136,8 @@ function Checkout() {
       total
     };
   
-    fetch('https://gato-tuerto-server.vercel.app/checkout', {
-    // fetch('http://localhost:3001/checkout', {
+    // fetch('https://gato-tuerto-server.vercel.app/checkout', {
+    fetch('http://localhost:3001/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -378,7 +378,7 @@ function Checkout() {
           <button 
             className="checkout-button" 
             onClick={handleCheckout} 
-            disabled={cartItems.length === 0 || !zipCode || !name || !address || !phoneNumber || (paymentMethod === 'card' && cardNumber.length !== 4)}
+            disabled={cartItems.length === 0 || !zipCode || !name || !address || !phoneNumber || (paymentMethod === 'card' && cardNumber.length !== 4) || !availableZipCodes.includes(parseInt(zipCode)) || !paymentMethod}
           >
             Proceed to Checkout
           </button>
