@@ -326,7 +326,7 @@ app.get('/orders', (req, res) => {
           const username = document.getElementById('username').value;
           const password = document.getElementById('password').value;
 
-          if (username === '${adminUser}' && password === '${adminPassword}') {
+          if (username == '${adminUser}' && password == '${adminPassword}') {
             document.cookie = "auth=true; max-age=" + (12 * 60 * 60) + "; path=/";
             window.location.reload(); // Recargar la página después de la autenticación
           } else {
