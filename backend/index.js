@@ -67,6 +67,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/checkout', (req, res) => {
+  console.log('Request received:', req.body);
   const { name, address, phoneNumber, email, paymentMethod, cardNumber, items, total } = req.body;
 
   if (!name || !address || !phoneNumber || !items || items.length === 0 || !total) {
