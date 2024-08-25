@@ -15,7 +15,14 @@ const port = process.env.PORT || 3001;
 
 
 // Habilitar CORS para todos los orígenes
-app.use(cors()); // Esto permite solicitudes desde cualquier origen
+// app.use(cors()); // Esto permite solicitudes desde cualquier origen
+
+const corsOptions = {
+  origin: 'http://localhost:3000',  // Adjust this to match your frontend origin
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
