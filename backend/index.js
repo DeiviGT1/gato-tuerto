@@ -8,8 +8,17 @@ const cookieParser = require('cookie-parser');
 const fs = require('fs');
 require('dotenv').config();
 
+
+
 const app = express();
 const port = process.env.PORT || 3001;
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 
 // Habilitar CORS para todos los orígenes
 app.use(cors()); // Esto permite solicitudes desde cualquier origen
@@ -381,4 +390,3 @@ app.get('/orders', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-
