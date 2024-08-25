@@ -13,12 +13,6 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
 
 // Habilitar CORS para todos los orígenes
 app.use(cors()); // Esto permite solicitudes desde cualquier origen
@@ -75,7 +69,6 @@ app.post('/checkout', (req, res) => {
   // Guardar el pedido en memoria y persistir en archivo
   orders.push({ id: Date.now(), name, address, phoneNumber, email, paymentMethod, cardNumber, items, total });
   saveOrders(); // Guardar en archivo
-  console.log('Pedidos actuales:', orders);
 
   const orderDetails = `
     Name: ${name}

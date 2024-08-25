@@ -133,10 +133,10 @@ function Checkout() {
         price: item.price,
         size: item.size  // Incluyendo el tamaño aquí
       })),
-      total
+        total
     };
-  
-    fetch('https://gato-tuerto-server.vercel.app/checkout', {
+    
+     fetch('https://gato-tuerto-server.vercel.app/checkout', {
     // fetch('http://localhost:3001/checkout', {
       method: 'POST',
       headers: {
@@ -144,25 +144,27 @@ function Checkout() {
       },
       body: JSON.stringify(orderDetails)
     })
-      .then(response => {
-        console.log(response)
-        response.json()
-      })
-      .then(data => {
-        console.log(data)
-        if (data.success) {
-          // Clear cart and redirect to confirmation page
-          localStorage.clear();
-          navigate('/');
-        } else {
-          alert('Failed to process the order. Please try again.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
-      });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.success) {
+        // Clear cart and redirect to confirmation page
+        localStorage.clear();
+        navigate('/');
+      } else {
+        alert('Failed to process the order. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again.');
+    });
   };
+  
 
   const toggleResume = () => {
     setShowResume(!showResume);
