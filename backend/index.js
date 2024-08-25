@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/checkout', (req, res) => {
-  console.log('Request received:', req.body);
+  // console.log('Request received:', req.body);
   const { name, address, phoneNumber, email, paymentMethod, cardNumber, items, total } = req.body;
 
   if (!name || !address || !phoneNumber || !items || items.length === 0 || !total) {
@@ -71,6 +71,7 @@ app.post('/checkout', (req, res) => {
 
   // Guardar el pedido en memoria y persistir en archivo
   orders.push({ id: Date.now(), name, address, phoneNumber, email, paymentMethod, cardNumber, items, total });
+  console.log('Orders:', orders);
   saveOrders(); // Guardar en archivo
 
   const orderDetails = `

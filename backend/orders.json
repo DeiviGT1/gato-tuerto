@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1724560787242,
+    "name": "123",
+    "address": "123",
+    "phoneNumber": "231",
+    "email": "",
+    "paymentMethod": "cash",
+    "cardNumber": null,
+    "items": [
+      {
+        "id": "85001589900",
+        "name": "Mijenta Blanco",
+        "quantity": 1,
+        "price": 57.49,
+        "size": "750ml"
+      }
+    ],
+    "total": 71.5143
+  }
+]
