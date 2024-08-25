@@ -11,7 +11,9 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors());
+// Habilitar CORS para todos los orígenes
+app.use(cors()); // Esto permite solicitudes desde cualquier origen
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -64,6 +66,7 @@ app.post('/checkout', (req, res) => {
   // Guardar el pedido en memoria y persistir en archivo
   orders.push({ id: Date.now(), name, address, phoneNumber, email, paymentMethod, cardNumber, items, total });
   saveOrders(); // Guardar en archivo
+  console.log('Pedidos actuales:', orders);
 
   const orderDetails = `
     Name: ${name}
@@ -77,15 +80,17 @@ app.post('/checkout', (req, res) => {
   `;
 
   // Enviar mensaje de texto usando Twilio
-  console.log('Sending SMS:', orderDetails);
   client.messages.create({
     body: `New Order Received:\n${orderDetails}`,
     to: process.env.TO_PHONE_NUMBER, 
     from: process.env.FROM_PHONE_NUMBER
   })
-  .then((message) => res.status(200).send({ success: true, sid: message.sid }))
+  .then((message) => {
+    console.log('Mensaje enviado:', message.sid);
+    res.status(200).send({ success: true, sid: message.sid });
+  })
   .catch((error) => {
-    console.error('Error:', error);
+    console.error('Error al enviar el mensaje:', error);
     res.status(500).send({ success: false, error: error.message });
   });
 });
@@ -272,7 +277,7 @@ app.get('/orders', (req, res) => {
 
         <div class="pending-orders">
           <h2 class="section-title">Pedidos Pendientes</h2>
-          <ul class="order-list">`;
+                    <ul class="order-list">`;
 
   orders.forEach((order, index) => {
     html += `
@@ -326,7 +331,7 @@ app.get('/orders', (req, res) => {
           const username = document.getElementById('username').value;
           const password = document.getElementById('password').value;
 
-          if (username == '${adminUser}' && password == '${adminPassword}') {
+          if (username === '${adminUser}' && password === '${adminPassword}') {
             document.cookie = "auth=true; max-age=" + (12 * 60 * 60) + "; path=/";
             window.location.reload(); // Recargar la página después de la autenticación
           } else {
@@ -354,7 +359,6 @@ app.get('/orders', (req, res) => {
           })
           .then(response => response.json())
           .then(data => {
-            console.log('Success:', data);
             if (data.success) {
               window.location.reload(); // Recargar la página para reflejar la actualización
             } else {
@@ -377,4 +381,4 @@ app.get('/orders', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-        
+
