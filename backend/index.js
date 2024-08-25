@@ -16,9 +16,10 @@ const adminPassword = process.env.ADMIN_PASSWORD;
 
 
 // Conexión a MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Failed to connect to MongoDB', err));
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -46,8 +47,10 @@ const orderSchema = new mongoose.Schema({
     }
   ],
   total: Number,
-  status: { type: String, default: 'pending' } // 'pending' or 'completed'
+  status: { type: String, default: 'pending' }, // 'pending' or 'completed'
+  notes: String // Añadir el campo 'notes'
 });
+
 
 const Order = mongoose.model('Order', orderSchema);
 
@@ -57,12 +60,8 @@ app.get('/', (req, res) => {
 
 app.post('/checkout', (req, res) => {
   console.log('Request received:', req.body);
-  
-  // Logging variables to ensure they are set
-  console.log('TWILIO_ACCOUNT_SID:', process.env.TWILIO_ACCOUNT_SID);
-  console.log('TWILIO_AUTH_TOKEN:', process.env.TWILIO_AUTH_TOKEN);
 
-  const { name, address, phoneNumber, email, paymentMethod, cardNumber, items, total } = req.body;
+  const { name, address, phoneNumber, email, paymentMethod, cardNumber, items, total, notes } = req.body;
 
   if (!name || !address || !phoneNumber || !items || items.length === 0 || !total) {
     return res.status(400).send({ success: false, error: 'Missing required fields' });
@@ -76,7 +75,8 @@ app.post('/checkout', (req, res) => {
     paymentMethod,
     cardNumber,
     items,
-    total
+    total,
+    notes // Incluir 'notes' al crear el pedido
   });
 
   newOrder.save()
@@ -89,13 +89,14 @@ app.post('/checkout', (req, res) => {
         Payment Method: ${paymentMethod}
         ${paymentMethod === 'card' ? `Card Number (last 4 digits): ${cardNumber}` : ''}
         Total: $${total.toFixed(2)}
+        Notes: ${notes || 'No notes provided'} // Mostrar notas
         Items: \n ${items.map(item => `${item.name}-${item.size}  x ${item.quantity}`).join('\n')}
       `;
 
       // Enviar mensaje de texto usando Twilio
       client.messages.create({
         body: `New Order Received:\n${orderDetails}`,
-        to: process.env.TO_PHONE_NUMBER, 
+        to: process.env.TO_PHONE_NUMBER,
         from: process.env.FROM_PHONE_NUMBER
       })
       .then((message) => {
@@ -112,6 +113,7 @@ app.post('/checkout', (req, res) => {
       res.status(500).send({ success: false, error: err.message });
     });
 });
+
 
 // Nueva ruta para completar un pedido
 app.post('/complete-order', (req, res) => {
@@ -283,6 +285,7 @@ app.get('/orders', (req, res) => {
             <p><strong>Email:</strong> ${order.email}</p>
             <p><strong>Método de Pago:</strong> ${order.paymentMethod}</p>
             <p><strong>Total:</strong> $${order.total.toFixed(2)}</p>
+            <p><strong>Notas:</strong> ${order.notes || 'No notes provided'}</p>
             <p><strong>Artículos:</strong> ${order.items.map(item => `${item.name} (${item.size}) x ${item.quantity}`).join('<br> ')}</p>
             <button class="complete-button" onclick="completeOrder('${order._id}')">Completar este Pedido</button>
           </li>
@@ -309,6 +312,7 @@ app.get('/orders', (req, res) => {
                 <p><strong>Email:</strong> ${order.email}</p>
                 <p><strong>Método de Pago:</strong> ${order.paymentMethod}</p>
                 <p><strong>Total:</strong> $${order.total.toFixed(2)}</p>
+                <p><strong>Notas:</strong> ${order.notes || 'No notes provided'}</p>
                 <p><strong>Artículos:</strong> ${order.items.map(item => `${item.name} (${item.size}) x ${item.quantity}`).join('<br> ')}</p>
               </li>
               <hr>

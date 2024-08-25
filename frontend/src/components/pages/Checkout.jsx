@@ -133,7 +133,8 @@ function Checkout() {
         price: item.price,
         size: item.size  // Incluyendo el tamaño aquí
       })),
-        total
+      total,
+      notes // Incluir 'notes' en el cuerpo de la solicitud
     };
     
     // fetch('https://gato-tuerto-server.vercel.app/checkout', {
@@ -154,7 +155,6 @@ function Checkout() {
     .then(data => {
       console.log('Success:', data);
       if (data.success) {
-        // Clear cart and redirect to confirmation page
         localStorage.clear();
         navigate('/');
       } else {
@@ -165,7 +165,7 @@ function Checkout() {
       console.error('Error:', error);
       alert('An error occurred. Please try again.');
     });
-  };
+  };  
   
 
   const toggleResume = () => {
