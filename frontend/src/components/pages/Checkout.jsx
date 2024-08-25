@@ -136,8 +136,8 @@ function Checkout() {
         total
     };
     
-    //  fetch('https://gato-tuerto-server.vercel.app/checkout', {
-    fetch('http://localhost:3001/checkout', {
+     fetch('https://gato-tuerto-server.vercel.app/checkout', {
+    // fetch('http://localhost:3001/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -152,6 +152,7 @@ function Checkout() {
       return response.json();
     })
     .then(data => {
+      console.log('Success:', data);
       if (data.success) {
         // Clear cart and redirect to confirmation page
         localStorage.clear();
