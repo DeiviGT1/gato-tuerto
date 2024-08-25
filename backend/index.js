@@ -62,44 +62,53 @@ app.get('/', (req, res) => {
 });
 
 app.post('/checkout', (req, res) => {
-  // console.log('Request received:', req.body);
+  console.log('Request received:', req.body);
+  
+  // Logging variables to ensure they are set
+  console.log('TWILIO_ACCOUNT_SID:', process.env.TWILIO_ACCOUNT_SID);
+  console.log('TWILIO_AUTH_TOKEN:', process.env.TWILIO_AUTH_TOKEN);
+  
   const { name, address, phoneNumber, email, paymentMethod, cardNumber, items, total } = req.body;
 
   if (!name || !address || !phoneNumber || !items || items.length === 0 || !total) {
     return res.status(400).send({ success: false, error: 'Missing required fields' });
   }
 
-  // Guardar el pedido en memoria y persistir en archivo
-  orders.push({ id: Date.now(), name, address, phoneNumber, email, paymentMethod, cardNumber, items, total });
-  console.log('Orders:', orders);
-  saveOrders(); // Guardar en archivo
+  try {
+    orders.push({ id: Date.now(), name, address, phoneNumber, email, paymentMethod, cardNumber, items, total });
+    console.log('Orders:', orders);
+    saveOrders();
 
-  const orderDetails = `
-    Name: ${name}
-    Address: ${address}
-    Phone Number: ${phoneNumber}
-    Email: ${email}
-    Payment Method: ${paymentMethod}
-    ${paymentMethod === 'card' ? `Card Number (last 4 digits): ${cardNumber}` : ''}
-    Total: $${total.toFixed(2)}
-    Items: \n ${items.map(item => `${item.name}-${item.size}  x ${item.quantity}`).join('\n')}
-  `;
+    const orderDetails = `
+      Name: ${name}
+      Address: ${address}
+      Phone Number: ${phoneNumber}
+      Email: ${email}
+      Payment Method: ${paymentMethod}
+      ${paymentMethod === 'card' ? `Card Number (last 4 digits): ${cardNumber}` : ''}
+      Total: $${total.toFixed(2)}
+      Items: \n ${items.map(item => `${item.name}-${item.size}  x ${item.quantity}`).join('\n')}
+    `;
 
-  // Enviar mensaje de texto usando Twilio
-  client.messages.create({
-    body: `New Order Received:\n${orderDetails}`,
-    to: process.env.TO_PHONE_NUMBER, 
-    from: process.env.FROM_PHONE_NUMBER
-  })
-  .then((message) => {
-    console.log('Mensaje enviado:', message.sid);
-    res.status(200).send({ success: true, sid: message.sid });
-  })
-  .catch((error) => {
-    console.error('Error al enviar el mensaje:', error);
+    client.messages.create({
+      body: `New Order Received:\n${orderDetails}`,
+      to: process.env.TO_PHONE_NUMBER, 
+      from: process.env.FROM_PHONE_NUMBER
+    })
+    .then((message) => {
+      console.log('Mensaje enviado:', message.sid);
+      res.status(200).send({ success: true, sid: message.sid });
+    })
+    .catch((error) => {
+      console.error('Error al enviar el mensaje:', error);
+      res.status(500).send({ success: false, error: error.message });
+    });
+  } catch (error) {
+    console.error('Error in checkout process:', error);
     res.status(500).send({ success: false, error: error.message });
-  });
+  }
 });
+
 
 // Nueva ruta para completar un pedido
 app.post('/complete-order', (req, res) => {
