@@ -6410,30 +6410,6 @@
                                     ]
                                 },
                                 {
-                                    "name": "Bacardi Spiced",
-                                    "route": "bacardi-spiced",
-                                    "modal": false,
-                                    "description": "Bacardi Spiced is made with rum aged and unaged, with a hint of smokiness from charred American oak, Bacardi Spiced is blended with natural flavors and spices for a bold, yet smooth taste.",
-                                    "sizes": [
-                                        {
-                                            "id": "",
-                                            "size": "750ml",
-                                            "price": 17.24,
-                                            "img": "liquors-webp/rum/puerto-rico/bacardi/bacardi-spiced/bacardi-spiced-750ml.webp",
-                                            "inventory": 16,
-                                            "size_ml": 750
-                                        },
-                                        {
-                                            "id": "",
-                                            "size": "1.75L",
-                                            "price": 26.44,
-                                            "img": "liquors-webp/rum/puerto-rico/bacardi/bacardi-spiced/bacardi-spiced-175L.webp",
-                                            "inventory": 8,
-                                            "size_ml": 1750
-                                        }
-                                    ]
-                                },
-                                {
                                     "name": "Bacardi Black",
                                     "route": "bacardi-black",
                                     "modal": false,
@@ -6704,22 +6680,6 @@
                                             "price": 28.74,
                                             "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-planas/diplomatico-planas-750ml.webp",
                                             "inventory": 3,
-                                            "size_ml": 750
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "Diplomatico Vintage 2007",
-                                    "route": "diplomatico-vintage-2007",
-                                    "modal": false,
-                                    "description": "Diplomatico Vintage 2007 is a blend of rums aged up to twelve years. It is distilled, aged, and bottled in La Miel, Venezuela.",
-                                    "sizes": [
-                                        {
-                                            "id": "759400362931",
-                                            "size": "750ml",
-                                            "price": 143.74,
-                                            "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-vintage-2007/diplomatico-vintage-2007-750ml.webp",
-                                            "inventory": 1,
                                             "size_ml": 750
                                         }
                                     ]
@@ -7237,76 +7197,6 @@
                                             "img": "liquors-webp/gin/scotch/the-botanist/the-botanist-gin/the-botanist-gin-175L.webp",
                                             "inventory": 2,
                                             "size_ml": 1750
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "subtype": "brazilian",
-                    "description": "Gin is a distilled alcoholic drink that derives its predominant flavour from juniper berries. Gin is one of the broadest categories of spirits, all of various origins, styles, and flavour profiles that revolve around juniper as a common ingredient.",
-                    "products": [
-                        {
-                            "brand": "McQueen and the Violet Fog",
-                            "products": [
-                                {
-                                    "name": "McQueen and the Violet Fog Gin",
-                                    "route": "mcqueen-and-the-violet-fog-gin",
-                                    "modal": false,
-                                    "description": "McQueen and the Violet Fog Gin is a gin produced in Jundia\u00ed, Brazil. It is distilled from sugarcane and infused with botanicals, including juniper, lavender, and rosemary.",
-                                    "sizes": [
-                                        {
-                                            "id": "",
-                                            "size": "750ml",
-                                            "price": 10000,
-                                            "img": "liquors-webp/gin/brazilian/mcqueen-and-the-violet-fog/mcqueen-and-the-violet-fog-gin/mcqueen-and-the-violet-fog-gin-750ml.webp",
-                                            "inventory": 0,
-                                            "size_ml": 750
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "McQueen and the Violet Fog Ulrea Violet Edition Gin",
-                                    "route": "mcqueen-and-the-violet-fog-ulrea-violet-edition-gin",
-                                    "modal": false,
-                                    "description": "McQueen and the Violet Fog Ulrea Violet Edition Gin is a gin produced in Jundia\u00ed, Brazil. It is distilled from sugarcane and infused with botanicals, including juniper, lavender, and rosemary.",
-                                    "sizes": [
-                                        {
-                                            "id": "",
-                                            "size": "750ml",
-                                            "price": 10000,
-                                            "img": "liquors-webp/gin/brazilian/mcqueen-and-the-violet-fog/mcqueen-and-the-violet-fog-ulrea-violet-edition-gin/mcqueen-and-the-violet-fog-ulrea-violet-edition-gin-750ml.webp",
-                                            "inventory": 0,
-                                            "size_ml": 750
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "subtype": "german",
-                    "description": "Gin is a distilled alcoholic drink that derives its predominant flavour from juniper berries. Gin is one of the broadest categories of spirits, all of various origins, styles, and flavour profiles that revolve around juniper as a common ingredient.",
-                    "products": [
-                        {
-                            "brand": "Monkey 47",
-                            "products": [
-                                {
-                                    "name": "Monkey 47 Gin",
-                                    "route": "monkey-47-gin",
-                                    "modal": false,
-                                    "description": "Monkey 47 is a gin produced in the Black Forest, Germany. It is distilled from wheat and infused with botanicals, including juniper, lingonberries, and spruce.",
-                                    "sizes": [
-                                        {
-                                            "id": "",
-                                            "size": "750ml",
-                                            "price": 10000,
-                                            "img": "liquors-webp/gin/german/monkey-47/monkey-47-gin/monkey-47-gin-750ml.webp",
-                                            "inventory": 0,
-                                            "size_ml": 750
                                         }
                                     ]
                                 }
@@ -8929,24 +8819,6 @@
                                             "price": 37.94,
                                             "img": "liquors-webp/wine/french/chateau-desclans/chateau-desclans-rock-angel/chateau-desclans-rock-angel-750ml.webp",
                                             "inventory": 5,
-                                            "size_ml": 750
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "Chateau d'Esclans The Beach",
-                                    "route": "chateau-desclans-the-beach",
-                                    "modal": false,
-                                    "description": "Chateau d'Esclans Whispering Angel The Beach is a wine producer based in Rutherford, in California's Napa Valley. It was founded in 1972 by Charlie Wagner, Lorna Belle Glos Wagner, and their son Chuck Wagner.",
-                                    "varietal": "Rose",
-                                    "wine_type": "Vino Rosado",
-                                    "sizes": [
-                                        {
-                                            "id": "",
-                                            "size": "750ml",
-                                            "price": 10000,
-                                            "img": "liquors-webp/wine/french/chateau-desclans/chateau-desclans-the-beach/chateau-desclans-the-beach-750ml.webp",
-                                            "inventory": 0,
                                             "size_ml": 750
                                         }
                                     ]
@@ -10621,51 +10493,51 @@
                             ]
                         },
                         {
-                            "brand": "Illegal",
+                            "brand": "Ilegal",
                             "products": [
                                 {
-                                    "name": "Illegal Mezcal Joven",
-                                    "route": "illegal-mezcal-joven",
+                                    "name": "Ilegal Mezcal Joven",
+                                    "route": "ilegal-mezcal-joven",
                                     "modal": false,
-                                    "description": "Illegal Mezcal is a blend of the finest mezcal, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
+                                    "description": "Ilegal Mezcal is a blend of the finest mezcal, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
                                             "id": "289576",
                                             "size": "750ml",
                                             "price": 43.69,
-                                            "img": "liquors-webp/mezcal/mexican/illegal/illegal-mezcal-joven/illegal-mezcal-joven-750ml.webp",
+                                            "img": "liquors-webp/mezcal/mexican/ilegal/ilegal-mezcal-joven/ilegal-mezcal-joven-750ml.webp",
                                             "inventory": 7,
                                             "size_ml": 750
                                         }
                                     ]
                                 },
                                 {
-                                    "name": "Illegal Mezcal Reposado",
-                                    "route": "illegal-mezcal-reposado",
+                                    "name": "Ilegal Mezcal Reposado",
+                                    "route": "ilegal-mezcal-reposado",
                                     "modal": false,
-                                    "description": "Illegal Mezcal Reposado is a blend of the finest mezcal, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
+                                    "description": "Ilegal Mezcal Reposado is a blend of the finest mezcal, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
                                             "id": "08974475733",
                                             "size": "750ml",
                                             "price": 52.89,
-                                            "img": "liquors-webp/mezcal/mexican/illegal/illegal-mezcal-reposado/illegal-mezcal-reposado-750ml.webp",
+                                            "img": "liquors-webp/mezcal/mexican/ilegal/ilegal-mezcal-reposado/ilegal-mezcal-reposado-750ml.webp",
                                             "inventory": 4,
                                             "size_ml": 750
                                         }
                                     ]
                                 },
                                 {
-                                    "name": "Illegal Mezcal Anejo",
-                                    "route": "illegal-mezcal-anejo",
+                                    "name": "Ilegal Mezcal Anejo",
+                                    "route": "ilegal-mezcal-anejo",
                                     "modal": false,
-                                    "description": "Illegal Mezcal Anejo is a blend of the finest mezcal, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
+                                    "description": "Ilegal Mezcal Anejo is a blend of the finest mezcal, aged to full maturity in oak barrels in the town of Cognac, where Richard Hennessy established his company in 1765.",
                                     "sizes": [
                                         {
                                             "id": "08974475734",
                                             "size": "750ml",
                                             "price": 106.94,
-                                            "img": "liquors-webp/mezcal/mexican/illegal/illegal-mezcal-anejo/illegal-mezcal-anejo-750ml.webp",
+                                            "img": "liquors-webp/mezcal/mexican/ilegal/ilegal-mezcal-anejo/ilegal-mezcal-anejo-750ml.webp",
                                             "inventory": 4,
                                             "size_ml": 750
                                         }
@@ -11121,14 +10993,6 @@
                                             "img": "liquors-webp/beer/netherlands/heineken/heineken/heineken-24oz-can.webp",
                                             "inventory": 26,
                                             "size_ml": "24oz-Can"
-                                        },
-                                        {
-                                            "id": "",
-                                            "size": "24oz-Bottle",
-                                            "price": 10000,
-                                            "img": "liquors-webp/beer/netherlands/heineken/heineken/heineken-24oz-bottle.webp",
-                                            "inventory": 0,
-                                            "size_ml": "24oz-Bottle"
                                         }
                                     ]
                                 }
@@ -11379,22 +11243,6 @@
                                             "price": 14.89,
                                             "img": "liquors-webp/beer/russian/smirnoff/smirnoff-ice-pink/smirnoff-ice-pink-112oz-6pack-bottle.webp",
                                             "inventory": 3,
-                                            "size_ml": "11.2oz-6pack-Bottle"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "Smirnoff Ice Variety",
-                                    "route": "smirnoff-ice-variety",
-                                    "modal": false,
-                                    "description": "Smirnoff Ice is a premium malt beverage that is made with malt and is not confirmed to gluten-free standards.",
-                                    "sizes": [
-                                        {
-                                            "id": "",
-                                            "size": "11.2oz-6pack-Bottle",
-                                            "price": 10000,
-                                            "img": "liquors-webp/beer/russian/smirnoff/smirnoff-ice-variety/smirnoff-ice-variety-112oz-6pack-bottle.webp",
-                                            "inventory": 0,
                                             "size_ml": "11.2oz-6pack-Bottle"
                                         }
                                     ]

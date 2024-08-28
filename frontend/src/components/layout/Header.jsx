@@ -103,7 +103,15 @@ function Header() {
                   <strong>CONTACT US</strong>
                 </p>
               </Link>
+              
             </div>
+            <div>
+                <a href="https://www.instagram.com/el_gato_tuerto" target="_blank">
+                  <p>
+                    <strong>INSTAGRAM</strong>
+                  </p>
+                </a>
+              </div>
           </div>
           <div className="nav nav-right">
               <SearchBar placeholder="Search products..." />
