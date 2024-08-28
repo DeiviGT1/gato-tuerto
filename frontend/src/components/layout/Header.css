@@ -24,13 +24,16 @@ header {
   align-content: center;
 }
 
-.nav-left,
+.nav-left{
+  width: 30%;
+}
+
 .nav-right{
   width: 15%;
 }
 
 .nav-center {
-  width: 60%;
+  width: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
