@@ -59,7 +59,7 @@ const ContactUs = () => {
               <strong>El Gato Tuerto Liquors #1</strong><br />
               476 SW 8th Street, Miami, FL 33130<br />
               <strong>Phone:</strong> 305-854-8576<br />
-              <strong>Email:</strong> <a href="mailto:info@elgatotuerto1.com">info@elgatotuerto1.com</a>
+              <strong>Email:</strong> <a href="mailto:ghector2023@gmail.com">ghector2023@gmail.com</a>
             </address>
           </section>
           
@@ -97,9 +97,9 @@ const ContactUs = () => {
           <section className="social-media">
             <h2>Follow Us on Social Media</h2>
             <ul>
-              <li><a href="https://facebook.com/elgatotuertoliquors" target="_blank" rel="noopener noreferrer">Facebook: El Gato Tuerto Liquors</a></li>
-              <li><a href="https://instagram.com/elgatotuertoliquors" target="_blank" rel="noopener noreferrer">Instagram: @elgatotuertoliquors</a></li>
-              <li><a href="https://twitter.com/elgatotuertomiami" target="_blank" rel="noopener noreferrer">Twitter: @elgatotuertomiami</a></li>
+              {/* <li><a href="https://facebook.com/elgatotuertoliquors" target="_blank" rel="noopener noreferrer">Facebook: El Gato Tuerto Liquors</a></li> */}
+              <li><a href="https://www.instagram.com/el_gato_tuerto?igsh=MWJ6M3B4amozY2cyMQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram: @el_gato_tuerto</a></li>
+              {/* <li><a href="https://twitter.com/elgatotuertomiami" target="_blank" rel="noopener noreferrer">Twitter: @elgatotuertomiami</a></li> */}
             </ul>
           </section>
           

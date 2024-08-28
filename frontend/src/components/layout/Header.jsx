@@ -104,13 +104,6 @@ function Header() {
                 </p>
               </Link>
             </div>
-            <div>
-              <Link to="https://www.doordash.com/convenience/store/27766771/?event_type=autocomplete&pickup=false" target="_blank">
-                <p>
-                  DOORDASH
-                </p>                  
-              </Link>
-            </div>
           </div>
           <div className="nav nav-right">
               <SearchBar placeholder="Search products..." />
