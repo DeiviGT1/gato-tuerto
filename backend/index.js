@@ -29,6 +29,10 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = new twilio(accountSid, authToken);
 
+const accountSid_2 = process.env.TWILIO_ACCOUNT_SID_2;
+const authToken_2 = process.env.TWILIO_AUTH_TOKEN_2;
+const client_2 = new twilio(accountSid_2, authToken_2);
+
 // Esquema y modelo de Pedido
 const orderSchema = new mongoose.Schema({
   name: String,
@@ -99,6 +103,19 @@ app.post('/checkout', (req, res) => {
         to: process.env.TO_PHONE_NUMBER,
         from: process.env.FROM_PHONE_NUMBER
       })
+
+      client_2.messages.create({
+        body: `New Order Received:\n${orderDetails}`,
+        to: process.env.TO_PHONE_NUMBER_2,
+        from: process.env.FROM_PHONE_NUMBER_2
+      })
+
+      client.messages.create({
+        body: `New Order Received:\n${orderDetails}`,
+        to: process.env.TO_PHONE_NUMBER_3,
+        from: process.env.FROM_PHONE_NUMBER
+      })
+      
       .then((message) => {
         console.log('Mensaje enviado:', message.sid);
         res.status(200).send({ success: true, sid: message.sid });
