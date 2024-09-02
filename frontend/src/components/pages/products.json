@@ -1952,6 +1952,59 @@
                             ]
                         },
                         {
+                            "brand": "Jim Beam",
+                            "products": [
+                                {
+                                    "name": "Jim Beam Bourbon",
+                                    "route": "jim-beam-bourbon",
+                                    "modal": false,
+                                    "description": "Jim Beam Bourbon is a blend of many different malt and grain Bourbon whiskies, matured for at least 12 years. This rich, smooth blend combines style with substance and tradition.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "50ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/whiskey/bourbon/jim-beam/jim-beam-bourbon/jim-beam-bourbon-50ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 50
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "200ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/whiskey/bourbon/jim-beam/jim-beam-bourbon/jim-beam-bourbon-200ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": "200ml"
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/whiskey/bourbon/jim-beam/jim-beam-bourbon/jim-beam-bourbon-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/whiskey/bourbon/jim-beam/jim-beam-bourbon/jim-beam-bourbon-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 10000,
+                                            "img": "liquors-webp/whiskey/bourbon/jim-beam/jim-beam-bourbon/jim-beam-bourbon-175L.webp",
+                                            "inventory": 0,
+                                            "size_ml": 1750
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "brand": "Courage & Conviction",
                             "products": [
                                 {
@@ -5534,6 +5587,168 @@
                                             "price": 26.44,
                                             "img": "liquors-webp/vodka/american/new-amsterdam/new-amsterdam-pink-whitney/new-amsterdam-pink-whitney-175L.webp",
                                             "inventory": 5,
+                                            "size_ml": 1750
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Skol",
+                            "products": [
+                                {
+                                    "name": "Skol Vodka",
+                                    "route": "skol-vodka",
+                                    "modal": false,
+                                    "description": "Skol Vodka is a premium, 80 proof vodka made from the finest quality grains. It is five times distilled for unparalleled smoothness, and is filtered three times to create a soft finish.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "50ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/skol/skol-vodka/skol-vodka-50ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 50
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "200ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/skol/skol-vodka/skol-vodka-200ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": "200ml"
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/skol/skol-vodka/skol-vodka-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/skol/skol-vodka/skol-vodka-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml PET",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/skol/skol-vodka/skol-vodka-pet-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/skol/skol-vodka/skol-vodka-175L.webp",
+                                            "inventory": 0,
+                                            "size_ml": 1750
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Platinum",
+                            "products": [
+                                {
+                                    "name": "Platinum 7x Vodka",
+                                    "route": "platinum-7x-vodka",
+                                    "modal": false,
+                                    "description": "Platinum 7x Vodka is a premium, 80 proof vodka made from the finest quality grains. It is five times distilled for unparalleled smoothness, and is filtered three times to create a soft finish.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "50ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/platinum/platinum-7x-vodka/platinum-7x-vodka-50ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 50
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "200ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/platinum/platinum-7x-vodka/platinum-7x-vodka-200ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": "200ml"
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/platinum/platinum-7x-vodka/platinum-7x-vodka-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/platinum/platinum-7x-vodka/platinum-7x-vodka-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/platinum/platinum-7x-vodka/platinum-7x-vodka-175L.webp",
+                                            "inventory": 0,
+                                            "size_ml": 1750
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Platinum 10x Vodka",
+                                    "route": "platinum-10x-vodka",
+                                    "modal": false,
+                                    "description": "Platinum 7x Vodka is a premium, 80 proof vodka made from the finest quality grains. It is five times distilled for unparalleled smoothness, and is filtered three times to create a soft finish.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "50ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/platinum/platinum-10x-vodka/platinum-10x-vodka-50ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 50
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "200ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/platinum/platinum-10x-vodka/platinum-10x-vodka-200ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 200
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/platinum/platinum-10x-vodka/platinum-10x-vodka-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/platinum/platinum-10x-vodka/platinum-10x-vodka-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 10000,
+                                            "img": "liquors-webp/vodka/american/platinum/platinum-10x-vodka/platinum-10x-vodka-175L.webp",
+                                            "inventory": 0,
                                             "size_ml": 1750
                                         }
                                     ]
@@ -11247,6 +11462,43 @@
                     "description": "Liquor is an alcoholic drink produced by distillation of grains, fruit, or vegetables that have already gone through alcoholic fermentation.",
                     "products": [
                         {
+                            "brand": "Tequila Rose",
+                            "products": [
+                                {
+                                    "name": "Tequila Rose",
+                                    "route": "tequila-rose",
+                                    "modal": false,
+                                    "description": "Tequila Rose is a Mexican cream liqueur. It is a mixture of strawberry cream liqueur and tequila.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "50ml",
+                                            "price": 2.29,
+                                            "img": "liquors-webp/liquors/tequila-rose/tequila-rose/tequila-rose-50ml.webp",
+                                            "inventory": 100,
+                                            "size_ml": 50
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 19.54,
+                                            "img": "liquors-webp/liquors/tequila-rose/tequila-rose/tequila-rose-750ml.webp",
+                                            "inventory": 3,
+                                            "size_ml": 750
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 34.39,
+                                            "img": "liquors-webp/liquors/tequila-rose/tequila-rose/tequila-rose-175L.webp",
+                                            "inventory": 0,
+                                            "size_ml": 1750
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "brand": "Fireball",
                             "products": [
                                 {
@@ -11434,6 +11686,301 @@
                                             "price": 17.24,
                                             "img": "liquors-webp/liquors/di-amore/di-amore-limoncello/di-amore-limoncello-750ml.webp",
                                             "inventory": 3,
+                                            "size_ml": 750
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Campari",
+                            "products": [
+                                {
+                                    "name": "Campari",
+                                    "route": "campari",
+                                    "modal": false,
+                                    "description": "Campari is a brand of amaro, or bitter herbal liqueur. The brand is owned by Campari Group.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/campari/campari/campari-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/campari/campari/campari-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Frangelico",
+                            "products": [
+                                {
+                                    "name": "Frangelico",
+                                    "route": "frangelico",
+                                    "modal": false,
+                                    "description": "Frangelico is a brand of hazelnut liqueur. The brand is owned by Campari Group.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/frangelico/frangelico/frangelico-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/frangelico/frangelico/frangelico-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Aperol",
+                            "products": [
+                                {
+                                    "name": "Aperol",
+                                    "route": "aperol",
+                                    "modal": false,
+                                    "description": "Aperol is a brand of aperitif wine. The brand is owned by Campari Group.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/aperol/aperol/aperol-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/aperol/aperol/aperol-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subtype": "french",
+                    "description": "",
+                    "products": [
+                        {
+                            "brand": "Cointreau",
+                            "products": [
+                                {
+                                    "name": "Cointreau",
+                                    "route": "cointreau",
+                                    "modal": false,
+                                    "description": "Cointreau is a brand of triple sec, or orange-flavored liqueur. The brand is owned by R\u00e9my Cointreau.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "50ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/cointreau/cointreau/cointreau-50ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 50
+                                        },  
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/cointreau/cointreau/cointreau-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/cointreau/cointreau/cointreau-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "1.75L",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/cointreau/cointreau/cointreau-175L.webp",
+                                            "inventory": 0,
+                                            "size_ml": 1750
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Grand Marnier",
+                            "products": [
+                                {
+                                    "name": "Grand Marnier",
+                                    "route": "grand-marnier",
+                                    "modal": false,
+                                    "description": "Grand Marnier is a brand of triple sec, or orange-flavored liqueur. The brand is owned by Campari Group.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/grand-marnier/grand-marnier/grand-marnier-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "St. Germain",
+                            "products": [
+                                {
+                                    "name": "St. Germain",
+                                    "route": "st-germain",
+                                    "modal": false,
+                                    "description": "St. Germain is a brand of elderflower liqueur. The brand is owned by Bacardi.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/st-germain/st-germain/st-germain-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/st-germain/st-germain/st-germain-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "brand": "Chambord",
+                            "products": [
+                                {
+                                    "name": "Chambord",
+                                    "route": "chambord",
+                                    "modal": false,
+                                    "description": "Chambord is a brand of raspberry liqueur. The brand is owned by Brown-Forman.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/chambord/chambord/chambord-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/chambord/chambord/chambord-750ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 750
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subtype": "trinidadian",
+                    "description": "Liquor is an alcoholic drink produced by distillation of grains, fruit, or vegetables that have already gone through alcoholic fermentation.",
+                    "products": [
+                        {
+                            "brand": "Angostura",
+                            "products": [
+                                {
+                                    "name": "Angostura Bitters",
+                                    "route": "angostura-bitters",
+                                    "modal": false,
+                                    "description": "Angostura Bitters is a brand of bitters. The brand is owned by Angostura Holdings.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "4oz",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/angostura/angostura-bitters/angostura-bitters-4oz.webp",
+                                            "inventory": 0,
+                                            "size_ml": 118.294
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Angostura Orange Bitters",
+                                    "route": "angostura-orange-bitters",
+                                    "modal": false,
+                                    "description": "Angostura Orange Bitters is a brand of bitters. The brand is owned by Angostura Holdings.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "4oz",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/angostura/angostura-orange-bitters/angostura-orange-bitters-4oz.webp",
+                                            "inventory": 0,
+                                            "size_ml": 118.294
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "subtype": "mexican",
+                    "description": "Liquor is an alcoholic drink produced by distillation of grains, fruit, or vegetables that have already gone through alcoholic fermentation.",
+                    "products": [
+                        {
+                            "brand": "Kahlua",
+                            "products": [
+                                {
+                                    "name": "Kahlua",
+                                    "route": "kahlua",
+                                    "modal": false,
+                                    "description": "Kahl\u00faa is a brand of coffee-flavored liqueur. The brand is owned by Pernod Ricard.",
+                                    "sizes": [
+                                        {
+                                            "id": "",
+                                            "size": "375ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/kahlua/kahlua/kahlua-375ml.webp",
+                                            "inventory": 0,
+                                            "size_ml": 375
+                                        },
+                                        {
+                                            "id": "",
+                                            "size": "750ml",
+                                            "price": 10000,
+                                            "img": "liquors-webp/liquors/kahlua/kahlua/kahlua-750ml.webp",
+                                            "inventory": 0,
                                             "size_ml": 750
                                         }
                                     ]
