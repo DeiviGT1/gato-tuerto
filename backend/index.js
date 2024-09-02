@@ -104,10 +104,10 @@ app.post('/checkout', (req, res) => {
         from: process.env.FROM_PHONE_NUMBER
       })
 
-      client_2.messages.create({
+      client.messages.create({
         body: `New Order Received:\n${orderDetails}`,
         to: process.env.TO_PHONE_NUMBER_2,
-        from: process.env.FROM_PHONE_NUMBER_2
+        from: process.env.FROM_PHONE_NUMBER
       })
 
       // client.messages.create({
