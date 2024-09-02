@@ -15,7 +15,7 @@ const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|s
 
 const availableZipCodes = [
   33130,33128,33243,33299,33269,33266,33265,33257,33247,33245,33242,33239,33238,33197,33188,33153,33163,33164,33152,33101,33102,33112,33116,33119,33231,33131,33129,33136,33132,33135,33145,33125
-]
+];
 
 function Checkout() {
   const [cartItems, setCartItems] = useState([]);
@@ -32,6 +32,7 @@ function Checkout() {
   const [notes, setNotes] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
   const [cardNumber, setCardNumber] = useState('');
+  const [showTooltip, setShowTooltip] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -69,9 +70,9 @@ function Checkout() {
                 return {
                   name: product.name,
                   price: size.price,
-                  size: size.size,  // Asegurarse de almacenar el tamaño aquí
+                  size: size.size,
                   imgSrc: imgSrc,
-                  maxInventory: Math.min(size.inventory || 12, 12), // Limitar a 12 si el inventario es mayor
+                  maxInventory: Math.min(size.inventory || 12, 12),
                 };
               }
             }
@@ -100,7 +101,6 @@ function Checkout() {
     setCartItems(updatedItems);
     calculateTotals(updatedItems);
 
-    // Dispatch the custom event 'cartUpdated' after updating localStorage
     const event = new Event('cartUpdated');
     window.dispatchEvent(event);
   };
@@ -113,7 +113,6 @@ function Checkout() {
     setCartItems(updatedItems);
     calculateTotals(updatedItems);
 
-    // Dispatch the custom event 'cartUpdated' after updating localStorage
     const event = new Event('cartUpdated');
     window.dispatchEvent(event);
   };
@@ -131,14 +130,13 @@ function Checkout() {
         name: item.name,
         quantity: item.quantity,
         price: item.price,
-        size: item.size  // Incluyendo el tamaño aquí
+        size: item.size
       })),
       total,
-      notes // Incluir 'notes' en el cuerpo de la solicitud
+      notes
     };
     
     fetch('https://gato-tuerto-server.vercel.app/checkout', {
-    // fetch('http://localhost:3001/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -146,14 +144,12 @@ function Checkout() {
       body: JSON.stringify(orderDetails)
     })
     .then(response => {
-      console.log(response);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
       return response.json();
     })
     .then(data => {
-      console.log('Success:', data);
       if (data.success) {
         localStorage.clear();
         navigate('/');
@@ -165,8 +161,7 @@ function Checkout() {
       console.error('Error:', error);
       alert('An error occurred. Please try again.');
     });
-  };  
-  
+  };
 
   const toggleResume = () => {
     setShowResume(!showResume);
@@ -276,8 +271,10 @@ function Checkout() {
           <section className="address-section">
             <h2>Shipping Address</h2>
             <form className="address-form">
-              <div className="form-group">
-                <label htmlFor="zipCode">ZIP Code: <span className="required">*</span></label>
+              <div className="form-group" style={{ position: 'relative' }}>
+                <label htmlFor="zipCode">
+                  ZIP Code: <span className="required">*</span>
+                </label>
                 <input
                   type="text"
                   id="zipCode"
@@ -285,7 +282,25 @@ function Checkout() {
                   onChange={handleZipCodeChange}
                   placeholder="Enter your ZIP code"
                   required
+                  onMouseEnter={() => setShowTooltip(true)}
+                  onMouseLeave={() => setShowTooltip(false)}
                 />
+                {showTooltip && (
+                  <div className="tooltip" style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: '0',
+                    backgroundColor: '#333',
+                    color: '#fff',
+                    padding: '5px',
+                    borderRadius: '3px',
+                    fontSize: '12px',
+                    zIndex: '10',
+                    marginTop: '5px'
+                  }}>
+                    Must be within 3 miles distance
+                  </div>
+                )}
               </div>
               <div className="form-group">
                 <label htmlFor="name">Name: <span className="required">*</span></label>
@@ -321,7 +336,7 @@ function Checkout() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Email: </label>
+                <label htmlFor="email">Email: <span className="required">*</span></label>
                 <input
                   type="email"
                   id="email"
@@ -386,7 +401,7 @@ function Checkout() {
           <button 
             className="checkout-button" 
             onClick={handleCheckout} 
-            disabled={cartItems.length === 0 || !zipCode || !name || !address || !phoneNumber || (paymentMethod === 'card' && cardNumber.length !== 4) || !availableZipCodes.includes(parseInt(zipCode)) || !paymentMethod}
+            disabled={cartItems.length === 0 || !zipCode || !name || !address || !phoneNumber || (paymentMethod === 'card' && cardNumber.length !== 4) || !availableZipCodes.includes(parseInt(zipCode)) || !paymentMethod || !email}
           >
             Proceed to Checkout
           </button>
