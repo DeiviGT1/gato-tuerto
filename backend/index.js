@@ -97,24 +97,33 @@ app.post('/checkout', (req, res) => {
         Items: \n ${items.map(item => `${item.name}-${item.size}  x ${item.quantity}`).join('\n')}
       `;
 
-      // Enviar mensaje de texto usando Twilio
+      // Jose Phone
       client.messages.create({
         body: `New Order Received:\n${orderDetails}`,
         to: process.env.TO_PHONE_NUMBER,
         from: process.env.FROM_PHONE_NUMBER
       })
 
-      client_2.messages.create({
-        body: `New Order Received:\n${orderDetails}`,
-        to: process.env.TO_PHONE_NUMBER_2,
-        from: process.env.FROM_PHONE_NUMBER_2
-      })
-
+      //Giuli Phone
       // client.messages.create({
       //   body: `New Order Received:\n${orderDetails}`,
-      //   to: process.env.TO_PHONE_NUMBER_3,
+      //   to: process.env.TO_PHONE_NUMBER_2,
       //   from: process.env.FROM_PHONE_NUMBER
       // })
+
+        // Santi Phone
+      client.messages.create({
+        body: `New Order Received:\n${orderDetails}`,
+        to: process.env.TO_PHONE_NUMBER_3,
+        from: process.env.FROM_PHONE_NUMBER
+      })
+
+      // Gio Phone
+      client.messages.create({
+        body: `New Order Received:\n${orderDetails}`,
+        to: process.env.TO_PHONE_NUMBER_4,
+        from: process.env.FROM_PHONE_NUMBER
+      })
       
       .then((message) => {
         console.log('Mensaje enviado:', message.sid);
