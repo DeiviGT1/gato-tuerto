@@ -73,10 +73,6 @@
 }
 
 .home > .welcome {
-  height: 100%;
-}
-
-.home > .welcome > div {
   height: 89%;
   width: 100%;
   display: flex;
@@ -84,7 +80,7 @@
   align-items: center;
 }
 
-.home > .welcome > div > img {
+.home > .welcome  > img {
   width: 100%;
   height: 85%;
   object-fit: contain;
@@ -230,7 +226,6 @@
   }
 }
 
-
 /* General styles */
 .section {
   display: flex;
@@ -293,3 +288,48 @@
     font-size: 1.6em;
   }
 }
+
+/* Modal Styles */
+.modal-order-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.modal-order-success-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-order-success-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.modal-order-success-content button {
+  padding: 10px 20px;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-order-success-content button:hover {
+  background-color: #ff4b3a;
+}
+
+.welcome {
+  padding: 1% 0;
+}
+

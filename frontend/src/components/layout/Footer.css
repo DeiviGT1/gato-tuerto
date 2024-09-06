@@ -31,7 +31,6 @@ footer > div > p {
 
 .map {
   width: 30%;
-  height: 100%;
   margin: 0;
   padding: 0; /* Ensures the map takes the full height and width */
 }

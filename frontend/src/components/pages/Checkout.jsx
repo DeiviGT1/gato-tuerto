@@ -7,14 +7,14 @@ import './Checkout.css';
 
 const importAll = (r) => {
   let images = {};
-  r.keys().map((item) => { images[item.replace('./' , '')] = r(item); });
+  r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
   return images;
 };
 
 const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|svg|webp)$/));
 
 const availableZipCodes = [
-  33130,33128,33243,33299,33269,33266,33265,33257,33247,33245,33242,33239,33238,33197,33188,33153,33163,33164,33152,33101,33102,33112,33116,33119,33231,33131,33129,33136,33132,33135,33145,33125
+  33130, 33128, 33243, 33299, 33269, 33266, 33265, 33257, 33247, 33245, 33242, 33239, 33238, 33197, 33188, 33153, 33163, 33164, 33152, 33101, 33102, 33112, 33116, 33119, 33231, 33131, 33129, 33136, 33132, 33135, 33145, 33125
 ];
 
 function Checkout() {
@@ -33,6 +33,8 @@ function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
+  const [tipPercentage, setTipPercentage] = useState(18); // Tip percentage state default to 18%
+  const [customTip, setCustomTip] = useState(''); // Custom tip input
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -83,12 +85,19 @@ function Checkout() {
     return null;
   };
 
+    // New useEffect to recalculate totals when the tipPercentage changes
+  useEffect(() => {
+    calculateTotals(cartItems);
+  }, [tipPercentage, cartItems]);
+
+  // Update the calculateTotals function to remove tipPercentage from parameters
   const calculateTotals = (items) => {
     const subTotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const salesTax = subTotal * 0.07;
-    const total = subTotal + salesTax + 10;
+    const tipAmount = subTotal * (tipPercentage / 100); // Calculate tip amount
+    const total = subTotal + salesTax + tipAmount + 4.99; // Add tip to total
     const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-    
+
     setSubTotal(subTotal);
     setSalesTax(salesTax);
     setTotal(total);
@@ -119,49 +128,49 @@ function Checkout() {
 
   const handleCheckout = () => {
     const orderDetails = {
-      name,
-      address,
-      phoneNumber,
-      email,
-      paymentMethod,
-      cardNumber: paymentMethod === 'card' ? cardNumber : null,
-      items: cartItems.map(item => ({
-        id: item.id,
-        name: item.name,
-        quantity: item.quantity,
-        price: item.price,
-        size: item.size
-      })),
-      total,
-      notes
+        name,
+        address,
+        phoneNumber,
+        email,
+        paymentMethod,
+        cardNumber: paymentMethod === 'card' ? cardNumber : null,
+        items: cartItems.map(item => ({
+            id: item.id,
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price,
+            size: item.size
+        })),
+        total,
+        notes
     };
-    
+
     fetch('https://gato-tuerto-server.vercel.app/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(orderDetails)
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(orderDetails)
     })
     .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
     })
     .then(data => {
-      if (data.success) {
-        localStorage.clear();
-        navigate('/');
-      } else {
-        alert('Failed to process the order. Please try again.');
-      }
+        if (data.success) {
+            localStorage.clear();
+            navigate('/', { state: { showProcessingModal: true, fromCheckout: true } }); // Pass the `fromCheckout` flag
+        } else {
+            alert('Failed to process the order. Please try again.');
+        }
     })
     .catch(error => {
-      console.error('Error:', error);
-      alert('An error occurred. Please try again.');
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
     });
-  };
+};
 
   const toggleResume = () => {
     setShowResume(!showResume);
@@ -211,10 +220,10 @@ function Checkout() {
           <h1>Checkout</h1>
 
           <button className="toggle-resume-btn" onClick={toggleResume}>
-            {showResume ? 'Hide Resume' : 'Show Resume'}
+            {!showResume ? 'Hide Resume' : 'Show Resume'}
           </button>
 
-          {showResume && (
+          {!showResume && (
             <section className="resume-section">
               <h2>Cart resume</h2>
               <div className="checkout-items">
@@ -228,17 +237,17 @@ function Checkout() {
                         <p>{item.name}</p>
                         <div>
                           <div className='checkout-item-amount'>
-                          <p>Cantidad:   </p>
-                          <select
-                            value={item.quantity}
-                            onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-                          >
-                            {[...Array(item.maxInventory).keys()].map((number) => (
-                              <option key={number + 1} value={number + 1}>
-                                {number + 1}
-                              </option>
-                            ))}
-                          </select>
+                            <p>Cantidad:   </p>
+                            <select
+                              value={item.quantity}
+                              onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                            >
+                              {[...Array(item.maxInventory).keys()].map((number) => (
+                                <option key={number + 1} value={number + 1}>
+                                  {number + 1}
+                                </option>
+                              ))}
+                            </select>
                           </div>
                         </div>
                         <div>
@@ -259,10 +268,71 @@ function Checkout() {
                   <p>Your cart is empty.</p>
                 )}
               </div>
+
+              {/* Tip Section */}
+              <section className="tip-section">
+  <h2>Tip</h2>
+  <div className="tip-options">
+    <button 
+      className={`tip-button ${tipPercentage === 15 ? 'active' : ''}`}
+      onClick={() => { setTipPercentage(15); setCustomTip(''); }}
+    >
+      15%
+    </button>
+    <button 
+      className={`tip-button ${tipPercentage === 18 ? 'active' : ''}`}
+      onClick={() => { setTipPercentage(18); setCustomTip(''); }}
+    >
+      18%
+    </button>
+    <button 
+      className={`tip-button ${tipPercentage === 22 ? 'active' : ''}`}
+      onClick={() => { setTipPercentage(22); setCustomTip(''); }}
+    >
+      22%
+    </button>
+
+    {/* Wrapping the Other button and input inside a div */}
+    <div className="custom-tip-wrapper">
+      <button 
+        className={`tip-button ${customTip !== '' ? 'active' : ''}`}
+        onClick={() => { setTipPercentage(10); setCustomTip('10'); }} // Default to 10%
+      >
+        Other
+      </button>
+
+      {customTip !== '' && (
+        <div className="custom-tip-container">
+          <input 
+            type="number" 
+            value={customTip} 
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value === "") {
+                setTipPercentage(0);
+                setCustomTip("");
+              } else {
+                const parsedValue = parseFloat(value);
+                if (parsedValue >= 0) {
+                  setTipPercentage(parsedValue); 
+                  setCustomTip(value);
+                }
+              }
+            }} 
+          />
+          <span>%</span>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+              {/* Summary Section */}
               <div className="checkout-summary">
                 <h3>Sub-Total: ${subTotal.toFixed(2)}</h3>
                 <h3>Sales Tax (7%): ${salesTax.toFixed(2)}</h3>
-                <h3>Delivery Fee: 10$</h3>
+                <h3>Tip ({tipPercentage}%): ${(subTotal * (tipPercentage / 100)).toFixed(2)}</h3>
+                <h3>Delivery Fee: $4.99</h3>
                 <h3>Total: ${total.toFixed(2)}</h3>
               </div>
             </section>
@@ -359,7 +429,7 @@ function Checkout() {
           </section>
 
           <section className="payment-section">
-            <h2>Payment Method</h2>
+            <h2>Payment Method (on Delivery) </h2>
             <div className="form-group">
               <label>
                 <input
@@ -379,7 +449,7 @@ function Checkout() {
                   checked={paymentMethod === 'card'}
                   onChange={handlePaymentMethodChange}
                 />
-                Card on Delivery
+                Card
               </label>
             </div>
 
@@ -397,15 +467,22 @@ function Checkout() {
               </div>
             )}
           </section>
+          <section className="adviser-section">
+            <h2 className="adviser-title">Adviser</h2>
+            <p className="adviser-text">
+              <strong>
+                If your delivery takes more than 45 minutes, your delivery fee will be <span className="highlight">FREE</span>.
+              </strong>
+            </p>
+          </section>
 
           <button 
             className="checkout-button" 
             onClick={handleCheckout} 
             disabled={cartItems.length === 0 || !zipCode || !name || !address || !phoneNumber || (paymentMethod === 'card' && cardNumber.length !== 4) || !availableZipCodes.includes(parseInt(zipCode)) || !paymentMethod || !email}
           >
-            Proceed to Checkout
+            Submit
           </button>
-
         </div>
       <Footer />
       </div>

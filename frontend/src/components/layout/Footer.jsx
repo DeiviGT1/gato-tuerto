@@ -25,10 +25,10 @@ function Footer() {
           <div>
             <p className="copyright">Copyright © 2024 El Gato Tuerto - All Rights Reserved.</p>
             <div className='links'>
-              <a href="">
+              <a href="/privacy-policy" target='_blank'>
                 <p>PRIVACY POLICY</p>
               </a>
-              <a href="">
+              <a href="terms-and-conditions" target='_blank'>
                 <p>TERMS AND CONDITIONS</p>
               </a>
             </div>

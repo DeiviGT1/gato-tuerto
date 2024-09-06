@@ -1,0 +1,194 @@
+/* Privacy Policy Page Styles */
+.privacy-policy-page {
+  font-family: 'Baskerville', serif;
+  line-height: 1.6;
+  color: #333;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.privacy-policy-title {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #475169;
+}
+
+/* Subtitles */
+.privacy-policy-subtitle {
+  font-size: 1.8em;
+  color: #333;
+  margin-top: 30px;
+  border-bottom: 2px solid #475169;
+  padding-bottom: 10px;
+}
+
+/* Sub-subtitles */
+.privacy-policy-subsubtitle {
+  font-size: 1.4em;
+  color: #475169;
+  margin-top: 20px;
+}
+
+/* Text */
+.privacy-policy-text {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* List Styles */
+.privacy-policy-list {
+  padding-left: 40px;
+  list-style-type: disc;
+}
+
+.privacy-policy-list li {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Button Styles */
+.privacy-policy-button {
+  display: inline-block;
+  background-color: #475169;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-family: 'Baskerville', serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.privacy-policy-button:hover {
+  background-color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .privacy-policy-page {
+    padding: 15px;
+  }
+
+  .privacy-policy-title {
+    font-size: 2em;
+  }
+
+  .privacy-policy-subtitle {
+    font-size: 1.5em;
+  }
+
+  .privacy-policy-subsubtitle {
+    font-size: 1.2em;
+  }
+
+  .privacy-policy-text, .privacy-policy-list li {
+    font-size: 1em;
+  }
+
+  .privacy-policy-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Terms and Conditions Page Styles */
+.terms-conditions-page {
+  font-family: 'Baskerville', serif;
+  line-height: 1.6;
+  color: #333;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.terms-conditions-title {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #475169;
+}
+
+/* Subtitles */
+.terms-conditions-subtitle {
+  font-size: 1.8em;
+  color: #333;
+  margin-top: 30px;
+  border-bottom: 2px solid #475169;
+  padding-bottom: 10px;
+}
+
+/* Text */
+.terms-conditions-text {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* List Styles */
+.terms-conditions-list {
+  padding-left: 40px;
+  list-style-type: disc;
+}
+
+.terms-conditions-list li {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Button Styles */
+.terms-conditions-button {
+  display: inline-block;
+  background-color: #475169;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-family: 'Baskerville', serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.terms-conditions-button:hover {
+  background-color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .terms-conditions-page {
+    padding: 15px;
+  }
+
+  .terms-conditions-title {
+    font-size: 2em;
+  }
+
+  .terms-conditions-subtitle {
+    font-size: 1.5em;
+  }
+
+  .terms-conditions-text, .terms-conditions-list li {
+    font-size: 1em;
+  }
+
+  .terms-conditions-button {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -10,6 +10,8 @@ import ContactUs from "./components/pages/ContactUs";
 import productsData from './components/pages/products.json';
 import Checkout from './components/pages/Checkout';
 import AgeVerificationModal from './components/ui/AgeVerificationModal'; // Import the component
+import PrivacyPolicy from './components/pages/privacypolicy';
+import TermsAndConditions from './components/pages/termsandconditions';
 
 const App = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -24,6 +26,9 @@ const App = () => {
                 <Route path="/gift-boxes" element={<GiftBox />} />
                 <Route path="/contact-us" element={<ContactUs />} />
                 <Route path="/checkout" element={<Checkout />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+
             </Routes>
         </>
     );

@@ -163,7 +163,7 @@ a:hover::after {
   transform: scaleX(1);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1025px) {
   .App-header {
     flex-direction: column;
     align-items: center;

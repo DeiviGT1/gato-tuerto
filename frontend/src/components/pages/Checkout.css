@@ -67,12 +67,13 @@
 
 .checkout-summary h3:nth-child(1),
 .checkout-summary h3:nth-child(2),
-.checkout-summary h3:nth-child(3) {
+.checkout-summary h3:nth-child(3) 
+.checkout-summary h3:nth-child(4) {
   font-weight: normal;
   color: #555;
 }
 
-.checkout-summary h3:nth-child(4) {
+.checkout-summary h3:nth-child(5) {
   font-size: 1.5em;
   font-weight: bold;
   color: #000;
@@ -214,4 +215,123 @@ textarea{
   align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
   gap: 10px; /* Espaciado entre los elementos */
   justify-content: center;
+}
+.tip-section {
+  display: flex;
+  flex-direction: column;
+  border-bottom: black 1px solid;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.tip-options {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  width: 100%;
+}
+
+.tip-button {
+  background-color: #f0f0f0;
+  width: 25%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding-top: max(10px, 2%);
+  padding-bottom: max(10px, 2%);
+  padding-left: min(10px, 10%);
+  padding-right: min(10px, 10%);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tip-button:hover {
+  background-color: #ececec;
+  transform: translateY(-2px); /* Slight elevation on hover */
+}
+
+.tip-button.active {
+  background-color: #475169;
+  color: white;
+  border-color: #475169;
+}
+
+.custom-tip-container {
+  display: flex;
+  align-items: center;
+}
+
+.custom-tip-container input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.custom-tip-container span {
+  font-size: 16px;
+}
+
+.adviser-section {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.adviser-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.adviser-text {
+  font-size: 18px;
+  color: #555;
+}
+
+.highlight {
+  color: #ff6f61;
+  font-weight: bold;
+}
+
+.custom-tip-wrapper{
+  text-align: center;
+  display: inline-flex;
+  width: 25%;
+}
+.custom-tip-wrapper>button{
+  width: 100%;
+
+}
+
+@media (max-width: 1025px) {
+  /* Show the custom tip input field when on mobile devices */
+  .tip-button.active + .custom-tip-container {
+    display: flex;
+  }
+  
+  /* Ensure the custom tip input field is styled properly on mobile */
+  .custom-tip-container {
+    align-items: center;
+  }
+
+  .custom-tip-container input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .custom-tip-container span {
+    font-size: 16px;
+  }
+  .custom-tip-wrapper{
+    flex-direction: column;
+  }
 }
