@@ -17,6 +17,11 @@ const importAll = (r) => {
 const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|svg|webp)$/));
 
 function Liquor() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+      
     const { item } = useParams();
     const navigate = useNavigate();
     const location = useLocation();

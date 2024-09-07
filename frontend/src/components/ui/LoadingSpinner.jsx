@@ -1,12 +1,14 @@
 import React from 'react';
-import './LoadingSpinner.css'; // Create this CSS file for styling the spinner
+import './LoadingSpinner.css';
+import loadingBeer1 from '../../assets/loading-beer-1.webp'; // Imagen fija
+import loadingBeer2 from '../../assets/loading-beer-2.webp'; // Imagen de carga
 
 const LoadingSpinner = () => {
     return (
         <div className='loading-screen'>
-            <div className="spinner">
-                <div className="double-bounce1"></div>
-                <div className="double-bounce2"></div>
+            <div className="beer-container">
+                <img src={loadingBeer1} alt="Fixed Beer" className="fixed-beer" />
+                <img src={loadingBeer2} alt="Loading Beer" className="loading-beer" />
             </div>
         </div>
     );

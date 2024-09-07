@@ -15,13 +15,21 @@
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
 }
-
-.checkout-item>div {
+.checkout-item>div:nth-child(1),
+.checkout-item>div:nth-child(2){
   align-items: center;
   height: 100%;
-  width: 33%;
+  width: 45%;
   text-align-last: center;
     align-content: center;
+}
+
+.checkout-item>div:nth-child(3){
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .checkout-item-amount{
@@ -33,8 +41,8 @@
 }
 
 .checkout-item-image {
-
   height: 100%;
+  width: 90%;
   object-fit: contain;
 }
 
@@ -334,4 +342,57 @@ textarea{
   .custom-tip-wrapper{
     flex-direction: column;
   }
+}
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.beer-container {
+  position: relative;
+  width: 96px; /* Ajusta el tamaño según el tamaño de tus imágenes */
+  height: 300px;
+}
+
+.fixed-beer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Imagen 1 (fija) estará encima de la imagen 2 */
+}
+
+.loading-beer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Imagen 2 (de carga) estará debajo de la imagen 1 */
+  clip-path: inset(100% 0 0 0); /* La imagen está oculta inicialmente */
+  animation: revealBeer 2s ease-in-out infinite; /* La animación se repetirá infinitamente */
+}
+
+@keyframes revealBeer {
+  0% {
+    clip-path: inset(100% 0 0 0); /* Comienza completamente oculta */
+  }
+  100% {
+    clip-path: inset(0 0 0 0); /* Revela completamente la imagen */
+  }
+}
+
+p {
+  margin-top: 20px;
+  font-size: 18px;
 }

@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import products from './products.json';
-import './Checkout.css';
+import './Checkout.css'; // Asegúrate de tener las clases CSS actualizadas
+import loadingBeer1 from '../../assets/loading-beer-1.webp'; // Imagen fija
+import loadingBeer2 from '../../assets/loading-beer-2.webp'; // Imagen de carga
 
 const importAll = (r) => {
   let images = {};
@@ -33,8 +35,9 @@ function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
-  const [tipPercentage, setTipPercentage] = useState(18); // Tip percentage state default to 18%
-  const [customTip, setCustomTip] = useState(''); // Custom tip input
+  const [tipPercentage, setTipPercentage] = useState(18);
+  const [customTip, setCustomTip] = useState('');
+  const [isLoading, setIsLoading] = useState(false); // Estado para la pantalla de carga
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -85,33 +88,21 @@ function Checkout() {
     return null;
   };
 
-    // New useEffect to recalculate totals when the tipPercentage changes
   useEffect(() => {
     calculateTotals(cartItems);
   }, [tipPercentage, cartItems]);
 
-  // Update the calculateTotals function to remove tipPercentage from parameters
   const calculateTotals = (items) => {
     const subTotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const salesTax = subTotal * 0.07;
-    const tipAmount = subTotal * (tipPercentage / 100); // Calculate tip amount
-    const total = subTotal + salesTax + tipAmount + 4.99; // Add tip to total
+    const tipAmount = subTotal * (tipPercentage / 100);
+    const total = subTotal + salesTax + tipAmount + 4.99;
     const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
     setSubTotal(subTotal);
     setSalesTax(salesTax);
     setTotal(total);
     setTotalItems(totalItems);
-  };
-
-  const handleRemoveItem = (id) => {
-    localStorage.removeItem(id);
-    const updatedItems = cartItems.filter(item => item.id !== id);
-    setCartItems(updatedItems);
-    calculateTotals(updatedItems);
-
-    const event = new Event('cartUpdated');
-    window.dispatchEvent(event);
   };
 
   const handleQuantityChange = (id, newQuantity) => {
@@ -126,54 +117,14 @@ function Checkout() {
     window.dispatchEvent(event);
   };
 
-  const handleCheckout = () => {
-    const orderDetails = {
-        name,
-        address,
-        phoneNumber,
-        email,
-        paymentMethod,
-        cardNumber: paymentMethod === 'card' ? cardNumber : null,
-        items: cartItems.map(item => ({
-            id: item.id,
-            name: item.name,
-            quantity: item.quantity,
-            price: item.price,
-            size: item.size
-        })),
-        total,
-        notes
-    };
+  const handleRemoveItem = (id) => {
+    localStorage.removeItem(id);
+    const updatedItems = cartItems.filter(item => item.id !== id);
+    setCartItems(updatedItems);
+    calculateTotals(updatedItems);
 
-    fetch('https://gato-tuerto-server.vercel.app/checkout', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(orderDetails)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-            localStorage.clear();
-            navigate('/', { state: { showProcessingModal: true, fromCheckout: true } }); // Pass the `fromCheckout` flag
-        } else {
-            alert('Failed to process the order. Please try again.');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
-    });
-};
-
-  const toggleResume = () => {
-    setShowResume(!showResume);
+    const event = new Event('cartUpdated');
+    window.dispatchEvent(event);
   };
 
   const handleZipCodeChange = (e) => {
@@ -212,10 +163,81 @@ function Checkout() {
     setCardNumber(e.target.value);
   };
 
+  const handleCheckout = () => {
+    const orderDetails = {
+      name,
+      address,
+      phoneNumber,
+      email,
+      paymentMethod,
+      cardNumber: paymentMethod === 'card' ? cardNumber : null,
+      items: cartItems.map(item => ({
+        id: item.id,
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+        size: item.size
+      })),
+      total,
+      notes
+    };
+  
+    setIsLoading(true); // Mostrar pantalla de carga
+  
+    // Promise que asegura que la pantalla de carga se muestra al menos 10 segundos
+    const minimumLoadingTime = new Promise((resolve) => setTimeout(resolve, 10000));
+  
+    // Promesa de la solicitud al servidor
+    const checkoutRequest = fetch('https://gato-tuerto-server.vercel.app/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(orderDetails),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.success) {
+          localStorage.clear();
+          navigate('/', { state: { showProcessingModal: true, fromCheckout: true } });
+        } else {
+          alert('Failed to process the order. Please try again.');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      });
+  
+    // Usamos Promise.all para asegurar que ambas promesas (mínimo de 10 segundos y solicitud) terminen
+    Promise.all([minimumLoadingTime, checkoutRequest]).finally(() => {
+      setIsLoading(false); // Ocultar pantalla de carga después de ambas promesas
+    });
+  };
+  
+
+  const toggleResume = () => {
+    setShowResume(!showResume);
+  };
+
   return (
     <>
       <Header />
       <div className="app-screen">
+        {isLoading && (
+          <div className="loading-overlay">
+            <div className="beer-container">
+              <img src={loadingBeer1} alt="Fixed Beer" className="fixed-beer" />
+              <img src={loadingBeer2} alt="Loading Beer" className="loading-beer" />
+            </div>
+            <p>Processing your order...</p>
+          </div>
+        )}
         <div className="checkout-container">
           <h1>Checkout</h1>
 
@@ -259,7 +281,7 @@ function Checkout() {
                           className="remove-button" 
                           onClick={() => handleRemoveItem(item.id)}
                         >
-                          Remove
+                          -
                         </button>
                       </div>
                     </div>
@@ -484,7 +506,7 @@ function Checkout() {
             Submit
           </button>
         </div>
-      <Footer />
+        <Footer />
       </div>
     </>
   );

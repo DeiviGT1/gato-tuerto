@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Product({ route, name, price, size, img, productClass, inventory, idSelected }) {
+
+    
     const titleRef = useRef(null);
     const [fontSize, setFontSize] = useState(24); // initial font size
     const [selectedQuantity, setSelectedQuantity] = useState(1);

@@ -41,7 +41,7 @@ function Catalog({ searchTerm = '' }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 1000);
+        }, 2200);
 
         return () => clearTimeout(timer);
     }, []);
