@@ -307,7 +307,7 @@ function Home() {
             {showModal && (
                 <div className="modal-order-success">
                     <div className="modal-order-success-content">
-                        <p>Your order is being processed</p>
+                        <p>Your order has been sent</p>
                         <button onClick={closeModal}>Close</button>
                     </div>
                 </div>
