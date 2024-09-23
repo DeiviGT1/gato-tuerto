@@ -88,6 +88,7 @@
   .carousel-item {
     position: relative;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .out-of-stock {

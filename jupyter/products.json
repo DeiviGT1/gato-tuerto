@@ -1963,33 +1963,33 @@
                                         {
                                             "id": "S01446",
                                             "size": "200ml",
-                                            "price": 6.89,
+                                            "price": 10000,
                                             "img": "liquors-webp/whiskey/bourbon/jim-beam/jim-beam-bourbon/jim-beam-bourbon-200ml.webp",
-                                            "inventory": 3,
+                                            "inventory": 0,
                                             "size_ml": "200ml"
                                         },
                                         {
                                             "id": "S01445",
                                             "size": "375ml",
-                                            "price": 10.34,
+                                            "price": 10000,
                                             "img": "liquors-webp/whiskey/bourbon/jim-beam/jim-beam-bourbon/jim-beam-bourbon-375ml.webp",
-                                            "inventory": 8,
+                                            "inventory": 0,
                                             "size_ml": 375
                                         },
                                         {
                                             "id": "08068600108",
                                             "size": "750ml",
-                                            "price": 16.09,
+                                            "price": 10000,
                                             "img": "liquors-webp/whiskey/bourbon/jim-beam/jim-beam-bourbon/jim-beam-bourbon-750ml.webp",
-                                            "inventory": 92,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         },
                                         {
                                             "id": "08068688910",
                                             "size": "1.75L",
-                                            "price": 32.19,
+                                            "price": 10000,
                                             "img": "liquors-webp/whiskey/bourbon/jim-beam/jim-beam-bourbon/jim-beam-bourbon-175L.webp",
-                                            "inventory": 18,
+                                            "inventory": 0,
                                             "size_ml": 1750
                                         }
                                     ]
@@ -5597,33 +5597,33 @@
                                         {
                                             "id": "08567610120",
                                             "size": "200ml",
-                                            "price": 3.22,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/skol/skol-vodka/skol-vodka-200ml.webp",
-                                            "inventory": 223,
+                                            "inventory": 0,
                                             "size_ml": "200ml"
                                         },
                                         {
                                             "id": "08567610137",
                                             "size": "375ml",
-                                            "price": 5.37,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/skol/skol-vodka/skol-vodka-375ml.webp",
-                                            "inventory": 171,
+                                            "inventory": 0,
                                             "size_ml": 375
                                         },
                                         {
                                             "id": "08567610175",
                                             "size": "750ml",
-                                            "price": 10.34,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/skol/skol-vodka/skol-vodka-750ml.webp",
-                                            "inventory": 17,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         },
                                         {
                                             "id": "08567610117",
                                             "size": "1.75L",
-                                            "price": 17.24,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/skol/skol-vodka/skol-vodka-175L.webp",
-                                            "inventory": 18,
+                                            "inventory": 0,
                                             "size_ml": 1750
                                         }
                                     ]
@@ -5642,41 +5642,41 @@
                                         {
                                             "id": "08800403421",
                                             "size": "50ml",
-                                            "price": 1.61,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/platinum/platinum-7x-vodka/platinum-7x-vodka-50ml.webp",
-                                            "inventory": 33,
+                                            "inventory": 0,
                                             "size_ml": 50
                                         },
                                         {
                                             "id": "08800401279",
                                             "size": "200ml",
-                                            "price": 3.44,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/platinum/platinum-7x-vodka/platinum-7x-vodka-200ml.webp",
-                                            "inventory": 20,
+                                            "inventory": 0,
                                             "size_ml": "200ml"
                                         },
                                         {
                                             "id": "08800401276",
                                             "size": "375ml",
-                                            "price": 5.37,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/platinum/platinum-7x-vodka/platinum-7x-vodka-375ml.webp",
-                                            "inventory": 88,
+                                            "inventory": 0,
                                             "size_ml": 375
                                         },
                                         {
                                             "id": "08800401275",
                                             "size": "750ml",
-                                            "price": 10.34,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/platinum/platinum-7x-vodka/platinum-7x-vodka-750ml.webp",
-                                            "inventory": 6,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         },
                                         {
                                             "id": "08800401272",
                                             "size": "1.75L",
-                                            "price": 19.54,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/platinum/platinum-7x-vodka/platinum-7x-vodka-175L.webp",
-                                            "inventory": 5,
+                                            "inventory": 0,
                                             "size_ml": 1750
                                         }
                                     ]
@@ -5690,17 +5690,17 @@
                                         {
                                             "id": "08800403037",
                                             "size": "750ml",
-                                            "price": 12.64,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/platinum/platinum-10x-vodka/platinum-10x-vodka-750ml.webp",
-                                            "inventory": 13,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         },
                                         {
                                             "id": "25554541",
                                             "size": "1.75L",
-                                            "price": 22.99,
+                                            "price": 10000,
                                             "img": "liquors-webp/vodka/american/platinum/platinum-10x-vodka/platinum-10x-vodka-175L.webp",
-                                            "inventory": 8,
+                                            "inventory": 0,
                                             "size_ml": 1750
                                         }
                                     ]
@@ -7070,7 +7070,7 @@
                                         {
                                             "id": "08775203357",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 10000,
                                             "img": "liquors-webp/rum/colombian/ron-viejo-de-caldas/ron-viejo-de-caldas-leon-dormido/ron-viejo-de-caldas-leon-dormido-750ml.webp",
                                             "inventory": 0,
                                             "size_ml": 750
@@ -11425,25 +11425,25 @@
                                         {
                                             "id": "08559212108",
                                             "size": "50ml",
-                                            "price": 1.61,
+                                            "price": 2.29,
                                             "img": "liquors-webp/liquors/tequila-rose/tequila-rose/tequila-rose-50ml.webp",
-                                            "inventory": 52,
+                                            "inventory": 100,
                                             "size_ml": 50
                                         },
                                         {
                                             "id": "08559212835",
                                             "size": "750ml",
-                                            "price": 24.14,
+                                            "price": 19.54,
                                             "img": "liquors-webp/liquors/tequila-rose/tequila-rose/tequila-rose-750ml.webp",
-                                            "inventory": 22,
+                                            "inventory": 3,
                                             "size_ml": 750
                                         },
                                         {
                                             "id": "175ROSE",
                                             "size": "1.75L",
-                                            "price": 36.79,
+                                            "price": 34.39,
                                             "img": "liquors-webp/liquors/tequila-rose/tequila-rose/tequila-rose-175L.webp",
-                                            "inventory": 4,
+                                            "inventory": 0,
                                             "size_ml": 1750
                                         }
                                     ]
@@ -11656,17 +11656,17 @@
                                         {
                                             "id": "948645",
                                             "size": "375ml",
-                                            "price": 26.44,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/campari/campari/campari-375ml.webp",
-                                            "inventory": 4,
+                                            "inventory": 0,
                                             "size_ml": 375
                                         },
                                         {
                                             "id": "72105904750",
                                             "size": "750ml",
-                                            "price": 41.39,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/campari/campari/campari-750ml.webp",
-                                            "inventory": 4,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         }
                                     ]
@@ -11685,17 +11685,17 @@
                                         {
                                             "id": "72105998375",
                                             "size": "375ml",
-                                            "price": 22.99,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/frangelico/frangelico/frangelico-375ml.webp",
-                                            "inventory": 2,
+                                            "inventory": 0,
                                             "size_ml": 375
                                         },
                                         {
                                             "id": "72105900322",
                                             "size": "750ml",
-                                            "price": 31.04,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/frangelico/frangelico/frangelico-750ml.webp",
-                                            "inventory": 3,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         }
                                     ]
@@ -11714,7 +11714,7 @@
                                         {
                                             "id": "996122",
                                             "size": "375ml",
-                                            "price": 21.84,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/aperol/aperol/aperol-375ml.webp",
                                             "inventory": 0,
                                             "size_ml": 375
@@ -11722,9 +11722,9 @@
                                         {
                                             "id": "08678590000",
                                             "size": "750ml",
-                                            "price": 33.34,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/aperol/aperol/aperol-750ml.webp",
-                                            "inventory": 16,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         }
                                     ]
@@ -11749,33 +11749,33 @@
                                         {
                                             "id": "08723656530",
                                             "size": "50ml",
-                                            "price": 3.44,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/cointreau/cointreau/cointreau-50ml.webp",
-                                            "inventory": 32,
+                                            "inventory": 0,
                                             "size_ml": 50
-                                        },
+                                        },  
                                         {
                                             "id": "08723656568",
                                             "size": "375ml",
-                                            "price": 32.19,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/cointreau/cointreau/cointreau-375ml.webp",
-                                            "inventory": 5,
+                                            "inventory": 0,
                                             "size_ml": 375
                                         },
                                         {
                                             "id": "08723656580",
                                             "size": "750ml",
-                                            "price": 42.54,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/cointreau/cointreau/cointreau-750ml.webp",
-                                            "inventory": 16,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         },
                                         {
                                             "id": "08723656555",
                                             "size": "1.75L",
-                                            "price": 86.24,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/cointreau/cointreau/cointreau-175L.webp",
-                                            "inventory": 1,
+                                            "inventory": 0,
                                             "size_ml": 1750
                                         }
                                     ]
@@ -11794,9 +11794,9 @@
                                         {
                                             "id": "64918890047",
                                             "size": "750ml",
-                                            "price": 49.44,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/grand-marnier/grand-marnier/grand-marnier-750ml.webp",
-                                            "inventory": 11,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         }
                                     ]
@@ -11815,17 +11815,17 @@
                                         {
                                             "id": "08048000666",
                                             "size": "375ml",
-                                            "price": 26.44,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/st-germain/st-germain/st-germain-375ml.webp",
-                                            "inventory": 12,
+                                            "inventory": 0,
                                             "size_ml": 375
                                         },
                                         {
                                             "id": "89880400120",
                                             "size": "750ml",
-                                            "price": 41.39,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/st-germain/st-germain/st-germain-750ml.webp",
-                                            "inventory": 11,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         }
                                     ]
@@ -11844,17 +11844,17 @@
                                         {
                                             "id": "08330020132",
                                             "size": "375ml",
-                                            "price": 21.84,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/chambord/chambord/chambord-375ml.webp",
-                                            "inventory": 1,
+                                            "inventory": 0,
                                             "size_ml": 375
                                         },
                                         {
                                             "id": "08330003453",
                                             "size": "750ml",
-                                            "price": 36.79,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/chambord/chambord/chambord-750ml.webp",
-                                            "inventory": 5,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         }
                                     ]
@@ -11879,9 +11879,9 @@
                                         {
                                             "id": "07549600040",
                                             "size": "4oz",
-                                            "price": 16.09,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/angostura/angostura-bitters/angostura-bitters-4oz.webp",
-                                            "inventory": 5,
+                                            "inventory": 0,
                                             "size_ml": 118.294
                                         }
                                     ]
@@ -11895,9 +11895,9 @@
                                         {
                                             "id": "198448",
                                             "size": "4oz",
-                                            "price": 18.39,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/angostura/angostura-orange-bitters/angostura-orange-bitters-4oz.webp",
-                                            "inventory": 1,
+                                            "inventory": 0,
                                             "size_ml": 118.294
                                         }
                                     ]
@@ -11922,7 +11922,7 @@
                                         {
                                             "id": "08520914563",
                                             "size": "375ml",
-                                            "price": 12.64,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/kahlua/kahlua/kahlua-375ml.webp",
                                             "inventory": 0,
                                             "size_ml": 375
@@ -11930,9 +11930,9 @@
                                         {
                                             "id": "08954012271",
                                             "size": "750ml",
-                                            "price": 28.74,
+                                            "price": 10000,
                                             "img": "liquors-webp/liquors/kahlua/kahlua/kahlua-750ml.webp",
-                                            "inventory": 9,
+                                            "inventory": 0,
                                             "size_ml": 750
                                         }
                                     ]
