@@ -1,3 +1,4 @@
+// const checkoutRequest = fetch('https://gato-tuerto-server.vercel.app/checkout', {
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../layout/Header';
@@ -188,7 +189,8 @@ function Checkout() {
     const minimumLoadingTime = new Promise((resolve) => setTimeout(resolve, 10000));
   
     // Promesa de la solicitud al servidor
-    const checkoutRequest = fetch('https://gato-tuerto-server.vercel.app/checkout', {
+    // const checkoutRequest = fetch('https://gato-tuerto-server.vercel.app/checkout', {
+    const checkoutRequest = fetch('http://localhost:3001/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ import LiquorOrder from '../ui/LiquorOrder';
 
 const importAll = (r) => {
     let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
     return images;
 };
 
@@ -20,7 +20,7 @@ function Liquor() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, []);
+    }, []);
       
     const { item } = useParams();
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ function Liquor() {
     const [selectedSize, setSelectedSize] = useState(defaultSize);
     const [selectedPrice, setSelectedPrice] = useState(null);
     const [selectedId, setSelectedId] = useState(null);
-    const [inventory, setInventory] = useState(null);
+    const [inventory, setInventory] = useState(0); // Initialize with 0
 
     const findProduct = (data, productRoute) => {
         for (let type of data.types) {
@@ -51,6 +51,8 @@ function Liquor() {
     const product = findProduct(items, item);
 
     useEffect(() => {
+        if (!product) return; // Exit if product is not found
+
         const params = new URLSearchParams(location.search);
         const size = params.get('size') || defaultSize;
         const id = params.get('id') || product.sizes[0]?.id;
@@ -58,43 +60,69 @@ function Liquor() {
         setSelectedId(id);
 
         const loadImages = async () => {
-            if (product) {
-                const importedLogos = {};
-                for (const size of product.sizes) {
-                    try {
-                        const image = await import(`./${size.img}`);
-                        importedLogos[size.size] = image.default;
-                    } catch (error) {
-                        console.error(`Error loading image for size ${size.size}:`, error);
+            const importedLogos = {};
+            for (const sizeObj of product.sizes) {
+                try {
+                    const image = images[sizeObj.img.replace('liquors-webp/', '')]
+                    if (image) {
+                        importedLogos[sizeObj.size] = image;
+                    } else {
+                        console.error(`Image not found for size ${sizeObj.size}`);
                     }
+                } catch (error) {
+                    console.error(`Error loading image for size ${sizeObj.size}:`, error);
                 }
-                setLogos(importedLogos);
-                setCurrentLogo(importedLogos[size]);
-                const sizeDetails = product.sizes.find(s => s.size === size);
-                setSelectedPrice(sizeDetails?.price);
-                setInventory(sizeDetails?.inventory);
-                setSelectedId(sizeDetails?.id);
+            }
+            setLogos(importedLogos);
+            setCurrentLogo(importedLogos[size]);
+
+            const sizeDetails = product.sizes.find(s => s.size === size);
+            if (sizeDetails) {
+                setSelectedPrice(sizeDetails.price);
+                setInventory(sizeDetails.inventory || 0);
+                setSelectedId(sizeDetails.id);
+            } else {
+                setSelectedPrice(null);
+                setInventory(0);
+                setSelectedId(null);
             }
         };
 
         loadImages();
-    }, [product, location.pathname]); // Trigger only on path change
+    }, [product, location.pathname, location.search]);
 
     const toggleLogo = (size) => {
+        if (!logos[size]) return; // Prevent errors if logo doesn't exist
+
         setCurrentLogo(logos[size]);
         setSelectedSize(size);
         const sizeDetails = product.sizes.find(s => s.size === size);
-        setSelectedPrice(sizeDetails?.price);
-        setInventory(sizeDetails?.inventory);
-        setSelectedId(sizeDetails?.id);
-    
+        if (sizeDetails) {
+            setSelectedPrice(sizeDetails.price);
+            setInventory(sizeDetails.inventory || 0);
+            setSelectedId(sizeDetails.id);
+        }
+
         // Update the URL without reloading the page
         const params = new URLSearchParams(location.search);
         params.set('size', size);
-        params.set('id', sizeDetails?.id);
+        params.set('id', sizeDetails?.id || '');
         navigate({ search: params.toString() }, { replace: true });
     };
-    
+
+    if (!product) {
+        return (
+            <>
+                <Header />
+                <div className="app-screen">
+                    <div className="liquor">
+                        <p>Product not found.</p>
+                    </div>
+                    <Footer />
+                </div>
+            </>
+        );
+    }
 
     return (
         <>
@@ -128,8 +156,8 @@ function Liquor() {
                                 ))}
                             </div>
                             <div className="liquor-info">
-                                <h1 className='liquor-title'>{product?.name}</h1>
-                                <p className='liquor-description'>{product?.description}</p>
+                                <h1 className='liquor-title'>{product.name}</h1>
+                                <p className='liquor-description'>{product.description}</p>
                             </div>
                             <LiquorOrder maxInventory={inventory} idSelected={selectedId} inventory={inventory} />
                         </div>
