@@ -118,7 +118,7 @@ app.post('/checkout', (req, res) => {
       //   from: process.env.FROM_PHONE_NUMBER
       // })
 
-      //Gio Phone
+      // Gio Phone
       client.messages.create({
         body: `New Order Received:\n${orderDetails}`,
         to: process.env.TO_PHONE_NUMBER_4,
