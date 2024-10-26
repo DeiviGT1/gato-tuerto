@@ -508,9 +508,9 @@
                                         {
                                             "id": "5060116323948",
                                             "size": "50ml",
-                                            "price": 100000,
+                                            "price": 1.61,
                                             "img": "liquors-webp/whiskey/scotch/cutty-sark/cutty-sark/cutty-sark-50ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 88,
                                             "size_ml": 50
                                         },
                                         {
@@ -706,9 +706,9 @@
                                         {
                                             "id": "5010327224107",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 16.09,
                                             "img": "liquors-webp/whiskey/scotch/grants/grants-scotch/grants-scotch-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 30,
                                             "size_ml": 750
                                         },
                                         {
@@ -995,9 +995,9 @@
                                         {
                                             "id": "506039968099",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 60.94,
                                             "img": "liquors-webp/whiskey/scotch/benriach/benriach-10-the-original-ten/benriach-10-the-original-ten-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 1,
                                             "size_ml": 750
                                         }
                                     ]
@@ -1011,9 +1011,9 @@
                                         {
                                             "id": "506008879043",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 64.39,
                                             "img": "liquors-webp/whiskey/scotch/benriach/benriach-10-the-smoky-ten/benriach-10-the-smoky-ten-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 1,
                                             "size_ml": 750
                                         }
                                     ]
@@ -1027,9 +1027,9 @@
                                         {
                                             "id": "506039968748",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 64.39,
                                             "img": "liquors-webp/whiskey/scotch/benriach/benriach-12-the-twelve/benriach-12-the-twelve-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 6,
                                             "size_ml": 750
                                         }
                                     ]
@@ -1043,9 +1043,9 @@
                                         {
                                             "id": "506071614026",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 64.39,
                                             "img": "liquors-webp/whiskey/scotch/benriach/benriach-12-the-smoky-twelve/benriach-12-the-smoky-twelve-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 2,
                                             "size_ml": 750
                                         }
                                     ]
@@ -1064,9 +1064,9 @@
                                         {
                                             "id": "471008521953",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 97.74,
                                             "img": "liquors-webp/whiskey/scotch/kavalan/kavalan-single-malt/kavalan-single-malt-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 1,
                                             "size_ml": 750
                                         }
                                     ]
@@ -1255,9 +1255,9 @@
                                         {
                                             "id": "2555455541114",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 43.69,
                                             "img": "liquors-webp/whiskey/scotch/glenlivet/glenlivet-15-caribbean-reserve/glenlivet-15-caribbean-reserve-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 11,
                                             "size_ml": 750
                                         }
                                     ]
@@ -2485,9 +2485,9 @@
                                         {
                                             "id": "2556988877584",
                                             "size": "50ml",
-                                            "price": 100000,
+                                            "price": 3.44,
                                             "img": "liquors-webp/whiskey/irish/jameson/jameson/jameson-50ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 12,
                                             "size_ml": 50
                                         },
                                         {
@@ -3318,9 +3318,9 @@
                                         {
                                             "id": "255584666587",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 35.64,
                                             "img": "liquors-webp/tequila/jalisco/teremana/teremana-blanco/teremana-blanco-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 10,
                                             "size_ml": 750
                                         },
                                         {
@@ -3626,9 +3626,9 @@
                                         {
                                             "id": "8115380129110",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 54.04,
                                             "img": "liquors-webp/tequila/jalisco/maestro-dobel/maestro-dobel-reposado/maestro-dobel-reposado-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 6,
                                             "size_ml": 750
                                         }
                                     ]
@@ -4030,9 +4030,9 @@
                                         {
                                             "id": "818844028155",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 42.54,
                                             "img": "liquors-webp/tequila/jalisco/gran-coramino/gran-coramino-reposado/gran-coramino-reposado-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 2,
                                             "size_ml": 750
                                         }
                                     ]
@@ -4304,9 +4304,9 @@
                                         {
                                             "id": "674545000060",
                                             "size": "375ml",
-                                            "price": 100000,
+                                            "price": 37.94,
                                             "img": "liquors-webp/tequila/jalisco/don-julio/don-julio-reposado/don-julio-reposado-375ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 12,
                                             "size_ml": 375
                                         },
                                         {
@@ -4360,9 +4360,9 @@
                                         {
                                             "id": "234564431234",
                                             "size": "1.75L",
-                                            "price": 100000,
+                                            "price": 118.44,
                                             "img": "liquors-webp/tequila/jalisco/don-julio/don-julio-anejo/don-julio-anejo-175L.webp",
-                                            "inventory": 0,
+                                            "inventory": 1,
                                             "size_ml": 1750
                                         }
                                     ]
@@ -4448,9 +4448,9 @@
                                         {
                                             "id": "909088809089",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 114.99,
                                             "img": "liquors-webp/tequila/jalisco/don-julio/don-julio-primavera/don-julio-primavera-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 3,
                                             "size_ml": 750
                                         }
                                     ]
@@ -4525,7 +4525,7 @@
                                         {
                                             "id": "236985478755",
                                             "size": "375ml",
-                                            "price": 100000,
+                                            "price": 54.04,
                                             "img": "liquors-webp/tequila/jalisco/cincoro/cincoro-reposado/cincoro-reposado-375ml.webp",
                                             "inventory": 0,
                                             "size_ml": 375
@@ -4557,9 +4557,9 @@
                                         {
                                             "id": "233365222321",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 152.94,
                                             "img": "liquors-webp/tequila/jalisco/cincoro/cincoro-anejo/cincoro-anejo-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 3,
                                             "size_ml": 750
                                         }
                                     ]
@@ -4594,7 +4594,7 @@
                                         {
                                             "id": "7416388130506",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 57.49,
                                             "img": "liquors-webp/tequila/jalisco/don-fulano/don-fulano-blanco/don-fulano-blanco-750ml.webp",
                                             "inventory": 0,
                                             "size_ml": 750
@@ -4610,9 +4610,9 @@
                                         {
                                             "id": "7416388230596",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 68.99,
                                             "img": "liquors-webp/tequila/jalisco/don-fulano/don-fulano-reposado/don-fulano-reposado-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 1,
                                             "size_ml": 750
                                         }
                                     ]
@@ -4626,9 +4626,9 @@
                                         {
                                             "id": "7416388330586",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 91.99,
                                             "img": "liquors-webp/tequila/jalisco/don-fulano/don-fulano-anejo/don-fulano-anejo-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 2,
                                             "size_ml": 750
                                         }
                                     ]
@@ -5568,9 +5568,9 @@
                                         {
                                             "id": "135444658885",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 16.09,
                                             "img": "liquors-webp/vodka/american/new-amsterdam/new-amsterdam-pink-whitney/new-amsterdam-pink-whitney-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 3,
                                             "size_ml": 750
                                         },
                                         {
@@ -5797,9 +5797,9 @@
                                         {
                                             "id": "255651111245",
                                             "size": "1.75L",
-                                            "price": 100000,
+                                            "price": 24.14,
                                             "img": "liquors-webp/vodka/american/smirnoff/smirnoff-spicy-tamarind/smirnoff-spicy-tamarind-175L.webp",
-                                            "inventory": 0,
+                                            "inventory": 7,
                                             "size_ml": 1750
                                         }
                                     ]
@@ -6485,7 +6485,7 @@
                                         {
                                             "id": "5051175738392",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 39.09,
                                             "img": "liquors-webp/vodka/british/au/au-vodka-black-grape/au-vodka-black-grape-750ml.webp",
                                             "inventory": 0,
                                             "size_ml": 750
@@ -7513,7 +7513,7 @@
                                         {
                                             "id": "159400362245",
                                             "size": "50ml",
-                                            "price": 100000,
+                                            "price": 6.31,
                                             "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-reserva-exclusiva/diplomatico-reserva-exclusiva-50ml.webp",
                                             "inventory": 0,
                                             "size_ml": 50
@@ -7521,9 +7521,9 @@
                                         {
                                             "id": "7594003620394",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 40.24,
                                             "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-reserva-exclusiva/diplomatico-reserva-exclusiva-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 6,
                                             "size_ml": 750
                                         }
                                     ]
@@ -7553,9 +7553,9 @@
                                         {
                                             "id": "7594003621995",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 28.74,
                                             "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-planas/diplomatico-planas-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 2,
                                             "size_ml": 750
                                         }
                                     ]
@@ -7569,9 +7569,9 @@
                                         {
                                             "id": "7594003629441",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 51.74,
                                             "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-seleccion-de-la-familia/diplomatico-seleccion-de-la-familia-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 5,
                                             "size_ml": 750
                                         }
                                     ]
@@ -7585,7 +7585,7 @@
                                         {
                                             "id": "759400362514",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 287.49,
                                             "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-ambassador/diplomatico-ambassador-750ml.webp",
                                             "inventory": 0,
                                             "size_ml": 750
@@ -7601,9 +7601,9 @@
                                         {
                                             "id": "7594003626747",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 75.89,
                                             "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-batch-kettle/diplomatico-batch-kettle-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 2,
                                             "size_ml": 750
                                         }
                                     ]
@@ -7617,9 +7617,9 @@
                                         {
                                             "id": "7594003626723",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 75.89,
                                             "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-barbet/diplomatico-barbet-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 2,
                                             "size_ml": 750
                                         }
                                     ]
@@ -7633,9 +7633,9 @@
                                         {
                                             "id": "7594003629236",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 75.89,
                                             "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-pot-still/diplomatico-pot-still-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 2,
                                             "size_ml": 750
                                         }
                                     ]
@@ -7649,7 +7649,7 @@
                                         {
                                             "id": "759400362931",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 143.74,
                                             "img": "liquors-webp/rum/venezuelan/diplomatico/diplomatico-vintage-2007/diplomatico-vintage-2007-750ml.webp",
                                             "inventory": 0,
                                             "size_ml": 750
@@ -7670,9 +7670,9 @@
                                         {
                                             "id": "7591156404581",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 22.99,
                                             "img": "liquors-webp/rum/venezuelan/santa-teresa/santa-teresa-anejo/santa-teresa-anejo-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 133,
                                             "size_ml": 750
                                         }
                                     ]
@@ -8164,7 +8164,7 @@
                                         {
                                             "id": "266588458555",
                                             "size": "1L",
-                                            "price": 100000,
+                                            "price": 20.69,
                                             "img": "liquors-webp/rum/nicaraguan/flor-de-cana/flor-de-cana-4-blanco/flor-de-cana-4-blanco-1L.webp",
                                             "inventory": 0,
                                             "size_ml": 1000
@@ -9752,7 +9752,7 @@
                                         {
                                             "id": "3258432800003",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 45.99,
                                             "img": "liquors-webp/wine/french/laurent-perrier/laurent-perrier-brut-rose/laurent-perrier-brut-rose-750ml.webp",
                                             "inventory": 0,
                                             "size_ml": 750
@@ -10392,9 +10392,9 @@
                                         {
                                             "id": "8437013744829",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 28.74,
                                             "img": "liquors-webp/wine/spanish/pago-de-los-capellanes/pago-de-los-capellanes-crianza-tinto-crianza/pago-de-los-capellanes-crianza-tinto-crianza-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 6,
                                             "size_ml": 750
                                         }
                                     ]
@@ -10410,9 +10410,9 @@
                                         {
                                             "id": "8437013744836",
                                             "size": "750ml",
-                                            "price": 100000,
+                                            "price": 48.29,
                                             "img": "liquors-webp/wine/spanish/pago-de-los-capellanes/pago-de-los-capellanes-joven-roble/pago-de-los-capellanes-joven-roble-750ml.webp",
-                                            "inventory": 0,
+                                            "inventory": 7,
                                             "size_ml": 750
                                         }
                                     ]
