@@ -1,15 +1,17 @@
+// Product.jsx
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'; // Import PropTypes for prop validation
 
 function Product({ route, name, price, size, img, productClass, inventory, idSelected }) {
-
-    
     const titleRef = useRef(null);
     const [fontSize, setFontSize] = useState(24); // initial font size
     const [selectedQuantity, setSelectedQuantity] = useState(1);
 
-    if (inventory > 12) {
-        inventory = 12;
+    // Validate and derive a safe inventory value
+    let validInventory = 0;
+    if (Number.isInteger(inventory) && inventory > 0) {
+        validInventory = Math.min(inventory, 12); // Cap at 12
     }
 
     const handleAddToCart = () => {
@@ -61,19 +63,23 @@ function Product({ route, name, price, size, img, productClass, inventory, idSel
                     id="quantity-select"
                     value={selectedQuantity}
                     onChange={(e) => setSelectedQuantity(parseInt(e.target.value))}
-                    disabled={inventory < 1}
+                    disabled={validInventory < 1}
                 >
-                    {[...Array(inventory).keys()].map((number) => (
-                        <option key={number + 1} value={number + 1}>
-                            {number + 1}
-                        </option>
-                    ))}
+                    {validInventory > 0 ? (
+                        [...Array(validInventory).keys()].map((number) => (
+                            <option key={number + 1} value={number + 1}>
+                                {number + 1}
+                            </option>
+                        ))
+                    ) : (
+                        <option value="0">0</option>
+                    )}
                 </select>
 
                 <button
                     className='liquor-order-button'
                     onClick={handleAddToCart}
-                    disabled={inventory < 1 || selectedQuantity < 1}
+                    disabled={validInventory < 1 || selectedQuantity < 1}
                 >
                     Add to Cart
                 </button>
@@ -81,5 +87,17 @@ function Product({ route, name, price, size, img, productClass, inventory, idSel
         </div>
     );
 }
+
+// Define PropTypes for the Product component
+Product.propTypes = {
+    route: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    size: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    productClass: PropTypes.string,
+    inventory: PropTypes.number.isRequired,
+    idSelected: PropTypes.string.isRequired,
+};
 
 export default Product;
