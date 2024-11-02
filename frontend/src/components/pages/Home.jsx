@@ -20,14 +20,14 @@ import bannerJohnnieWalkerCel from '../../assets/banner-johnnie-walker-cel.png';
 import bannerWelcomeCel from '../../assets/banner-welcome-cel.png';
 import bannerCaymus from '../../assets/banner-caymus.png';
 import bannerCaymusCel from '../../assets/banner-caymus-cel.png';
-import mainWhiskey from '../pages/liquors/whiskey/scotch/macallan/macallan-18-double-oak/macallan-18-double-oak-750ml.png';
-import mainTequila from '../pages/liquors/tequila/jalisco/clase-azul/clase-azul-reposado/clase-azul-reposado-750ml.png';
-import mainRum from '../pages/liquors/rum/guatemalan/zacapa/zacapa-23/zacapa-23-750ml.png';
-import mainVodka from '../pages/liquors/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-750ml.png';
-import mainWine from '../pages/liquors/wine/american/caymus/caymus-cabernet-sauvignon/caymus-cabernet-sauvignon-750ml.png';
-import mainGin from '../pages/liquors/gin/netherlands/nolets/nolets-silver/nolets-silver-750ml.png';
-import mainBeer from '../pages/liquors/beer/mexican/corona/corona-extra/corona-extra-24oz-bottle.png';
-import mainCognac from '../pages/liquors/cognac-brandy/french/hennessy/hennessy-vs/hennessy-vs-750ml.png';
+import mainWhiskey from '../pages/liquors-webp/whiskey/scotch/macallan/macallan-18-double-oak/macallan-18-double-oak-750ml.webp';
+import mainTequila from '../pages/liquors-webp/tequila/jalisco/clase-azul/clase-azul-reposado/clase-azul-reposado-750ml.webp';
+import mainRum from '../pages/liquors-webp/rum/guatemalan/zacapa/zacapa-23/zacapa-23-750ml.webp';
+import mainVodka from '../pages/liquors-webp/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-750ml.webp';
+import mainWine from '../pages/liquors-webp/wine/american/caymus/caymus-cabernet-sauvignon/caymus-cabernet-sauvignon-750ml.webp';
+import mainGin from '../pages/liquors-webp/gin/netherlands/nolets/nolets-silver/nolets-silver-750ml.webp';
+import mainBeer from '../pages/liquors-webp/beer/mexican/corona/corona-extra/corona-extra-24oz-bottle.webp';
+import mainCognac from '../pages/liquors-webp/cognac-brandy/french/hennessy/hennessy-vs/hennessy-vs-750ml.webp';
 
 // Array of random phrases
 const phrases = [
