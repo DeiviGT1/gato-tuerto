@@ -490,14 +490,14 @@ function Checkout() {
               </div>
             )}
           </section>
-          <section className="adviser-section">
+          {/* <section className="adviser-section">
             <h2 className="adviser-title">Adviser</h2>
             <p className="adviser-text">
               <strong>
                 If your delivery takes more than 45 minutes, your delivery fee will be <span className="highlight">FREE</span>.
               </strong>
             </p>
-          </section>
+          </section> */}
 
           <button 
             className="checkout-button" 
