@@ -6,6 +6,7 @@ const cors = require('cors');
 const twilio = require('twilio');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+const { exec } = require('child_process'); // Importamos 'exec' para ejecutar scripts externos
 require('dotenv').config();
 
 const app = express();
@@ -404,6 +405,21 @@ app.get('/orders', (req, res) => {
     })
     .catch(err => res.status(500).send({ success: false, error: err.message }));
 })});
+
+app.get('/update-inventory', (req, res) => {
+  exec('node actualizacion.js', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error al ejecutar actualizacion.js: ${error.message}`);
+      return res.status(500).send({ success: false, error: error.message });
+    }
+    if (stderr) {
+      console.error(`Error en actualizacion.js: ${stderr}`);
+      return res.status(500).send({ success: false, error: stderr });
+    }
+    console.log(`Salida de actualizacion.js:\n${stdout}`);
+    res.send({ success: true, message: 'Inventario actualizado correctamente.' });
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Header.css';
-import logo from '../../assets/gato-tuerto-logo.png';
 import logoIso from '../../assets/gato-tuerto-logo-iso.png';
 import SearchBar from './SearchBar';
 import cart from '../../assets/cart-shopping-solid.svg';
@@ -66,7 +65,7 @@ function Header() {
         <header>
           <div className="nav nav-left">
             <Link to="/" onClick={() => handleClick("/")} className='logo-link'>
-              <img src={logo} alt="logo" className="logo" />
+              <img src={logoIso} alt="logo" className="logo" />
               <p className='logo-name'>
                 <strong>EL GATO TUERTO</strong>
               </p>
