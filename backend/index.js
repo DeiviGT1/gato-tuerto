@@ -3,10 +3,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 const twilio = require('twilio');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
-const { exec } = require('child_process'); // Importamos 'exec' para ejecutar scripts externos
+const multer = require('multer'); // Importamos multer para manejar la carga de archivos
 require('dotenv').config();
 
 const app = express();
@@ -15,12 +16,13 @@ const port = process.env.PORT || 3001;
 const adminUser = process.env.ADMIN_USER;
 const adminPassword = process.env.ADMIN_PASSWORD;
 
-
 // Conexión a MongoDB
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(
+  process.env.MONGODB_URI,
+  {dbName: 'el-gato-tuerto'}
+)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Failed to connect to MongoDB', err));
-
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -29,6 +31,7 @@ app.use(cookieParser());
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = new twilio(accountSid, authToken);
+
 
 const accountSid_2 = process.env.TWILIO_ACCOUNT_SID_2;
 const authToken_2 = process.env.TWILIO_AUTH_TOKEN_2;
@@ -58,6 +61,30 @@ const orderSchema = new mongoose.Schema({
 
 
 const Order = mongoose.model('Order', orderSchema);
+
+// Esquema y modelo de Producto
+const productSchema = new mongoose.Schema({
+  alcoholicBeverage: String,
+  type: String,
+  subtype: String,
+  brand: String,
+  name: String,
+  description: String,
+  route: String,
+  modal: Boolean,
+  sizes: [
+    {
+      id: String,
+      size: String,
+      price: Number,
+      img: String,
+      inventory: Number,
+      size_ml: Number,
+    },
+  ],
+});
+
+const Product = mongoose.model('Product', productSchema);
 
 app.get('/', (req, res) => {
   res.send('Backend is running!');
@@ -406,19 +433,148 @@ app.get('/orders', (req, res) => {
     .catch(err => res.status(500).send({ success: false, error: err.message }));
 })});
 
-app.get('/update-inventory', (req, res) => {
-  exec('node actualizacion.js', (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error al ejecutar actualizacion.js: ${error.message}`);
-      return res.status(500).send({ success: false, error: error.message });
-    }
-    if (stderr) {
-      console.error(`Error en actualizacion.js: ${stderr}`);
-      return res.status(500).send({ success: false, error: stderr });
-    }
-    console.log(`Salida de actualizacion.js:\n${stdout}`);
-    res.send({ success: true, message: 'Inventario actualizado correctamente.' });
-  });
+// Configuración de multer para manejar la carga de archivos
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const uploadPath = path.join(__dirname, 'uploads');
+    cb(null, uploadPath);
+  },
+  filename: function (req, file, cb) {
+    cb(null, 'inventory.txt');
+  }
+});
+
+const upload = multer({ storage: storage });
+
+// Nueva ruta para actualizar el inventario con carga de archivo
+app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) => {
+  // Verificar si se cargó el archivo
+  if (!req.file) {
+    return res.status(400).send({ success: false, error: 'No se ha cargado ningún archivo.' });
+  }
+
+  // Ruta al archivo subido
+  const inventoryFilePath = req.file.path;
+
+  // Ejecutar la actualización del inventario usando el archivo subido
+  const fs = require('fs');
+  const csv = require('csv-parser');
+
+  const inventory = [];
+
+  // Leer y procesar el archivo inventory.txt subido
+  fs.createReadStream(inventoryFilePath)
+    .pipe(csv({ separator: '\t' }))
+    .on('data', (row) => {
+      row.QTY_ON_HND = row.QTY_ON_HND || 0;
+      inventory.push(row);
+    })
+    .on('end', async () => {
+      try {
+        // Actualizar cada producto en la base de datos
+        for (const item of inventory) {
+          await Product.updateMany(
+            { 'sizes.id': item.BARCODE },
+            {
+              $set: {
+                'sizes.$.inventory': parseInt(item.QTY_ON_HND, 10),
+                'sizes.$.price': parseFloat(item.PRICE_C),
+              },
+            }
+          );
+        }
+
+        // Eliminar el archivo subido después de usarlo (opcional)
+        fs.unlinkSync(inventoryFilePath);
+
+        res.send({ success: true, message: 'Inventario actualizado correctamente.' });
+      } catch (err) {
+        console.error('Error al actualizar el inventario en MongoDB:', err);
+        res.status(500).send({ success: false, error: err.message });
+      }
+    })
+    .on('error', (err) => {
+      console.error('Error al procesar el archivo CSV:', err);
+      res.status(500).send({ success: false, error: err.message });
+    });
+});
+
+// Ruta para servir la página de actualización del inventario
+app.get('/update-inventory-page', (req, res) => {
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Actualizar Inventario</title>
+      <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f5f5f5;
+          margin: 0;
+          padding: 20px;
+          color: #333;
+        }
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+          font-size: 2em;
+          text-align: center;
+          margin-bottom: 20px;
+          color: #475169;
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        input[type="file"] {
+          margin-bottom: 20px;
+        }
+        button {
+          background-color: #475169;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 1em;
+        }
+        button:hover {
+          background-color: #333;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Actualizar Inventario</h1>
+        <form action="/update-inventory" method="post" enctype="multipart/form-data">
+          <input type="file" name="inventoryFile" accept=".txt" required>
+          <button type="submit">Actualizar</button>
+        </form>
+      </div>
+    </body>
+    </html>
+  `;
+  res.send(html);
+});
+
+// API endpoint to get all products
+app.get('/api/products', async (req, res) => {
+  try {
+    const products = await Product.find();
+
+    res.json(products);
+  } catch (err) {
+    console.error('Error fetching products:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
 });
 
 app.listen(port, () => {

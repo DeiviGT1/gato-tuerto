@@ -7,7 +7,6 @@ import FilterComponent from "../layout/FilterComponent";
 import FilterModal from "../layout/FilterModal";
 import filterButton from "../../assets/filter-solid.svg";
 import LoadingSpinner from '../ui/LoadingSpinner';
-import items from './products.json';
 import arrowUp from '../../assets/arrow-up-solid.svg';
 import './Catalog.css';
 
@@ -28,7 +27,7 @@ function Catalog({ searchTerm = '' }) {
     const [selectedWineType, setSelectedWineType] = useState('');
     const [selectedVarietal, setSelectedVarietal] = useState('');
     const [orderBy, setOrderBy] = useState('');
-    const [loading, setLoading] = useState(true);
+    //const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [showScrollButton, setShowScrollButton] = useState(false); 
     const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset); // Track previous scroll position
@@ -37,6 +36,29 @@ function Catalog({ searchTerm = '' }) {
     const navigate = useNavigate();
     const query = new URLSearchParams(location.search);
     const searchQuery = query.get('search') || searchTerm;
+
+    // Inside Catalog component
+    const [items, setItems] = useState({ types: [] });
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+    const fetchData = async () => {
+        try {
+        const response = await fetch('https://gato-tuerto-server.vercel.app/products');
+        const data = await response.json();
+
+        const structuredData = processProductsData(data);
+        setItems(structuredData);
+        setLoading(false);
+        } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+        }
+    };
+
+    fetchData();
+    }, []);
+
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -144,6 +166,45 @@ function Catalog({ searchTerm = '' }) {
         return allProducts;
     };
     
+    function processProductsData(data) {
+        const typesMap = {};
+      
+        data.forEach(product => {
+          const { type, subtype, brand } = product;
+      
+          if (!typesMap[type]) {
+            typesMap[type] = {
+              type,
+              subtypes: [],
+            };
+          }
+      
+          let subtypeEntry = typesMap[type].subtypes.find(st => st.subtype === subtype);
+          if (!subtypeEntry) {
+            subtypeEntry = {
+              subtype,
+              products: [],
+            };
+            typesMap[type].subtypes.push(subtypeEntry);
+          }
+      
+          let brandEntry = subtypeEntry.products.find(b => b.brand === brand);
+          if (!brandEntry) {
+            brandEntry = {
+              brand,
+              products: [],
+            };
+            subtypeEntry.products.push(brandEntry);
+          }
+      
+          // Exclude fields already used
+          const { alcoholicBeverage, type: _, subtype: __, brand: ___, ...productData } = product;
+      
+          brandEntry.products.push(productData);
+        });
+      
+        return { types: Object.values(typesMap) };
+      }
     
 
     const filterProducts = (products) => {
