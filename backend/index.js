@@ -469,6 +469,9 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
 
   const inventory = [];
 
+  // Define the expected headers
+  const expectedHeaders = ["BARCODE", "BRAND", "DESCRIP", "TYPE", "SIZE", "PRICE_C", "QTY_ON_HND"];
+
   // Read and process the uploaded inventory.txt file
   fs.createReadStream(inventoryFilePath)
     .on('error', (err) => {
@@ -476,9 +479,20 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
       res.status(500).send({ success: false, error: 'Error reading the file.' });
     })
     .pipe(csv({ separator: '\t' }))
+    .on('headers', (headers) => {
+      // Check if the headers match the expected headers
+      const isHeaderValid = expectedHeaders.every((header, index) => header === headers[index]);
+      if (!isHeaderValid) {
+        console.log('Invalid file format: headers do not match the expected structure.');
+        res.status(400).send({
+          success: false,
+          error: `Invalid file format. Expected headers are: ${expectedHeaders.join(", ")}`
+        });
+        return;
+      }
+    })
     .on('data', (row) => {
       // Process each row
-      console.log('Parsed row:', row);
       row.QTY_ON_HND = row.QTY_ON_HND || 0;
       row.PRICE_C = row.PRICE_C || 0;
       inventory.push(row);
