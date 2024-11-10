@@ -9,6 +9,8 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const multer = require('multer'); // Importamos multer para manejar la carga de archivos
 require('dotenv').config();
+const fs = require('fs');
+const csv = require('csv-parser');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -434,58 +436,118 @@ app.get('/orders', (req, res) => {
 })});
 
 // Configuración de multer para manejar la carga de archivos
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const uploadPath = path.join(__dirname, 'uploads');
+    // Ensure the upload directory exists
+    if (!fs.existsSync(uploadPath)){
+      fs.mkdirSync(uploadPath);
+    }
     cb(null, uploadPath);
   },
   filename: function (req, file, cb) {
-    cb(null, 'inventory.txt');
+    cb(null, 'inventory.txt'); // Save the uploaded file as inventory.txt
   }
 });
 
 const upload = multer({ storage: storage });
 
-// Nueva ruta para actualizar el inventario con carga de archivo
+// Route to update inventory with file upload
 app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) => {
-  // Verificar si se cargó el archivo
+  console.log('Received a file upload request.');
+
+  // Check if the file was uploaded
   if (!req.file) {
+    console.log('No file uploaded.');
     return res.status(400).send({ success: false, error: 'No se ha cargado ningún archivo.' });
   }
 
-  // Ruta al archivo subido
-  const inventoryFilePath = req.file.path;
+  console.log('Uploaded file:', req.file.path);
 
-  // Ejecutar la actualización del inventario usando el archivo subido
-  const fs = require('fs');
-  const csv = require('csv-parser');
+  // Path to the uploaded file
+  const inventoryFilePath = req.file.path;
 
   const inventory = [];
 
-  // Leer y procesar el archivo inventory.txt subido
+  // Read and process the uploaded inventory.txt file
   fs.createReadStream(inventoryFilePath)
+    .on('error', (err) => {
+      console.error('Error reading the file:', err);
+      res.status(500).send({ success: false, error: 'Error reading the file.' });
+    })
     .pipe(csv({ separator: '\t' }))
     .on('data', (row) => {
+      // Process each row
+      console.log('Parsed row:', row);
       row.QTY_ON_HND = row.QTY_ON_HND || 0;
+      row.PRICE_C = row.PRICE_C || 0;
       inventory.push(row);
     })
     .on('end', async () => {
+      console.log('Finished parsing CSV file. Total rows:', inventory.length);
       try {
-        // Actualizar cada producto en la base de datos
+        // Create a map for quick lookup
+        const inventoryMap = new Map();
         for (const item of inventory) {
-          await Product.updateMany(
-            { 'sizes.id': item.BARCODE },
-            {
-              $set: {
-                'sizes.$.inventory': parseInt(item.QTY_ON_HND, 10),
-                'sizes.$.price': parseFloat(item.PRICE_C),
-              },
-            }
-          );
+          inventoryMap.set(item.BARCODE, {
+            QTY_ON_HND: parseInt(item.QTY_ON_HND, 10),
+            PRICE_C: parseFloat(item.PRICE_C),
+          });
         }
 
-        // Eliminar el archivo subido después de usarlo (opcional)
+        // Fetch all products from the database
+        const products = await Product.find();
+
+        // Prepare bulk write operations
+        const bulkOps = [];
+
+        for (const product of products) {
+          let sizesUpdated = false;
+
+          // Iterate over sizes
+          for (let i = 0; i < product.sizes.length; i++) {
+            const size = product.sizes[i];
+            const barcode = size.id;
+
+            const inventoryData = inventoryMap.get(barcode);
+
+            if (inventoryData) {
+              // Update price and inventory from inventory data
+              product.sizes[i].price = inventoryData.PRICE_C;
+              product.sizes[i].inventory = inventoryData.QTY_ON_HND;
+            } else {
+              // Set price to 100000 and inventory to 0 if not found
+              product.sizes[i].price = 100000;
+              product.sizes[i].inventory = 0;
+            }
+
+            sizesUpdated = true;
+          }
+
+          if (sizesUpdated) {
+            // Prepare an update operation for this product
+            bulkOps.push({
+              updateOne: {
+                filter: { _id: product._id },
+                update: {
+                  $set: {
+                    'sizes': product.sizes
+                  }
+                }
+              }
+            });
+          }
+        }
+
+        // Execute bulk operations if there are any
+        if (bulkOps.length > 0) {
+          const result = await Product.bulkWrite(bulkOps);
+          console.log('Bulk operation result:', result);
+        } else {
+          console.log('No products to update.');
+        }
+
+        // Optionally delete the uploaded file after processing
         fs.unlinkSync(inventoryFilePath);
 
         res.send({ success: true, message: 'Inventario actualizado correctamente.' });
@@ -501,6 +563,8 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
 });
 
 // Ruta para servir la página de actualización del inventario
+// In your backend/index.js
+
 app.get('/update-inventory-page', (req, res) => {
   const html = `
     <!DOCTYPE html>
@@ -508,6 +572,7 @@ app.get('/update-inventory-page', (req, res) => {
     <head>
       <title>Actualizar Inventario</title>
       <style>
+        /* Your styles here */
         body {
           font-family: 'Arial', sans-serif;
           background-color: #f5f5f5;
@@ -549,16 +614,73 @@ app.get('/update-inventory-page', (req, res) => {
         button:hover {
           background-color: #333;
         }
+        .loading {
+          display: none;
+          font-size: 1.2em;
+          color: #475169;
+          margin-top: 20px;
+        }
+        .message {
+          display: none;
+          font-size: 1.2em;
+          margin-top: 20px;
+        }
+        .success {
+          color: green;
+        }
+        .error {
+          color: red;
+        }
       </style>
     </head>
     <body>
       <div class="container">
         <h1>Actualizar Inventario</h1>
-        <form action="/update-inventory" method="post" enctype="multipart/form-data">
+        <form id="uploadForm">
           <input type="file" name="inventoryFile" accept=".txt" required>
           <button type="submit">Actualizar</button>
         </form>
+        <div class="loading" id="loading">Cargando...</div>
+        <div class="message" id="message"></div>
       </div>
+      <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+          event.preventDefault();
+
+          const formData = new FormData(this);
+          const loadingElement = document.getElementById('loading');
+          const messageElement = document.getElementById('message');
+
+          // Show loading indicator
+          loadingElement.style.display = 'block';
+          messageElement.style.display = 'none';
+
+          try {
+            const response = await fetch('/update-inventory', {
+              method: 'POST',
+              body: formData
+            });
+
+            const result = await response.json();
+            loadingElement.style.display = 'none';
+
+            if (response.ok && result.success) {
+              messageElement.textContent = result.message;
+              messageElement.classList.remove('error');
+              messageElement.classList.add('success');
+            } else {
+              throw new Error(result.error || 'Error al actualizar el inventario');
+            }
+          } catch (error) {
+            messageElement.textContent = error.message;
+            messageElement.classList.remove('success');
+            messageElement.classList.add('error');
+          } finally {
+            loadingElement.style.display = 'none';
+            messageElement.style.display = 'block';
+          }
+        });
+      </script>
     </body>
     </html>
   `;
