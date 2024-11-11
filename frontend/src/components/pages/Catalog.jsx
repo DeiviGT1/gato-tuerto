@@ -44,7 +44,7 @@ function Catalog({ searchTerm = '' }) {
     useEffect(() => {
     const fetchData = async () => {
         try {
-        const response = await fetch('https://gato-tuerto-server.vercel.app/products');
+        const response = await fetch('https://gato-tuerto-server.vercel.app/api/products');
         const data = await response.json();
 
         const structuredData = processProductsData(data);
