@@ -462,7 +462,9 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
 
   if (!req.file) {
     console.log(`[${new Date().toISOString()}] No file uploaded.`);
-    return res.status(400).send({ success: false, error: 'No se ha cargado ningún archivo.' });
+    return res
+      .status(400)
+      .send({ success: false, error: 'No se ha cargado ningún archivo.' });
   }
 
   console.log(`[${new Date().toISOString()}] Uploaded file received.`);
