@@ -436,6 +436,9 @@ app.get('/orders', (req, res) => {
   })
 });
 
+const stream = require('stream'); // For creating stream from buffer
+
+
 // Configuración de multer para manejar la carga de archivos
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -451,7 +454,7 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage: multer.memoryStorage() });
 
 // Route to update inventory with file upload
 app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) => {
@@ -465,10 +468,7 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
       .send({ success: false, error: 'No se ha cargado ningún archivo.' });
   }
 
-  console.log('Uploaded file:', req.file.path);
-
-  // Path to the uploaded file
-  const inventoryFilePath = req.file.path;
+  console.log('Uploaded file received.');
 
   const expectedHeaders = [
     'BARCODE',
@@ -480,14 +480,8 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
     'QTY_ON_HND',
   ];
 
-  let fileContent;
-  try {
-    // Read the entire file content into memory
-    fileContent = fs.readFileSync(inventoryFilePath, 'utf8');
-  } catch (err) {
-    console.error('Error reading the file:', err);
-    return res.status(500).send({ success: false, error: 'Error reading the file.' });
-  }
+  // Get the file content from the buffer
+  const fileContent = req.file.buffer.toString('utf-8');
 
   // Function to parse CSV content with a given separator
   const parseCsvContent = (content, separator) => {
@@ -497,6 +491,7 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
 
       const parser = csv({ separator: separator })
         .on('headers', (headers) => {
+          // Check if the headers match the expected headers
           headersValid = expectedHeaders.every(
             (header, index) => header === headers[index]
           );
@@ -522,7 +517,6 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
         });
 
       // Convert the content string into a stream and pipe it to the parser
-      const stream = require('stream');
       const contentStream = new stream.Readable();
       contentStream.push(content);
       contentStream.push(null);
@@ -545,15 +539,18 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
       separatorUsed = 'comma';
     }
 
-    console.log(`Successfully parsed CSV file using ${separatorUsed} separator. Total rows:`, inventory.length);
+    console.log(
+      `Successfully parsed CSV file using ${separatorUsed} separator. Total rows:`,
+      inventory.length
+    );
 
     // Proceed to update the inventory in the database
     // Create a map for quick lookup
     const inventoryMap = new Map();
     for (const item of inventory) {
       inventoryMap.set(item.BARCODE, {
-        QTY_ON_HND: parseInt(item.QTY_ON_HND, 10),
-        PRICE_C: parseFloat(item.PRICE_C),
+        QTY_ON_HND: parseInt(item.QTY_ON_HND, 10) || 0,
+        PRICE_C: parseFloat(item.PRICE_C) || 0,
       });
     }
 
@@ -577,13 +574,13 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
           // Update price and inventory from inventory data
           product.sizes[i].price = inventoryData.PRICE_C;
           product.sizes[i].inventory = inventoryData.QTY_ON_HND;
+          sizesUpdated = true;
         } else {
           // Set price to 100000 and inventory to 0 if not found
           product.sizes[i].price = 100000;
           product.sizes[i].inventory = 0;
+          sizesUpdated = true;
         }
-
-        sizesUpdated = true;
       }
 
       if (sizesUpdated) {
@@ -609,13 +606,15 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
       console.log('No products to update.');
     }
 
-    // Optionally delete the uploaded file after processing
-    fs.unlinkSync(inventoryFilePath);
+    // Since we can't delete the file from the filesystem (it's in memory), no need to call fs.unlinkSync
 
-    res.send({ success: true, message: 'Inventario actualizado correctamente.' });
+    return res.send({
+      success: true,
+      message: 'Inventario actualizado correctamente.',
+    });
   } catch (err) {
     console.error('Error processing the CSV file:', err.message);
-    res.status(400).send({ success: false, error: err.message });
+    return res.status(400).send({ success: false, error: err.message });
   }
 });
 
