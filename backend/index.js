@@ -458,32 +458,18 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 // Route to update inventory with file upload
 app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) => {
-  console.log('Received a file upload request.');
+  console.log(`[${new Date().toISOString()}] Received a file upload request.`);
 
-  // Check if the file was uploaded
   if (!req.file) {
-    console.log('No file uploaded.');
-    return res
-      .status(400)
-      .send({ success: false, error: 'No se ha cargado ningún archivo.' });
+    console.log(`[${new Date().toISOString()}] No file uploaded.`);
+    return res.status(400).send({ success: false, error: 'No se ha cargado ningún archivo.' });
   }
 
-  console.log('Uploaded file received.');
+  console.log(`[${new Date().toISOString()}] Uploaded file received.`);
 
-  const expectedHeaders = [
-    'BARCODE',
-    'BRAND',
-    'DESCRIP',
-    'TYPE',
-    'SIZE',
-    'PRICE_C',
-    'QTY_ON_HND',
-  ];
-
-  // Get the file content from the buffer
+  const expectedHeaders = ['BARCODE', 'BRAND', 'DESCRIP', 'TYPE', 'SIZE', 'PRICE_C', 'QTY_ON_HND'];
   const fileContent = req.file.buffer.toString('utf-8');
 
-  // Function to parse CSV content with a given separator
   const parseCsvContent = (content, separator) => {
     return new Promise((resolve, reject) => {
       const inventory = [];
@@ -491,16 +477,12 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
 
       const parser = csv({ separator: separator })
         .on('headers', (headers) => {
-          // Check if the headers match the expected headers
-          headersValid = expectedHeaders.every(
-            (header, index) => header === headers[index]
-          );
+          headersValid = expectedHeaders.every((header, index) => header === headers[index]);
           if (!headersValid) {
             parser.emit('error', new Error('Invalid headers'));
           }
         })
         .on('data', (row) => {
-          // Process each row
           row.QTY_ON_HND = row.QTY_ON_HND || 0;
           row.PRICE_C = row.PRICE_C || 0;
           inventory.push(row);
@@ -516,7 +498,6 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
           reject(err);
         });
 
-      // Convert the content string into a stream and pipe it to the parser
       const contentStream = new stream.Readable();
       contentStream.push(content);
       contentStream.push(null);
@@ -525,95 +506,75 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
   };
 
   try {
+    console.log(`[${new Date().toISOString()}] Starting CSV parsing.`);
     let inventory = [];
     let separatorUsed = '';
 
-    // Try parsing with tab separator first
     try {
       inventory = await parseCsvContent(fileContent, '\t');
       separatorUsed = 'tab';
     } catch (err) {
-      console.log('Failed to parse with tab separator:', err.message);
-      // Try parsing with comma separator
+      console.log(`[${new Date().toISOString()}] Failed to parse with tab separator: ${err.message}`);
       inventory = await parseCsvContent(fileContent, ',');
       separatorUsed = 'comma';
     }
 
     console.log(
-      `Successfully parsed CSV file using ${separatorUsed} separator. Total rows:`,
-      inventory.length
+      `[${new Date().toISOString()}] Successfully parsed CSV file using ${separatorUsed} separator. Total rows: ${inventory.length}`
     );
 
-    // Proceed to update the inventory in the database
-    // Create a map for quick lookup
     const inventoryMap = new Map();
-    for (const item of inventory) {
+    inventory.forEach(item => {
       inventoryMap.set(item.BARCODE, {
         QTY_ON_HND: parseInt(item.QTY_ON_HND, 10) || 0,
         PRICE_C: parseFloat(item.PRICE_C) || 0,
       });
-    }
+    });
 
-    // Fetch all products from the database
-    const products = await Product.find();
+    console.log(`[${new Date().toISOString()}] Fetching products from the database.`);
+    const products = await Product.find().lean(); // Using lean() for better performance
 
-    // Prepare bulk write operations
+    console.log(`[${new Date().toISOString()}] Preparing bulk operations.`);
     const bulkOps = [];
 
-    for (const product of products) {
+    products.forEach(product => {
       let sizesUpdated = false;
-
-      // Iterate over sizes
-      for (let i = 0; i < product.sizes.length; i++) {
-        const size = product.sizes[i];
-        const barcode = size.id;
-
-        const inventoryData = inventoryMap.get(barcode);
-
+      product.sizes.forEach(size => {
+        const inventoryData = inventoryMap.get(size.id);
         if (inventoryData) {
-          // Update price and inventory from inventory data
-          product.sizes[i].price = inventoryData.PRICE_C;
-          product.sizes[i].inventory = inventoryData.QTY_ON_HND;
-          sizesUpdated = true;
+          size.price = inventoryData.PRICE_C;
+          size.inventory = inventoryData.QTY_ON_HND;
         } else {
-          // Set price to 100000 and inventory to 0 if not found
-          product.sizes[i].price = 100000;
-          product.sizes[i].inventory = 0;
-          sizesUpdated = true;
+          size.price = 100000;
+          size.inventory = 0;
         }
-      }
+        sizesUpdated = true;
+      });
 
       if (sizesUpdated) {
-        // Prepare an update operation for this product
         bulkOps.push({
           updateOne: {
             filter: { _id: product._id },
-            update: {
-              $set: {
-                sizes: product.sizes,
-              },
-            },
+            update: { $set: { sizes: product.sizes } },
           },
         });
       }
-    }
+    });
 
-    // Execute bulk operations if there are any
     if (bulkOps.length > 0) {
+      console.log(`[${new Date().toISOString()}] Executing bulk write operations.`);
       const result = await Product.bulkWrite(bulkOps);
-      console.log('Bulk operation result:', result);
+      console.log(`[${new Date().toISOString()}] Bulk operation result:`, result);
     } else {
-      console.log('No products to update.');
+      console.log(`[${new Date().toISOString()}] No products to update.`);
     }
-
-    // Since we can't delete the file from the filesystem (it's in memory), no need to call fs.unlinkSync
 
     return res.send({
       success: true,
       message: 'Inventario actualizado correctamente.',
     });
   } catch (err) {
-    console.error('Error processing the CSV file:', err.message);
+    console.error(`[${new Date().toISOString()}] Error processing the CSV file:`, err.message);
     return res.status(400).send({ success: false, error: err.message });
   }
 });
