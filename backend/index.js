@@ -433,21 +433,22 @@ app.get('/orders', (req, res) => {
       res.send(html);
     })
     .catch(err => res.status(500).send({ success: false, error: err.message }));
-})});
+  })
+});
 
 // Configuración de multer para manejar la carga de archivos
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const uploadPath = path.join(__dirname, 'uploads');
     // Ensure the upload directory exists
-    if (!fs.existsSync(uploadPath)){
+    if (!fs.existsSync(uploadPath)) {
       fs.mkdirSync(uploadPath);
     }
     cb(null, uploadPath);
   },
   filename: function (req, file, cb) {
     cb(null, 'inventory.txt'); // Save the uploaded file as inventory.txt
-  }
+  },
 });
 
 const upload = multer({ storage: storage });
@@ -459,7 +460,9 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
   // Check if the file was uploaded
   if (!req.file) {
     console.log('No file uploaded.');
-    return res.status(400).send({ success: false, error: 'No se ha cargado ningún archivo.' });
+    return res
+      .status(400)
+      .send({ success: false, error: 'No se ha cargado ningún archivo.' });
   }
 
   console.log('Uploaded file:', req.file.path);
@@ -467,113 +470,153 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
   // Path to the uploaded file
   const inventoryFilePath = req.file.path;
 
-  const inventory = [];
+  const expectedHeaders = [
+    'BARCODE',
+    'BRAND',
+    'DESCRIP',
+    'TYPE',
+    'SIZE',
+    'PRICE_C',
+    'QTY_ON_HND',
+  ];
 
-  // Define the expected headers
-  const expectedHeaders = ["BARCODE", "BRAND", "DESCRIP", "TYPE", "SIZE", "PRICE_C", "QTY_ON_HND"];
+  let fileContent;
+  try {
+    // Read the entire file content into memory
+    fileContent = fs.readFileSync(inventoryFilePath, 'utf8');
+  } catch (err) {
+    console.error('Error reading the file:', err);
+    return res.status(500).send({ success: false, error: 'Error reading the file.' });
+  }
 
-  // Read and process the uploaded inventory.txt file
-  fs.createReadStream(inventoryFilePath)
-    .on('error', (err) => {
-      console.error('Error reading the file:', err);
-      res.status(500).send({ success: false, error: 'Error reading the file.' });
-    })
-    .pipe(csv({ separator: '\t' }))
-    .on('headers', (headers) => {
-      // Check if the headers match the expected headers
-      const isHeaderValid = expectedHeaders.every((header, index) => header === headers[index]);
-      if (!isHeaderValid) {
-        console.log('Invalid file format: headers do not match the expected structure.');
-        res.status(400).send({
-          success: false,
-          error: `Invalid file format. Expected headers are: ${expectedHeaders.join(", ")}`
+  // Function to parse CSV content with a given separator
+  const parseCsvContent = (content, separator) => {
+    return new Promise((resolve, reject) => {
+      const inventory = [];
+      let headersValid = false;
+
+      const parser = csv({ separator: separator })
+        .on('headers', (headers) => {
+          headersValid = expectedHeaders.every(
+            (header, index) => header === headers[index]
+          );
+          if (!headersValid) {
+            parser.emit('error', new Error('Invalid headers'));
+          }
+        })
+        .on('data', (row) => {
+          // Process each row
+          row.QTY_ON_HND = row.QTY_ON_HND || 0;
+          row.PRICE_C = row.PRICE_C || 0;
+          inventory.push(row);
+        })
+        .on('end', () => {
+          if (headersValid) {
+            resolve(inventory);
+          } else {
+            reject(new Error('Headers do not match expected format'));
+          }
+        })
+        .on('error', (err) => {
+          reject(err);
         });
-        return;
-      }
-    })
-    .on('data', (row) => {
-      // Process each row
-      row.QTY_ON_HND = row.QTY_ON_HND || 0;
-      row.PRICE_C = row.PRICE_C || 0;
-      inventory.push(row);
-    })
-    .on('end', async () => {
-      console.log('Finished parsing CSV file. Total rows:', inventory.length);
-      try {
-        // Create a map for quick lookup
-        const inventoryMap = new Map();
-        for (const item of inventory) {
-          inventoryMap.set(item.BARCODE, {
-            QTY_ON_HND: parseInt(item.QTY_ON_HND, 10),
-            PRICE_C: parseFloat(item.PRICE_C),
-          });
-        }
 
-        // Fetch all products from the database
-        const products = await Product.find();
-
-        // Prepare bulk write operations
-        const bulkOps = [];
-
-        for (const product of products) {
-          let sizesUpdated = false;
-
-          // Iterate over sizes
-          for (let i = 0; i < product.sizes.length; i++) {
-            const size = product.sizes[i];
-            const barcode = size.id;
-
-            const inventoryData = inventoryMap.get(barcode);
-
-            if (inventoryData) {
-              // Update price and inventory from inventory data
-              product.sizes[i].price = inventoryData.PRICE_C;
-              product.sizes[i].inventory = inventoryData.QTY_ON_HND;
-            } else {
-              // Set price to 100000 and inventory to 0 if not found
-              product.sizes[i].price = 100000;
-              product.sizes[i].inventory = 0;
-            }
-
-            sizesUpdated = true;
-          }
-
-          if (sizesUpdated) {
-            // Prepare an update operation for this product
-            bulkOps.push({
-              updateOne: {
-                filter: { _id: product._id },
-                update: {
-                  $set: {
-                    'sizes': product.sizes
-                  }
-                }
-              }
-            });
-          }
-        }
-
-        // Execute bulk operations if there are any
-        if (bulkOps.length > 0) {
-          const result = await Product.bulkWrite(bulkOps);
-          console.log('Bulk operation result:', result);
-        } else {
-          console.log('No products to update.');
-        }
-
-        // Optionally delete the uploaded file after processing
-        fs.unlinkSync(inventoryFilePath);
-
-        res.send({ success: true, message: 'Inventario actualizado correctamente.' });
-      } catch (err) {
-        console.error('Error al actualizar el inventario en MongoDB:', err);
-        res.status(500).send({ success: false, error: err.message });
-      }
-    })
-    .on('error', (err) => {
-      console.error('Error al procesar el archivo CSV:', err);
-      res.status(500).send({ success: false, error: err.message });
+      // Convert the content string into a stream and pipe it to the parser
+      const stream = require('stream');
+      const contentStream = new stream.Readable();
+      contentStream.push(content);
+      contentStream.push(null);
+      contentStream.pipe(parser);
     });
+  };
+
+  try {
+    let inventory = [];
+    let separatorUsed = '';
+
+    // Try parsing with tab separator first
+    try {
+      inventory = await parseCsvContent(fileContent, '\t');
+      separatorUsed = 'tab';
+    } catch (err) {
+      console.log('Failed to parse with tab separator:', err.message);
+      // Try parsing with comma separator
+      inventory = await parseCsvContent(fileContent, ',');
+      separatorUsed = 'comma';
+    }
+
+    console.log(`Successfully parsed CSV file using ${separatorUsed} separator. Total rows:`, inventory.length);
+
+    // Proceed to update the inventory in the database
+    // Create a map for quick lookup
+    const inventoryMap = new Map();
+    for (const item of inventory) {
+      inventoryMap.set(item.BARCODE, {
+        QTY_ON_HND: parseInt(item.QTY_ON_HND, 10),
+        PRICE_C: parseFloat(item.PRICE_C),
+      });
+    }
+
+    // Fetch all products from the database
+    const products = await Product.find();
+
+    // Prepare bulk write operations
+    const bulkOps = [];
+
+    for (const product of products) {
+      let sizesUpdated = false;
+
+      // Iterate over sizes
+      for (let i = 0; i < product.sizes.length; i++) {
+        const size = product.sizes[i];
+        const barcode = size.id;
+
+        const inventoryData = inventoryMap.get(barcode);
+
+        if (inventoryData) {
+          // Update price and inventory from inventory data
+          product.sizes[i].price = inventoryData.PRICE_C;
+          product.sizes[i].inventory = inventoryData.QTY_ON_HND;
+        } else {
+          // Set price to 100000 and inventory to 0 if not found
+          product.sizes[i].price = 100000;
+          product.sizes[i].inventory = 0;
+        }
+
+        sizesUpdated = true;
+      }
+
+      if (sizesUpdated) {
+        // Prepare an update operation for this product
+        bulkOps.push({
+          updateOne: {
+            filter: { _id: product._id },
+            update: {
+              $set: {
+                sizes: product.sizes,
+              },
+            },
+          },
+        });
+      }
+    }
+
+    // Execute bulk operations if there are any
+    if (bulkOps.length > 0) {
+      const result = await Product.bulkWrite(bulkOps);
+      console.log('Bulk operation result:', result);
+    } else {
+      console.log('No products to update.');
+    }
+
+    // Optionally delete the uploaded file after processing
+    fs.unlinkSync(inventoryFilePath);
+
+    res.send({ success: true, message: 'Inventario actualizado correctamente.' });
+  } catch (err) {
+    console.error('Error processing the CSV file:', err.message);
+    res.status(400).send({ success: false, error: err.message });
+  }
 });
 
 // Ruta para servir la página de actualización del inventario
