@@ -577,7 +577,11 @@ app.post('/update-inventory', upload.single('inventoryFile'), async (req, res) =
     });
   } catch (err) {
     console.error(`[${new Date().toISOString()}] Error processing the CSV file:`, err.message);
-    return res.status(400).send({ success: false, error: err.message });
+  
+    res.status(400).json({
+      success: false,
+      error: err.message || 'An unexpected error occurred while processing the inventory update.',
+    });
   }
 });
 

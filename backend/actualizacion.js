@@ -1,4 +1,4 @@
-// actualizacion.js
+// backend/actualizacion.js
 
 const fs = require('fs');
 const mongoose = require('mongoose');
