@@ -2,21 +2,21 @@
 
 const fs = require('fs');
 const mongoose = require('mongoose');
-const Product = require('./models/Product'); // Adjust the path as necessary
+const Product = require('./models/Product'); // Importa el modelo sin redefinir
 
-require('dotenv').config(); // Load environment variables
+require('dotenv').config(); // Cargar variables de entorno
 
-// Connect to MongoDB
+// Conectar a MongoDB
 mongoose.connect(process.env.MONGODB_URI, { dbName: 'el-gato-tuerto' })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Failed to connect to MongoDB', err));
 
 async function updateInventoryAndPrice() {
   try {
-    // Read and parse the JSON file
-    const data = JSON.parse(fs.readFileSync('inventory.json', 'utf8')); // Adjust the file path if necessary
+    // Leer y parsear el archivo JSON
+    const data = JSON.parse(fs.readFileSync('inventory.json', 'utf8')); // Ajusta la ruta si es necesario
 
-    // Create a map from size IDs to updated price and inventory for quick lookup
+    // Crear un mapa de IDs de tamaño a precio e inventario actualizados para una búsqueda rápida
     const updatedSizesMap = new Map();
 
     for (const product of data) {
@@ -30,16 +30,16 @@ async function updateInventoryAndPrice() {
       }
     }
 
-    // Fetch all products from the database
+    // Obtener todos los productos de la base de datos
     const products = await Product.find();
 
-    // Prepare bulk write operations
+    // Preparar operaciones en lote
     const bulkOps = [];
 
     for (const product of products) {
       let sizesUpdated = false;
 
-      // Iterate over sizes
+      // Iterar sobre los tamaños
       for (let i = 0; i < product.sizes.length; i++) {
         const size = product.sizes[i];
         const sizeId = size.id;
@@ -47,11 +47,11 @@ async function updateInventoryAndPrice() {
         const updatedSizeData = updatedSizesMap.get(sizeId);
 
         if (updatedSizeData) {
-          // Update price and inventory from updated data
+          // Actualizar precio e inventario desde los datos actualizados
           product.sizes[i].price = updatedSizeData.price;
           product.sizes[i].inventory = updatedSizeData.inventory;
         } else {
-          // Set price to 100000 and inventory to 0 if not found
+          // Establecer precio a 100000 e inventario a 0 si no se encuentra
           product.sizes[i].price = 100000;
           product.sizes[i].inventory = 0;
         }
@@ -59,7 +59,7 @@ async function updateInventoryAndPrice() {
       }
 
       if (sizesUpdated) {
-        // Prepare an update operation for this product
+        // Preparar una operación de actualización para este producto
         bulkOps.push({
           updateOne: {
             filter: { _id: product._id },
@@ -73,7 +73,7 @@ async function updateInventoryAndPrice() {
       }
     }
 
-    // Execute bulk operations if there are any
+    // Ejecutar operaciones en lote si hay alguna
     if (bulkOps.length > 0) {
       const result = await Product.bulkWrite(bulkOps);
       console.log('Bulk operation result:', result);
@@ -85,7 +85,7 @@ async function updateInventoryAndPrice() {
   } catch (error) {
     console.error('Error updating inventory and prices:', error);
   } finally {
-    mongoose.connection.close(); // Close the connection after operation
+    mongoose.connection.close(); // Cerrar la conexión después de la operación
   }
 }
 

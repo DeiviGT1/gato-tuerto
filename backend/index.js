@@ -11,6 +11,8 @@ const multer = require('multer'); // Importamos multer para manejar la carga de 
 require('dotenv').config();
 const fs = require('fs');
 const csv = require('csv-parser');
+const addProduct = require('./add-product'); // Importa la función de agregar producto
+const Product = require('./models/Product'); // Importa el modelo sin redefinir
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -21,7 +23,7 @@ const adminPassword = process.env.ADMIN_PASSWORD;
 // Conexión a MongoDB
 mongoose.connect(
   process.env.MONGODB_URI,
-  {dbName: 'el-gato-tuerto'}
+  { dbName: 'el-gato-tuerto' }
 )
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Failed to connect to MongoDB', err));
@@ -33,7 +35,6 @@ app.use(cookieParser());
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = new twilio(accountSid, authToken);
-
 
 const accountSid_2 = process.env.TWILIO_ACCOUNT_SID_2;
 const authToken_2 = process.env.TWILIO_AUTH_TOKEN_2;
@@ -61,32 +62,7 @@ const orderSchema = new mongoose.Schema({
   notes: String // Añadir el campo 'notes'
 });
 
-
 const Order = mongoose.model('Order', orderSchema);
-
-// Esquema y modelo de Producto
-const productSchema = new mongoose.Schema({
-  alcoholicBeverage: String,
-  type: String,
-  subtype: String,
-  brand: String,
-  name: String,
-  description: String,
-  route: String,
-  modal: Boolean,
-  sizes: [
-    {
-      id: String,
-      size: String,
-      price: Number,
-      img: String,
-      inventory: Number,
-      size_ml: Number,
-    },
-  ],
-});
-
-const Product = mongoose.model('Product', productSchema);
 
 app.get('/', (req, res) => {
   res.send('Backend is running!');
@@ -720,6 +696,294 @@ app.get('/api/products', async (req, res) => {
     console.error('Error fetching products:', err);
     res.status(500).json({ error: 'Server error' });
   }
+});
+
+// Ruta para agregar un nuevo producto
+app.post('/add-product', async (req, res) => {
+  try {
+    const productData = req.body;
+
+    // Validación de datos básicos
+    if (!productData.name || !productData.brand || !productData.type || !productData.sizes) {
+      return res.status(400).send({ success: false, error: 'Faltan campos obligatorios' });
+    }
+
+    const result = await addProduct(productData);
+
+    if (result.success) {
+      res.status(201).send({ success: true, product: result.product });
+    } else {
+      throw new Error(result.error);
+    }
+  } catch (err) {
+    console.error('Error al agregar el producto:', err);
+    res.status(500).send({ success: false, error: err.message });
+  }
+});
+
+// Ruta para servir la página de agregar un nuevo producto
+// backend/index.js
+
+// ... Código existente ...
+
+// Ruta para servir la página de agregar un nuevo producto
+app.get('/add-product-page', (req, res) => {
+  const html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Agregar Nuevo Producto</title>
+      <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f5f5f5;
+          margin: 0;
+          padding: 20px;
+          color: #333;
+        }
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+          text-align: center;
+          color: #475169;
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+        label {
+          margin-top: 10px;
+          font-weight: bold;
+        }
+        input, select, textarea {
+          padding: 10px;
+          margin-top: 5px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        .sizes-container {
+          margin-top: 20px;
+        }
+        .size-item {
+          border: 1px solid #ddd;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          background-color: #f9f9f9;
+          position: relative;
+        }
+        .remove-size {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background-color: red;
+          color: white;
+          border: none;
+          border-radius: 50%;
+          width: 25px;
+          height: 25px;
+          cursor: pointer;
+        }
+        .add-size-btn {
+          margin-top: 10px;
+          padding: 10px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        .submit-btn {
+          margin-top: 20px;
+          padding: 15px;
+          background-color: #475169;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 1em;
+        }
+        .submit-btn:hover {
+          background-color: #333;
+        }
+        .message {
+          margin-top: 20px;
+          padding: 10px;
+          border-radius: 5px;
+          display: none;
+        }
+        .success {
+          background-color: #d4edda;
+          color: #155724;
+        }
+        .error {
+          background-color: #f8d7da;
+          color: #721c24;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Agregar Nuevo Producto</h1>
+        <form id="addProductForm">
+          <label for="name">Nombre del Producto *</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="brand">Marca *</label>
+          <input type="text" id="brand" name="brand" required>
+
+          <label for="typeOfLiquor">Tipo de Licor *</label>
+          <input type="text" id="typeOfLiquor" name="typeOfLiquor" required>
+
+          <label for="whereIsFrom">¿De dónde es? *</label>
+          <input type="text" id="whereIsFrom" name="whereIsFrom" required>
+
+          <label for="subtype">Subtipo</label>
+          <input type="text" id="subtype" name="subtype">
+
+          <label for="description">Descripción</label>
+          <textarea id="description" name="description" rows="4"></textarea>
+
+          <div class="sizes-container">
+            <h3>Tamaños del Producto *</h3>
+            <div id="sizesList">
+              <!-- Tamaños dinámicos se agregarán aquí -->
+            </div>
+            <button type="button" class="add-size-btn" onclick="addSize()">Agregar Tamaño</button>
+          </div>
+
+          <button type="submit" class="submit-btn">Agregar Producto</button>
+        </form>
+        <div id="message" class="message"></div>
+      </div>
+
+      <script>
+        let sizeCount = 0;
+
+        function addSize() {
+          sizeCount++;
+          const sizesList = document.getElementById('sizesList');
+          const sizeItem = document.createElement('div');
+          sizeItem.className = 'size-item';
+          sizeItem.innerHTML = \`
+            <button type="button" class="remove-size" onclick="removeSize(this)">×</button>
+            <label for="sizes[\${sizeCount}][id]">ID del Tamaño *</label>
+            <input type="text" name="sizes[\${sizeCount}][id]" required>
+
+            <label for="sizes[\${sizeCount}][size]">Tamaño Descriptivo *</label>
+            <input type="text" name="sizes[\${sizeCount}][size]" required>
+
+            <label for="sizes[\${sizeCount}][price]">Precio *</label>
+            <input type="number" step="0.01" name="sizes[\${sizeCount}][price]" required>
+
+            <label for="sizes[\${sizeCount}][inventory]">Inventario *</label>
+            <input type="number" name="sizes[\${sizeCount}][inventory]" required>
+
+            <label for="sizes[\${sizeCount}][size_ml]">Tamaño en ml</label>
+            <input type="number" name="sizes[\${sizeCount}][size_ml]">
+          \`;
+          sizesList.appendChild(sizeItem);
+        }
+
+        function removeSize(button) {
+          const sizeItem = button.parentElement;
+          sizeItem.remove();
+        }
+
+        document.getElementById('addProductForm').addEventListener('submit', async function(event) {
+          event.preventDefault();
+
+          const form = event.target;
+          const formData = new FormData(form);
+          const data = {
+            name: formData.get('name'),
+            brand: formData.get('brand'),
+            type: formData.get('typeOfLiquor'),
+            whereIsFrom: formData.get('whereIsFrom'),
+            subtype: formData.get('subtype'),
+            description: formData.get('description'),
+            sizes: []
+          };
+
+          // Generar la ruta a partir del nombre del producto
+          const generateRoute = (name) => {
+            return name.toLowerCase().trim().replace(/\s+/g, '-');
+          };
+
+          data.route = generateRoute(data.name);
+
+          // Procesar tamaños
+          const sizesKeys = Array.from(formData.keys()).filter(key => key.startsWith('sizes['));
+          const sizesSet = new Set();
+          sizesKeys.forEach(key => {
+            const match = key.match(/sizes$begin:math:display$(\\d+)$end:math:display$$begin:math:display$(\\w+)$end:math:display$/);
+            if (match) {
+              sizesSet.add(match[1]);
+            }
+          });
+
+          sizesSet.forEach(index => {
+            const size = {
+              id: formData.get(\`sizes[\${index}][id]\`),
+              size: formData.get(\`sizes[\${index}][size]\`),
+              price: parseFloat(formData.get(\`sizes[\${index}][price]\`)),
+              inventory: parseInt(formData.get(\`sizes[\${index}][inventory]\`), 10),
+              size_ml: formData.get(\`sizes[\${index}][size_ml]\`) ? parseInt(formData.get(\`sizes[\${index}][size_ml]\`), 10) : undefined
+            };
+            data.sizes.push(size);
+          });
+
+          // Validar que al menos un tamaño ha sido agregado
+          if (data.sizes.length === 0) {
+            showMessage('Debe agregar al menos un tamaño para el producto.', 'error');
+            return;
+          }
+
+          try {
+            const response = await fetch('/add-product', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            if (response.ok && result.success) {
+              showMessage('Producto agregado exitosamente.', 'success');
+              form.reset();
+              document.getElementById('sizesList').innerHTML = '';
+              addSize(); // Agregar un tamaño por defecto
+            } else {
+              throw new Error(result.error || 'Error al agregar el producto.');
+            }
+          } catch (error) {
+            showMessage(error.message, 'error');
+          }
+        });
+
+        function showMessage(message, type) {
+          const messageDiv = document.getElementById('message');
+          messageDiv.textContent = message;
+          messageDiv.className = \`message \${type}\`;
+          messageDiv.style.display = 'block';
+        }
+
+        // Agregar un tamaño por defecto al cargar la página
+        window.onload = () => {
+          addSize();
+        };
+      </script>
+    </body>
+    </html>
+  `;
+  res.send(html);
 });
 
 app.listen(port, () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Header.css';
-import logoIso from '../../assets/gato-tuerto-logo-iso.png';
+import logoIso from '../../assets/gato-tuerto-logo.png';
 import SearchBar from './SearchBar';
 import cart from '../../assets/cart-shopping-solid.svg';
 import CartSidebar from '../pages/CartSideBar';
