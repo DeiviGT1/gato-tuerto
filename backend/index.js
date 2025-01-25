@@ -114,18 +114,18 @@ app.post('/checkout', (req, res) => {
       // })
 
       // Santi Phone
-      client.messages.create({
-        body: `New Order Received:\n${orderDetails}`,
-        to: process.env.TO_PHONE_NUMBER_3,
-        from: process.env.FROM_PHONE_NUMBER
-      })
+      // client.messages.create({
+      //   body: `New Order Received:\n${orderDetails}`,
+      //   to: process.env.TO_PHONE_NUMBER_3,
+      //   from: process.env.FROM_PHONE_NUMBER
+      //})
 
       // Gio Phone
-      client.messages.create({
-        body: `New Order Received:\n${orderDetails}`,
-        to: process.env.TO_PHONE_NUMBER_4,
-        from: process.env.FROM_PHONE_NUMBER
-      })
+      // client.messages.create({
+      //   body: `New Order Received:\n${orderDetails}`,
+      //   to: process.env.TO_PHONE_NUMBER_4,
+      //   from: process.env.FROM_PHONE_NUMBER
+      // })
 
       // Gio son Phone
       client.messages.create({
