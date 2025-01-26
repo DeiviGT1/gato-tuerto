@@ -103,12 +103,57 @@ if __name__ == "__main__":
     # Definir los tamaños
     tamaños = [
         {
+            "id": "491820",
+            "size": "8oz",
+            "price": 1.99,
+            "img": "liquors-webp/others/coca-cola/coca-cola-8oz-glass.webp",
+            "inventory": 2,
+            "size_ml": 236.588,
+            "_id": str(ObjectId())  
+        },
+        {
+            "id": "04900000463",
+            "size": "12oz",
+            "price": 1.99,
+            "img": "liquors-webp/others/coca-cola/coca-cola-12oz-glass.webp",
+            "inventory": 2,
+            "size_ml": 354.882,
+            "_id": str(ObjectId())
+        },
+        {
+            "id": "0496340",
+            "size": "12oz",
+            "price": 1.99,
+            "img": "liquors-webp/others/coca-cola/coca-cola-12-oz-can.webp",
+            "inventory": 2,
+            "size_ml": 354.882,
+            "_id": str(ObjectId())
+        },
+        {
+            "id": "0490440",
+            "size": "20oz",
+            "price": 1.99,
+            "img": "liquors-webp/others/coca-cola/coca-cola-20oz.webp",
+            "inventory": 2,
+            "size_ml": 591.471,
+            "_id": str(ObjectId())  
+        },
+        {
+            "id": "25554555133",
+            "size": "1L",
+            "price": 5.99,
+            "img": "liquors-webp/others/coca-cola/coca-cola-1L.webp",
+            "inventory": 2,
+            "size_ml": 1000,
+            "_id": str(ObjectId())
+        },
+        {
             "id": "0496390",
             "size": "2L",
             "price": 5.99,
             "img": "liquors-webp/others/coca-cola/coca-cola-2L.webp",
             "inventory": 2,
-            "size_ml": 750,
+            "size_ml": 2000,
             "_id": str(ObjectId())
         },
     ]
