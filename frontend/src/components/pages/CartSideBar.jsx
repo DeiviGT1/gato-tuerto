@@ -1,16 +1,9 @@
+// src/components/ui/CartSidebar.jsx
+
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import './CartSidebar.css';
 import productsData from './products.json';
-
-
-const importAll = (r) => {
-    let images = {};
-    r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
-    return images;
-};
-
-const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|svg|webp)$/));
 
 function CartSidebar({ isOpen, onClose }) {
   const [cartItems, setCartItems] = useState([]);
@@ -29,7 +22,7 @@ function CartSidebar({ isOpen, onClose }) {
     for (const [key, value] of Object.entries(localStorage)) {
       if (key !== "isOver21" && key !== "zipCode") {
         const product = findProductById(key);
-        if (product.maxInventory > 12) {
+        if (product && product.maxInventory > 12) {
           product.maxInventory = 12;
         }
 
@@ -55,7 +48,7 @@ function CartSidebar({ isOpen, onClose }) {
           for (const product of brand.products) {
             for (const size of product.sizes) {
               if (size.id === id) {
-                const imgSrc = images[size.img.replace('liquors-webp/', '')];
+                const imgSrc = "/images/" + size.img; // Ruta absoluta a la imagen
                 return {
                   name: product.name,
                   size: size.size,
@@ -134,7 +127,6 @@ function CartSidebar({ isOpen, onClose }) {
               ))}
               <div>
                   <Link to="/checkout" className="checkout-btn">
-
                     Checkout
                   </Link>
               </div>

@@ -5,16 +5,6 @@ import Header from '../layout/Header';
 import Footer from '../layout/Footer';
 import products from './products.json';
 import './Checkout.css'; // Asegúrate de tener las clases CSS actualizadas
-import loadingBeer1 from '../../assets/loading-beer-1.webp'; // Imagen fija
-import loadingBeer2 from '../../assets/loading-beer-2.webp'; // Imagen de carga
-
-const importAll = (r) => {
-  let images = {};
-  r.keys().map((item) => { images[item.replace('./', '')] = r(item); });
-  return images;
-};
-
-const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|svg|webp)$/));
 
 const availableZipCodes = [
   33130, 33128, 33243, 33299, 33269, 33266, 33265, 33257, 33247, 33245, 33242, 33239, 33238, 33197, 33188, 33153, 33163, 33164, 33152, 33101, 33102, 33112, 33116, 33119, 33231, 33131, 33129, 33136, 33132, 33135, 33145, 33125
@@ -72,7 +62,7 @@ function Checkout() {
           for (const product of brand.products) {
             for (const size of product.sizes) {
               if (size.id === id) {
-                const imgSrc = images[size.img.replace('liquors-webp/', '')];
+                const imgSrc = "/images/" + size.img;
                 return {
                   name: product.name,
                   price: size.price,
@@ -233,8 +223,8 @@ function Checkout() {
         {isLoading && (
           <div className="loading-overlay">
             <div className="beer-container">
-              <img src={loadingBeer1} alt="Fixed Beer" className="fixed-beer" />
-              <img src={loadingBeer2} alt="Loading Beer" className="loading-beer" />
+              <img src="/images/loading-beer-1.webp" alt="Fixed Beer" className="fixed-beer" />
+              <img src="/images/loading-beer-2.webp" alt="Loading Beer" className="loading-beer" />
             </div>
             <p>Processing your order...</p>
           </div>

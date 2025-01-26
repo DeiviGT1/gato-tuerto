@@ -1,20 +1,13 @@
+// src/components/pages/Liquor.jsx
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
-import Modal from '../ui/Modal';
 import Product from "../ui/Product";
 import items from './products.json';
 import "./Liquor.css";
 import LiquorOrder from '../ui/LiquorOrder';
-
-const importAll = (r) => {
-    let images = {};
-    r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
-    return images;
-};
-
-const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|svg|webp)$/));
 
 function Liquor() {
 
@@ -59,19 +52,11 @@ function Liquor() {
         setSelectedSize(size);
         setSelectedId(id);
 
-        const loadImages = async () => {
+        const loadImages = () => {
             const importedLogos = {};
             for (const sizeObj of product.sizes) {
-                try {
-                    const image = images[sizeObj.img.replace('liquors-webp/', '')]
-                    if (image) {
-                        importedLogos[sizeObj.size] = image;
-                    } else {
-                        console.error(`Image not found for size ${sizeObj.size}`);
-                    }
-                } catch (error) {
-                    console.error(`Error loading image for size ${sizeObj.size}:`, error);
-                }
+                const imgPath = "/images/" + sizeObj.img; // Ruta absoluta a la imagen
+                importedLogos[sizeObj.size] = imgPath;
             }
             setLogos(importedLogos);
             setCurrentLogo(importedLogos[size]);

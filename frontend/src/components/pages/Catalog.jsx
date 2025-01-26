@@ -1,3 +1,5 @@
+// src/components/pages/Catalog.jsx
+
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../layout/Header";
@@ -5,18 +7,10 @@ import Footer from "../layout/Footer";
 import Product from "../ui/Product";
 import FilterComponent from "../layout/FilterComponent";
 import FilterModal from "../layout/FilterModal";
-import filterButton from "../../assets/filter-solid.svg";
+import filterButton from "../../assets/filter-solid.svg"; // Asegúrate de que este archivo exista
 import LoadingSpinner from '../ui/LoadingSpinner';
-import arrowUp from '../../assets/arrow-up-solid.svg';
+import arrowUp from '../../assets/arrow-up-solid.svg'; // Asegúrate de que este archivo exista
 import './Catalog.css';
-
-const importAll = (r) => {
-    let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-    return images;
-};
-
-const images = importAll(require.context('./liquors-webp', true, /\.(png|jpe?g|svg|webp)$/));
 
 function Catalog({ searchTerm = '' }) {
     const [selectedType, setSelectedType] = useState('');
@@ -27,7 +21,6 @@ function Catalog({ searchTerm = '' }) {
     const [selectedWineType, setSelectedWineType] = useState('');
     const [selectedVarietal, setSelectedVarietal] = useState('');
     const [orderBy, setOrderBy] = useState('');
-    //const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [showScrollButton, setShowScrollButton] = useState(false); 
     const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset); // Track previous scroll position
@@ -42,21 +35,21 @@ function Catalog({ searchTerm = '' }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-    const fetchData = async () => {
-        try {
-        const response = await fetch('https://gato-tuerto-server.vercel.app/api/products');
-        const data = await response.json();
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://gato-tuerto-server.vercel.app/api/products');
+                const data = await response.json();
 
-        const structuredData = processProductsData(data);
-        setItems(structuredData);
-        setLoading(false);
-        } catch (error) {
-        console.error('Error fetching data:', error);
-        setLoading(false);
-        }
-    };
+                const structuredData = processProductsData(data);
+                setItems(structuredData);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                setLoading(false);
+            }
+        };
 
-    fetchData();
+        fetchData();
     }, []);
 
 
@@ -204,8 +197,7 @@ function Catalog({ searchTerm = '' }) {
         });
       
         return { types: Object.values(typesMap) };
-      }
-    
+    }
 
     const filterProducts = (products) => {
         return products.filter(product =>
@@ -234,36 +226,35 @@ function Catalog({ searchTerm = '' }) {
     };
 
     const renderProducts = (products) => {
-    products = sortProducts(products);
-
-    return products.map((product) => {
-        const isOutOfStock = product.size.inventory === 0;
-
-        if (selectedPrice) {
+        products = sortProducts(products);
+      
+        return products.map((product) => {
+          const isOutOfStock = product.size.inventory === 0;
+      
+          if (selectedPrice) {
             const [minPrice, maxPrice] = selectedPrice.split('-').map(Number);
             if (product.size.price < minPrice || product.size.price > maxPrice) {
-                return null;
+              return null;
             }
-        }
-
-        const formattedSize = product.size.size.replace(/-/g, ' ');
-
-        return (
+          }
+      
+          const formattedSize = product.size.size.replace(/-/g, ' ');
+      
+          return (
             <Product
-                key={`${product.name}-${formattedSize}`}
-                route={product.route}
-                name={product.name}
-                price={product.size.price}
-                size={formattedSize}
-                img={images[product.size.img.replace('liquors-webp/', '')]}
-                productClass={`${isOutOfStock ? 'out-of-stock' : ''}`}
-                inventory={product.size.inventory}
-                idSelected={product.size.id}
+              key={`${product.name}-${formattedSize}`}
+              route={product.route}
+              name={product.name}
+              price={product.size.price}
+              size={formattedSize}
+              img={`/images/${product.size.img}`} // Ruta absoluta a las imágenes en public
+              productClass={isOutOfStock ? 'out-of-stock' : ''}
+              inventory={product.size.inventory}
+              idSelected={product.size.id}
             />
-        );
-    });
-};
-
+          );
+        });
+      };
 
     const allProducts = filterProducts(getAllProducts());
 
@@ -277,7 +268,7 @@ function Catalog({ searchTerm = '' }) {
             <div className="app-screen">
                 <div className="catalog-container">
                     <button className="filter-button" onClick={toggleModal}>
-                        <img src={filterButton} alt="" />
+                        <img src={filterButton} alt="Filter" />
                     </button>
                     <FilterComponent
                         selectedType={selectedType}
@@ -315,7 +306,7 @@ function Catalog({ searchTerm = '' }) {
                         )}
                         {showScrollButton && (
                             <button className={`scroll-to-top ${showScrollButton ? 'show' : ''}`} onClick={scrollToTop}>
-                                <img src={arrowUp} alt="" />
+                                <img src={arrowUp} alt="Scroll to Top" />
                             </button>
                         )}
                     </div>
