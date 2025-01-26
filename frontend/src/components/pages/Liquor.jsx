@@ -5,16 +5,12 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 import Product from "../ui/Product";
-import items from './products.json';
 import "./Liquor.css";
 import LiquorOrder from '../ui/LiquorOrder';
+import LoadingSpinner from '../ui/LoadingSpinner'; // Asegúrate de tener un componente de carga
 
 function Liquor() {
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-      
     const { item } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
@@ -24,8 +20,54 @@ function Liquor() {
     const [selectedSize, setSelectedSize] = useState(defaultSize);
     const [selectedPrice, setSelectedPrice] = useState(null);
     const [selectedId, setSelectedId] = useState(null);
-    const [inventory, setInventory] = useState(0); // Initialize with 0
+    const [inventory, setInventory] = useState(0); // Inicializado en 0
 
+    const [items, setItems] = useState({ types: [] });
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // Función para procesar los datos de la API
+    function processProductsData(data) {
+        const typesMap = {};
+
+        data.forEach(product => {
+            const { type, subtype, brand } = product;
+
+            if (!typesMap[type]) {
+                typesMap[type] = {
+                    type,
+                    subtypes: [],
+                };
+            }
+
+            let subtypeEntry = typesMap[type].subtypes.find(st => st.subtype === subtype);
+            if (!subtypeEntry) {
+                subtypeEntry = {
+                    subtype,
+                    products: [],
+                };
+                typesMap[type].subtypes.push(subtypeEntry);
+            }
+
+            let brandEntry = subtypeEntry.products.find(b => b.brand === brand);
+            if (!brandEntry) {
+                brandEntry = {
+                    brand,
+                    products: [],
+                };
+                subtypeEntry.products.push(brandEntry);
+            }
+
+            // Excluir campos ya utilizados
+            const { alcoholicBeverage, type: _, subtype: __, brand: ___, ...productData } = product;
+
+            brandEntry.products.push(productData);
+        });
+
+        return { types: Object.values(typesMap) };
+    }
+
+    // Función para encontrar el producto específico
     const findProduct = (data, productRoute) => {
         for (let type of data.types) {
             for (let subtype of type.subtypes) {
@@ -41,10 +83,33 @@ function Liquor() {
         return null;
     };
 
+    // Fetch de los productos desde la API
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://gato-tuerto-server.vercel.app/api/products');
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} ${response.statusText}`);
+                }
+                const data = await response.json();
+                const structuredData = processProductsData(data);
+                setItems(structuredData);
+                setLoading(false);
+            } catch (err) {
+                console.error('Error fetching data:', err);
+                setError(err.message);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    // Encontrar el producto después de obtener los datos
     const product = findProduct(items, item);
 
     useEffect(() => {
-        if (!product) return; // Exit if product is not found
+        if (loading || error || !product) return; // Salir si aún está cargando, hay un error o el producto no se encontró
 
         const params = new URLSearchParams(location.search);
         const size = params.get('size') || defaultSize;
@@ -74,10 +139,10 @@ function Liquor() {
         };
 
         loadImages();
-    }, [product, location.pathname, location.search]);
+    }, [product, location.pathname, location.search, loading, error]);
 
     const toggleLogo = (size) => {
-        if (!logos[size]) return; // Prevent errors if logo doesn't exist
+        if (!logos[size]) return; // Prevenir errores si el logo no existe
 
         setCurrentLogo(logos[size]);
         setSelectedSize(size);
@@ -88,12 +153,40 @@ function Liquor() {
             setSelectedId(sizeDetails.id);
         }
 
-        // Update the URL without reloading the page
+        // Actualizar la URL sin recargar la página
         const params = new URLSearchParams(location.search);
         params.set('size', size);
         params.set('id', sizeDetails?.id || '');
         navigate({ search: params.toString() }, { replace: true });
     };
+
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <div className="app-screen">
+                    <div className="liquor">
+                        <LoadingSpinner />
+                    </div>
+                    <Footer />
+                </div>
+            </>
+        );
+    }
+
+    if (error) {
+        return (
+            <>
+                <Header />
+                <div className="app-screen">
+                    <div className="liquor">
+                        <p>Error al cargar los productos: {error}</p>
+                    </div>
+                    <Footer />
+                </div>
+            </>
+        );
+    }
 
     if (!product) {
         return (
@@ -101,7 +194,7 @@ function Liquor() {
                 <Header />
                 <div className="app-screen">
                     <div className="liquor">
-                        <p>Product not found.</p>
+                        <p>Producto no encontrado.</p>
                     </div>
                     <Footer />
                 </div>
@@ -116,16 +209,16 @@ function Liquor() {
                 <div className="liquor">
                     <div className='liquor-container'>
                         <div className={`liquor-image ${inventory === 0 ? 'out-of-stock' : ''}`}>
-                            {inventory === 0 && <div className="warning-tape">Out of Stock</div>}
+                            {inventory === 0 && <div className="warning-tape">Agotado</div>}
                             {currentLogo && <img src={currentLogo} className="App-logo" alt="logo" />}
                         </div>
                         <div className="liquor-content">
                             <div className='liquor-meta-info'>
                                 <div className='liquor-size'>
-                                    <p>Size: {selectedSize} </p>
+                                    <p>Tamaño: {selectedSize}</p>
                                 </div>
                                 <div className='liquor-price'>
-                                    <p>Price: ${selectedPrice} </p>
+                                    <p>Precio: ${selectedPrice}</p>
                                 </div>
                             </div>
                             <div className="liquor-sizes">

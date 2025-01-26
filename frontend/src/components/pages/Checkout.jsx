@@ -1,17 +1,24 @@
-// const checkoutRequest = fetch('https://gato-tuerto-server.vercel.app/checkout', {
+// src/components/pages/Checkout.jsx
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
-import products from './products.json';
 import './Checkout.css'; // Asegúrate de tener las clases CSS actualizadas
+import LoadingSpinner from '../ui/LoadingSpinner'; // Asegúrate de tener este componente
 
 const availableZipCodes = [
-  33130, 33128, 33243, 33299, 33269, 33266, 33265, 33257, 33247, 33245, 33242, 33239, 33238, 33197, 33188, 33153, 33163, 33164, 33152, 33101, 33102, 33112, 33116, 33119, 33231, 33131, 33129, 33136, 33132, 33135, 33145, 33125
+  33130, 33128, 33243, 33299, 33269, 33266, 33265, 33257, 33247, 33245, 33242, 33239,
+  33238, 33197, 33188, 33153, 33163, 33164, 33152, 33101, 33102, 33112, 33116, 33119,
+  33231, 33131, 33129, 33136, 33132, 33135, 33145, 33125
 ];
 
 function Checkout() {
   const [cartItems, setCartItems] = useState([]);
+  const [itemsData, setItemsData] = useState({ types: [] });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const [subTotal, setSubTotal] = useState(0);
   const [salesTax, setSalesTax] = useState(0);
   const [total, setTotal] = useState(0);
@@ -29,34 +36,53 @@ function Checkout() {
   const [tipPercentage, setTipPercentage] = useState(18);
   const [customTip, setCustomTip] = useState('');
   const [isLoading, setIsLoading] = useState(false); // Estado para la pantalla de carga
+
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const items = Object.entries(localStorage)
-      .filter(([key]) => key !== 'isOver21' && key !== 'zipCode')
-      .map(([key, value]) => {
-        const product = findProductById(key);
-        if (product) {
-          return {
-            id: key,
-            name: product.name,
-            price: product.price,
-            quantity: parseInt(value, 10),
-            size: product.size,
-            imgSrc: product.imgSrc,
-            maxInventory: product.maxInventory,
-          };
-        }
-        return null;
-      })
-      .filter(item => item !== null);
-    
-    setCartItems(items);
-    calculateTotals(items);
-  }, []);
+  // Función para procesar los datos de la API
+  const processProductsData = (data) => {
+    const typesMap = {};
 
+    data.forEach(product => {
+      const { type, subtype, brand } = product;
+
+      if (!typesMap[type]) {
+        typesMap[type] = {
+          type,
+          subtypes: [],
+        };
+      }
+
+      let subtypeEntry = typesMap[type].subtypes.find(st => st.subtype === subtype);
+      if (!subtypeEntry) {
+        subtypeEntry = {
+          subtype,
+          products: [],
+        };
+        typesMap[type].subtypes.push(subtypeEntry);
+      }
+
+      let brandEntry = subtypeEntry.products.find(b => b.brand === brand);
+      if (!brandEntry) {
+        brandEntry = {
+          brand,
+          products: [],
+        };
+        subtypeEntry.products.push(brandEntry);
+      }
+
+      // Excluir campos ya utilizados
+      const { alcoholicBeverage, type: _, subtype: __, brand: ___, ...productData } = product;
+
+      brandEntry.products.push(productData);
+    });
+
+    return { types: Object.values(typesMap) };
+  };
+
+  // Función para encontrar el producto específico por ID
   const findProductById = (id) => {
-    for (const type of products.types) {
+    for (const type of itemsData.types) {
       for (const subtype of type.subtypes) {
         for (const brand of subtype.products) {
           for (const product of brand.products) {
@@ -79,6 +105,55 @@ function Checkout() {
     return null;
   };
 
+  // Fetch de los productos desde la API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://gato-tuerto-server.vercel.app/api/products');
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json();
+        const structuredData = processProductsData(data);
+        setItemsData(structuredData);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Obtener los ítems del carrito una vez que los datos de productos están cargados
+  useEffect(() => {
+    if (!loading && !error) {
+      const items = Object.entries(localStorage)
+        .filter(([key]) => key !== 'isOver21' && key !== 'zipCode')
+        .map(([key, value]) => {
+          const product = findProductById(key);
+          if (product) {
+            return {
+              id: key,
+              name: product.name,
+              price: product.price,
+              quantity: parseInt(value, 10),
+              size: product.size,
+              imgSrc: product.imgSrc,
+              maxInventory: product.maxInventory,
+            };
+          }
+          return null;
+        })
+        .filter(item => item !== null);
+
+      setCartItems(items);
+      calculateTotals(items);
+    }
+  }, [loading, error, itemsData]);
+
   useEffect(() => {
     calculateTotals(cartItems);
   }, [tipPercentage, cartItems]);
@@ -97,7 +172,7 @@ function Checkout() {
   };
 
   const handleQuantityChange = (id, newQuantity) => {
-    localStorage.setItem(id, newQuantity);
+    localStorage.setItem(id, newQuantity.toString());
     const updatedItems = cartItems.map(item =>
       item.id === id ? { ...item, quantity: newQuantity } : item
     );
@@ -210,11 +285,40 @@ function Checkout() {
       setIsLoading(false); // Ocultar pantalla de carga después de ambas promesas
     });
   };
-  
 
   const toggleResume = () => {
     setShowResume(!showResume);
   };
+
+  if (loading) {
+    return (
+      <>
+        <Header />
+        <div className="app-screen">
+          <div className="loading-overlay">
+            <LoadingSpinner />
+            <p>Cargando los datos de los productos...</p>
+          </div>
+          <Footer />
+        </div>
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        <Header />
+        <div className="app-screen">
+          <div className="checkout-container">
+            <h1>Checkout</h1>
+            <p>Error al cargar los productos: {error}</p>
+          </div>
+          <Footer />
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
@@ -233,12 +337,12 @@ function Checkout() {
           <h1>Checkout</h1>
 
           <button className="toggle-resume-btn" onClick={toggleResume}>
-            {!showResume ? 'Hide Resume' : 'Show Resume'}
+            {showResume ? 'Hide Resume' : 'Show Resume'}
           </button>
 
           {!showResume && (
             <section className="resume-section">
-              <h2>Cart resume</h2>
+              <h2>Cart Resume</h2>
               <div className="checkout-items">
                 {cartItems.length > 0 ? (
                   cartItems.map(item => (
@@ -248,20 +352,19 @@ function Checkout() {
                       </div>
                       <div className="checkout-item-info">
                         <p>{item.name}</p>
-                        <div>
-                          <div className='checkout-item-amount'>
-                            <p>Cantidad:   </p>
-                            <select
-                              value={item.quantity}
-                              onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
-                            >
-                              {[...Array(item.maxInventory).keys()].map((number) => (
-                                <option key={number + 1} value={number + 1}>
-                                  {number + 1}
-                                </option>
-                              ))}
-                            </select>
-                          </div>
+                        <div className='checkout-item-amount'>
+                          <label htmlFor={`quantity-${item.id}`}>Cantidad: </label>
+                          <select
+                            id={`quantity-${item.id}`}
+                            value={item.quantity}
+                            onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                          >
+                            {[...Array(item.maxInventory).keys()].map((number) => (
+                              <option key={number + 1} value={number + 1}>
+                                {number + 1}
+                              </option>
+                            ))}
+                          </select>
                         </div>
                         <div>
                           <p>Precio: ${(item.price * item.quantity).toFixed(2)}</p>
@@ -284,61 +387,61 @@ function Checkout() {
 
               {/* Tip Section */}
               <section className="tip-section">
-  <h2>Tip</h2>
-  <div className="tip-options">
-    <button 
-      className={`tip-button ${tipPercentage === 15 ? 'active' : ''}`}
-      onClick={() => { setTipPercentage(15); setCustomTip(''); }}
-    >
-      15%
-    </button>
-    <button 
-      className={`tip-button ${tipPercentage === 18 ? 'active' : ''}`}
-      onClick={() => { setTipPercentage(18); setCustomTip(''); }}
-    >
-      18%
-    </button>
-    <button 
-      className={`tip-button ${tipPercentage === 22 ? 'active' : ''}`}
-      onClick={() => { setTipPercentage(22); setCustomTip(''); }}
-    >
-      22%
-    </button>
+                <h2>Tip</h2>
+                <div className="tip-options">
+                  <button 
+                    className={`tip-button ${tipPercentage === 15 ? 'active' : ''}`}
+                    onClick={() => { setTipPercentage(15); setCustomTip(''); }}
+                  >
+                    15%
+                  </button>
+                  <button 
+                    className={`tip-button ${tipPercentage === 18 ? 'active' : ''}`}
+                    onClick={() => { setTipPercentage(18); setCustomTip(''); }}
+                  >
+                    18%
+                  </button>
+                  <button 
+                    className={`tip-button ${tipPercentage === 22 ? 'active' : ''}`}
+                    onClick={() => { setTipPercentage(22); setCustomTip(''); }}
+                  >
+                    22%
+                  </button>
 
-    {/* Wrapping the Other button and input inside a div */}
-    <div className="custom-tip-wrapper">
-      <button 
-        className={`tip-button ${customTip !== '' ? 'active' : ''}`}
-        onClick={() => { setTipPercentage(10); setCustomTip('10'); }} // Default to 10%
-      >
-        Other
-      </button>
+                  {/* Wrapping the Other button and input inside a div */}
+                  <div className="custom-tip-wrapper">
+                    <button 
+                      className={`tip-button ${customTip !== '' ? 'active' : ''}`}
+                      onClick={() => { setTipPercentage(10); setCustomTip('10'); }} // Default to 10%
+                    >
+                      Other
+                    </button>
 
-      {customTip !== '' && (
-        <div className="custom-tip-container">
-          <input 
-            type="number" 
-            value={customTip} 
-            onChange={(e) => {
-              const value = e.target.value;
-              if (value === "") {
-                setTipPercentage(0);
-                setCustomTip("");
-              } else {
-                const parsedValue = parseFloat(value);
-                if (parsedValue >= 0) {
-                  setTipPercentage(parsedValue); 
-                  setCustomTip(value);
-                }
-              }
-            }} 
-          />
-          <span>%</span>
-        </div>
-      )}
-    </div>
-  </div>
-</section>
+                    {customTip !== '' && (
+                      <div className="custom-tip-container">
+                        <input 
+                          type="number" 
+                          value={customTip} 
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            if (value === "") {
+                              setTipPercentage(0);
+                              setCustomTip("");
+                            } else {
+                              const parsedValue = parseFloat(value);
+                              if (parsedValue >= 0) {
+                                setTipPercentage(parsedValue); 
+                                setCustomTip(value);
+                              }
+                            }
+                          }} 
+                        />
+                        <span>%</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </section>
 
               {/* Summary Section */}
               <div className="checkout-summary">
@@ -442,7 +545,7 @@ function Checkout() {
           </section>
 
           <section className="payment-section">
-            <h2>Payment Method (on Delivery) </h2>
+            <h2>Payment Method (on Delivery)</h2>
             <div className="form-group">
               <label>
                 <input
@@ -480,19 +583,21 @@ function Checkout() {
               </div>
             )}
           </section>
-          {/* <section className="adviser-section">
-            <h2 className="adviser-title">Adviser</h2>
-            <p className="adviser-text">
-              <strong>
-                If your delivery takes more than 45 minutes, your delivery fee will be <span className="highlight">FREE</span>.
-              </strong>
-            </p>
-          </section> */}
 
           <button 
             className="checkout-button" 
             onClick={handleCheckout} 
-            disabled={cartItems.length === 0 || !zipCode || !name || !address || !phoneNumber || (paymentMethod === 'card' && cardNumber.length !== 4) || !availableZipCodes.includes(parseInt(zipCode)) || !paymentMethod || !email}
+            disabled={
+              cartItems.length === 0 ||
+              !zipCode ||
+              !name ||
+              !address ||
+              !phoneNumber ||
+              (paymentMethod === 'card' && cardNumber.length !== 4) ||
+              !availableZipCodes.includes(parseInt(zipCode)) ||
+              !paymentMethod ||
+              !email
+            }
           >
             Submit
           </button>
