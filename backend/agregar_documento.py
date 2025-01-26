@@ -103,10 +103,10 @@ if __name__ == "__main__":
     # Definir los tamaños
     tamaños = [
         {
-            "id": "08218400523",
-            "size": "750ml",
-            "price":172.49 ,
-            "img": "liquors-webp/whiskey/bourbon/jack-daniels/jack-daniels-10-years/jack-daniels-10-years-750ml.webp",
+            "id": "0496390",
+            "size": "2L",
+            "price": 5.99,
+            "img": "liquors-webp/others/coca-cola/coca-cola-2L.webp",
             "inventory": 2,
             "size_ml": 750,
             "_id": str(ObjectId())
@@ -117,12 +117,12 @@ if __name__ == "__main__":
     try:
         nuevo_id = insertar_bebida(
             alcoholic_beverage="Alcoholic Beverages",
-            type_="whiskey",
-            subtype="american",
-            brand="Jack Daniels",
-            name="Jack Daniels 10 Years",
-            description="Jack Daniel's 10 Years is a Tennessee whiskey with a rich, robust flavor and a distinctive character.",
-            route="jack-daniels-10-years",
+            type_="other",
+            subtype="other",
+            brand="coca-cola",
+            name="Coca-Cola",
+            description="Coca-Cola is a carbonated soft drink produced by The Coca-Cola Company.",
+            route="coca-cola",
             modal=False,
             sizes=tamaños
             # Puedes añadir _id si lo deseas, por ejemplo: _id="6795a977e71eed0350aa05eb"
