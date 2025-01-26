@@ -337,7 +337,7 @@ function Checkout() {
           <h1>Checkout</h1>
 
           <button className="toggle-resume-btn" onClick={toggleResume}>
-            {showResume ? 'Hide Resume' : 'Show Resume'}
+            {showResume ? 'Show Resume' : 'Hide Resume'}
           </button>
 
           {!showResume && (
