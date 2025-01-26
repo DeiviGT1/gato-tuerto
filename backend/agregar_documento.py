@@ -103,39 +103,12 @@ if __name__ == "__main__":
     # Definir los tamaños
     tamaños = [
         {
-            "id": "0496340",
-            "size": "12oz",
-            "price": 1.99,
-            "img": "liquors-webp/others/coca-cola/sprite-12-oz-can.webp",
-            "inventory": 2,
-            "size_ml": 354.882,
-            "_id": str(ObjectId())
-        },
-        {
-            "id": "0490440",
-            "size": "20oz",
-            "price": 1.99,
-            "img": "liquors-webp/others/coca-cola/sprite-20oz.webp",
-            "inventory": 2,
-            "size_ml": 591.471,
-            "_id": str(ObjectId())  
-        },
-        {
-            "id": "25554555133",
-            "size": "1L",
-            "price": 5.99,
-            "img": "liquors-webp/others/coca-cola/sprite-1L.webp",
-            "inventory": 2,
-            "size_ml": 1000,
-            "_id": str(ObjectId())
-        },
-        {
-            "id": "0496390",
-            "size": "2L",
-            "price": 5.99,
-            "img": "liquors-webp/others/coca-cola/sprite-2L.webp",
-            "inventory": 2,
-            "size_ml": 2000,
+            "id": "24242425555",
+            "size": "750ml",
+            "price": 7.99,
+            "img": "liquors-webp/whiskey/scotch/glendronach/glendronach-24/glendronach-24-years-750ml.webp",
+            "inventory": 5,
+            "size_ml": 750,
             "_id": str(ObjectId())
         },
     ]
@@ -144,12 +117,12 @@ if __name__ == "__main__":
     try:
         nuevo_id = insertar_bebida(
             alcoholic_beverage="Alcoholic Beverages",
-            type_="other",
-            subtype="other",
-            brand="coca-cola",
-            name="Sprite",
-            description="Sprite is a colorless, lemon and lime-flavored soft drink created by The Coca-Cola Company.",
-            route="sprite",
+            type_="whiskey",
+            subtype="scotch",
+            brand="Glendronach",
+            name="Glendronach 24 Years",
+            description="Glendronach 24 Years is a rich, sherried single malt Scotch whisky matured for at least 24 years in a combination of the finest Pedro Ximenez and Oloroso sherry casks. Non-chill filtered and of natural color.",
+            route="glendronach-24-years",
             modal=False,
             sizes=tamaños
             # Puedes añadir _id si lo deseas, por ejemplo: _id="6795a977e71eed0350aa05eb"

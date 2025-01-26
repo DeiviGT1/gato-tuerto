@@ -2,13 +2,37 @@ import React, { useState, useEffect } from 'react';
 import './FilterComponent.css';
 import items from '../pages/products.json';
 
-function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selectedPrice, selectedSize, orderBy, selectedWineType, selectedVarietal, onFilterChange }) {
-
+function FilterComponent({
+    selectedType,
+    selectedSubtype,
+    selectedBrand,
+    selectedPrice,
+    selectedSize,
+    orderBy,
+    selectedWineType,
+    selectedVarietal,
+    onFilterChange
+}) {
     const [brands, setBrands] = useState([]);
     const [wineTypes, setWineTypes] = useState([]);
     const [varietals, setVarietals] = useState([]);
     const [subtypes, setSubtypes] = useState([]);
     const [sizes, setSizes] = useState([]);
+
+    const predefinedTypes = [
+        "whiskey",
+        "tequila",
+        "vodka",
+        "rum",
+        "wine",
+        "gin",
+        "cognac",
+        "brandy",
+        "mezcal",
+        "aguardiente",
+        "liquors",
+        "beer",
+    ];
 
     useEffect(() => {
         let allBrands = [];
@@ -32,12 +56,14 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
         };
 
         items.types.forEach(type => {
-            if (
+            const isSelectedType =
                 !selectedType ||
-                type.type === selectedType ||
+                (selectedType !== 'other' && type.type === selectedType) ||
                 (selectedType === 'cognac' && (type.type === 'cognac' || type.type === 'brandy')) ||
-                (selectedType === 'brandy' && (type.type === 'cognac' || type.type === 'brandy'))
-            ) {
+                (selectedType === 'brandy' && (type.type === 'cognac' || type.type === 'brandy')) ||
+                (selectedType === 'other' && !predefinedTypes.includes(type.type));
+
+            if (isSelectedType) {
                 type.subtypes.forEach(subtype => {
                     allSubtypes.push(subtype.subtype);
 
@@ -70,7 +96,7 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
             }
         });
 
-        // Eliminar duplicados y ordenar por "size_ml"
+        // Remove duplicates and sort sizes by their milliliter value
         const uniqueSizes = [...new Set(allSizes)].sort((a, b) => sizeToMl(a) - sizeToMl(b));
 
         setBrands([...new Set(allBrands)].sort());
@@ -78,7 +104,13 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
         setVarietals([...new Set(allVarietals)].sort());
         setSubtypes([...new Set(allSubtypes)].sort());
         setSizes(uniqueSizes);
-    }, [selectedType, selectedSubtype, selectedWineType, selectedVarietal]);
+    }, [
+        selectedType,
+        selectedSubtype,
+        selectedWineType,
+        selectedVarietal,
+        predefinedTypes, // Ensure predefinedTypes is included if it's defined outside useEffect
+    ]);
 
     const handleTypeChange = (e) => {
         const newSelectedType = e.target.value;
@@ -137,6 +169,7 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
                     <option value="aguardiente">Aguardiente</option>
                     <option value="liquors">Liquors</option>
                     <option value="beer">Beer</option>
+                    <option value="other">Other</option>
                 </select>
             </div>
             <div>
@@ -176,7 +209,11 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
             </div>
             <div>
                 <label>Wine Type:</label>
-                <select value={selectedWineType} onChange={handleWineTypeChange} disabled={selectedType !== 'wine'}>
+                <select
+                    value={selectedWineType}
+                    onChange={handleWineTypeChange}
+                    disabled={selectedType !== 'wine'}
+                >
                     <option value="">All</option>
                     {wineTypes.map(wineType => (
                         <option key={wineType} value={wineType}>{wineType}</option>
@@ -185,7 +222,11 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
             </div>
             <div>
                 <label>Varietal:</label>
-                <select value={selectedVarietal} onChange={handleVarietalChange} disabled={selectedType !== 'wine'}>
+                <select
+                    value={selectedVarietal}
+                    onChange={handleVarietalChange}
+                    disabled={selectedType !== 'wine'}
+                >
                     <option value="">All</option>
                     {varietals.map(v => (
                         <option key={v} value={v}>{v}</option>
@@ -219,4 +260,3 @@ function FilterComponent({ selectedType, selectedSubtype, selectedBrand, selecte
 }
 
 export default FilterComponent;
-
