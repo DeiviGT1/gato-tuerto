@@ -16,13 +16,13 @@ const productSchema = new mongoose.Schema({
         id: String,
         size: String,
         price: Number,
-        img: String,
+        img: String, // URL de la imagen
         inventory: Number,
         size_ml: Number,
       },
     ],
   });
   
-  const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;

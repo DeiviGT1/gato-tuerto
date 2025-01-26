@@ -1,5 +1,6 @@
 // backend/index.js
 
+const { upload, processImage, generateRoute, ensureDirectoryExistence } = require('./middleware/upload');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -846,32 +847,102 @@ app.get('/api/products', async (req, res) => {
 });
 
 // Ruta para agregar un nuevo producto
-app.post('/add-product', async (req, res) => {
+// Ruta para agregar un nuevo producto con manejo de imágenes
+app.post('/add-product', upload.any(), async (req, res) => {
   try {
-    const productData = req.body;
+    // Extraer datos del formulario
+    const productData = {
+      alcoholicBeverage: req.body.typeOfLiquor,
+      type: req.body.typeOfLiquor,
+      subtype: req.body.subtype,
+      brand: req.body.brand,
+      name: req.body.name,
+      description: req.body.description,
+      route: generateRoute(req.body.name),
+      modal: false, // Asigna según corresponda
+      sizes: [],
+    };
+
+    // Identificar índices únicos de tamaños
+    const sizeIndices = new Set();
+    for (let key of Object.keys(req.body)) {
+      const match = key.match(/sizes\[(\d+)\]\[(\w+)\]/);
+      if (match) {
+        sizeIndices.add(match[1]);
+      }
+    }
+
+    // Procesar cada tamaño
+    for (const index of sizeIndices) {
+      const sizeName = req.body[`sizes[${index}][size]`];
+      const sanitizedProductName = generateRoute(productData.name);
+      const sanitizedSize = generateRoute(sizeName);
+
+      const filename = `${sanitizedProductName}-${sanitizedSize}.webp`;
+
+      const size = {
+        id: req.body[`sizes[${index}][id]`],
+        size: sizeName,
+        price: parseFloat(req.body[`sizes[${index}][price]`]),
+        inventory: parseInt(req.body[`sizes[${index}][inventory]`], 10),
+        size_ml: req.body[`sizes[${index}][size_ml]`] ? parseInt(req.body[`sizes[${index}][size_ml]`], 10) : undefined,
+        img: null, // Se asignará después
+      };
+
+      // Encontrar el archivo correspondiente
+      const file = req.files.find(file => file.fieldname === `sizes[${index}][img]`);
+
+      if (file) {
+        // Generar la ruta base
+        const basePath = path.join(
+          __dirname,
+          'public',
+          'images',
+          'liquors-webp',
+          generateRoute(productData.type),
+          generateRoute(productData.subtype),
+          generateRoute(productData.brand),
+          generateRoute(productData.name)
+        );
+
+        // Asegurar que el directorio existe
+        ensureDirectoryExistence(basePath);
+
+        // Procesar y guardar la imagen
+        await processImage(file, basePath, filename);
+
+        // Generar la URL de la imagen
+        const imagePath = path.join(
+          '/images',
+          'liquors-webp',
+          generateRoute(productData.type),
+          generateRoute(productData.subtype),
+          generateRoute(productData.brand),
+          generateRoute(productData.name),
+          filename
+        ).replace(/\\/g, '/'); // Reemplazar backslashes en Windows
+
+        size.img = imagePath;
+      }
+
+      productData.sizes.push(size);
+    }
 
     // Validación de datos básicos
-    if (!productData.name || !productData.brand || !productData.type || !productData.sizes) {
+    if (!productData.name || !productData.brand || !productData.type || productData.sizes.length === 0) {
       return res.status(400).send({ success: false, error: 'Faltan campos obligatorios' });
     }
 
-    const result = await addProduct(productData);
+    // Agregar el producto a la base de datos
+    const newProduct = new Product(productData);
+    const savedProduct = await newProduct.save();
 
-    if (result.success) {
-      res.status(201).send({ success: true, product: result.product });
-    } else {
-      throw new Error(result.error);
-    }
+    res.status(201).send({ success: true, product: savedProduct });
   } catch (err) {
     console.error('Error al agregar el producto:', err);
     res.status(500).send({ success: false, error: err.message });
   }
 });
-
-// Ruta para servir la página de agregar un nuevo producto
-// backend/index.js
-
-// ... Código existente ...
 
 // Ruta para servir la página de agregar un nuevo producto
 app.get('/add-product-page', (req, res) => {
@@ -978,7 +1049,7 @@ app.get('/add-product-page', (req, res) => {
     <body>
       <div class="container">
         <h1>Agregar Nuevo Producto</h1>
-        <form id="addProductForm">
+        <form id="addProductForm" enctype="multipart/form-data">
           <label for="name">Nombre del Producto *</label>
           <input type="text" id="name" name="name" required>
 
@@ -1011,6 +1082,78 @@ app.get('/add-product-page', (req, res) => {
       </div>
 
       <script>
+        // Coloca aquí el código JavaScript proporcionado
+        document.getElementById('addProductForm').addEventListener('submit', async function(event) {
+          event.preventDefault();
+
+          const form = event.target;
+          const formData = new FormData(form);
+
+          // Validar y procesar los tamaños
+          const sizes = [];
+          const sizeIndices = new Set();
+
+          // Identificar índices únicos de tamaños
+          for (let key of formData.keys()) {
+            const match = key.match(/sizes\$begin:math:display$(\\\\d+)\\$end:math:display$\$begin:math:display$(\\\\w+)\\$end:math:display$/);
+            if (match) {
+              sizeIndices.add(match[1]);
+            }
+          }
+
+          // Procesar cada tamaño
+          sizeIndices.forEach(index => {
+            const size = {
+              id: formData.get(\`sizes[\${index}][id]\`),
+              size: formData.get(\`sizes[\${index}][size]\`),
+              price: parseFloat(formData.get(\`sizes[\${index}][price]\`)),
+              inventory: parseInt(formData.get(\`sizes[\${index}][inventory]\`), 10),
+              size_ml: formData.get(\`sizes[\${index}][size_ml]\`) ? parseInt(formData.get(\`sizes[\${index}][size_ml]\`), 10) : undefined,
+              img: formData.get(\`sizes[\${index}][img]\`)
+            };
+            sizes.push(size);
+          });
+
+          // Validar que al menos un tamaño ha sido agregado
+          if (sizes.length === 0) {
+            showMessage('Debe agregar al menos un tamaño para el producto.', 'error');
+            return;
+          }
+
+          try {
+            const response = await fetch('/add-product', {
+              method: 'POST',
+              body: formData // Enviar FormData que incluye archivos
+            });
+
+            const result = await response.json();
+            if (response.ok && result.success) {
+              showMessage('Producto agregado exitosamente.', 'success');
+              form.reset();
+              document.getElementById('sizesList').innerHTML = '';
+              addSize(); // Agregar un tamaño por defecto
+            } else {
+              throw new Error(result.error || 'Error al agregar el producto.');
+            }
+          } catch (error) {
+            showMessage(error.message, 'error');
+          }
+        });
+
+        function showMessage(message, type) {
+          const messageDiv = document.getElementById('message');
+          messageDiv.textContent = message;
+          messageDiv.className = \`message \${type}\`;
+          messageDiv.style.display = 'block';
+        }
+
+        // Agregar un tamaño por defecto al cargar la página
+        window.onload = () => {
+          addSize();
+        };
+      </script>
+
+      <script>
         let sizeCount = 0;
 
         function addSize() {
@@ -1034,6 +1177,9 @@ app.get('/add-product-page', (req, res) => {
 
             <label for="sizes[\${sizeCount}][size_ml]">Tamaño en ml</label>
             <input type="number" name="sizes[\${sizeCount}][size_ml]">
+
+            <label for="sizes[\${sizeCount}][img]">Imagen del Tamaño *</label>
+            <input type="file" name="sizes[\${sizeCount}][img]" accept="image/webp" required>
           \`;
           sizesList.appendChild(sizeItem);
         }
