@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pedidos Recibidos</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: none; /* Por defecto oculto, se muestra si pasa la auth */
+    }
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #475169;
+    }
+    .section-title {
+      font-size: 2em;
+      margin-top: 40px;
+      color: #475169;
+    }
+    .order-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .order-item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    /* Colores de fondo dependiendo del estado */
+    .order-item.pending {
+      background-color: #fff8cd; /* Amarillo claro */
+    }
+    .order-item.completed {
+      background-color: #d3ffd3; /* Verde claro */
+    }
+    .order-item.canceled {
+      background-color: #ffd3d3; /* Rojo claro */
+    }
+    .order-item h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #475169;
+    }
+    .order-item p {
+      margin: 5px 0;
+      font-size: 1.2em;
+    }
+    .order-item .complete-button,
+    .order-item .cancel-button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-right: 10px;
+    }
+    .order-item .cancel-button {
+      background-color: #f44336; /* Rojo */
+    }
+    .order-item .complete-button:hover {
+      background-color: #45a049;
+      transform: translateY(-2px);
+    }
+    .order-item .complete-button:active {
+      background-color: #3e8e41;
+      transform: translateY(0);
+    }
+    .order-item .cancel-button:hover {
+      background-color: #e53935; /* Rojo oscuro */
+      transform: translateY(-2px);
+    }
+    .order-item .cancel-button:active {
+      background-color: #d32f2f;
+      transform: translateY(0);
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 20px 0;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      .order-item p {
+        font-size: 1em;
+      }
+      .order-item .complete-button,
+      .order-item .cancel-button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
+    }
+    /* Estilos para el modal de autenticación */
+    .modal {
+      display: block; /* Se mostrará por defecto */
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .modal input[type="text"],
+    .modal input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .modal button {
+      background-color: #475169;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    .modal button:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="modal" id="authModal">
+    <div class="modal-content">
+      <h2>Autenticación Requerida</h2>
+      <form id="authForm">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Usuario"
+          required
+        >
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Contraseña"
+          required
+        >
+        <button type="submit">Ingresar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container" id="ordersContainer">
+    <h1>Pedidos Recibidos</h1>
+
+    <!-- Sección de Pedidos Pendientes -->
+    <div class="pending-orders">
+      <h2 class="section-title">Pedidos Pendientes</h2>
+      <ul class="order-list" id="pending-list"></ul>
+    </div>
+
+    <!-- Sección de Pedidos Completados -->
+    <div class="completed-orders">
+      <h2 class="section-title">Pedidos Completados</h2>
+      <ul class="order-list" id="completed-list"></ul>
+    </div>
+
+    <!-- Sección de Pedidos Cancelados -->
+    <div class="canceled-orders">
+      <h2 class="section-title">Pedidos Cancelados</h2>
+      <ul class="order-list" id="canceled-list"></ul>
+    </div>
+  </div>
+
+  <script>
+    // Manejo del formulario de autenticación
+    document.getElementById('authForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Aquí puedes validar tus credenciales contra tu backend.
+      // Por simplicidad, hacemos un hardcode:
+      if (username === 'admin' && password === 'admin123') {
+        // "Simulamos" la cookie de auth con localStorage:
+        localStorage.setItem('auth', 'true');
+        // Ocultamos el modal y mostramos la lista
+        document.getElementById('authModal').style.display = 'none';
+        document.getElementById('ordersContainer').style.display = 'block';
+        loadOrders(); // cargamos los pedidos
+      } else {
+        alert('Usuario o contraseña incorrectos');
+      }
+    });
+
+    // Si ya existe la "auth" en localStorage, no mostramos el modal
+    if (localStorage.getItem('auth') === 'true') {
+      document.getElementById('authModal').style.display = 'none';
+      document.getElementById('ordersContainer').style.display = 'block';
+      loadOrders();
+    }
+
+    // Función para cargar pedidos vía fetch a tu API
+    async function loadOrders() {
+      try {
+        // Supongamos que tienes un endpoint que devuelve:
+        // { pending: [...], completed: [...], canceled: [...] }
+        const res = await fetch('/api/all-orders');
+        const data = await res.json();
+
+        renderOrders(data.pending, 'pending-list', 'pending');
+        renderOrders(data.completed, 'completed-list', 'completed');
+        renderOrders(data.canceled, 'canceled-list', 'canceled');
+      } catch (err) {
+        console.error(err);
+        alert('Error al cargar pedidos');
+      }
+    }
+
+    // Renderizar pedidos en el DOM
+    function renderOrders(orders, listId, statusClass) {
+      const ul = document.getElementById(listId);
+      ul.innerHTML = '';
+
+      orders.forEach((order, index) => {
+        const li = document.createElement('li');
+        li.classList.add('order-item', statusClass);
+
+        li.innerHTML = `
+          <h2>Pedido ${index + 1}</h2>
+          <p><strong>Nombre:</strong> ${order.name}</p>
+          <p><strong>Dirección:</strong> ${order.address}</p>
+          <p><strong>Teléfono:</strong> ${order.phoneNumber}</p>
+          <p><strong>Email:</strong> ${order.email}</p>
+          <p><strong>Método de Pago:</strong> ${order.paymentMethod}</p>
+          <p><strong>Total:</strong> $${(order.total || 0).toFixed(2)}</p>
+          <p><strong>Notas:</strong> ${order.notes || 'No notes provided'}</p>
+          <p><strong>Artículos:</strong> ${
+            order.items
+              .map((item) => `${item.name} (${item.size}) x ${item.quantity}`)
+              .join('<br>')
+          }</p>
+        `;
+
+        // Si está pendiente, agregamos botones de completar y cancelar
+        if (statusClass === 'pending') {
+          const completeBtn = document.createElement('button');
+          completeBtn.classList.add('complete-button');
+          completeBtn.textContent = 'Completar este Pedido';
+          completeBtn.onclick = () => updateOrderStatus(order._id, 'complete');
+
+          const cancelBtn = document.createElement('button');
+          cancelBtn.classList.add('cancel-button');
+          cancelBtn.textContent = 'Cancelar este Pedido';
+          cancelBtn.onclick = () => updateOrderStatus(order._id, 'cancel');
+
+          li.appendChild(completeBtn);
+          li.appendChild(cancelBtn);
+        }
+
+        ul.appendChild(li);
+        const hr = document.createElement('hr');
+        ul.appendChild(hr);
+      });
+    }
+
+    // Llamar a tu API para completar o cancelar un pedido
+    async function updateOrderStatus(orderId, action) {
+      let url = '';
+      if (action === 'complete') {
+        url = '/complete-order';
+      } else if (action === 'cancel') {
+        url = '/cancel-order';
+      }
+
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: orderId })
+        });
+        const data = await res.json();
+        if (data.success) {
+          loadOrders(); // recargar pedidos
+        } else {
+          alert('Error al actualizar el pedido');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Error al actualizar el pedido');
+      }
+    }
+
+    // Opcional: recargar la página cada cierto tiempo:
+     setInterval(() => {
+       if (localStorage.getItem('auth') === 'true') {
+         loadOrders();
+       }
+     }, 5000);
+  </script>
+</body>
+</html>
