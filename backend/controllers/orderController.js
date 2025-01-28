@@ -64,8 +64,6 @@ exports.createOrder = async (req, res) => {
       from: process.env.FROM_PHONE_NUMBER, // número Twilio
     });
 
-    // Si quieres enviar a más números, descomenta o agrega más envíos:
-    // await client.messages.create({...})
 
     res.status(200).send({ success: true, orderId: order._id });
   } catch (error) {
