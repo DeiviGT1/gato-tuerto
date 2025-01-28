@@ -206,15 +206,12 @@
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      // Aquí puedes validar tus credenciales contra tu backend.
-      // Por simplicidad, hacemos un hardcode:
+      // Validación simple
       if (username === 'admin' && password === 'admin123') {
-        // "Simulamos" la cookie de auth con localStorage:
         localStorage.setItem('auth', 'true');
-        // Ocultamos el modal y mostramos la lista
         document.getElementById('authModal').style.display = 'none';
         document.getElementById('ordersContainer').style.display = 'block';
-        loadOrders(); // cargamos los pedidos
+        loadOrders(); 
       } else {
         alert('Usuario o contraseña incorrectos');
       }
@@ -230,8 +227,6 @@
     // Función para cargar pedidos vía fetch a tu API
     async function loadOrders() {
       try {
-        // Supongamos que tienes un endpoint que devuelve:
-        // { pending: [...], completed: [...], canceled: [...] }
         const res = await fetch('/api/all-orders');
         const data = await res.json();
 
@@ -253,8 +248,20 @@
         const li = document.createElement('li');
         li.classList.add('order-item', statusClass);
 
+        // 1. Formatear la fecha/hora
+        // (Solo si tu backend realmente envía "createdAt")
+        let dateStr = '';
+        if (order.createdAt) {
+          // Por ejemplo, formatear con la zona horaria de Bogotá:
+          const fechaHora = new Date(order.createdAt).toLocaleString('es-CO', {
+            timeZone: 'America/Bogota',
+          });
+          dateStr = `<p><strong>Fecha/Hora de Creación:</strong> ${fechaHora}</p>`;
+        }
+
         li.innerHTML = `
           <h2>Pedido ${index + 1}</h2>
+          ${dateStr}
           <p><strong>Nombre:</strong> ${order.name}</p>
           <p><strong>Dirección:</strong> ${order.address}</p>
           <p><strong>Teléfono:</strong> ${order.phoneNumber}</p>
@@ -319,11 +326,11 @@
     }
 
     // Opcional: recargar la página cada cierto tiempo:
-     setInterval(() => {
-       if (localStorage.getItem('auth') === 'true') {
-         loadOrders();
-       }
-     }, 5000);
+    setInterval(() => {
+      if (localStorage.getItem('auth') === 'true') {
+        loadOrders();
+      }
+    }, 5000);
   </script>
 </body>
 </html>
