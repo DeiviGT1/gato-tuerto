@@ -4,8 +4,12 @@ const axios = require('axios');
 const Order = require('../models/Order');
 
 // Lee las variables de entorno para Telegram
+// Ahora TELEGRAM_CHAT_ID es un array
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const TELEGRAM_CHAT_IDS = [
+  process.env.TELEGRAM_CHAT_ID,
+  process.env.TELEGRAM_CHAT_ID_2
+];
 
 // Controlador para crear un nuevo pedido (checkout)
 exports.createOrder = async (req, res) => {
@@ -52,7 +56,11 @@ exports.createOrder = async (req, res) => {
       *Teléfono:* ${phoneNumber}
       *Email:* ${email}
       *Método de pago:* ${paymentMethod}
-      ${paymentMethod === 'card' ? `*Últimos 4 dígitos de tarjeta:* ${cardNumber}` : ''}
+      ${
+        paymentMethod === 'card'
+          ? `*Últimos 4 dígitos de tarjeta:* ${cardNumber}`
+          : ''
+      }
       *Total:* $${total.toFixed(2)}
       *Notas:* ${notes || 'No hay notas'}
       
@@ -62,13 +70,17 @@ exports.createOrder = async (req, res) => {
         .join('\n')}
     `;
 
-    // Llamada a la API de Telegram para enviar el mensaje
-    // Usamos "parse_mode" para que interprete Markdown (si quieres negritas, etc.)
-    await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-      chat_id: TELEGRAM_CHAT_ID,
-      text: orderDetails,
-      parse_mode: 'Markdown',
-    });
+    // Envía el mensaje a cada uno de los chat IDs
+    // Usamos un Promise.all para hacer todas las llamadas en paralelo
+    await Promise.all(
+      TELEGRAM_CHAT_IDS.map((chatId) =>
+        axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          chat_id: chatId,
+          text: orderDetails,
+          parse_mode: 'Markdown',
+        })
+      )
+    );
 
     // Respuesta al frontend
     res.status(200).send({ success: true, orderId: order._id });
