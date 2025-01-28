@@ -1,18 +1,13 @@
 // backend/controllers/orderController.js
+
 const axios = require('axios');
 const Order = require('../models/Order');
 
+// Lee las variables de entorno para Telegram
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-const allowedPhones = [
-  process.env.TO_PHONE_NUMBER,   
-  process.env.TO_PHONE_NUMBER_2, 
-  process.env.TO_PHONE_NUMBER_3, 
-  process.env.TO_PHONE_NUMBER_4, 
-  process.env.TO_PHONE_NUMBER_5, 
-];
-
+// Controlador para crear un nuevo pedido (checkout)
 exports.createOrder = async (req, res) => {
   try {
     const {
@@ -27,11 +22,14 @@ exports.createOrder = async (req, res) => {
       notes,
     } = req.body;
 
+    // Validación básica
     if (!name || !address || !phoneNumber || !items || items.length === 0 || !total) {
-      return res.status(400).send({ success: false, error: 'Missing required fields' });
+      return res
+        .status(400)
+        .send({ success: false, error: 'Missing required fields' });
     }
 
-    // 1. Crear y guardar el pedido en la BD
+    // Guarda el pedido en la base de datos
     const newOrder = new Order({
       name,
       address,
@@ -46,54 +44,33 @@ exports.createOrder = async (req, res) => {
 
     const order = await newOrder.save();
 
-    // 2. Chequear si el phoneNumber está autorizado
-    if (allowedPhones.includes(phoneNumber)) {
+    // Detalles del pedido (para enviar por Telegram)
+    const orderDetails = `
+      *Nuevo Pedido Recibido*:
+      *Nombre:* ${name}
+      *Dirección:* ${address}
+      *Teléfono:* ${phoneNumber}
+      *Email:* ${email}
+      *Método de pago:* ${paymentMethod}
+      ${paymentMethod === 'card' ? `*Últimos 4 dígitos de tarjeta:* ${cardNumber}` : ''}
+      *Total:* $${total.toFixed(2)}
+      *Notas:* ${notes || 'No hay notas'}
       
-      // 3. Obtener fecha/hora de creación
-      // Mongoose crea "createdAt" automáticamente gracias a { timestamps: true }
-      const createdDate = new Date(order.createdAt);
-      
-      // Formatear la fecha/hora en tu zona horaria preferida (ej: Colombia)
-      const fechaHora = createdDate.toLocaleString('es-CO', {
-        timeZone: 'America/Bogota',
-      });
-      
-      // 4. Armamos el texto con la fecha/hora
-      const orderDetails = `
-        *Nuevo Pedido Recibido*:
-        *Fecha/Hora:* ${fechaHora}
-        *Nombre:* ${name}
-        *Dirección:* ${address}
-        *Teléfono:* ${phoneNumber}
-        *Email:* ${email}
-        *Método de pago:* ${paymentMethod}
-        ${
-          paymentMethod === 'card'
-            ? `*Últimos 4 dígitos de tarjeta:* ${cardNumber}`
-            : ''
-        }
-        *Total:* $${total.toFixed(2)}
-        *Notas:* ${notes || 'No hay notas'}
-        
-        *Items:*
-        ${items
-          .map((item) => `• ${item.name} - ${item.size} x ${item.quantity}`)
-          .join('\n')}
-      `;
+      *Items:*
+      ${items
+        .map((item) => `• ${item.name} - ${item.size} x ${item.quantity}`)
+        .join('\n')}
+    `;
 
-      // 5. Enviamos el mensaje a Telegram
-      await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-        chat_id: TELEGRAM_CHAT_ID,
-        text: orderDetails,
-        parse_mode: 'Markdown',
-      });
+    // Llamada a la API de Telegram para enviar el mensaje
+    // Usamos "parse_mode" para que interprete Markdown (si quieres negritas, etc.)
+    await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      chat_id: TELEGRAM_CHAT_ID,
+      text: orderDetails,
+      parse_mode: 'Markdown',
+    });
 
-      console.log(`Mensaje de Telegram enviado para el teléfono ${phoneNumber}`);
-    } else {
-      console.log(`Teléfono ${phoneNumber} NO está autorizado para recibir notificaciones`);
-    }
-
-    // 6. Respuesta final al frontend
+    // Respuesta al frontend
     res.status(200).send({ success: true, orderId: order._id });
   } catch (error) {
     console.error('Error al crear el pedido:', error);
@@ -142,7 +119,8 @@ exports.getOrdersPage = async (req, res) => {
     const canceledOrders = await Order.find({ status: 'canceled' });
 
     // Tu lógica de renderización HTML
-    let html = ``;
+    let html = `
+    `;
 
     res.send(html);
   } catch (error) {
