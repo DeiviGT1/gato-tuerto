@@ -20,6 +20,6 @@ const orderSchema = new mongoose.Schema({
   total: Number,
   status: { type: String, default: 'pending' },
   notes: String,
-});
+}, { timestamps: true }); // <--- Activar timestamps
 
 module.exports = mongoose.model('Order', orderSchema);

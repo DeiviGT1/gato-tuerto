@@ -2,20 +2,17 @@
 const axios = require('axios');
 const Order = require('../models/Order');
 
-// Variables de entorno
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-// Creamos un array con los teléfonos permitidos
 const allowedPhones = [
-  process.env.TO_PHONE_NUMBER,   // +17865160915
-  process.env.TO_PHONE_NUMBER_2, // +13055423005
-  process.env.TO_PHONE_NUMBER_3, // +17867021462
-  process.env.TO_PHONE_NUMBER_4, // +17865534222
-  process.env.TO_PHONE_NUMBER_5, // +13056085978
+  process.env.TO_PHONE_NUMBER,   
+  process.env.TO_PHONE_NUMBER_2, 
+  process.env.TO_PHONE_NUMBER_3, 
+  process.env.TO_PHONE_NUMBER_4, 
+  process.env.TO_PHONE_NUMBER_5, 
 ];
 
-// Controlador para crear un nuevo pedido (checkout)
 exports.createOrder = async (req, res) => {
   try {
     const {
@@ -30,14 +27,11 @@ exports.createOrder = async (req, res) => {
       notes,
     } = req.body;
 
-    // Validación básica
     if (!name || !address || !phoneNumber || !items || items.length === 0 || !total) {
-      return res
-        .status(400)
-        .send({ success: false, error: 'Missing required fields' });
+      return res.status(400).send({ success: false, error: 'Missing required fields' });
     }
 
-    // Guarda el pedido en la base de datos
+    // 1. Crear y guardar el pedido en la BD
     const newOrder = new Order({
       name,
       address,
@@ -52,11 +46,22 @@ exports.createOrder = async (req, res) => {
 
     const order = await newOrder.save();
 
-    // SOLO si el phoneNumber está en allowedPhones, enviamos a Telegram
+    // 2. Chequear si el phoneNumber está autorizado
     if (allowedPhones.includes(phoneNumber)) {
-      // Armamos el texto del pedido
+      
+      // 3. Obtener fecha/hora de creación
+      // Mongoose crea "createdAt" automáticamente gracias a { timestamps: true }
+      const createdDate = new Date(order.createdAt);
+      
+      // Formatear la fecha/hora en tu zona horaria preferida (ej: Colombia)
+      const fechaHora = createdDate.toLocaleString('es-CO', {
+        timeZone: 'America/Bogota',
+      });
+      
+      // 4. Armamos el texto con la fecha/hora
       const orderDetails = `
         *Nuevo Pedido Recibido*:
+        *Fecha/Hora:* ${fechaHora}
         *Nombre:* ${name}
         *Dirección:* ${address}
         *Teléfono:* ${phoneNumber}
@@ -76,7 +81,7 @@ exports.createOrder = async (req, res) => {
           .join('\n')}
       `;
 
-      // Enviamos mensaje al chat de Telegram configurado
+      // 5. Enviamos el mensaje a Telegram
       await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
         chat_id: TELEGRAM_CHAT_ID,
         text: orderDetails,
@@ -88,7 +93,7 @@ exports.createOrder = async (req, res) => {
       console.log(`Teléfono ${phoneNumber} NO está autorizado para recibir notificaciones`);
     }
 
-    // Respuesta al frontend
+    // 6. Respuesta final al frontend
     res.status(200).send({ success: true, orderId: order._id });
   } catch (error) {
     console.error('Error al crear el pedido:', error);
