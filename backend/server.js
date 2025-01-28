@@ -26,13 +26,10 @@ app.use(express.static(path.join(__dirname, 'views')));
 const orderRoutes = require('./routes/orderRoutes');
 const inventoryRoutes = require('./routes/inventoryRoutes');
 const productRoutes = require('./routes/productRoutes');
-const webhookRoutes = require('./routes/webhookRoutes'); 
 
 app.use(orderRoutes);
 app.use(inventoryRoutes);
 app.use(productRoutes);
-app.use(webhookRoutes);
-
 // Ruta raíz de prueba
 app.get('/', (req, res) => {
   res.send('Backend está funcionando!');

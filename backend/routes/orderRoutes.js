@@ -1,5 +1,3 @@
-// routes/orderRoutes.js
-
 const express = require('express');
 const router = express.Router();
 const {
@@ -7,7 +5,7 @@ const {
   completeOrder,
   cancelOrder,
   getOrdersPage,
-  getAllOrdersJson, // <--- Por ejemplo, si no lo exportaste en orderController se vuelve undefined
+  getAllOrdersJson,
 } = require('../controllers/orderController');
 
 router.post('/checkout', createOrder);

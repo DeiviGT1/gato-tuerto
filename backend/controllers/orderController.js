@@ -1,12 +1,19 @@
 // backend/controllers/orderController.js
-const twilio = require('twilio');
+const axios = require('axios');
 const Order = require('../models/Order');
 
-// Opcional: si quieres poner la lógica de Twilio en un "servicio" separado
-// puedes extraerla a un archivo en la carpeta services/twilioService.js
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = new twilio(accountSid, authToken);
+// Variables de entorno
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+
+// Creamos un array con los teléfonos permitidos
+const allowedPhones = [
+  process.env.TO_PHONE_NUMBER,   // +17865160915
+  process.env.TO_PHONE_NUMBER_2, // +13055423005
+  process.env.TO_PHONE_NUMBER_3, // +17867021462
+  process.env.TO_PHONE_NUMBER_4, // +17865534222
+  process.env.TO_PHONE_NUMBER_5, // +13056085978
+];
 
 // Controlador para crear un nuevo pedido (checkout)
 exports.createOrder = async (req, res) => {
@@ -23,12 +30,14 @@ exports.createOrder = async (req, res) => {
       notes,
     } = req.body;
 
+    // Validación básica
     if (!name || !address || !phoneNumber || !items || items.length === 0 || !total) {
       return res
         .status(400)
         .send({ success: false, error: 'Missing required fields' });
     }
 
+    // Guarda el pedido en la base de datos
     const newOrder = new Order({
       name,
       address,
@@ -43,28 +52,43 @@ exports.createOrder = async (req, res) => {
 
     const order = await newOrder.save();
 
-    const orderDetails = `
-      Name: ${name}
-      Address: ${address}
-      Phone Number: ${phoneNumber}
-      Email: ${email}
-      Payment Method: ${paymentMethod}
-      ${paymentMethod === 'card' ? `Card Number (last 4 digits): ${cardNumber}` : ''}
-      Total: $${total.toFixed(2)}
-      Notes: ${notes || 'No notes provided'}
-      Items:\n ${items
-        .map((item) => `${item.name}-${item.size}  x ${item.quantity}`)
-        .join('\n')}
-    `;
+    // SOLO si el phoneNumber está en allowedPhones, enviamos a Telegram
+    if (allowedPhones.includes(phoneNumber)) {
+      // Armamos el texto del pedido
+      const orderDetails = `
+        *Nuevo Pedido Recibido*:
+        *Nombre:* ${name}
+        *Dirección:* ${address}
+        *Teléfono:* ${phoneNumber}
+        *Email:* ${email}
+        *Método de pago:* ${paymentMethod}
+        ${
+          paymentMethod === 'card'
+            ? `*Últimos 4 dígitos de tarjeta:* ${cardNumber}`
+            : ''
+        }
+        *Total:* $${total.toFixed(2)}
+        *Notas:* ${notes || 'No hay notas'}
+        
+        *Items:*
+        ${items
+          .map((item) => `• ${item.name} - ${item.size} x ${item.quantity}`)
+          .join('\n')}
+      `;
 
-    // Enviar mensajes de texto
-    await client.messages.create({
-      body: `New Order Received:\n${orderDetails}`,
-      to: process.env.TO_PHONE_NUMBER, // tu número
-      from: process.env.FROM_PHONE_NUMBER, // número Twilio
-    });
+      // Enviamos mensaje al chat de Telegram configurado
+      await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        chat_id: TELEGRAM_CHAT_ID,
+        text: orderDetails,
+        parse_mode: 'Markdown',
+      });
 
+      console.log(`Mensaje de Telegram enviado para el teléfono ${phoneNumber}`);
+    } else {
+      console.log(`Teléfono ${phoneNumber} NO está autorizado para recibir notificaciones`);
+    }
 
+    // Respuesta al frontend
     res.status(200).send({ success: true, orderId: order._id });
   } catch (error) {
     console.error('Error al crear el pedido:', error);
@@ -107,22 +131,13 @@ exports.cancelOrder = async (req, res) => {
 
 // Controlador para mostrar pedidos y renderizar la página HTML de administración
 exports.getOrdersPage = async (req, res) => {
-  // Aquí va tu lógica que retornaba HTML con la autenticación y las secciones
-  // Simplemente copié lo esencial de tu index.js
   try {
-    const auth = req.cookies.auth;
-
     const pendingOrders = await Order.find({ status: 'pending' });
     const completedOrders = await Order.find({ status: 'completed' });
     const canceledOrders = await Order.find({ status: 'canceled' });
 
-    let html = `
-      <!-- Tu HTML aquí, con los pedidos inyectados -->
-      <!-- ... (omito por brevedad, copia tu HTML y ajusta variables en tu preferencia) -->
-    `;
-
-    // Reemplaza tu código HTML completo con tus variables (pendingOrders, etc.)
-    // para renderizar la lista de pedidos.
+    // Tu lógica de renderización HTML
+    let html = ``;
 
     res.send(html);
   } catch (error) {
@@ -131,13 +146,13 @@ exports.getOrdersPage = async (req, res) => {
   }
 };
 
+// Controlador para obtener todos los pedidos en JSON (API)
 exports.getAllOrdersJson = async (req, res) => {
   try {
     const pending = await Order.find({ status: 'pending' });
     const completed = await Order.find({ status: 'completed' });
     const canceled = await Order.find({ status: 'canceled' });
 
-    // Devolvemos un objeto con cada lista
     res.json({ 
       pending,
       completed,
