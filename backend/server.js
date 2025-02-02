@@ -1,8 +1,6 @@
-// backend/server.js
-
 require('dotenv').config();
 const express = require('express');
-const bodyParser = require('body-parser'); // Aunque express.json() puede reemplazar bodyParser
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
@@ -16,25 +14,28 @@ const port = process.env.PORT || 3001;
 
 // Middlewares
 app.use(cors());
-app.use(express.json({ verify: (req, res, buf) => { req.rawBody = buf.toString(); } })); // Para procesar JSON y obtener el rawBody para el webhook
+app.use(express.json({ verify: (req, res, buf) => { req.rawBody = buf.toString(); } }));
 app.use(cookieParser());
 
-// Servir archivos estáticos
+// Servir archivos estáticos (incluyendo las vistas)
 app.use(express.static(path.join(__dirname, 'views')));
 
-// Rutas
+// Rutas existentes
 const orderRoutes = require('./routes/orderRoutes');
 const inventoryRoutes = require('./routes/inventoryRoutes');
 const productRoutes = require('./routes/productRoutes');
-
+const searchRoutes = require('./routes/searchRoutes');
 app.use(orderRoutes);
 app.use(inventoryRoutes);
 app.use(productRoutes);
+app.use(searchRoutes);
+
+
 // Ruta raíz de prueba
 app.get('/', (req, res) => {
   res.send('Backend está funcionando!');
 });
 
-app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Servidor corriendo en http://0.0.0.0:${port}`);
 });

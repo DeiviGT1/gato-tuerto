@@ -13,10 +13,7 @@ const { connectDB } = require('../config/database'); // Usar la misma conexión
     // Leer JSON
     const filePath = path.join(__dirname, 'inventory.json');
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    
-    // ... tu lógica de actualización
-    // ...
-    
+  
     mongoose.connection.close();
     console.log('Inventory and prices successfully updated.');
   } catch (error) {

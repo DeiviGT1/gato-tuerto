@@ -1,3 +1,5 @@
+//backend/utils/updateInventory.js
+
 const Product = require('../models/Product');
 
 exports.updateInventory = async (data) => {

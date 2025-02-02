@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actualizar Inventario y Generar Archivo</title>
+  <!-- Link to the external CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+          }
+          
+          .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          }
+          
+          h1 {
+            text-align: center;
+            color: #475169;
+          }
+          
+          input[type="text"],
+          input[type="file"],
+          button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          }
+          
+          button {
+            background-color: #475169;
+            color: white;
+            cursor: pointer;
+            border: none;
+          }
+          
+          button:hover {
+            background-color: #333;
+          }
+          
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+          }
+          
+          table, th, td {
+            border: 1px solid #ccc;
+          }
+          
+          th, td {
+            padding: 8px;
+            text-align: center;
+          }
+          
+          th {
+            background-color: #f0f0f0;
+          }
+          
+          /* Estilo para el botón de eliminar dentro de la tabla */
+          .delete-btn {
+            background-color: #d9534f;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+          }
+          
+          .delete-btn:hover {
+            background-color: #c9302c;
+          }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Actualizar Inventario</h1>
+
+    <!-- Sección para subir el archivo de inventario -->
+    <div id="uploadSection">
+      <p>Sube el archivo de inventario (.txt):</p>
+      <input type="file" id="inventoryFile" accept=".txt">
+      <button id="uploadBtn">Subir Archivo</button>
+    </div>
+
+    <!-- Sección para buscar y actualizar producto (se muestra después de subir el archivo) -->
+    <div id="searchSection" style="display: none;">
+      <p>
+        Ingrese el código de producto y luego el inventario físico.  
+        Presione <strong>Enter</strong> en "Código de producto" para pasar al siguiente campo.
+      </p>
+      <input type="text" id="productCode" placeholder="Código de Producto">
+      <input type="text" id="newInventory" placeholder="Inventario Físico">
+    </div>
+
+    <!-- Sección para mostrar mensajes y botones de descarga/proceso finalizado -->
+    <div id="resultSection">
+      <p id="resultMessage"></p>
+      <button id="downloadBtn" style="display: none;">Descargar Archivo</button>
+      <button id="finalProcessBtn" style="display: none;">Proceso finalizado</button>
+      <!-- Aquí se mostrará la tabla (dataframe) -->
+      <div id="dataFrameContainer"></div>
+    </div>
+  </div>
+
+  <!-- Link to the external JavaScript file -->
+  <script src="../scripts/update-inventory-orders.js"></script>
+</body>
+</html>
