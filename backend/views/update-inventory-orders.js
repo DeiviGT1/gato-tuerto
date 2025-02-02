@@ -260,8 +260,8 @@ function showDataFrame() {
                <td>${item.type}</td>
                <td>${item.inventarioSistema}</td>
                <td>${item.inventarioFisico}</td>
-               <td>${item.categoria}</td>
                <td>${item.diferencia}</td>
+               <td>${item.categoria}</td>
                <td>${item.size}</td>
                <td><button class="delete-btn" onclick="removeProduct(${index})">Eliminar</button></td>
              </tr>`;
