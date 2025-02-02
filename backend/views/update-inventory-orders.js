@@ -104,18 +104,19 @@ function handleRegistration() {
   const productCode = document.getElementById('productCode').value.trim();
   const newInventory = document.getElementById('newInventory').value.trim();
   if (!productCode || !newInventory) {
-    alert("Por favor, complete ambos campos.");
+    showCustomAlert("Por favor, complete ambos campos.");
     return;
   }
   
   // Verificar si el producto ya está registrado (usando el código)
   if (savedItems.some(item => item.barcode === productCode)) {
-    alert("Producto ya registrado");
+    showCustomAlert("Producto ya registrado");
     return;
   }
   
   const foundItem = buscarItem(productCode);
   if (foundItem) {
+    // (Procesamiento normal del producto)
     const productName = foundItem.brand + " " + foundItem.description;
     const productType = foundItem.type;
     const inventarioSistema = foundItem.qty;
@@ -147,7 +148,9 @@ function handleRegistration() {
       finalProcessBtn.style.display = 'block';
     }
   } else {
-    alert("Producto con código " + productCode + " no encontrado.");
+    // Mostrar el modal y no permitir avanzar hasta que se cierre con el botón OK
+    showCustomAlert("Producto con código " + productCode + " no encontrado.");
+    return;
   }
 }
 
@@ -164,6 +167,12 @@ document.getElementById('productCode').addEventListener('keydown', function(even
 });
 
 document.getElementById('newInventory').addEventListener('keydown', function(event) {
+  const modal = document.getElementById('customAlert');
+  // Si el modal está abierto, ignoramos la tecla Enter
+  if (modal.dataset.open === "true") {
+    event.preventDefault();
+    return;
+  }
   if (event.key === 'Enter') {
     event.preventDefault();
     handleRegistration();

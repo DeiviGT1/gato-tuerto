@@ -114,7 +114,41 @@
     </div>
   </div>
 
+  <!-- Modal personalizado para alertas -->
+  <div id="customAlert" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+  background: rgba(0,0,0,0.5); z-index: 1000;">
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: #fff; padding: 20px; border-radius: 5px; text-align: center; min-width: 300px;">
+  <p id="alertMessage"></p>
+  <button id="alertOkButton" style="margin-top: 15px; padding: 8px 16px; background: #475169; 
+      color: #fff; border: none; border-radius: 5px; cursor: pointer;">OK</button>
+  </div>
+  </div>
+
   <!-- Link to the external JavaScript file -->
   <script src="update-inventory-orders.js"></script>
+  <script>
+    // Función para mostrar el modal con un mensaje personalizado
+    function showCustomAlert(message) {
+      const modal = document.getElementById('customAlert');
+      const messageElement = document.getElementById('alertMessage');
+      messageElement.textContent = message;
+      modal.style.display = 'block';
+      // Activamos una bandera en el modal para saber que está abierto
+      modal.dataset.open = "true";
+    }
+
+    // Función para ocultar el modal
+    function hideCustomAlert() {
+      const modal = document.getElementById('customAlert');
+      modal.style.display = 'none';
+      modal.dataset.open = "false";
+    }
+
+    // Listener para el botón OK del modal
+    document.getElementById('alertOkButton').addEventListener('click', () => {
+      hideCustomAlert();
+    });
+  </script>
 </body>
 </html>
