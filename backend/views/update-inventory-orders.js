@@ -29,7 +29,19 @@ uploadBtn.addEventListener('click', () => {
   }
   const reader = new FileReader();
   reader.onload = function(e) {
-    fileContent = e.target.result;
+    // Obtener el contenido original
+    let rawContent = e.target.result;
+    
+    // Procesar cada línea y cada celda: si la celda vacía, asignar "0"
+    fileContent = rawContent.split('\n').map(line => {
+      // Dividir la línea por tabuladores
+      return line.split('\t').map(cell => {
+        // Remover comillas y espacios y, si está vacía, asignar "0"
+        const trimmed = cell.replace(/"/g, '').trim();
+        return trimmed === "" ? "0" : trimmed;
+      }).join('\t');
+    }).join('\n');
+    
     alert("Archivo cargado exitosamente");
     // Se oculta la sección de subida y se muestra la de búsqueda
     uploadSection.style.display = 'none';
@@ -39,7 +51,6 @@ uploadBtn.addEventListener('click', () => {
   };
   reader.readAsText(file);
 });
-
 /**
  * Función para asignar una categoría según el campo TYPE.
  * Puedes personalizar este mapeo según tus necesidades.
@@ -109,7 +120,6 @@ function handleRegistration() {
     const productType = foundItem.type;
     const inventarioSistema = foundItem.qty;
     const inventarioFisico = newInventory;
-    const categoria = getCategory(foundItem.type);
     const size = foundItem.size;
     const invSistemaNum = parseFloat(inventarioSistema);
     const invFisicoNum = parseFloat(inventarioFisico);
@@ -120,7 +130,6 @@ function handleRegistration() {
       type: productType,
       inventarioSistema: inventarioSistema,
       inventarioFisico: inventarioFisico,
-      categoria: categoria,
       diferencia: diferencia,
       size: size
     };
@@ -129,7 +138,7 @@ function handleRegistration() {
       "Producto guardado: " + productName + " (" + productType + ") - " +
       "Size: " + size + ", Inventario sistema: " + inventarioSistema +
       ", Inventario físico: " + inventarioFisico +
-      ", Diferencia: " + diferencia + ", Categoría: " + categoria;
+      ", Diferencia: " + diferencia;
     document.getElementById('productCode').value = "";
     document.getElementById('newInventory').value = "";
     document.getElementById('productCode').focus();
@@ -174,12 +183,11 @@ function downloadFile() {
     "Type",
     "I.Sistema",
     "I.físico",
-    "Categoría",
     "Dif",
     "Size"
   ];
   // Fixed widths in characters (adjust these numbers as needed)
-  const fixedColWidths = [20, 8, 5, 5, 7, 6, 6];
+  const fixedColWidths = [20, 8, 5, 5, 6, 6];
 
   // New padCell function that can optionally center text
   function padCell(text, width, center = false) {
@@ -213,7 +221,6 @@ function downloadFile() {
       item.type,
       item.inventarioSistema,
       item.inventarioFisico,
-      item.categoria,
       item.diferencia.toString(),
       item.size
     ];
@@ -248,7 +255,6 @@ function showDataFrame() {
   html += '<th>Type</th>';
   html += '<th>Inventario sistema</th>';
   html += '<th>Inventario físico</th>';
-  html += '<th>Categoría</th>';
   html += '<th>Diferencia</th>';
   html += '<th>Size</th>';
   html += '<th>Acciones</th>';
@@ -261,7 +267,6 @@ function showDataFrame() {
                <td>${item.inventarioSistema}</td>
                <td>${item.inventarioFisico}</td>
                <td>${item.diferencia}</td>
-               <td>${item.categoria}</td>
                <td>${item.size}</td>
                <td><button class="delete-btn" onclick="removeProduct(${index})">Eliminar</button></td>
              </tr>`;
