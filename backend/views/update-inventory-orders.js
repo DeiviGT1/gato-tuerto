@@ -1,9 +1,6 @@
-//backend/scripts/update-inventory-orders.js
-
 /*
- * Archivo: update-inventory.js
- * Descripción: Contiene la lógica para actualizar el inventario y generar el archivo.
- * Nota: No se han cambiado las funciones existentes ya que son compartidas con otro sitio.
+ * Archivo: update-inventory-orders.js
+ * Descripción: Lógica para actualizar el inventario y generar el archivo, ahora con persistencia usando localStorage.
  */
 
 // Variables globales para almacenar el contenido del archivo y los items actualizados
@@ -17,10 +14,39 @@ const uploadSection = document.getElementById('uploadSection');
 const searchSection = document.getElementById('searchSection');
 const resultMessage = document.getElementById('resultMessage');
 const downloadBtn = document.getElementById('downloadBtn');
-const finalProcessBtn = document.getElementById('finalProcessBtn');
+// Se elimina la referencia al botón de previsualizar ya que no se mostrará
+// const finalProcessBtn = document.getElementById('finalProcessBtn');
 const dataFrameContainer = document.getElementById('dataFrameContainer');
+const resetBtn = document.getElementById('resetBtn');
 
-// Al hacer clic en "Subir Archivo" se lee el contenido del archivo TXT
+// Función para actualizar localStorage con los datos actuales
+function updateLocalStorage() {
+  localStorage.setItem('savedItems', JSON.stringify(savedItems));
+  localStorage.setItem('fileContent', fileContent);
+}
+
+// Al cargar la página, se carga la información almacenada en localStorage (si existe)
+document.addEventListener('DOMContentLoaded', function(){
+  const storedItems = localStorage.getItem('savedItems');
+  if (storedItems) {
+    savedItems = JSON.parse(storedItems);
+  }
+  const storedFileContent = localStorage.getItem('fileContent');
+  if (storedFileContent) {
+    fileContent = storedFileContent;
+    // Si ya se ha cargado un archivo previamente, mostrar la sección de búsqueda
+    uploadSection.style.display = 'none';
+    searchSection.style.display = 'block';
+  }
+  // Si hay items guardados, mostrar el botón de descarga y actualizar la tabla
+  if (savedItems.length > 0) {
+    downloadBtn.style.display = 'block';
+    // Se llama a showDataFrame para actualizar la previsualización de la tabla
+    showDataFrame();
+  }
+});
+
+// Al hacer clic en "Subir Archivo", se lee el contenido del archivo TXT
 uploadBtn.addEventListener('click', () => {
   const file = inventoryFileInput.files[0];
   if (!file) {
@@ -32,7 +58,7 @@ uploadBtn.addEventListener('click', () => {
     // Obtener el contenido original
     let rawContent = e.target.result;
     
-    // Procesar cada línea y cada celda: si la celda vacía, asignar "0"
+    // Procesar cada línea y cada celda: si la celda está vacía, asignar "0"
     fileContent = rawContent.split('\n').map(line => {
       // Dividir la línea por tabuladores
       return line.split('\t').map(cell => {
@@ -48,9 +74,13 @@ uploadBtn.addEventListener('click', () => {
     searchSection.style.display = 'block';
     // Enfocar el primer input de búsqueda
     document.getElementById('productCode').focus();
+    
+    // Actualizar localStorage con el contenido del archivo
+    updateLocalStorage();
   };
   reader.readAsText(file);
 });
+
 /**
  * Función para asignar una categoría según el campo TYPE.
  * Puedes personalizar este mapeo según tus necesidades.
@@ -116,7 +146,7 @@ function handleRegistration() {
   
   const foundItem = buscarItem(productCode);
   if (foundItem) {
-    // (Procesamiento normal del producto)
+    // Procesamiento normal del producto
     const productName = foundItem.brand + " " + foundItem.description;
     const productType = foundItem.type;
     const inventarioSistema = foundItem.qty;
@@ -143,10 +173,15 @@ function handleRegistration() {
     document.getElementById('productCode').value = "";
     document.getElementById('newInventory').value = "";
     document.getElementById('productCode').focus();
+    
+    // Mostrar el botón de descarga si hay al menos un item
     if (savedItems.length > 0) {
       downloadBtn.style.display = 'block';
-      finalProcessBtn.style.display = 'block';
     }
+    
+    // Actualizar localStorage y actualizar la previsualización de la tabla
+    updateLocalStorage();
+    showDataFrame();
   } else {
     // Mostrar el modal y no permitir avanzar hasta que se cierre con el botón OK
     showCustomAlert("Producto con código " + productCode + " no encontrado.");
@@ -181,9 +216,7 @@ document.getElementById('newInventory').addEventListener('keydown', function(eve
 
 /**
  * Función para generar y descargar el archivo de texto con la información acumulada,
- * formateado para que al imprimir en una hoja A4 se vea como un dataframe con 7 columnas.
- * Se utilizan anchos fijos para cada columna y se centra el contenido de las columnas
- * "I.Sistema", "I.físico" y "Dif".
+ * formateado para que al imprimir en una hoja A4 se vea como un dataframe.
  */
 function downloadFile() {
   // Definir los encabezados y anchos fijos para cada columna
@@ -195,10 +228,10 @@ function downloadFile() {
     "Dif",
     "Size"
   ];
-  // Fixed widths in characters (adjust these numbers as needed)
+  // Anchos fijos en caracteres (ajustar según necesidad)
   const fixedColWidths = [20, 8, 5, 5, 6, 6];
 
-  // New padCell function that can optionally center text
+  // Función auxiliar para rellenar la celda (opcionalmente centrando el texto)
   function padCell(text, width, center = false) {
     text = text.toString();
     if (text.length > width) {
@@ -213,7 +246,7 @@ function downloadFile() {
     }
   }
 
-  // Helper: return true if column index should be centered (for columns "I.Sistema", "I.físico" and "Dif")
+  // Indica si la columna debe estar centrada (para "I.Sistema", "I.físico" y "Dif")
   function shouldCenter(i) {
     return (i === 2 || i === 3 || i === 5);
   }
@@ -223,7 +256,7 @@ function downloadFile() {
   // Construir la fila separadora
   let separatorRow = "|-" + fixedColWidths.map(w => "-".repeat(w)).join("-|-") + "-|";
 
-  // Construir las filas de datos (solo las 7 columnas)
+  // Construir las filas de datos
   let dataRows = savedItems.map(item => {
     let row = [
       item.nombre,
@@ -236,7 +269,6 @@ function downloadFile() {
     return "| " + row.map((cell, i) => padCell(cell, fixedColWidths[i], shouldCenter(i))).join(" | ") + " |";
   });
 
-  // Concatenar todo el contenido
   let tableContent = headerRow + "\n" + separatorRow + "\n" + dataRows.join("\n");
 
   // Descargar el contenido en un archivo de texto
@@ -254,19 +286,9 @@ function downloadFile() {
 downloadBtn.addEventListener('click', downloadFile);
 
 /**
- * Función para generar y mostrar la información acumulada en forma de tabla (dataframe)
- * en la página. Se incluye una columna de "Acciones" para eliminar productos.
+ * Función para generar y mostrar la información acumulada en forma de tabla (dataframe).
+ * Se incluye una columna de "Acciones" para eliminar productos.
  */
-// Función para actualizar el inventario físico de un item y recalcular la diferencia
-function updateInventory(index, newValue) {
-  const invFisicoNum = parseFloat(newValue) || 0;
-  const invSistemaNum = parseFloat(savedItems[index].inventarioSistema) || 0;
-  savedItems[index].inventarioFisico = newValue;
-  savedItems[index].diferencia = invFisicoNum - invSistemaNum;
-  showDataFrame();
-}
-
-// Función para generar y mostrar la información acumulada en forma de tabla (dataframe)
 function showDataFrame() {
   let html = '<table>';
   html += '<thead><tr>';
@@ -298,9 +320,35 @@ function showDataFrame() {
   dataFrameContainer.innerHTML = html;
 }
 
-function removeProduct(index) {
-  savedItems.splice(index, 1);
+/**
+ * Función para actualizar el inventario físico de un item y recalcular la diferencia.
+ */
+function updateInventory(index, newValue) {
+  const invFisicoNum = parseFloat(newValue) || 0;
+  const invSistemaNum = parseFloat(savedItems[index].inventarioSistema) || 0;
+  savedItems[index].inventarioFisico = newValue;
+  savedItems[index].diferencia = invFisicoNum - invSistemaNum;
+  updateLocalStorage();
   showDataFrame();
 }
 
-finalProcessBtn.addEventListener('click', showDataFrame);
+/**
+ * Función para eliminar un producto de la lista.
+ */
+function removeProduct(index) {
+  savedItems.splice(index, 1);
+  updateLocalStorage();
+  showDataFrame();
+}
+
+// Se elimina el listener del botón de previsualizar ya que no se muestra
+// finalProcessBtn.addEventListener('click', showDataFrame);
+
+// Event listener para el botón de reiniciar: limpia el localStorage y recarga la página.
+resetBtn.addEventListener('click', function(){
+  if (confirm("¿Estás seguro de reiniciar? Se perderán todos los datos almacenados.")) {
+    localStorage.removeItem('savedItems');
+    localStorage.removeItem('fileContent');
+    window.location.reload();
+  }
+});

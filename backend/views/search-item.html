@@ -2,130 +2,58 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Actualizar Inventario y Generar Archivo</title>
-  <!-- Link to the external CSS file -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-          }
-          
-          .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-          }
-          
-          h1 {
-            text-align: center;
-            color: #475169;
-          }
-          
-          input[type="text"],
-          input[type="file"],
-          button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 1em;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-          }
-          
-          button {
-            background-color: #475169;
-            color: white;
-            cursor: pointer;
-            border: none;
-          }
-          
-          button:hover {
-            background-color: #333;
-          }
-          
-          table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-          }
-          
-          table, th, td {
-            border: 1px solid #ccc;
-          }
-          
-          th, td {
-            padding: 8px;
-            text-align: center;
-          }
-          
-          th {
-            background-color: #f0f0f0;
-          }
-          
-          /* Estilo para el botón de eliminar dentro de la tabla */
-          .delete-btn {
-            background-color: #d9534f;
-            border: none;
-            color: white;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 3px;
-          }
-          
-          .delete-btn:hover {
-            background-color: #c9302c;
-          }
-    </style>
+  <!-- Link al archivo CSS externo -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Opcional: importar una fuente de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>Ordenes de la semana</h1>
+    <h1>Órdenes de la Semana</h1>
 
     <!-- Sección para subir el archivo de inventario -->
-    <div id="uploadSection">
+    <section id="uploadSection" class="section">
       <p>Sube el archivo de inventario (.txt):</p>
       <input type="file" id="inventoryFile" accept=".txt">
       <button id="uploadBtn">Subir Archivo</button>
-    </div>
+    </section>
 
     <!-- Sección para buscar y actualizar producto (se muestra después de subir el archivo) -->
-    <div id="searchSection" style="display: none;">
+    <section id="searchSection" class="section" style="display: none;">
       <p>
         Ingrese el código de producto y luego el inventario físico.  
         Presione <strong>Enter</strong> en "Código de producto" para pasar al siguiente campo.
       </p>
       <input type="text" id="productCode" placeholder="Código de Producto">
       <input type="text" id="newInventory" placeholder="Inventario Físico">
-    </div>
+    </section>
 
     <!-- Sección para mostrar mensajes y botones de descarga/proceso finalizado -->
-    <div id="resultSection">
+    <section id="resultSection" class="section">
       <p id="resultMessage"></p>
       <button id="downloadBtn" style="display: none;">Descargar Archivo</button>
-      <button id="finalProcessBtn" style="display: none;">Previsualizar Archivo</button>
+      <!-- Se elimina el botón de previsualizar para no mostrarlo -->
+      <!-- <button id="finalProcessBtn" style="display: none;">Previsualizar Archivo</button> -->
+      <!-- Botón para reiniciar (reset) -->
+      <button id="resetBtn">Reiniciar</button>
       <!-- Aquí se mostrará la tabla (dataframe) -->
       <div id="dataFrameContainer"></div>
-    </div>
+    </section>
   </div>
 
   <!-- Modal personalizado para alertas -->
-  <div id="customAlert" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-  background: rgba(0,0,0,0.5); z-index: 1000;">
-  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    background: #fff; padding: 20px; border-radius: 5px; text-align: center; min-width: 300px;">
-  <p id="alertMessage"></p>
-  <button id="alertOkButton" style="margin-top: 15px; padding: 8px 16px; background: #475169; 
-      color: #fff; border: none; border-radius: 5px; cursor: pointer;">OK</button>
-  </div>
+  <div id="customAlert" class="modal">
+    <div class="modal-content">
+      <p id="alertMessage"></p>
+      <button id="alertOkButton">OK</button>
+    </div>
   </div>
 
-  <!-- Link to the external JavaScript file -->
+  <!-- Link al archivo JavaScript externo -->
   <script src="update-inventory-orders.js"></script>
   <script>
     // Función para mostrar el modal con un mensaje personalizado
@@ -134,7 +62,6 @@
       const messageElement = document.getElementById('alertMessage');
       messageElement.textContent = message;
       modal.style.display = 'block';
-      // Activamos una bandera en el modal para saber que está abierto
       modal.dataset.open = "true";
     }
 
@@ -146,9 +73,7 @@
     }
 
     // Listener para el botón OK del modal
-    document.getElementById('alertOkButton').addEventListener('click', () => {
-      hideCustomAlert();
-    });
+    document.getElementById('alertOkButton').addEventListener('click', hideCustomAlert);
   </script>
 </body>
 </html>
