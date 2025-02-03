@@ -124,7 +124,7 @@ function handleRegistration() {
     const size = foundItem.size;
     const invSistemaNum = parseFloat(inventarioSistema);
     const invFisicoNum = parseFloat(inventarioFisico);
-    const diferencia = invSistemaNum - invFisicoNum;
+    const diferencia = invFisicoNum - invSistemaNum;
     const newItem = {
       barcode: foundItem.barcode,
       nombre: productName,
@@ -257,6 +257,16 @@ downloadBtn.addEventListener('click', downloadFile);
  * Función para generar y mostrar la información acumulada en forma de tabla (dataframe)
  * en la página. Se incluye una columna de "Acciones" para eliminar productos.
  */
+// Función para actualizar el inventario físico de un item y recalcular la diferencia
+function updateInventory(index, newValue) {
+  const invFisicoNum = parseFloat(newValue) || 0;
+  const invSistemaNum = parseFloat(savedItems[index].inventarioSistema) || 0;
+  savedItems[index].inventarioFisico = newValue;
+  savedItems[index].diferencia = invFisicoNum - invSistemaNum;
+  showDataFrame();
+}
+
+// Función para generar y mostrar la información acumulada en forma de tabla (dataframe)
 function showDataFrame() {
   let html = '<table>';
   html += '<thead><tr>';
@@ -274,7 +284,11 @@ function showDataFrame() {
                <td>${item.nombre}</td>
                <td>${item.type}</td>
                <td>${item.inventarioSistema}</td>
-               <td>${item.inventarioFisico}</td>
+               <td>
+                 <input type="number" value="${item.inventarioFisico}" 
+                        onchange="updateInventory(${index}, this.value)" 
+                        style="width: 80px; text-align: center;" />
+               </td>
                <td>${item.diferencia}</td>
                <td>${item.size}</td>
                <td><button class="delete-btn" onclick="removeProduct(${index})">Eliminar</button></td>
