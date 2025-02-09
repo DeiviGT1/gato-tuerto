@@ -290,7 +290,38 @@ function downloadFile() {
   document.body.removeChild(link);
 }
 
-downloadBtn.addEventListener('click', downloadFile);
+function downloadPDF() {
+  // Asegúrate de tener acceso a jsPDF
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  // Definir el encabezado y los datos de la tabla
+  const headers = [["Nombre del producto", "Type", "I.Sistema", "I.físico", "Dif", "Size"]];
+  const data = savedItems.map(item => [
+    item.nombre,
+    item.type,
+    item.inventarioSistema,
+    item.inventarioFisico,
+    item.diferencia.toString(),
+    item.size
+  ]);
+
+  // Genera la tabla. autoTable repetirá el encabezado en cada página automáticamente.
+  doc.autoTable({
+    head: headers,
+    body: data,
+    margin: { top: 20 },
+    didDrawPage: function (data) {
+      // Opcional: agrega un título en la parte superior
+      doc.setFontSize(12);
+      doc.text("Productos Actualizados", data.settings.margin.left, 10);
+    }
+  });
+
+  doc.save("productos_actualizados.pdf");
+}
+
+downloadBtn.addEventListener('click', downloadPDF);
 
 /**
  * Función para generar y mostrar la información acumulada en forma de tabla (dataframe).
@@ -359,3 +390,4 @@ resetBtn.addEventListener('click', function(){
     window.location.reload();
   }
 });
+
