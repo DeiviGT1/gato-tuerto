@@ -229,7 +229,7 @@ function downloadFile() {
     "Size"
   ];
   // Anchos fijos en caracteres (ajustar según necesidad)
-  const fixedColWidths = [35, 8, 5, 5, 6, 6];
+  const fixedColWidths = [35, 10, 5, 5, 6, 6];
 
   // Función auxiliar para rellenar la celda (opcionalmente centrando el texto)
   function padCell(text, width, center = false) {
@@ -246,18 +246,21 @@ function downloadFile() {
     }
   }
 
-  // Indica si la columna debe estar centrada (para "I.Sistema", "I.físico" y "Dif")
+  // Indica si la columna debe estar centrada.  
+  // Ahora se centra "I.Sistema" (índice 2), "I.físico" (índice 3) y "Dif" (índice 4).
   function shouldCenter(i) {
-    return (i === 2 || i === 3 || i === 5);
+    return (i === 2 || i === 3 || i === 4);
   }
 
-  // Construir la fila de encabezados
+  // Construir la fila de encabezados y la separadora
   let headerRow = "| " + headers.map((header, i) => padCell(header, fixedColWidths[i], shouldCenter(i))).join(" | ") + " |";
-  // Construir la fila separadora
   let separatorRow = "|-" + fixedColWidths.map(w => "-".repeat(w)).join("-|-") + "-|";
 
-  // Construir las filas de datos
-  let dataRows = savedItems.map(item => {
+  // Construir el contenido de la tabla
+  let tableContent = headerRow + "\n" + separatorRow + "\n";
+
+  // Iterar sobre los items y agregar cada fila; cada 50 filas se reimprime el encabezado
+  savedItems.forEach((item, index) => {
     let row = [
       item.nombre,
       item.type,
@@ -266,10 +269,14 @@ function downloadFile() {
       item.diferencia.toString(),
       item.size
     ];
-    return "| " + row.map((cell, i) => padCell(cell, fixedColWidths[i], shouldCenter(i))).join(" | ") + " |";
+    let rowString = "| " + row.map((cell, i) => padCell(cell, fixedColWidths[i], shouldCenter(i))).join(" | ") + " |";
+    tableContent += rowString + "\n";
+    
+    // Cada 50 filas, si aún hay más datos, se vuelve a imprimir el encabezado
+    if ((index + 1) % 50 === 0 && index !== savedItems.length - 1) {
+      tableContent += "\n" + headerRow + "\n" + separatorRow + "\n";
+    }
   });
-
-  let tableContent = headerRow + "\n" + separatorRow + "\n" + dataRows.join("\n");
 
   // Descargar el contenido en un archivo de texto
   const blob = new Blob([tableContent], { type: 'text/plain;charset=utf-8;' });
