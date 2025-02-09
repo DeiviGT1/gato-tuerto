@@ -224,15 +224,15 @@ function downloadPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
-  // Definir el encabezado y los datos de la tabla
-  const headers = [["Nombre del producto", "Type", "I.Sistema", "I.físico", "Dif", "Size"]];
+  // Definir el encabezado y los datos de la tabla, colocando "Size" como segunda columna
+  const headers = [["Nombre del producto", "Size", "Type", "I.Sistema", "I.físico", "Dif"]];
   const data = savedItems.map(item => [
     item.nombre,
+    item.size,
     item.type,
     item.inventarioSistema,
     item.inventarioFisico,
-    item.diferencia.toString(),
-    item.size
+    item.diferencia.toString()
   ]);
 
   // Genera la tabla. autoTable repetirá el encabezado en cada página automáticamente.
