@@ -246,7 +246,7 @@ function downloadFile() {
     }
   }
 
-  // Indica si la columna debe estar centrada.  
+  // Indica si la columna debe estar centrada.
   // Ahora se centra "I.Sistema" (índice 2), "I.físico" (índice 3) y "Dif" (índice 4).
   function shouldCenter(i) {
     return (i === 2 || i === 3 || i === 4);
@@ -259,7 +259,7 @@ function downloadFile() {
   // Construir el contenido de la tabla
   let tableContent = headerRow + "\n" + separatorRow + "\n";
 
-  // Iterar sobre los items y agregar cada fila; cada 52 filas se reimprime el encabezado
+  // Iterar sobre los items y agregar cada fila; cada 48 filas se reimprime el encabezado
   savedItems.forEach((item, index) => {
     let row = [
       item.nombre,
@@ -272,8 +272,8 @@ function downloadFile() {
     let rowString = "| " + row.map((cell, i) => padCell(cell, fixedColWidths[i], shouldCenter(i))).join(" | ") + " |";
     tableContent += rowString + "\n";
     
-    // Cada 52 filas, si aún hay más datos, se vuelve a imprimir el encabezado
-    if ((index + 1) % 52 === 0 && index !== savedItems.length - 1) {
+    // Cada 48 filas, si aún hay más datos, se vuelve a imprimir el encabezado
+    if ((index + 1) % 48 === 0 && index !== savedItems.length - 1) {
       tableContent += "\n" + headerRow + "\n" + separatorRow + "\n";
     }
   });
