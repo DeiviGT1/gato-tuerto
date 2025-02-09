@@ -218,77 +218,6 @@ document.getElementById('newInventory').addEventListener('keydown', function(eve
  * Función para generar y descargar el archivo de texto con la información acumulada,
  * formateado para que al imprimir en una hoja A4 se vea como un dataframe.
  */
-function downloadFile() {
-  // Definir los encabezados y anchos fijos para cada columna
-  const headers = [
-    "Nombre del producto",
-    "Type",
-    "I.Sistema",
-    "I.físico",
-    "Dif",
-    "Size"
-  ];
-  // Anchos fijos en caracteres (ajustar según necesidad)
-  const fixedColWidths = [35, 8, 5, 5, 6, 6];
-
-  // Función auxiliar para rellenar la celda (opcionalmente centrando el texto)
-  function padCell(text, width, center = false) {
-    text = text.toString();
-    if (text.length > width) {
-      return text.substring(0, width);
-    } else if (center) {
-      let totalPadding = width - text.length;
-      let leftPadding = Math.floor(totalPadding / 2);
-      let rightPadding = totalPadding - leftPadding;
-      return " ".repeat(leftPadding) + text + " ".repeat(rightPadding);
-    } else {
-      return text.padEnd(width);
-    }
-  }
-
-  // Indica si la columna debe estar centrada.
-  // Ahora se centra "I.Sistema" (índice 2), "I.físico" (índice 3) y "Dif" (índice 4).
-  function shouldCenter(i) {
-    return (i === 2 || i === 3 || i === 4);
-  }
-
-  // Construir la fila de encabezados y la separadora
-  let headerRow = "| " + headers.map((header, i) => padCell(header, fixedColWidths[i], shouldCenter(i))).join(" | ") + " |";
-  let separatorRow = "|-" + fixedColWidths.map(w => "-".repeat(w)).join("-|-") + "-|";
-
-  // Construir el contenido de la tabla
-  let tableContent = headerRow + "\n" + separatorRow + "\n";
-
-  // Iterar sobre los items y agregar cada fila; cada 48 filas se reimprime el encabezado
-  savedItems.forEach((item, index) => {
-    let row = [
-      item.nombre,
-      item.type,
-      item.inventarioSistema,
-      item.inventarioFisico,
-      item.diferencia.toString(),
-      item.size
-    ];
-    let rowString = "| " + row.map((cell, i) => padCell(cell, fixedColWidths[i], shouldCenter(i))).join(" | ") + " |";
-    tableContent += rowString + "\n";
-    
-    // Cada 48 filas, si aún hay más datos, se vuelve a imprimir el encabezado
-    if ((index + 1) % 48 === 0 && index !== savedItems.length - 1) {
-      tableContent += "\n" + headerRow + "\n" + separatorRow + "\n";
-    }
-  });
-
-  // Descargar el contenido en un archivo de texto
-  const blob = new Blob([tableContent], { type: 'text/plain;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.setAttribute("href", url);
-  link.setAttribute("download", "productos_actualizados.txt");
-  link.style.visibility = 'hidden';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
 
 function downloadPDF() {
   // Asegúrate de tener acceso a jsPDF
@@ -310,11 +239,21 @@ function downloadPDF() {
   doc.autoTable({
     head: headers,
     body: data,
-    margin: { top: 20 },
+    margin: { top: 20, bottom: 20 },
     didDrawPage: function (data) {
-      // Opcional: agrega un título en la parte superior
+      // Formatear la fecha actual en mm/dd/yyyy
+      const today = new Date();
+      const mm = ("0" + (today.getMonth() + 1)).slice(-2);
+      const dd = ("0" + today.getDate()).slice(-2);
+      const yyyy = today.getFullYear();
+      const formattedDate = mm + "/" + dd + "/" + yyyy;
+      
+      // Crear el título con la fecha
+      const title = "Ordenes de la semana " + formattedDate;
+      
+      // Ajustar la fuente y escribir el título en la posición deseada
       doc.setFontSize(12);
-      doc.text("Productos Actualizados", data.settings.margin.left, 10);
+      doc.text(title, data.settings.margin.left, 10);
     }
   });
 
