@@ -1,0 +1,55 @@
+/* Barra superior (top-bar) */
+.front-image{
+  max-height: 100px;
+}
+
+.top-bar {
+  align-items: center;
+  background-color: var(--sidebar-bg-color);
+}
+
+.top-bar .hamburger {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Íconos y links en la barra superior */
+.top-bar .logo-heart,
+.top-bar .icon-ig,
+.top-bar .icon-cart {
+  color: var(--main-text-color);
+  margin: 0 0.5rem;
+  font-weight: bold;
+}
+
+/* Menú (menu-bar) */
+.menu-bar {
+  background-color: var(--hover-bg-color);
+  text-align: center;
+}
+.menu-bar a {
+  color: var(--hover-text-color);
+  font-weight: bold;
+  margin: 1rem;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--footer-bg-color);
+  padding: 1rem;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* Textos destacados en el footer */
+.footer-message, 
+.scroll-indicator, 
+.popular-topics {
+  font-weight: bold;
+  color: var(--hover-bg-color);
+}

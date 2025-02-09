@@ -9,7 +9,6 @@ const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_IDS = [
   process.env.TELEGRAM_CHAT_ID,
   process.env.TELEGRAM_CHAT_ID_2,
-  process.env.TELEGRAM_CHAT_ID_3,
 ];
 
 // Controlador para crear un nuevo pedido (checkout)

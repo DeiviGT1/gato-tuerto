@@ -1,0 +1,133 @@
+/* app/static/css/styles.css */
+
+:root {
+    --main-bg-color: #fff; 
+    --main-text-color: #5A6D7C;
+    --hover-bg-color: #5A6D7C;
+    --hover-text-color: #fff;
+    --footer-bg-color: #f8f9fa;
+    --sidebar-bg-color: #f8f9fa;
+    --content-bg-color: #fff;
+    --muted-text-color: #6c757d;
+    --btn-secondary-bg: #6c757d;
+    --btn-secondary-color: #fff;
+}
+
+body.inverted {
+    --main-bg-color: #333; 
+    --main-text-color: rgb(244, 244, 244);
+    --hover-bg-color: rgb(244, 244, 244);
+    --hover-text-color: #5A6D7C;
+    --footer-bg-color: #5A6D7C;
+    --sidebar-bg-color: #444; 
+    --content-bg-color: #333;
+    --muted-text-color: #ddd;
+    --btn-secondary-bg: #ddd;
+    --btn-secondary-color: #5A6D7C;
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+  }
+
+* {
+    font-family: Lato, sans-serif;
+    color: var(--main-text-color);
+    text-decoration: none;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.subtitle {
+    width: 100%;
+}
+
+.subtitle > img {
+    width: 20%;
+    height: auto;
+    max-width: 150px;
+    transition: filter 0.5s, opacity 0.5s;
+}
+
+.introduction {
+    align-content: center;
+    height: 100vh;
+}
+
+.btn-secondary {
+    background-color: var(--btn-secondary-bg);
+    color: var(--btn-secondary-color);
+    border: none;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--hover-bg-color);
+    color: var(--hover-text-color);
+}
+
+.footer {
+    background-color: var(--footer-bg-color);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.text-muted {
+    color: var(--muted-text-color);
+    transition: color 0.5s;
+}
+
+.invertible-image {
+    transition: filter 0.5s, opacity 0.5s;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    place-content: center;
+}
+
+.half-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+}
+
+.professional-description,
+.projects-section,
+.contact-section{
+    min-height: 100vh;
+    align-content: center;
+}
+
+@media (max-width: 768px) {
+    .introduction {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .introduction h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle img {
+        width: 50%;
+        max-width: 100px;
+    }
+
+    .wrapper {
+        padding: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+}

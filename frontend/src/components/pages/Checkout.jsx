@@ -255,7 +255,6 @@ function Checkout() {
   
     // Promesa de la solicitud al servidor
     const checkoutRequest = fetch('https://gato-tuerto-server.vercel.app/checkout', {
-    // const checkoutRequest = fetch('http://127.0.0.1:3001/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
