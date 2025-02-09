@@ -229,7 +229,7 @@ function downloadFile() {
     "Size"
   ];
   // Anchos fijos en caracteres (ajustar según necesidad)
-  const fixedColWidths = [30, 8, 5, 5, 6, 6];
+  const fixedColWidths = [35, 8, 5, 5, 6, 6];
 
   // Función auxiliar para rellenar la celda (opcionalmente centrando el texto)
   function padCell(text, width, center = false) {
