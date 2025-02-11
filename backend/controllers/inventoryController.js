@@ -10,14 +10,121 @@ exports.getUpdateInventoryPage = (req, res) => {
   // Copia el HTML de tu "/update-inventory-page"
   // y haz un res.send(html).
   const html = `
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html>
-      <head> <title>Actualizar Inventario</title> </head>
-      <body>
-        <!-- Coloca aquí tu formulario y tu JS inline o usa un motor de plantillas -->
+    <head>
+      <title>Actualizar Inventario</title>
+      <style>
+        /* Tus estilos para la página aquí */
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f5f5f5;
+          margin: 0;
+          padding: 20px;
+          color: #333;
+        }
+        .container {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: white;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+          font-size: 2em;
+          text-align: center;
+          margin-bottom: 20px;
+          color: #475169;
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        input[type="file"] {
+          margin-bottom: 20px;
+        }
+        button {
+          background-color: #475169;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 1em;
+        }
+        button:hover {
+          background-color: #333;
+        }
+        .loading {
+          display: none;
+          font-size: 1.2em;
+          color: #475169;
+          margin-top: 20px;
+        }
+        .message {
+          display: none;
+          font-size: 1.2em;
+          margin-top: 20px;
+        }
+        .success {
+          color: green;
+        }
+        .error {
+          color: red;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
         <h1>Actualizar Inventario</h1>
-        ...
-      </body>
+        <form id="uploadForm">
+          <input type="file" name="inventoryFile" accept=".txt" required>
+          <button type="submit">Actualizar</button>
+        </form>
+        <div class="loading" id="loading">Cargando...</div>
+        <div class="message" id="message"></div>
+      </div>
+      <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+          event.preventDefault();
+
+          const formData = new FormData(this);
+          const loadingElement = document.getElementById('loading');
+          const messageElement = document.getElementById('message');
+
+          // Mostrar indicador de carga
+          loadingElement.style.display = 'block';
+          messageElement.style.display = 'none';
+
+          try {
+            const response = await fetch('/update-inventory', {
+              method: 'POST',
+              body: formData
+            });
+
+            const result = await response.json();
+            loadingElement.style.display = 'none';
+
+            if (response.ok && result.success) {
+              messageElement.textContent = result.message;
+              messageElement.classList.remove('error');
+              messageElement.classList.add('success');
+            } else {
+              throw new Error(result.error || 'Error al actualizar el inventario');
+            }
+          } catch (error) {
+            loadingElement.style.display = 'none';
+            messageElement.textContent = error.message;
+            messageElement.classList.remove('success');
+            messageElement.classList.add('error');
+          } finally {
+            messageElement.style.display = 'block';
+          }
+        });
+      </script>
+    </body>
     </html>
   `;
   res.send(html);
