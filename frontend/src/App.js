@@ -1,7 +1,7 @@
 // App.js
 import React, { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
-
+import useGAPageViews from './components/extensions/useGAPageViews';
 import Home from './components/pages/Home';
 import Catalog from './components/pages/Catalog';
 import Liquor from "./components/pages/Liquor";
@@ -14,7 +14,7 @@ import TermsAndConditions from './components/pages/termsandconditions';
 
 const App = () => {
     const [searchTerm, setSearchTerm] = useState('');
-
+    useGAPageViews();
     return (
         <>
             <AgeVerificationModal /> 
