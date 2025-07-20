@@ -12,3 +12,4 @@ function useGAPageViews() {
   }, [location]);
 }
 
+export default useGAPageViews;
