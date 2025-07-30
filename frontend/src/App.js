@@ -1,23 +1,25 @@
 // App.js
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Routes, Route } from "react-router-dom";
 import useGAPageViews from './components/extensions/useGAPageViews';
-import Home from './components/pages/Home';
-import Catalog from './components/pages/Catalog';
-import Liquor from "./components/pages/Liquor";
-import ContactUs from "./components/pages/ContactUs";
-import productsData from './components/pages/products.json';
-import Checkout from './components/pages/Checkout';
-import AgeVerificationModal from './components/ui/AgeVerificationModal'; // Import the component
-import PrivacyPolicy from './components/pages/privacypolicy';
-import TermsAndConditions from './components/pages/termsandconditions';
+import AgeVerificationModal from './components/ui/AgeVerificationModal';
+
+const Home = React.lazy(() => import('./components/pages/Home'));
+const Catalog = React.lazy(() => import('./components/pages/Catalog'));
+const Liquor = React.lazy(() => import("./components/pages/Liquor"));
+const ContactUs = React.lazy(() => import("./components/pages/ContactUs"));
+const productsData = React.lazy(() => import('./components/pages/products.json'));
+const Checkout = React.lazy(() => import('./components/pages/Checkout'));
+const PrivacyPolicy = React.lazy(() => import('./components/pages/privacypolicy'));
+const TermsAndConditions = React.lazy(() => import('./components/pages/termsandconditions'));
 
 const App = () => {
     const [searchTerm, setSearchTerm] = useState('');
     useGAPageViews();
     return (
         <>
-            <AgeVerificationModal /> 
+        <AgeVerificationModal /> 
+            <Suspense fallback={<div>Loading...</div>}>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/product/:item" element={<Liquor />} />
@@ -26,9 +28,9 @@ const App = () => {
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-
             </Routes>
-        </>
+        </Suspense>
+    </>
     );
 }
 

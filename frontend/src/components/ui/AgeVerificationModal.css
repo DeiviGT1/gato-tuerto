@@ -1,113 +1,94 @@
-.ReactModal__Overlay{
-    z-index: 1000;
-    color: white; 
-    background-color: rgba(0, 0, 0, 1) !important;
-}
-
-.ReactModal__Overlay>div{
-    align-content: center;
-    text-align: -webkit-center;
-    background: rgb(63 63 63) !important;
-}
-
-/* AgeVerificationModal.css */
-.modal-overlay {
-    position: fixed;
+/* --- Overlay (el fondo oscuro) --- */
+.age-verification-overlay {
+    position: fixed; /* Clave: Se posiciona relativo a la ventana del navegador */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px); /* Optional: Adds a blur effect to the background */
-}
-
-.modal-content {
-    background-color: #000;
-    border: 1px solid #222;    
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 500px;
-    padding: 100px 20px;
-    text-align: center;
-    font-family: 'Baskerville', serif;
-}
-
-.modal-content p {
-    font-size: 1.5em;
-    color: black;
-    margin-bottom: 20px;
-}
-
-.modal-content button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    background-color: #000;
-    color: white;
-    font-family: 'Baskerville', serif;
-}
-
-.modal-content button:hover {
-    background-color: #444;
-}
-
-button:focus {
-    outline: none;
-}
-
-.modal-over-age{
-    text-align: -webkit-center;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #222;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semitransparente */
+    display: flex; /* Clave: Usa flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 1000; /* Clave: Se asegura de que esté por encima de todo lo demás */
+  }
+  
+  /* --- Contenedor del Modal (el cuadro de diálogo) --- */
+  .age-verification-modal {
     background-color: #292929;
-    align-content: center;
-}
-
-.modal-over-age>.image{
-    width: 40%;
-    height: 60%;
-}
-
-.modal-over-age>div>img{
-    height: 100%;
+    color: white;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    width: 90%;
+    max-width: 400px; /* Ancho máximo para el modal */
+    text-align: center;
+    border: 1px solid #444;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    /* Evita el outline que react-modal añade por defecto */
+    outline: none; 
+  }
+  
+  /* Contenido interno para mejor estructura */
+  .modal-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Espacio entre los elementos (logo, texto, botones) */
+  }
+  
+  /* --- Logo --- */
+  .logo-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .logo-image {
     width: 100%;
-    object-fit: contain;
-    
-}
-
-@media (max-width: 768px) {
-    .modal-content {
-        width: 90%;
-        padding: 10px;
-    }
-
-    .modal-content p {
-        font-size: 1.2em;
-    }
-
-    .modal-content button {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-
-    .modal-over-age>.image{
-        width: 100%;
-    }
-
-    .modal-over-age{
-        text-align: -webkit-center;
-        padding: 10px;
-        height: 95%;
-        width: 95%;
-    }
-}
+    height: 100%;
+    object-fit: contain; /* Asegura que el logo se vea bien sin deformarse */
+  }
+  
+  /* --- Texto --- */
+  .age-prompt-text {
+    font-size: 1.5rem; /* 24px */
+    font-family: 'Times New Roman', Times, serif; /* Una fuente más clásica */
+    margin: 0;
+  }
+  
+  /* --- Botones --- */
+  .button-group {
+    display: flex;
+    gap: 1rem; /* Espacio entre los botones */
+    width: 100%;
+  }
+  
+  .age-button {
+    flex-grow: 1; /* Hace que ambos botones ocupen el mismo espacio */
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem; /* 18px */
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .age-button:hover {
+    transform: scale(1.05); /* Efecto de crecimiento al pasar el cursor */
+  }
+  
+  .yes-button {
+    background-color: #28a745; /* Verde */
+  }
+  
+  .yes-button:hover {
+    background-color: #218838;
+  }
+  
+  .no-button {
+    background-color: #dc3545; /* Rojo */
+  }
+  
+  .no-button:hover {
+    background-color: #c82333;
+  }

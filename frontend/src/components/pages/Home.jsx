@@ -213,13 +213,13 @@ function Home() {
     return (
         <>
           <Header />
-          <div className="app-screen">
+          <div className="app-screen" style={{ position: "relative", top: "10vh" }}>
             <div className="home">
               <div className='welcome'>
                 <img
                   src={isMobile ? "/images/banners/banner-welcome-cel.png" : "/images/banners/banner-welcome.png"}
                   alt="Welcome Banner"
-                  loading="lazy"
+                  fetchpriority="high"
                 />
               </div>
 
@@ -328,7 +328,19 @@ function Home() {
                 isMobile={isMobile}
               />
 
-              {/* Añade más secciones según sea necesario */}
+              <ProductSection
+                title="Wine"
+                link="/catalog?type=wine"
+                products={wineProducts}
+                responsive={responsivee}
+              />
+              <Banner
+                desktopSrc="/images/banners/banner-caymus.png"
+                mobileSrc="/images/banners/banner-caymus-cel.png"
+                altText="Caymus Banner"
+                isMobile={isMobile}
+              />
+
             </div>
             <Footer />
           </div>

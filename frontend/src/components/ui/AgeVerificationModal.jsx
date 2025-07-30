@@ -1,21 +1,23 @@
-// src/components/ui/AgeVerificationModal.jsx
-
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import './AgeVerificationModal.css';
 import axios from 'axios';
 
-// Asegúrate de mover 'gato-tuerto-logo.png' a 'public/images/'
+// Importa el archivo CSS que crearemos a continuación
+import './AgeVerificationModal.css';
+
+// Asegúrate de que esta ruta sea correcta y que la imagen esté en la carpeta `public`
 const logoPath = "/images/gato-tuerto-logo.png";
 
-// Configuración de Modal (puedes personalizarla según tus necesidades)
-Modal.setAppElement('#root'); // Asumiendo que tu aplicación tiene un div con id 'root'
+// Clave de API de Google Maps (debe estar en un archivo .env)
+const Maps_API_KEY = process.env.REACT_APP_Maps_API_KEY;
 
-const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+// Asigna el modal al elemento raíz de tu aplicación para la accesibilidad
+Modal.setAppElement('#root');
 
 const AgeVerificationModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Comprueba si la edad ya ha sido verificada al cargar el componente
   useEffect(() => {
     const isOver21 = localStorage.getItem('isOver21');
     if (!isOver21) {
@@ -23,98 +25,63 @@ const AgeVerificationModal = () => {
     }
   }, []);
 
-  const handleYes = () => {
-    localStorage.setItem('isOver21', true);
-    setIsOpen(false);
-  };
-
-  const handleNo = () => {
-    alert('You must be over 21 to enter this site.');
-    // Opcional: Redirigir al usuario a otra página o cerrar la pestaña
-  };
-
-  const [locationData, setLocationData] = useState({
-    latitude: null,
-    longitude: null,
-    zipCode: null,
-  });
-
+  // Opcional: Lógica de geolocalización (la he dejado como la tenías)
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          setLocationData((prevData) => ({
-            ...prevData,
-            latitude,
-            longitude,
-          }));
-
-          // Geocodificación inversa
-          axios
-            .get(
-              `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_MAPS_API_KEY}`
-            )
+          // Si no tienes una clave de API, la petición de geocodificación fallará.
+          if (!Maps_API_KEY) {
+            console.warn("Google Maps API Key no está definida. La geocodificación inversa no funcionará.");
+            return;
+          }
+          axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${Maps_API_KEY}`)
             .then((response) => {
-              const results = response.data.results;
-              if (results.length > 0) {
-                const addressComponents = results[0].address_components;
-                const zipCodeComponent = addressComponents.find((component) =>
-                  component.types.includes('postal_code')
-                );
-                if (zipCodeComponent) {
-                  const zipCode = zipCodeComponent.long_name;
-                  setLocationData((prevData) => ({
-                    ...prevData,
-                    zipCode,
-                  }));
-                  // Guardar el ZIP code en localStorage
-                  localStorage.setItem('zipCode', zipCode);
-                } else {
-                  console.error('Unable to find ZIP code.');
-                }
-              } else {
-                console.error('No address found.');
+              const zipCodeComponent = response.data.results[0]?.address_components.find(c => c.types.includes('postal_code'));
+              if (zipCodeComponent) {
+                localStorage.setItem('zipCode', zipCodeComponent.long_name);
               }
             })
-            .catch((error) => {
-              console.error('Error fetching geocoding data:', error.message);
-            });
+            .catch(error => console.error('Error en la geocodificación:', error));
         },
-        (error) => {
-          console.error('Geolocation error:', error.message);
-        }
+        (error) => console.error('Error de geolocalización:', error.message)
       );
-    } else {
-      console.error('Geolocation is not supported by this browser.');
     }
   }, []);
 
+
+  const handleYes = () => {
+    localStorage.setItem('isOver21', 'true');
+    setIsOpen(false);
+  };
+
+  const handleNo = () => {
+    // Es mejor mostrar un mensaje en la página que usar un alert().
+    // Esto es solo un ejemplo, puedes redirigir a otra página.
+    window.location.href = 'https://www.google.com/search?q=sitios+web+para+menores+de+edad';
+  };
+
   return (
-    <Modal 
-      isOpen={isOpen} 
-      onRequestClose={handleNo} 
-      contentLabel="Age Verification" 
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={handleNo} // Cierra si el usuario hace clic fuera (o presiona ESC)
+      contentLabel="Verificación de Edad"
+      // Estas son las clases clave que conectan con nuestro archivo CSS
       className="age-verification-modal"
       overlayClassName="age-verification-overlay"
+      shouldCloseOnOverlayClick={false} // Impide cerrar el modal al hacer clic en el fondo
     >
-      <div className='modal-over-age'>
-        <div className='image'>
-          {/* Usar ruta absoluta para la imagen del logo */}
-          <img src={logoPath} alt="Gato Tuerto Logo" className="logo-image" />
+      <div className="modal-content-wrapper">
+        <div className="logo-container">
+          <img src={logoPath} alt="Gato Tuerto Logo" className="logo-image" loading="lazy" />
         </div>
-        <p>Are you over the age of 21?</p>
+        <p className="age-prompt-text">¿Eres mayor de 21 años?</p>
         <div className="button-group">
-          <button 
-            onClick={handleYes} 
-            className="age-button yes-button"
-          >
-            Yes
+          <button onClick={handleYes} className="age-button yes-button">
+            Sí
           </button>
-          <button 
-            onClick={handleNo} 
-            className="age-button no-button"
-          >
+          <button onClick={handleNo} className="age-button no-button">
             No
           </button>
         </div>
