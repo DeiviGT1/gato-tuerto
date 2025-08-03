@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-function Product({ route, name, price, size, img, productClass, inventory, idSelected }) {
+const Product = ({ route, name, price, size, imagePaths, productClass, inventory, idSelected }) => {
   const titleRef = useRef(null);
   const [fontSize, setFontSize] = useState(24);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -42,7 +42,13 @@ function Product({ route, name, price, size, img, productClass, inventory, idSel
       )}
       <Link to={`/product/${route}?size=${size}&id=${idSelected}`}>
         <div className="card-image">
-          <img src={img} alt={name} loading="lazy" />
+          <img 
+            src={imagePaths.large}
+            srcSet={`${imagePaths.small} 480w, ${imagePaths.large} 1024w`}
+            sizes="(max-width: 464px) 50vw, (max-width: 1024px) 33vw, 20vw"
+            alt={name}
+            loading="lazy"
+          />
         </div>
         <div className="card-info">
           <div className="card-name">
@@ -90,7 +96,7 @@ Product.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   size: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
+  imagePaths: PropTypes.object.isRequired,
   productClass: PropTypes.string,
   inventory: PropTypes.number.isRequired,
   idSelected: PropTypes.string.isRequired,

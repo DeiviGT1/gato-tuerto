@@ -11,15 +11,32 @@ import CarouselItem from "../ui/CarouselItem";
 import { Link } from 'react-router-dom';
 import productData from './products.json';
 
-// Rutas absolutas a los "main" (carpeta "public/images/liquors-webp/..."):
-const mainWhiskey  = "/images/liquors-webp/whiskey/scotch/macallan/macallan-18-double-oak/macallan-18-double-oak-750ml.webp";
-const mainTequila  = "/images/liquors-webp/tequila/jalisco/clase-azul/clase-azul-reposado/clase-azul-reposado-750ml.webp";
-const mainRum      = "/images/liquors-webp/rum/guatemalan/zacapa/zacapa-23/zacapa-23-750ml.webp";
-const mainVodka    = "/images/liquors-webp/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-750ml.webp";
-const mainWine     = "/images/liquors-webp/wine/american/caymus/caymus-cabernet-sauvignon/caymus-cabernet-sauvignon-750ml.webp";
-const mainGin      = "/images/liquors-webp/gin/netherlands/nolets/nolets-silver/nolets-silver-750ml.webp";
-const mainBeer     = "/images/liquors-webp/beer/mexican/corona/corona-extra/corona-extra-24oz-bottle.webp";
-const mainCognac   = "/images/liquors-webp/cognac-brandy/french/hennessy/hennessy-vs/hennessy-vs-750ml.webp";
+const generateImagePaths = (basePath) => {
+  const base = basePath.replace('.webp', '');
+  return {
+    small: `${base}-480w.webp`,
+    large: `${base}-1024w.webp`,
+  };
+};
+
+
+const johnnieWalkerBannerPaths = generateImagePaths("/images/banners/banner-johnnie-walker.webp");
+const granCentenarioBannerPaths = generateImagePaths("/images/banners/banner-gran-centenario.webp");
+const smirnoffBannerPaths = generateImagePaths("/images/banners/banner-smirnoff.webp");
+const cointreauBannerPaths = generateImagePaths("/images/banners/banner-cointreau.webp");
+const caymusBannerPaths = generateImagePaths("/images/banners/banner-caymus.webp");
+const welcomeBannerPaths = generateImagePaths("/images/banners/banner-welcome.webp");
+
+// Rutas a las imágenes (ahora usando el helper)
+const mainWhiskeyPaths = generateImagePaths("/images/liquors-webp/whiskey/scotch/macallan/macallan-18-double-oak/macallan-18-double-oak-750ml.webp");
+const mainTequilaPaths = generateImagePaths("/images/liquors-webp/tequila/jalisco/clase-azul/clase-azul-reposado/clase-azul-reposado-750ml.webp");
+const mainRumPaths = generateImagePaths("/images/liquors-webp/rum/guatemalan/zacapa/zacapa-23/zacapa-23-750ml.webp");
+const mainVodkaPaths = generateImagePaths("/images/liquors-webp/vodka/french/ciroc/ciroc-vodka/ciroc-vodka-750ml.webp");
+const mainWinePaths = generateImagePaths("/images/liquors-webp/wine/american/caymus/caymus-cabernet-sauvignon/caymus-cabernet-sauvignon-750ml.webp");
+const mainGinPaths = generateImagePaths("/images/liquors-webp/gin/netherlands/nolets/nolets-silver/nolets-silver-750ml.webp");
+const mainBeerPaths = generateImagePaths("/images/liquors-webp/beer/mexican/corona/corona-extra/corona-extra-24oz-bottle.webp");
+const mainCognacPaths = generateImagePaths("/images/liquors-webp/cognac-brandy/french/hennessy/hennessy-vs/hennessy-vs-750ml.webp");
+
 
 // Array de frases aleatorias
 const phrases = [
@@ -46,17 +63,25 @@ const getProductsByType = (type, productRoutes) => {
     .filter(product => productRoutes.includes(product.route))
     .map(product => {
       const preferredSize = product.sizes.find(size => size.size === "750ml") || product.sizes[0];
-      // Sumar "/images/" a la ruta que ya viene en product JSON
-      // p.ej. product.size.img = "liquors-webp/whiskey/scotch/..."
-      const imgSrc = "/images/" + preferredSize.img;
-      return { ...product, imgSrc, price: preferredSize.price };
+      const basePath = "/images/" + preferredSize.img;
+
+      // Usamos el helper para generar las rutas en lugar de un solo imgSrc
+      const imagePaths = generateImagePaths(basePath);
+      
+      return { ...product, imagePaths, price: preferredSize.price };
     });
 };
 
 // Componente reutilizable Banner
-const Banner = ({ desktopSrc, mobileSrc, altText, isMobile }) => (
+const Banner = ({ imagePaths, altText }) => (
   <div className='banner'>
-    <img src={isMobile ? mobileSrc : desktopSrc} alt={altText} loading="lazy" />
+    <img
+      src={imagePaths.large}
+      srcSet={`${imagePaths.small} 480w, ${imagePaths.large} 1024w`}
+      sizes="(max-width: 464px) 50vw, (max-width: 1024px) 33vw, 20vw"
+      alt={altText}
+      loading="lazy"
+    />
   </div>
 );
 
@@ -81,7 +106,7 @@ const ProductSection = ({ title, link, products, responsive }) => {
           <Link to={`/product/${product.route}`} key={product.route}>
             <CarouselItem
               name={product.name}
-              imgSrc={product.imgSrc}
+              imagePaths={product.imagePaths} 
               price={product.price}
             />
           </Link>
@@ -106,17 +131,8 @@ function debounce(func, wait) {
 
 // Componente Home
 function Home() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
   const [showModal, setShowModal] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 900);
-    const debouncedResize = debounce(handleResize, 200);
-
-    window.addEventListener('resize', debouncedResize);
-    return () => window.removeEventListener('resize', debouncedResize);
-  }, []);
 
   // Verificar si se está procesando un pedido y mostrar modal
   useEffect(() => {
@@ -217,7 +233,9 @@ function Home() {
             <div className="home">
               <div className='welcome'>
                 <img
-                  src={isMobile ? "/images/banners/banner-welcome-cel.png" : "/images/banners/banner-welcome.png"}
+                  src={welcomeBannerPaths.large}
+                  srcSet={`${welcomeBannerPaths.small} 480w, ${welcomeBannerPaths.large} 1024w`}
+                  sizes="(max-width: 464px) 50vw, (max-width: 1024px) 33vw, 20vw"
                   alt="Welcome Banner"
                   fetchpriority="high"
                 />
@@ -228,49 +246,97 @@ function Home() {
                   <div>
                     <Link to="/catalog?type=whiskey">
                       <p className='section-main-types-title'>Whiskey</p>
-                      <img src={mainWhiskey} alt="Whiskey" loading="lazy" />
+                      <img 
+                        src={mainWhiskeyPaths.large} /* Fallback para navegadores antiguos */
+                        srcSet={`${mainWhiskeyPaths.small} 480w, ${mainWhiskeyPaths.large} 1024w`}
+                        sizes="(max-width: 464px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                        alt="Whiskey" 
+                        loading="lazy" 
+                      />
                     </Link>
                   </div>
                   <div>
                     <Link to="/catalog?type=tequila">
                       <p className='section-main-types-title'>Tequila</p>
-                      <img src={mainTequila} alt="Tequila" loading="lazy" />
+                      <img 
+                        src={mainTequilaPaths.large} /* Fallback para navegadores antiguos */
+                        srcSet={`${mainTequilaPaths.small} 480w, ${mainTequilaPaths.large} 1024w`}
+                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        alt="Tequila" 
+                        loading="lazy" 
+                      />
                     </Link>
                   </div>
                   <div>
                     <Link to="/catalog?type=rum">
                       <p className='section-main-types-title'>Rum</p>
-                      <img src={mainRum} alt="Rum" loading="lazy" />
+                      <img 
+                        src={mainRumPaths.large} /* Fallback para navegadores antiguos */
+                        srcSet={`${mainRumPaths.small} 480w, ${mainRumPaths.large} 1024w`}
+                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        alt="Rum" 
+                        loading="lazy" 
+                      />
                     </Link>
                   </div>
                   <div>
                     <Link to="/catalog?type=vodka">
                       <p className='section-main-types-title'>Vodka</p>
-                      <img src={mainVodka} alt="Vodka" loading="lazy" />
+                      <img 
+                        src={mainVodkaPaths.large} /* Fallback para navegadores antiguos */
+                        srcSet={`${mainVodkaPaths.small} 480w, ${mainVodkaPaths.large} 1024w`}
+                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        alt="Vodka" 
+                        loading="lazy" 
+                      />
                     </Link>
                   </div>
                   <div>
                     <Link to="/catalog?type=wine">
                       <p className='section-main-types-title'>Wine</p>
-                      <img src={mainWine} alt="Wine" loading="lazy" />
+                      <img 
+                        src={mainWinePaths.large} /* Fallback para navegadores antiguos */
+                        srcSet={`${mainWinePaths.small} 480w, ${mainWinePaths.large} 1024w`}
+                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        alt="Wine" 
+                        loading="lazy" 
+                      />
                     </Link>
                   </div>
                   <div>
                     <Link to="/catalog?type=gin">
                       <p className='section-main-types-title'>Gin</p>
-                      <img src={mainGin} alt="Gin" loading="lazy" />
+                      <img 
+                        src={mainGinPaths.large} /* Fallback para navegadores antiguos */
+                        srcSet={`${mainGinPaths.small} 480w, ${mainGinPaths.large} 1024w`}
+                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        alt="Gin" 
+                        loading="lazy" 
+                      />
                     </Link>
                   </div>
                   <div>
                     <Link to="/catalog?type=cognac">
                       <p className='section-main-types-title'>Cognac/Brandy</p>
-                      <img src={mainCognac} alt="Cognac" loading="lazy" />
+                        <img 
+                        src={mainCognacPaths.large} /* Fallback para navegadores antiguos */
+                        srcSet={`${mainCognacPaths.small} 480w, ${mainCognacPaths.large} 1024w`}
+                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        alt="Cognac" 
+                        loading="lazy" 
+                      />
                     </Link>
                   </div>
                   <div>
                     <Link to="/catalog?type=beer">
                       <p className='section-main-types-title'>Beer</p>
-                      <img src={mainBeer} alt="Beer" loading="lazy" />
+                        <img 
+                        src={mainBeerPaths.large} /* Fallback para navegadores antiguos */
+                        srcSet={`${mainBeerPaths.small} 480w, ${mainBeerPaths.large} 1024w`}
+                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        alt="Beer" 
+                        loading="lazy" 
+                      />
                     </Link>
                   </div>
                 </Carousel>
@@ -283,10 +349,8 @@ function Home() {
                 responsive={responsivee}
               />
               <Banner
-                desktopSrc="/images/banners/banner-johnnie-walker.png"
-                mobileSrc="/images/banners/banner-johnnie-walker-cel.png"
+                imagePaths={johnnieWalkerBannerPaths}
                 altText="Johnnie Walker Banner"
-                isMobile={isMobile}
               />
 
               <ProductSection
@@ -296,10 +360,8 @@ function Home() {
                 responsive={responsivee}
               />
               <Banner
-                desktopSrc="/images/banners/banner-gran-centenario.png"
-                mobileSrc="/images/banners/banner-gran-centenario-cel.png"
+                imagePaths={granCentenarioBannerPaths}
                 altText="Gran Centenario Banner"
-                isMobile={isMobile}
               />
 
               <ProductSection
@@ -309,10 +371,8 @@ function Home() {
                 responsive={responsivee}
               />
               <Banner
-                desktopSrc="/images/banners/banner-smirnoff.png"
-                mobileSrc="/images/banners/banner-smirnoff-cel.png"
+                imagePaths={smirnoffBannerPaths}
                 altText="Smirnoff Banner"
-                isMobile={isMobile}
               />
 
               <ProductSection
@@ -322,12 +382,9 @@ function Home() {
                 responsive={responsivee}
               />
               <Banner
-                desktopSrc="/images/banners/banner-cointreau.png"
-                mobileSrc="/images/banners/banner-cointreau-cel.png"
+                imagePaths={cointreauBannerPaths}
                 altText="Cointreau Banner"
-                isMobile={isMobile}
               />
-
               <ProductSection
                 title="Wine"
                 link="/catalog?type=wine"
@@ -335,12 +392,9 @@ function Home() {
                 responsive={responsivee}
               />
               <Banner
-                desktopSrc="/images/banners/banner-caymus.png"
-                mobileSrc="/images/banners/banner-caymus-cel.png"
+                imagePaths={caymusBannerPaths}
                 altText="Caymus Banner"
-                isMobile={isMobile}
               />
-
             </div>
             <Footer />
           </div>

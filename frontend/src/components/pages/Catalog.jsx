@@ -34,6 +34,13 @@ function Catalog({ searchTerm = '' }) {
     const [items, setItems] = useState({ types: [] });
     const [loading, setLoading] = useState(true);
 
+    const generateImagePaths = (basePath) => {
+        const base = basePath.replace(/\.webp$/, '');
+        return {
+          small: `${base}-480w.webp`,
+          large: `${base}-1024w.webp`,
+        };
+      };
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -239,7 +246,11 @@ function Catalog({ searchTerm = '' }) {
           }
       
           const formattedSize = product.size.size.replace(/-/g, ' ');
-      
+          
+          // --- CAMBIO PRINCIPAL AQUÍ ---
+          // 1. Genera las rutas de imagen responsivas
+          const imagePaths = generateImagePaths(`/images/${product.size.img}`);
+    
           return (
             <Product
               key={`${product.name}-${formattedSize}`}
@@ -247,14 +258,15 @@ function Catalog({ searchTerm = '' }) {
               name={product.name}
               price={product.size.price}
               size={formattedSize}
-              img={`/images/${product.size.img}`} // Ruta absoluta a las imágenes en public
+              // 2. Pasa el objeto `imagePaths` en lugar de la prop `img`
+              imagePaths={imagePaths}
               productClass={isOutOfStock ? 'out-of-stock' : ''}
               inventory={product.size.inventory}
               idSelected={product.size.id}
             />
           );
         });
-      };
+    };
 
     const allProducts = filterProducts(getAllProducts());
 
