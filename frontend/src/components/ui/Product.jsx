@@ -11,7 +11,7 @@ function Product({ route, name, price, size, img, productClass, inventory, idSel
 
   let validInventory = 0;
   if (Number.isInteger(inventory) && inventory > 0) {
-    validInventory = Math.min(inventory, 12); // Máximo 12
+    validInventory = Math.min(inventory, 12); 
   }
 
   const handleAddToCart = () => {

@@ -109,7 +109,6 @@ function FilterComponent({
         selectedSubtype,
         selectedWineType,
         selectedVarietal,
-        predefinedTypes, // Ensure predefinedTypes is included if it's defined outside useEffect
     ]);
 
     const handleTypeChange = (e) => {

@@ -1,99 +1,74 @@
-.Catalog {
-    margin: 2.5% 5%;
+/* ==============================================
+   Estructura General y Componentes Globales
+   ============================================== */
+
+   .app-screen {
+    position: relative;
+    /* Ajusta el `top` según la altura de tu Header */
+    padding-top: 10vh; 
+}
+
+.catalog-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.FilterComponent {
+    width: 20%;
+    min-width: 200px;
+    margin: 2.5% 1%;
+}
+
+.Catalog {
+    width: 80%;
+    margin: 2.5% 1%;
 }
 
 .Catalog > section {
     width: 100%;
 }
 
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 15px;
+}
+
+/* ==============================================
+   Estilos de la Tarjeta de Producto (Card)
+   ============================================== */
+
 .card {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
-    max-height: 500px;
+    height: 500px; /* Se usa height en vez de max-height para que los porcentajes internos funcionen */
     display: flex;
     flex-direction: column;
-    width: 100%;
-}
-
-.card-image {
-    width: 100%;
-    height: 70%;
-    object-fit: contain;
-    border-bottom: 1px solid #ddd;
-}
-
-.card-info h2 {
-    margin: 0;
-    align-content: center;
-    color: black;
-    line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal; /* Allow text to wrap */
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limit to 2 lines */
-    -webkit-box-orient: vertical;
-    max-height: 2.4em; /* 2 lines * line-height (1.2em) */
-    font-size: 24px;
-}
-
-.card > a {
-    height: 85%;
-}
-
-.card-name {
-    height: 50%;
-}
-
-.app-screen {
     position: relative;
-    top: 10vh;
-}
-
-.card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    width: 100%;
 }
 
 .card:hover {
     transform: translateY(-5px);
 }
 
-.card-title {
-    margin: 0;
-}
-
-.card-metadata {
+/* --- SOLUCIÓN: Distribución de altura 85% / 15% --- */
+.card > a {
+    height: 80%;
     display: flex;
-    justify-content: space-around;
-    font-size: 16px;
-    color: #555;
-    height: 50%;
-}
-
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust this to fit more columns */
-    gap: 16px;
+    flex-direction: column;
+    text-decoration: none; /* Evita el subrayado del link */
 }
 
 .card-image {
-    width: auto;
-    height: 65%; /* 70% of the height */
-    overflow: hidden;
+    width: 100%;
+    height: 65%; /* Porcentaje relativo al 85% del contenedor <a> */
+    object-fit: contain;
+    border-bottom: 1px solid #ddd;
+    position: relative;
 }
 
 .card-image > img {
@@ -103,31 +78,86 @@
 }
 
 .card-info {
-    height: 30%; /* 30% of the height */
-    padding: 2.5%;
+    padding: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    flex-grow: 1; 
+    text-align: left;
+    color: #333;
 }
 
-@media (max-width: 768px) {
-    .card-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust this to fit more columns */
-    }
-
-    .Catalog {
-        margin: 2.5%;
-        width: 95%;
-    }
+.card-name .card-title {
+    color: #34495e;
+    line-height: 1.2;
+    margin: 0 0 8px 0;
+    /* El font-size es controlado por tu script de React, lo cual es correcto */
 }
 
-.card {
-    position: relative;
-    overflow: hidden;
+.card-metadata {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.card-metadata .card-price {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #2c3e50;
+}
+
+.card-metadata .card-size {
+    color: #7f8c8d;
+}
+
+/* --- SECCIÓN DE COMPRA --- */
+.liquor-order {
+    height: 15%;
+    display: flex;
+    gap: 10%;
+    padding: 0 12px;
+    align-items: center;
+    justify-content: center; /* Centra los items dentro del 15% de espacio */
+}
+
+.quantity-select {
+    width: 65px;
+    padding: 10px 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.9em;
+    background-color: #f9f9f9;
+}
+
+.liquor-order-button {
+    flex-grow: 1;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.liquor-order-button:hover:not(:disabled) {
+    background-color: #475169;
+}
+
+.liquor-order-button:disabled,
+.quantity-select:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .out-of-stock {
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .warning-tape {
@@ -149,26 +179,10 @@
     font-size: 16px;
 }
 
-.card-image {
-    position: relative;
-}
+/* ==============================================
+   Componentes Flotantes (Botones y Modal)
+   ============================================== */
 
-.catalog-container {
-    display: flex;
-}
-
-.FilterComponent {
-    width: 20%;
-    min-width: 200px;
-    margin: 2.5% 1%;
-}
-
-.Catalog {
-    width: 80%;
-    margin: 2.5% 1%;
-}
-
-/* Modal and Button Styles */
 .filter-button {
     display: none;
     position: fixed;
@@ -186,16 +200,16 @@
     z-index: 10;
 }
 
-.filter-button>img{
+.filter-button > img {
     filter: invert(1);
     height: 100%;
 }
 
 .scroll-to-top {
     position: fixed;
-    top: 100px; /* Adjust this value to position the button just below the header */
-    left: 60%; /* Initially position at 50% of the Catalog container's width */
-    transform: translateX(-50%) scale(0.9); /* Start slightly smaller */
+    top: 100px;
+    left: 60%;
+    transform: translateX(-50%) scale(0.9);
     background-color: #475169;
     color: white;
     border: none;
@@ -208,52 +222,75 @@
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
-    z-index: 1000; /* Ensure it stays above other elements */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
 }
 
-.scroll-to-top>img{
+.scroll-to-top > img {
     filter: invert(1);
 }
 
 .scroll-to-top.show {
-    opacity: 0.7; /* Fully visible */
-    transform: translateX(-50%) scale(1); /* Return to original size */
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1);
 }
 
 .scroll-to-top:hover {
     opacity: 1;
-    transform: translateX(-50%) scale(1.1); /* Slightly enlarge on hover for better visual feedback */
+    transform: translateX(-50%) scale(1.1);
 }
 
+/* ==============================================
+   Media Queries para Responsividad
+   ============================================== */
+
 @media (max-width: 768px) {
-    .filter-button {
-        padding: 12px;
-        padding-top: 16px;
-        display: block; /* Show the filter button on mobile devices */
-    }
-
-    /* Hide the FilterComponent outside the modal on mobile devices */
-    .catalog-container > .FilterComponent {
-        display: none;
-    }
-
+    /* Layout General */
     .catalog-container {
         flex-direction: column;
     }
 
+    .catalog-container > .FilterComponent {
+        display: none;
+    }
+
     .FilterComponent, .Catalog {
-        width: 100%;
+        width: 95%;
         margin: 0;
     }
 
-    /* Ensure the FilterComponent inside the modal is visible */
+    .Catalog {
+        margin-top: 2.5%;
+    }
+
+    /* Grid de tarjetas */
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    /* Botones flotantes y modal */
+    .filter-button {
+        padding: 12px;
+        padding-top: 16px;
+        display: block;
+    }
+
     .filter-modal .FilterComponent {
         display: block;
         text-align: -webkit-center;
     }
     
-    .scroll-to-top{
+    .scroll-to-top {
         left: 50%;
+    }
+
+    /* Comportamiento de la sección de compra en móvil */
+    .liquor-order {
+        flex-direction: column;
+        padding: 8px; /* Ajusta el padding para la vista vertical */
+    }
+
+    .quantity-select {
+        width: 100%;
     }
 }
