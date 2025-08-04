@@ -9,13 +9,22 @@ import "./Liquor.css";
 import LiquorOrder from '../ui/LiquorOrder';
 import LoadingSpinner from '../ui/LoadingSpinner'; // Asegúrate de tener un componente de carga
 
+const generateImagePaths = (basePath) => {
+    const base = basePath.replace(/\.webp$/, '');
+    return {
+      small: `${base}-480w.webp`,
+      large: `${base}-1024w.webp`,
+    };
+  };
+  
+
 function Liquor() {
 
     const { item } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
     const defaultSize = '750ml';
-    const [currentLogo, setCurrentLogo] = useState(null);
+    const [currentImagePaths, setCurrentImagePaths] = useState(null);
     const [logos, setLogos] = useState({});
     const [selectedSize, setSelectedSize] = useState(defaultSize);
     const [selectedPrice, setSelectedPrice] = useState(null);
@@ -109,8 +118,8 @@ function Liquor() {
     const product = findProduct(items, item);
 
     useEffect(() => {
-        if (loading || error || !product) return; // Salir si aún está cargando, hay un error o el producto no se encontró
-
+        if (loading || error || !product) return;
+    
         const params = new URLSearchParams(location.search);
         const size = params.get('size') || defaultSize;
         const id = params.get('id') || product.sizes[0]?.id;
@@ -120,12 +129,12 @@ function Liquor() {
         const loadImages = () => {
             const importedLogos = {};
             for (const sizeObj of product.sizes) {
-                const imgPath = "/images/" + sizeObj.img; // Ruta absoluta a la imagen
-                importedLogos[sizeObj.size] = imgPath;
+                const imagePaths = generateImagePaths("/images/" + sizeObj.img);
+                importedLogos[sizeObj.size] = imagePaths;
             }
             setLogos(importedLogos);
-            setCurrentLogo(importedLogos[size]);
-
+            setCurrentImagePaths(importedLogos[size]);
+    
             const sizeDetails = product.sizes.find(s => s.size === size);
             if (sizeDetails) {
                 setSelectedPrice(sizeDetails.price);
@@ -139,12 +148,12 @@ function Liquor() {
         };
 
         loadImages();
-    }, [product, location.pathname, location.search, loading, error]);
+    }, [product, location.pathname, location.search, loading, error])
 
     const toggleLogo = (size) => {
-        if (!logos[size]) return; // Prevenir errores si el logo no existe
-
-        setCurrentLogo(logos[size]);
+        if (!logos[size]) return;
+    
+        setCurrentImagePaths(logos[size]); 
         setSelectedSize(size);
         const sizeDetails = product.sizes.find(s => s.size === size);
         if (sizeDetails) {
@@ -153,7 +162,6 @@ function Liquor() {
             setSelectedId(sizeDetails.id);
         }
 
-        // Actualizar la URL sin recargar la página
         const params = new URLSearchParams(location.search);
         params.set('size', size);
         params.set('id', sizeDetails?.id || '');
@@ -210,7 +218,16 @@ function Liquor() {
                     <div className='liquor-container'>
                         <div className={`liquor-image ${inventory === 0 ? 'out-of-stock' : ''}`}>
                             {inventory === 0 && <div className="warning-tape">Agotado</div>}
-                            {currentLogo && <img src={currentLogo} className="App-logo" alt="logo" />}
+                            {currentImagePaths && (
+                                <img
+                                    src={currentImagePaths.large}
+                                    srcSet={`${currentImagePaths.small} 480w, ${currentImagePaths.large} 1024w`}
+                                    sizes="(max-width: 768px) 90vw, 40vw"
+                                    className="App-logo"
+                                    alt={product.name}
+                                    key={currentImagePaths.small} 
+                                />
+                            )}
                         </div>
                         <div className="liquor-content">
                             <div className='liquor-meta-info'>

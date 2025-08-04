@@ -7,11 +7,13 @@ import Footer from '../layout/Footer';
 import './Checkout.css'; // Asegúrate de tener las clases CSS actualizadas
 import LoadingSpinner from '../ui/LoadingSpinner'; // Asegúrate de tener este componente
 
-// const availableZipCodes = [
-//   33130, 33128, 33243, 33299, 33269, 33266, 33265, 33257, 33247, 33245, 33242, 33239,
-//   33238, 33197, 33188, 33153, 33163, 33164, 33152, 33101, 33102, 33112, 33116, 33119,
-//   33231, 33131, 33129, 33136, 33132, 33135, 33145, 33125
-// ];
+const generateImagePaths = (basePath) => {
+  const base = basePath.replace(/\.webp$/, '');
+  return {
+    small: `${base}-480w.webp`,
+    large: `${base}-1024w.webp`,
+  };
+};
 
 function Checkout() {
   const [cartItems, setCartItems] = useState([]);
@@ -88,12 +90,13 @@ function Checkout() {
           for (const product of brand.products) {
             for (const size of product.sizes) {
               if (size.id === id) {
-                const imgSrc = "/images/" + size.img;
+                // --- CAMBIO PRINCIPAL AQUÍ ---
+                const imagePaths = generateImagePaths("/images/" + size.img);
                 return {
                   name: product.name,
                   price: size.price,
                   size: size.size,
-                  imgSrc: imgSrc,
+                  imagePaths: imagePaths, // Cambiamos imgSrc por imagePaths
                   maxInventory: Math.min(size.inventory || 12, 12),
                 };
               }
@@ -141,14 +144,15 @@ function Checkout() {
               price: product.price,
               quantity: parseInt(value, 10),
               size: product.size,
-              imgSrc: product.imgSrc,
+              // --- CAMBIO AQUÍ ---
+              imagePaths: product.imagePaths, // Usamos la nueva propiedad
               maxInventory: product.maxInventory,
             };
           }
           return null;
         })
         .filter(item => item !== null);
-
+  
       setCartItems(items);
       calculateTotals(items);
     }
@@ -348,7 +352,13 @@ function Checkout() {
                   cartItems.map(item => (
                     <div key={item.id} className="checkout-item">
                       <div>
-                        <img src={item.imgSrc} alt={item.name} className="checkout-item-image" />
+                        <img
+                          src={item.imagePaths.large}
+                          srcSet={`${item.imagePaths.small} 480w, ${item.imagePaths.large} 1024w`}
+                          sizes="(max-width: 464px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                          alt={item.name}
+                          className="checkout-item-image"
+                        />
                       </div>
                       <div className="checkout-item-info">
                         <p>{item.name}</p>

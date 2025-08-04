@@ -259,9 +259,9 @@ function Home() {
                     <Link to="/catalog?type=tequila">
                       <p className='section-main-types-title'>Tequila</p>
                       <img 
-                        src={mainTequilaPaths.large} /* Fallback para navegadores antiguos */
+                        src={mainTequilaPaths.large}
                         srcSet={`${mainTequilaPaths.small} 480w, ${mainTequilaPaths.large} 1024w`}
-                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        sizes="(max-width: 1024px) 33vw, 20vw"
                         alt="Tequila" 
                         loading="lazy" 
                       />
@@ -271,9 +271,9 @@ function Home() {
                     <Link to="/catalog?type=rum">
                       <p className='section-main-types-title'>Rum</p>
                       <img 
-                        src={mainRumPaths.large} /* Fallback para navegadores antiguos */
+                        src={mainRumPaths.large}
                         srcSet={`${mainRumPaths.small} 480w, ${mainRumPaths.large} 1024w`}
-                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        sizes="(max-width: 1024px) 33vw, 20vw"
                         alt="Rum" 
                         loading="lazy" 
                       />
@@ -283,9 +283,9 @@ function Home() {
                     <Link to="/catalog?type=vodka">
                       <p className='section-main-types-title'>Vodka</p>
                       <img 
-                        src={mainVodkaPaths.large} /* Fallback para navegadores antiguos */
+                        src={mainVodkaPaths.large}
                         srcSet={`${mainVodkaPaths.small} 480w, ${mainVodkaPaths.large} 1024w`}
-                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        sizes="(max-width: 1024px) 33vw, 20vw"
                         alt="Vodka" 
                         loading="lazy" 
                       />
@@ -295,9 +295,9 @@ function Home() {
                     <Link to="/catalog?type=wine">
                       <p className='section-main-types-title'>Wine</p>
                       <img 
-                        src={mainWinePaths.large} /* Fallback para navegadores antiguos */
+                        src={mainWinePaths.large}
                         srcSet={`${mainWinePaths.small} 480w, ${mainWinePaths.large} 1024w`}
-                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        sizes="(max-width: 1024px) 33vw, 20vw"
                         alt="Wine" 
                         loading="lazy" 
                       />
@@ -307,9 +307,9 @@ function Home() {
                     <Link to="/catalog?type=gin">
                       <p className='section-main-types-title'>Gin</p>
                       <img 
-                        src={mainGinPaths.large} /* Fallback para navegadores antiguos */
+                        src={mainGinPaths.large}
                         srcSet={`${mainGinPaths.small} 480w, ${mainGinPaths.large} 1024w`}
-                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        sizes="(max-width: 1024px) 33vw, 20vw"
                         alt="Gin" 
                         loading="lazy" 
                       />
@@ -319,9 +319,9 @@ function Home() {
                     <Link to="/catalog?type=cognac">
                       <p className='section-main-types-title'>Cognac/Brandy</p>
                         <img 
-                        src={mainCognacPaths.large} /* Fallback para navegadores antiguos */
+                        src={mainCognacPaths.large}
                         srcSet={`${mainCognacPaths.small} 480w, ${mainCognacPaths.large} 1024w`}
-                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        sizes="(max-width: 1024px) 33vw, 20vw"
                         alt="Cognac" 
                         loading="lazy" 
                       />
@@ -331,9 +331,9 @@ function Home() {
                     <Link to="/catalog?type=beer">
                       <p className='section-main-types-title'>Beer</p>
                         <img 
-                        src={mainBeerPaths.large} /* Fallback para navegadores antiguos */
+                        src={mainBeerPaths.large}
                         srcSet={`${mainBeerPaths.small} 480w, ${mainBeerPaths.large} 1024w`}
-                        sizes="(max-width: 1024px) 33vw, 20vw" /* Pista para el navegador */
+                        sizes="(max-width: 1024px) 33vw, 20vw"
                         alt="Beer" 
                         loading="lazy" 
                       />

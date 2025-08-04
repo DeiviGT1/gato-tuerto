@@ -3,7 +3,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import './CartSidebar.css';
-import LoadingSpinner from '../ui/LoadingSpinner'; // Asegúrate de tener este componente
+import LoadingSpinner from '../ui/LoadingSpinner';
+
+const generateImagePaths = (basePath) => {
+  const base = basePath.replace(/\.webp$/, '');
+  return {
+    small: `${base}-480w.webp`,
+    large: `${base}-1024w.webp`,
+  };
+};
 
 function CartSidebar({ isOpen, onClose }) {
   const [cartItems, setCartItems] = useState([]);
@@ -60,12 +68,15 @@ function CartSidebar({ isOpen, onClose }) {
           for (const product of brand.products) {
             for (const size of product.sizes) {
               if (size.id === id) {
-                const imgSrc = "/images/" + size.img; // Ruta absoluta a la imagen
+                // --- CAMBIO PRINCIPAL AQUÍ ---
+                // 1. Genera las rutas de imagen responsivas
+                const imagePaths = generateImagePaths("/images/" + size.img); 
                 return {
                   name: product.name,
                   size: size.size,
-                  imgSrc: imgSrc,
-                  maxInventory: size.inventory || 12  // Default to 12 if not specified
+                  // 2. Devuelve el objeto `imagePaths` en lugar de `imgSrc`
+                  imagePaths: imagePaths, 
+                  maxInventory: size.inventory || 12
                 };
               }
             }
@@ -119,7 +130,7 @@ function CartSidebar({ isOpen, onClose }) {
         if (product && product.maxInventory > 12) {
           product.maxInventory = 12;
         }
-
+  
         if (product) {
           items.push({
             id: key,
@@ -127,7 +138,9 @@ function CartSidebar({ isOpen, onClose }) {
             size: product.size,
             quantity: parseInt(value, 10),
             maxInventory: product.maxInventory,
-            imgSrc: product.imgSrc
+            // --- CAMBIO AQUÍ ---
+            // Asegúrate de que se llame `imagePaths` para que coincida
+            imagePaths: product.imagePaths 
           });
         }
       }
@@ -196,7 +209,13 @@ function CartSidebar({ isOpen, onClose }) {
                   id={`cart-item-${item.id}`} 
                   className={`cart-item ${item.isRemoving ? 'fade-slide-out' : ''}`}
                 >
-                  <img src={item.imgSrc} alt={item.name} className="item-image" />
+                  <img
+                    src={item.imagePaths.large}
+                    srcSet={`${item.imagePaths.small} 480w, ${item.imagePaths.large} 1024w`}
+                    sizes="(max-width: 464px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    alt={item.name}
+                    className="item-image"
+                  />
                   <div className='cart-item-meta'>
                     <h3>{item.name}</h3>
                     <p>Size: {item.size}</p> 
