@@ -12,6 +12,7 @@ const productsData = React.lazy(() => import('./components/pages/products.json')
 const Checkout = React.lazy(() => import('./components/pages/Checkout'));
 const PrivacyPolicy = React.lazy(() => import('./components/pages/privacypolicy'));
 const TermsAndConditions = React.lazy(() => import('./components/pages/termsandconditions'));
+const ReturnPolicy = React.lazy(() => import('./components/pages/returnPolicy'));
 
 const App = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                <Route path="/return-policy" element={<ReturnPolicy />} />
             </Routes>
         </Suspense>
     </>
