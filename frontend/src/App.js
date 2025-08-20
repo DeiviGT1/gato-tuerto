@@ -8,11 +8,11 @@ const Home = React.lazy(() => import('./components/pages/Home'));
 const Catalog = React.lazy(() => import('./components/pages/Catalog'));
 const Liquor = React.lazy(() => import("./components/pages/Liquor"));
 const ContactUs = React.lazy(() => import("./components/pages/ContactUs"));
+const PrivacyPolicy = React.lazy(() => import('./components/pages/PrivacyPolicy'));
+const ReturnPolicy = React.lazy(() => import('./components/pages/ReturnPolicy'));
 const productsData = React.lazy(() => import('./components/pages/products.json'));
 const Checkout = React.lazy(() => import('./components/pages/Checkout'));
-const PrivacyPolicy = React.lazy(() => import('./components/pages/privacypolicy'));
-const TermsAndConditions = React.lazy(() => import('./components/pages/termsandconditions'));
-const ReturnPolicy = React.lazy(() => import('./components/pages/returnPolicy'));
+const TermsAndConditions = React.lazy(() => import('./components/pages/TermsAndConditions'));
 
 const App = () => {
     const [searchTerm, setSearchTerm] = useState('');

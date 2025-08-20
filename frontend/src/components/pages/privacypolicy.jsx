@@ -1,104 +1,112 @@
 import React from 'react';
+import './PrivacyPolicy.css';
 
 const PrivacyPolicy = () => {
   return (
-    <div className="privacy-policy-page">
-      <button className="privacy-policy-button" onClick={() => window.location.href = '/'}>Return Home</button>
+    <main className="privacy-policy">
+      <div className="pp-container">
+        {/* Header */}
+        <header>
+          <a
+            href="/"
+            className="pp-back"
+            aria-label="Return Home"
+          >
+            ← Return Home
+          </a>
+          <span className="pp-date">Effective: August 20, 2025</span>
+        </header>
 
-      <h1 className="privacy-policy-title">Privacy Policy</h1>
+        <h1>Privacy Policy</h1>
 
-      <h2 className="privacy-policy-subtitle">COOKIES</h2>
-      <p className="privacy-policy-text">
-      Cookies are small digital signature files that are stored by your web browser that allow
-        your preferences to be recorded when visiting the website. Also they may be used to track
-        your return visits to the website. Third-party advertising companies may also use cookies for tracking purposes.
-      </p>
+        <section>
+          <h2>Cookies</h2>
+          <p>
+            Cookies are small digital signature files that are stored by your web browser that allow
+            your preferences to be recorded when visiting the website. They may also be used to track
+            your return visits. Third-party advertising companies may also use cookies for tracking purposes.
+          </p>
+          <p>
+            As you navigate the site, we may collect information through cookies and web beacons
+            (“Website Navigational Information”), including browser type, IP address, and actions taken.
+          </p>
+          <h3>Types of Cookies</h3>
+          <ul>
+            <li><strong>Session cookies:</strong> Stored during a session, deleted once the browser closes.</li>
+            <li><strong>Persistent cookies:</strong> Remain on your computer after the browser is closed.</li>
+            <li><strong>First-party cookies:</strong> Stored and sent between El Gato Tuerto servers and your browser.</li>
+            <li><strong>Third-party cookies:</strong> Typically persistent, retained for external tracking entities.</li>
+          </ul>
+          <p>
+            We use third-party cookies and web beacons with our partners to understand preferences,
+            purchases, and tailor your experience.
+          </p>
+        </section>
 
-      <p className="privacy-policy-text">
-        As you navigate the site, we may also collect information through the use of commonly-used
-        information-gathering tools, such as cookies and web beacons (collectively “Website Navigational
-        Information”). Website Navigational Information includes standard information from your web browser
-        (such as browser type and browser language), your Internet Protocol (“IP”) address, and the actions
-        you take on the Site (such as the web pages viewed and the links clicked).
-      </p>
+        <section>
+          <h2>Where Strictly Necessary</h2>
+          <p>
+            These cookies are essential to enable you to move around the Site and use its features...
+          </p>
+        </section>
 
-      <h3 className="privacy-policy-subsubtitle">Cookies</h3>
-      <p className="privacy-policy-text">
-        Like many companies, we may use cookies on this Site. Cookies are pieces of information shared
-        between your web browser and a website. Use of cookies enables a faster and easier experience for the user.
-        A cookie cannot read data off your computer's hard drive.
-      </p>
+        <section>
+          <h2>Performance</h2>
+          <p>
+            These cookies collect information about how visitors use the Site, such as which pages are visited most.
+          </p>
+        </section>
 
-      <ul className="privacy-policy-list">
-      <li>
-          <strong>Session cookies:</strong> These are only stored on your computer during your web session. They
-          are automatically deleted when the browser is closed. They do not collect any information from your computer.
-        </li>
-        <li>
-          <strong>Persistent cookies:</strong> A persistent cookie is one stored as a file on your computer, and it remains
-          there when you close your web browser.
-        </li>
-        <li>
-          <strong>First-party cookies:</strong> These are stored and sent between El Gato Tuerto servers and your
-          computer’s hard drive. They are used for personalization as set by you.
-        </li>
-        <li>
-          <strong>Third-party cookies:</strong> These retain your interaction with a particular website for an entity that
-          does not own that website. They are usually Persistent cookies.
-        </li>
-      </ul>
+        <section>
+          <h2>Functionality</h2>
+          <p>
+            These cookies remember choices you make (username, language, region) to provide enhanced features.
+          </p>
+        </section>
 
-      <p className="privacy-policy-text">
-      We do use third-party cookies on our Sites, as well as third-party provided web beacons. These cookies are
-        used by us and our marketing partners to better understand your preferences, purchases, and to tailor your experience.
-      </p>
+        <section>
+          <h2>Web Beacons</h2>
+          <p>
+            These may be used alongside cookies to track activity and measure effectiveness of content.
+          </p>
+        </section>
 
-      <h3 className="privacy-policy-subsubtitle">Where strictly necessary</h3>
-      <p className="privacy-policy-text">
-        These cookies are essential to enable you to move around the Site and use its features...
-      </p>
+        <section>
+          <h2>IP Addresses</h2>
+          <p>
+            When you visit our Site, we collect your Internet Protocol (“IP”) address to track and aggregate
+            non-personal information.
+          </p>
+        </section>
 
-      <h3 className="privacy-policy-subsubtitle">Performance</h3>
-      <p className="privacy-policy-text">
-      These cookies are essential to enable you to move around the Site and use its features, such as accessing secure areas
-        of the Site.
-      </p>
+        <section>
+          <h2>Do-Not-Track</h2>
+          <p>
+            As this standard has not been finalized, the El Gato Tuerto site is not compatible with DNT.
+          </p>
+        </section>
 
-      <h3 className="privacy-policy-subsubtitle">Functionality</h3>
-      <p className="privacy-policy-text">
-      These cookies collect information about how visitors use a Site, for instance, which pages visitors go to most often,
-        and if they get error messages from web pages.
-      </p>
+        <section>
+          <h2>Google</h2>
+          <p>
+            Google, as a third-party vendor, uses cookies to serve ads. You may opt out of DART cookies by
+            visiting Google’s ad and content network privacy policy.
+          </p>
+        </section>
 
-      <h2 className="privacy-policy-subtitle">Web Beacons</h2>
-      <p className="privacy-policy-text">
-      These cookies allow our Site to remember choices you make (such as your username, language, or the region you are in)
-        and provide enhanced features.
-      </p>
+        <section>
+          <h2>Children’s and Minor’s Privacy</h2>
+          <p>
+            This site is intended for adults 21 years of age and older. We do not knowingly collect personal
+            information from minors under 21.
+          </p>
+        </section>
 
-      <h2 className="privacy-policy-subtitle">IP Addresses</h2>
-      <p className="privacy-policy-text">
-      When you visit our Site, El Gato Tuerto collects your Internet Protocol (“IP”) addresses to track and aggregate
-        non-Personal Information.
-      </p>
-
-      <h2 className="privacy-policy-subtitle">Do-Not-Track</h2>
-      <p className="privacy-policy-text">
-        As this standard has not been finalized, the El Gato Tuerto site is not compatible with DNT.
-      </p>
-
-      <h2 className="privacy-policy-subtitle">Google</h2>
-      <p className="privacy-policy-text">
-      Google, as a third-party vendor, uses cookies to serve ads. You may opt out of the use of the DART cookie by visiting the
-      Google ad and content network privacy policy.
-      </p>
-
-      <h2 className="privacy-policy-subtitle">Children’s and Minor’s Privacy</h2>
-      <p className="privacy-policy-text">
-      The elgatotuerto.com site is intended for adults 21 years of age and older. We do not knowingly collect personal
-        information from minors under the age of 21.
-      </p>
-    </div>
+        <footer>
+          This page is provided for informational purposes only and does not constitute legal advice.
+        </footer>
+      </div>
+    </main>
   );
 };
 
