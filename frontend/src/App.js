@@ -4,8 +4,10 @@ import { Routes, Route } from "react-router-dom";
 import useGAPageViews from './components/extensions/useGAPageViews';
 import AgeVerificationModal from './components/ui/AgeVerificationModal';
 
-// Páginas (lazy)
 import Home from './components/pages/Home';
+import productsData from './components/pages/products.json';
+
+// Páginas (lazy)
 const Catalog = React.lazy(() => import('./components/pages/Catalog'));
 const Liquor = React.lazy(() => import("./components/pages/Liquor"));
 const ContactUs = React.lazy(() => import("./components/pages/ContactUs"));
@@ -14,8 +16,6 @@ const ReturnPolicy = React.lazy(() => import('./components/pages/ReturnPolicy'))
 const Checkout = React.lazy(() => import('./components/pages/Checkout'));
 const TermsAndConditions = React.lazy(() => import('./components/pages/TermsAndConditions'));
 
-// JSON — NO lazy
-import productsData from './components/pages/products.json';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
