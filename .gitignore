@@ -1,0 +1,78 @@
+# Project-specific
+jupyter/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.orig
+.history/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Node.js / Frontend
+node_modules/
+dist/
+build/
+out/
+.next/
+.nuxt/
+.svelte-kit/
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.stylelintcache
+.vercel/
+
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.python-version
+.ipynb_checkpoints/
+.jupyter/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+env/
+ENV/
+venv/
+.venv/
+pip-wheel-metadata/
+*.egg
+*.egg-info/
+eggs/
+.eggs/
+# Packaging artifacts (Python)
+dist/
+build/
+htmlcov/
+coverage/
+coverage.xml
+
+

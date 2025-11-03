@@ -402,7 +402,7 @@ function Home() {
           {showModal && (
             <div className="modal-order-success">
               <div className="modal-order-success-content">
-                <p>Your order has been sent</p>
+                <p>We've received your order. You'll receive a call soon to confirm your details. Please keep your phone nearby.</p>
                 <button onClick={closeModal}>Close</button>
               </div>
             </div>

@@ -257,32 +257,54 @@ function Checkout() {
     // Promise que asegura que la pantalla de carga se muestra al menos 10 segundos
     const minimumLoadingTime = new Promise((resolve) => setTimeout(resolve, 10000));
   
-    // Promesa de la solicitud al servidor
-    const checkoutRequest = fetch('https://gato-tuerto-server.vercel.app/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(orderDetails),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (data.success) {
-          localStorage.clear();
-          navigate('/', { state: { showProcessingModal: true, fromCheckout: true } });
-        } else {
-          alert('Failed to process the order. Please try again.');
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
+    // Promesa de la solicitud al servidor (deshabilitable por variable de entorno)
+    // Habilitado por defecto salvo que REACT_APP_CHECKOUT_POST_ENABLED sea "false"
+    const CHECKOUT_POST_ENABLED = process.env.REACT_APP_CHECKOUT_POST_ENABLED !== 'false';
+
+    let checkoutRequest;
+    if (!CHECKOUT_POST_ENABLED) {
+      // Modo pruebas: simular éxito sin enviar datos al backend
+      checkoutRequest = new Promise((resolve) => {
+        localStorage.clear();
+        navigate('/', { state: { showProcessingModal: true, fromCheckout: true } });
+        resolve();
       });
+    } else {
+      // Datos adicionales para análisis y Telegram
+      const enhancedOrderDetails = {
+        ...orderDetails,
+        zipCode,
+        subTotal,
+        salesTax,
+        tipPercentage,
+      };
+
+      checkoutRequest = fetch('https://gato-tuerto-server.vercel.app/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(enhancedOrderDetails),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (data.success) {
+            localStorage.clear();
+            navigate('/', { state: { showProcessingModal: true, fromCheckout: true } });
+          } else {
+            alert('Failed to process the order. Please try again.');
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again.');
+        });
+    }
   
     // Usamos Promise.all para asegurar que ambas promesas (mínimo de 10 segundos y solicitud) terminen
     Promise.all([minimumLoadingTime, checkoutRequest]).finally(() => {

@@ -8,6 +8,7 @@ const orderSchema = new mongoose.Schema({
   email: String,
   paymentMethod: String,
   cardNumber: String,
+  zipCode: String,
   items: [
     {
       id: String,
@@ -18,6 +19,9 @@ const orderSchema = new mongoose.Schema({
     },
   ],
   total: Number,
+  subTotal: Number,
+  salesTax: Number,
+  tipPercentage: Number,
   status: { type: String, default: 'pending' },
   notes: String,
 }, { timestamps: true }); // <--- Activar timestamps
